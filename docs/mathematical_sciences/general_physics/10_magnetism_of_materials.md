@@ -69,7 +69,7 @@ $$
 | **偶极矩定义** | $\vec{\mu} = Ni\vec{A}$ | $\vec{p} = q\vec{d}$ |
 | **外场中的力矩** | $\vec{\tau}_B = \vec{\mu} \times \vec{B}$ | $\vec{\tau}_E = \vec{p} \times \vec{E}$ |
 | **外场中的取向势能** | $U_B = -\vec{\mu} \cdot \vec{B}$ | $U_E = -\vec{p} \cdot \vec{E}$ |
-| **轴线远场公式**（$|z| \gg R, d$） | $\vec{B}(z) = \dfrac{\mu_0}{2\pi}\dfrac{\vec{\mu}}{|z|^3}$ | $\vec{E}(z) = \dfrac{1}{2\pi\epsilon_0}\dfrac{\vec{p}}{|z|^3}$ |
+| **轴线远场公式**（$z \gg R, d$） | $\vec{B}(z) = \dfrac{\mu_0}{2\pi}\dfrac{\vec{\mu}}{\|z\|^3}$ | $\vec{E}(z) = \dfrac{1}{2\pi\epsilon_0}\dfrac{\vec{p}}{\|z\|^3}$ |
 | **空间任意点远场通式**（$r \gg R, d$） | $\vec{B}(\vec{r}) = \dfrac{\mu_0}{4\pi r^3}\left[3(\vec{\mu}\cdot\hat{r})\hat{r} - \vec{\mu}\right]$ | $\vec{E}(\vec{r}) = \dfrac{1}{4\pi\epsilon_0 r^3}\left[3(\vec{p}\cdot\hat{r})\hat{r} - \vec{p}\right]$ |
 | **核心拓扑差异（近场内部）** | 磁感线无头无尾，**永远形成闭合回路**（无磁单极子，$\nabla\cdot\vec{B}=0$） | 电场线起自 $+q$、终止于 $-q$，在偶极子内部方向与外部相反 |
 
