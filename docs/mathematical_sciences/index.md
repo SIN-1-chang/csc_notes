@@ -11,3 +11,5 @@
 
 - [概率论与数理统计](probability_theory_and_statistics/index.md)
   - 基本概念 · 随机变量与分布 · 多元分布，共 3 篇
+- [数值分析](numerical_analysis/index.md)
+  - 数值误差，共 1 篇

@@ -1,17 +1,18 @@
-# Welcome to MkDocs
+# 课程笔记
 
-For full documentation visit [csc_notes](https://www.mkdocs.org).
+> CSC Notes · 计算机科学课程笔记
 
-## Commands
+## 数学与自然科学
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- [数学与自然科学](mathematical_sciences/index.md)
+  - 普通物理（14 篇）
+  - 概率论与数理统计（3 篇）
+  - 数值分析（1 篇）
 
-## Project layout
+## 计算机科学
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [计算机科学](computer_science/index.md)
+
+## 关于
+
+- [关于本站](about.md)
