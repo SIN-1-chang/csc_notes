@@ -5,40 +5,102 @@ docs_dir: docs
 theme:
   name: material
   language: zh
+  icon:
+    logo: material/atom
+    repo: fontawesome/brands/github
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
   features:
-    - navigation.tabs          # 第一层分类升到顶部横栏
-    - navigation.sections      # 侧边栏把课程折叠成分组
-    - navigation.indexes       # 让 index.md 成为分组的可点击标题
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
     - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - navigation.path
     - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
   palette:
-    - scheme: default
-      primary: indigo
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-7
-        name: 切换到深色模式
-    - scheme: slate
-      primary: indigo
+        icon: material/weather-sunny
+        name: 切换到科幻深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
       toggle:
-        icon: material/brightness-4
-        name: 切换到浅色模式
+        icon: material/weather-night
+        name: 切换到清新浅色模式
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - 首页: index.md
-  - 数学与自然科学:
+  - 计算机科学:
+      - computer_science/index.md
+  - 数理基础:
       - 概览: mathematical_sciences/index.md
-      - 普通物理: mathematical_sciences/general_physics/index.md
-      - 概率论与数理统计: mathematical_sciences/probability_theory_and_statistics/index.md
-      - 数值分析: mathematical_sciences/numerical_analysis/index.md
-  - 计算机科学: computer_science/index.md
+      - 普通物理:
+          - mathematical_sciences/general_physics/index.md
+          - 01 库仑定律与电场: mathematical_sciences/general_physics/01_coulombs_law_and_electric_field.md
+          - 02 连续电荷与高斯定理: mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law.md
+          - 03 电势: mathematical_sciences/general_physics/03_electric_potential.md
+          - 04 静电学三角关系: mathematical_sciences/general_physics/04_electrostatics_triangle.md
+          - 05 导体的电学性质: mathematical_sciences/general_physics/05_electrical_properties_of_conductors.md
+          - 06 电阻与电容: mathematical_sciences/general_physics/06_resistance_and_capacitance.md
+          - 07 直流电路: mathematical_sciences/general_physics/07_DC_circuits.md
+          - 08 磁场: mathematical_sciences/general_physics/08_magnetic_field.md
+          - 09 电流的磁场: mathematical_sciences/general_physics/09_magnetic_field_of_current.md
+          - 10 物质的磁性: mathematical_sciences/general_physics/10_magnetism_of_materials.md
+          - 11 法拉第电磁感应定律: mathematical_sciences/general_physics/11_faraday_law_of_induction.md
+          - 12 电感器与电感: mathematical_sciences/general_physics/12_inductors_and_inductance.md
+          - 13 交流电路: mathematical_sciences/general_physics/13_AC_circuits.md
+          - 14 麦克斯韦方程组与电磁波: mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves.md
+      - 概率论与数理统计:
+          - mathematical_sciences/probability_theory_and_statistics/index.md
+          - 1 基本概念: mathematical_sciences/probability_theory_and_statistics/1_basic_concepts.md
+          - 2 随机变量及其分布: mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions.md
+          - 3 多维随机变量及其分布: mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions.md
+      - 数值分析:
+          - mathematical_sciences/numerical_analysis/index.md
+          - 数值误差: mathematical_sciences/numerical_analysis/numerical_errors.md
+  - 人工智能:
+      - artificial_intelligence/index.md
+  - 其他与杂项:
+      - misc/index.md
   - 关于: about.md
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
 
 extra_javascript:
+  - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+hooks:
+  - hooks.py

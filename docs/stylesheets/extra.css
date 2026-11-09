@@ -1,0 +1,195 @@
+/* ==========================================================================
+   1. 全局字体与平滑过渡
+   ========================================================================== */
+:root {
+  --md-text-font: "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ==========================================================================
+   2. 浅色模式 (default)：清新冰川薄荷 + 悬浮毛玻璃
+   ========================================================================== */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0d9488;        /* 主色：清新青绿 */
+  --md-primary-fg-color--light: #14b8a6;
+  --md-primary-fg-color--dark: #0f766e;
+  --md-accent-fg-color: #0284c7;         /* 强调色：冰川蓝 */
+  --md-default-bg-color: #f8fafc;        /* 护眼微灰白底色 */
+  --md-code-bg-color: #f1f5f9;
+  --csc-card-bg: rgba(255, 255, 255, 0.85);
+  --csc-border-color: rgba(13, 148, 136, 0.18);
+  --csc-glow: 0 8px 24px -4px rgba(13, 148, 136, 0.08);
+}
+
+/* 浅色模式顶部清新渐变毛玻璃 */
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-tabs {
+  background: linear-gradient(120deg, rgba(13, 148, 136, 0.92), rgba(2, 132, 199, 0.92));
+  backdrop-filter: blur(12px);
+}
+
+/* ==========================================================================
+   3. 深色模式 (slate)：科幻深空 HUD + 赛博青霓虹光效
+   ========================================================================== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0b1120;        /* 顶栏深空底色 */
+  --md-primary-fg-color--light: #1e293b;
+  --md-primary-fg-color--dark: #020617;
+  --md-accent-fg-color: #00f0ff;         /* 科幻霓虹青 */
+  --md-default-bg-color: #070b14;        /* 深空黑蓝背景 */
+  --md-default-fg-color: #e2e8f0;
+  --md-code-bg-color: #0f172a;
+  --csc-card-bg: rgba(15, 23, 42, 0.75);
+  --csc-border-color: rgba(0, 240, 255, 0.28);
+  --csc-glow: 0 0 18px rgba(0, 240, 255, 0.12);
+  --md-typeset-a-color: #38bdf8;
+}
+
+/* 深色模式：科幻坐标网格暗纹背景 */
+[data-md-color-scheme="slate"] .md-main {
+  background-color: #070b14;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* 深色模式：毛玻璃顶栏 + 霓虹底边线 */
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(7, 11, 20, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+/* ==========================================================================
+   4. 标题、提示框 (Admonition / Details)、表格与代码块特效
+   ========================================================================== */
+/* H1 与 H2 科技感装饰线 */
+.md-typeset h1 {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  background: linear-gradient(90deg, #ffffff 0%, #38bdf8 60%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.md-typeset h2 {
+  padding-left: 0.65rem;
+  border-left: 4px solid var(--md-accent-fg-color);
+  border-bottom: 1px solid var(--csc-border-color);
+  padding-bottom: 0.3rem;
+}
+
+/* Admonition 与 <details> 折叠框：HUD 卡片化 */
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: var(--csc-card-bg);
+  border: 1px solid var(--csc-border-color);
+  border-left-width: 4px;
+  border-radius: 8px;
+  box-shadow: var(--csc-glow);
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset details:hover,
+.md-typeset .admonition:hover {
+  transform: translateY(-1px);
+}
+
+/* 代码块圆角与微发光边框 */
+.md-typeset pre > code {
+  border-radius: 8px;
+  border: 1px solid var(--csc-border-color);
+  box-shadow: var(--csc-glow);
+}
+
+/* 表格美化：悬浮高亮与科技感表头 */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--csc-border-color);
+  box-shadow: var(--csc-glow);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(0, 240, 255, 0.12);
+  color: #38bdf8;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: rgba(56, 189, 248, 0.06);
+}
+/* ==========================================================================
+   5. 左侧导航极致精简：进入具体某门课后，隐藏同级其他课程，只留当前课程笔记
+   ========================================================================== */
+/* 当某个二级课程目录处于激活展开状态时，自动隐藏未激活的其他兄弟课程 */
+.md-nav--l1 > .md-nav__list > .md-nav__item--nested:not(.md-nav__item--active) {
+  display: none;
+}
+
+/* ==========================================================================
+   6. 首页科幻控制台卡片网格 (.grid.cards) 专属特效
+   ========================================================================== */
+.md-typeset .grid.cards > ul > li {
+  background-color: var(--csc-card-bg);
+  border: 1px solid var(--csc-border-color);
+  border-radius: 10px;
+  box-shadow: var(--csc-glow);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 卡片顶部科幻高光条 */
+.md-typeset .grid.cards > ul > li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--md-accent-fg-color), transparent);
+  opacity: 0.7;
+}
+
+/* 鼠标悬浮卡片时：轻微上浮 + 霓虹边框点亮 */
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 12px 28px -6px rgba(0, 240, 255, 0.22);
+}
+
+/* 终端状态栏徽章样式 */
+.csc-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--csc-card-bg);
+  border: 1px solid var(--csc-border-color);
+  font-family: var(--md-code-font);
+  font-size: 0.82rem;
+}
+
+.csc-badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid var(--csc-border-color);
+  color: var(--md-accent-fg-color);
+}
