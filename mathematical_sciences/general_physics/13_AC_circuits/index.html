@@ -1,0 +1,2601 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/13_AC_circuits/">
+      
+      
+        <link rel="prev" href="../12_inductors_and_inductance/">
+      
+      
+        <link rel="next" href="../14_maxwell_equations_and_EW_waves/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>13 交流电路 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-13-alternating-current-circuits" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13 交流电路
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lc-electromagnetic-lc-oscillations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 LC 电磁振荡与电-力类比 (Electromagnetic LC Oscillations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 LC 电磁振荡与电-力类比 (Electromagnetic LC Oscillations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电路中的三个基本特征时间尺度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-the-electrical-mechanical-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电-力类比 (The Electrical-Mechanical Analogy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-lc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 LC 振荡的定量推导与能量守恒分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rlc-damped-oscillations-in-an-rlc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 RLC 电路中的阻尼振荡 (Damped Oscillations in an RLC Circuit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 RLC 电路中的阻尼振荡 (Damped Oscillations in an RLC Circuit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-complex-formalism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 阻尼振荡微分方程与复数形式解法 (Complex Formalism)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三种阻尼状态的分类与响应特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ac-circuits-complex-impedance-resonance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 交流电路、复阻抗与受迫振荡谐振 (AC Circuits, Complex Impedance &amp; Resonance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 交流电路、复阻抗与受迫振荡谐振 (AC Circuits, Complex Impedance &amp; Resonance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ac-generator-and-forced-oscillations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 交流发电机与受迫振荡 (AC Generator and Forced Oscillations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-complex-impedance-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 复阻抗方法 (The Complex Impedance Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-rlc-series-rlc-circuit-and-resonance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 串联 RLC 电路与谐振现象 (Series RLC Circuit and Resonance)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-13-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 13 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lc-electromagnetic-lc-oscillations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 LC 电磁振荡与电-力类比 (Electromagnetic LC Oscillations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 LC 电磁振荡与电-力类比 (Electromagnetic LC Oscillations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电路中的三个基本特征时间尺度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-the-electrical-mechanical-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电-力类比 (The Electrical-Mechanical Analogy)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-lc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 LC 振荡的定量推导与能量守恒分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rlc-damped-oscillations-in-an-rlc-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 RLC 电路中的阻尼振荡 (Damped Oscillations in an RLC Circuit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 RLC 电路中的阻尼振荡 (Damped Oscillations in an RLC Circuit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-complex-formalism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 阻尼振荡微分方程与复数形式解法 (Complex Formalism)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三种阻尼状态的分类与响应特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ac-circuits-complex-impedance-resonance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 交流电路、复阻抗与受迫振荡谐振 (AC Circuits, Complex Impedance &amp; Resonance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 交流电路、复阻抗与受迫振荡谐振 (AC Circuits, Complex Impedance &amp; Resonance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ac-generator-and-forced-oscillations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 交流发电机与受迫振荡 (AC Generator and Forced Oscillations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-complex-impedance-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 复阻抗方法 (The Complex Impedance Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-rlc-series-rlc-circuit-and-resonance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 串联 RLC 电路与谐振现象 (Series RLC Circuit and Resonance)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-13-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 13 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-13-alternating-current-circuits">Chapter 13: Alternating-Current Circuits（交流电路）<a class="headerlink" href="#chapter-13-alternating-current-circuits" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第十三章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 13: <em>Alternating-Current Circuits</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 13: <em>Alternating-Current Circuits</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 37</li>
+</ul>
+</div>
+<h2 id="1-lc-electromagnetic-lc-oscillations">1 LC 电磁振荡与电-力类比 (Electromagnetic LC Oscillations)<a class="headerlink" href="#1-lc-electromagnetic-lc-oscillations" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 电路中的三个基本特征时间尺度<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>至此我们已经集齐了电磁学中的三大基本无源元件：<strong>电阻器</strong>（Resistor, <span class="arithmatex">\(R\)</span>）、<strong>电容器</strong>（Capacitor, <span class="arithmatex">\(C\)</span>）与<strong>电感器</strong>（Inductor, <span class="arithmatex">\(L\)</span>）。由它们两两组合可构成三个具有时间量纲的特征时间常数（Characteristic time scales）：</p>
+<div class="arithmatex">\[
+\tau_C = RC, \qquad \tau_L = \frac{L}{R}, \qquad \tau_{LC} = \sqrt{LC}
+\]</div>
+<ul>
+<li><strong>耗散衰减时间（<span class="arithmatex">\(\tau_C\)</span> 与 <span class="arithmatex">\(\tau_L\)</span>）</strong>：在 RC 和 RL 电路中，由于包含耗能元件电阻 <span class="arithmatex">\(R\)</span>，电荷与电流随时间作单调的指数增长或指数衰减，经过几个 <span class="arithmatex">\(\tau_C\)</span> 或 <span class="arithmatex">\(\tau_L\)</span> 后暂态过程即告终结。</li>
+<li><strong>无损振荡周期尺度（<span class="arithmatex">\(\tau_{LC}\)</span>）</strong>：理想 LC 电路不含电阻，没有任何能量耗散。电容器储存电场能（<span class="arithmatex">\(\propto q^2\)</span>），电感器储存磁场能（<span class="arithmatex">\(\propto i^2 = \dot{q}^2\)</span>）。因此 <span class="arithmatex">\(\tau_{LC} = \sqrt{LC}\)</span> 不再代表衰减时间，而是决定了能量在电场与磁场之间周期性往复转换的<strong>振荡时间尺度</strong>，对应的固有振荡周期为 <span class="arithmatex">\(T = 2\pi\tau_{LC} = 2\pi\sqrt{LC}\)</span>，<strong>固有角频率</strong>（Natural angular frequency）为：
+  $$
+  \omega_0 = \frac{1}{\tau_{LC}} = \frac{1}{\sqrt{LC}}
+  $$</li>
+</ul>
+<h3 id="12-the-electrical-mechanical-analogy">1.2 电-力类比 (The Electrical-Mechanical Analogy)<a class="headerlink" href="#12-the-electrical-mechanical-analogy" title="Permanent link">&para;</a></h3>
+<p>理想 LC 电路中的<strong>电磁振荡</strong>（Electromagnetic oscillations）与经典力学中的<strong>弹簧-物块简谐振子</strong>（Block-spring harmonic oscillator）在数学形式与物理内涵上一一对应：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">力学弹簧振子系统（Block-Spring System）</th>
+<th style="text-align: center;">物理量 / 方程形式</th>
+<th style="text-align: left;">电学 LC 振荡系统（LC Oscillator）</th>
+<th style="text-align: center;">物理量 / 方程形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>广义坐标：位移</strong>（Displacement）</td>
+<td style="text-align: center;"><span class="arithmatex">\(x\)</span></td>
+<td style="text-align: left;"><strong>极板电荷量</strong>（Charge）</td>
+<td style="text-align: center;"><span class="arithmatex">\(q\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>广义速度：运动速度</strong>（Velocity）</td>
+<td style="text-align: center;"><span class="arithmatex">\(v = \dfrac{dx}{dt}\)</span></td>
+<td style="text-align: left;"><strong>回路电流</strong>（Current）</td>
+<td style="text-align: center;"><span class="arithmatex">\(i = \dfrac{dq}{dt}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>惯性元件：物块质量</strong>（Mass）</td>
+<td style="text-align: center;"><span class="arithmatex">\(m\)</span></td>
+<td style="text-align: left;"><strong>电感器电感</strong>（Inductance）</td>
+<td style="text-align: center;"><span class="arithmatex">\(L\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>恢复元件：弹簧劲度系数</strong>（Spring constant）</td>
+<td style="text-align: center;"><span class="arithmatex">\(k\)</span></td>
+<td style="text-align: left;"><strong>电容器电容的倒数</strong>（Inverse capacitance）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\dfrac{1}{C}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>动能</strong>（Kinetic Energy）</td>
+<td style="text-align: center;"><span class="arithmatex">\(K = \dfrac{1}{2}mv^2\)</span></td>
+<td style="text-align: left;"><strong>电感磁场能</strong>（Magnetic Energy）</td>
+<td style="text-align: center;"><span class="arithmatex">\(U_B = \dfrac{1}{2}Li^2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弹性势能</strong>（Potential Energy）</td>
+<td style="text-align: center;"><span class="arithmatex">\(U_p = \dfrac{1}{2}kx^2\)</span></td>
+<td style="text-align: left;"><strong>电容电场能</strong>（Electrical Energy）</td>
+<td style="text-align: center;"><span class="arithmatex">\(U_E = \dfrac{1}{2}\left(\dfrac{1}{C}\right)q^2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>简谐运动微分方程</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(m\dfrac{d^2x}{dt^2} + kx = 0\)</span></td>
+<td style="text-align: left;"><strong>LC 振荡微分方程</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(L\dfrac{d^2q}{dt^2} + \dfrac{1}{C}q = 0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>固有角频率</strong>（Natural Angular Frequency）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\omega_0 = \sqrt{\dfrac{k}{m}}\)</span></td>
+<td style="text-align: left;"><strong>固有角频率</strong>（Natural Angular Frequency）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\omega_0 = \dfrac{1}{\sqrt{LC}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-lc">1.3 LC 振荡的定量推导与能量守恒分析<a class="headerlink" href="#13-lc" title="Permanent link">&para;</a></h3>
+<p>设任意时刻 <span class="arithmatex">\(t\)</span> 电容器极板电荷量为 <span class="arithmatex">\(q(t)\)</span>，回路电流为 <span class="arithmatex">\(i(t) = \frac{dq}{dt}\)</span>。在无电阻、无外电源的理想 LC 回路中，系统的总电磁能 <span class="arithmatex">\(U\)</span> 等于电感磁能 <span class="arithmatex">\(U_B\)</span> 与电容电能 <span class="arithmatex">\(U_E\)</span> 之和，且保持守恒（<span class="arithmatex">\(\frac{dU}{dt} = 0\)</span>）：</p>
+<div class="arithmatex">\[
+U = U_B + U_E = \frac{1}{2}Li^2 + \frac{q^2}{2C} = \text{const} \implies \frac{dU}{dt} = Li\frac{di}{dt} + \frac{q}{C}\frac{dq}{dt} = 0
+\]</div>
+<p>代入 <span class="arithmatex">\(i = \frac{dq}{dt}\)</span> 与 <span class="arithmatex">\(\frac{di}{dt} = \frac{d^2q}{dt^2}\)</span> 并消去公因子 <span class="arithmatex">\(i\)</span>，即得到控制 LC 自由振荡的二阶常系数齐次线性微分方程：</p>
+<div class="arithmatex">\[
+L\frac{d^2q}{dt^2} + \frac{1}{C}q = 0 \iff \frac{d^2q}{dt^2} + \omega_0^2 q = 0 \qquad \left(\omega_0 = \frac{1}{\sqrt{LC}}\right)
+\]</div>
+<p><strong>1. 电荷与电流的通解及相位关系</strong></p>
+<p>方程的通解为正弦/余弦简谐函数（其中电荷振幅 <span class="arithmatex">\(Q\)</span> 与初相 <span class="arithmatex">\(\phi\)</span> 由初始条件 <span class="arithmatex">\(q(0) = Q\cos\phi\)</span> 及 <span class="arithmatex">\(i(0) = -\omega_0 Q\sin\phi\)</span> 唯一确定）：</p>
+<div class="arithmatex">\[
+q(t) = Q\cos(\omega_0 t + \phi)
+\]</div>
+<div class="arithmatex">\[
+i(t) = \frac{dq}{dt} = -\omega_0 Q\sin(\omega_0 t + \phi) = -I\sin(\omega_0 t + \phi) = I\cos\left(\omega_0 t + \phi + \frac{\pi}{2}\right)
+\]</div>
+<p>其中电流振幅为 <span class="arithmatex">\(I = \omega_0 Q = \frac{Q}{\sqrt{LC}}\)</span>，且<strong>电流 <span class="arithmatex">\(i(t)\)</span> 在相位上超前于极板电荷 <span class="arithmatex">\(q(t)\)</span>（及电容端电压 <span class="arithmatex">\(v_C = q/C\)</span>）<span class="arithmatex">\(\dfrac{\pi}{2}\)</span>（即 <span class="arithmatex">\(90^\circ\)</span>）</strong>。</p>
+<p><strong>2. 电场能与磁场能的交替振荡</strong></p>
+<p>将 <span class="arithmatex">\(q(t)\)</span> 与 <span class="arithmatex">\(i(t)\)</span> 代入电场能与磁场能表达式（利用 <span class="arithmatex">\(LI^2 = L\omega_0^2 Q^2 = \frac{Q^2}{C}\)</span>）：</p>
+<div class="arithmatex">\[
+U_E(t) = \frac{q^2(t)}{2C} = \frac{Q^2}{2C}\cos^2(\omega_0 t + \phi), \qquad U_B(t) = \frac{1}{2}Li^2(t) = \frac{1}{2}L\omega_0^2 Q^2\sin^2(\omega_0 t + \phi) = \frac{Q^2}{2C}\sin^2(\omega_0 t + \phi)
+\]</div>
+<ul>
+<li><span class="arithmatex">\(U_E(t)\)</span> 与 <span class="arithmatex">\(U_B(t)\)</span> 的最大值相等，均为总能量 <span class="arithmatex">\(U_{\max} = \dfrac{Q^2}{2C} = \dfrac{1}{2}LI^2\)</span>；</li>
+<li>在任意瞬时，二者之和恒为常数：<span class="arithmatex">\(U_E(t) + U_B(t) = \dfrac{Q^2}{2C}\)</span>；</li>
+<li>当电容充满电（<span class="arithmatex">\(|q| = Q, \ i = 0\)</span>）时，<span class="arithmatex">\(U_E\)</span> 最大而 <span class="arithmatex">\(U_B = 0\)</span>；经过四分之一周期（<span class="arithmatex">\(T/4\)</span>），电容放电完毕（<span class="arithmatex">\(q = 0, \ |i| = I\)</span>），能量全部转化为电感磁能（<span class="arithmatex">\(U_B\)</span> 最大而 <span class="arithmatex">\(U_E = 0\)</span>）。</li>
+</ul>
+<hr />
+<h2 id="2-rlc-damped-oscillations-in-an-rlc-circuit">2 RLC 电路中的阻尼振荡 (Damped Oscillations in an RLC Circuit)<a class="headerlink" href="#2-rlc-damped-oscillations-in-an-rlc-circuit" title="Permanent link">&para;</a></h2>
+<h3 id="21-complex-formalism">2.1 阻尼振荡微分方程与复数形式解法 (Complex Formalism)<a class="headerlink" href="#21-complex-formalism" title="Permanent link">&para;</a></h3>
+<p>在实际电路中总是存在电阻 <span class="arithmatex">\(R\)</span>，它将电磁场的能量不可逆地转化为焦耳热耗散掉（类比于力学弹簧振子受到的摩擦阻尼力）：</p>
+<div class="arithmatex">\[
+\frac{dU}{dt} = \frac{d}{dt}\left(\frac{1}{2}Li^2 + \frac{q^2}{2C}\right) = Li\frac{di}{dt} + \frac{q}{C}\frac{dq}{dt} = -i^2 R
+\]</div>
+<p>代入 <span class="arithmatex">\(i = \frac{dq}{dt}\)</span> 并整理，得到 <strong>RLC 串联电路的阻尼振荡微分方程</strong>：</p>
+<div class="arithmatex">\[
+L\frac{d^2q}{dt^2} + R\frac{dq}{dt} + \frac{1}{C}q = 0
+\]</div>
+<p><strong>复数指数解法（The Complex Formalism）</strong>：
+注意到一阶电路的解为指数衰减 <span class="arithmatex">\(e^{-t/\tau}\)</span>，而无阻尼 LC 电路的解为复指数实部 <span class="arithmatex">\(\mathfrak{R}[Qe^{i\omega_0 t}e^{i\phi}]\)</span>。因此对于一般阻尼振荡，我们构造统一的复指数试探解：</p>
+<div class="arithmatex">\[
+q(t) = \mathfrak{R}\left[\tilde{Q} e^{i\tilde{\omega}t}\right]
+\]</div>
+<p>其中 <span class="arithmatex">\(\tilde{Q} = Qe^{i\phi}\)</span> 为<strong>复振幅</strong>（Complex amplitude），<span class="arithmatex">\(\tilde{\omega} = \omega + \frac{i}{\tau_d}\)</span> 为<strong>复角频率</strong>（Complex frequency）。将其代入微分方程并消去非零因子 <span class="arithmatex">\(\tilde{Q}e^{i\tilde{\omega}t}\)</span>，二阶微分方程直接转化为关于 <span class="arithmatex">\(\tilde{\omega}\)</span> 的一元二次代数方程：</p>
+<div class="arithmatex">\[
+-L\tilde{\omega}^2 + i\tilde{\omega}R + \frac{1}{C} = 0 \implies \tilde{\omega}^2 - i\frac{R}{L}\tilde{\omega} - \omega_0^2 = 0
+\]</div>
+<p>由求根公式立即解得：</p>
+<div class="arithmatex">\[
+\tilde{\omega} = i\frac{R}{2L} \pm \sqrt{\omega_0^2 - \left(\frac{R}{2L}\right)^2} = \frac{i}{\tau_d} \pm \omega
+\]</div>
+<p>其中定义了<strong>阻尼时间常数</strong>（Damping time constant）<span class="arithmatex">\(\tau_d\)</span> 与<strong>阻尼振荡角频率</strong> <span class="arithmatex">\(\omega\)</span>：</p>
+<div class="arithmatex">\[
+\tau_d \equiv \frac{2L}{R} = 2\tau_L \iff \frac{1}{\tau_d} = \frac{R}{2L}, \qquad \omega \equiv \sqrt{\omega_0^2 - \left(\frac{1}{\tau_d}\right)^2} = \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2}
+\]</div>
+<p>（在欠阻尼情形下，复频率在复平面上构成直角三角形：实部为 <span class="arithmatex">\(\omega\)</span>，虚部为 <span class="arithmatex">\(1/\tau_d\)</span>，斜边模长恰为固有频率 <span class="arithmatex">\(|\tilde{\omega}| = \sqrt{\omega^2 + (1/\tau_d)^2} = \omega_0\)</span>）。</p>
+<h3 id="22">2.2 三种阻尼状态的分类与响应特征<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>根据阻尼率 <span class="arithmatex">\(\frac{1}{\tau_d} = \frac{R}{2L}\)</span> 与固有角频率 <span class="arithmatex">\(\omega_0 = \frac{1}{\sqrt{LC}}\)</span> 的相对大小，RLC 电路呈现三种截然不同的动力学行为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">阻尼状态</th>
+<th style="text-align: left;">频率与电阻判据</th>
+<th style="text-align: center;"><span class="arithmatex">\(\omega\)</span> 的性质</th>
+<th style="text-align: left;">电荷时间演化通解 <span class="arithmatex">\(q(t)\)</span></th>
+<th style="text-align: left;">物理图像与工程应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 欠阻尼</strong><br>（Underdamped）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{\tau_d} &lt; \omega_0\)</span><br><span class="arithmatex">\(\iff R &lt; 2\sqrt{\dfrac{L}{C}}\)</span></td>
+<td style="text-align: center;">正实数<br>（<span class="arithmatex">\(0 &lt; \omega &lt; \omega_0\)</span>）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(q(t) = Q e^{-t/\tau_d}\cos(\omega t + \phi)\)</span>$</td>
+<td style="text-align: left;">电荷作准周期振荡，振幅按包络线 <span class="arithmatex">\(e^{-t/\tau_d}\)</span> 指数衰减（电磁能以 <span class="arithmatex">\(\propto e^{-2t/\tau_d} = e^{-Rt/L}\)</span> 衰减）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 过阻尼</strong><br>（Overdamped）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{\tau_d} &gt; \omega_0\)</span><br><span class="arithmatex">\(\iff R &gt; 2\sqrt{\dfrac{L}{C}}\)</span></td>
+<td style="text-align: center;">纯虚数<br>（无振荡）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(q(t) = Q_1 e^{-t/\tau_1} + Q_2 e^{-t/\tau_2}\)</span><span class="arithmatex">\(&lt;br&gt;\)</span>\dfrac{1}{\tau_{1,2}} = \dfrac{R}{2L} \pm \sqrt{\dfrac{R^2}{4L^2} - \dfrac{1}{LC}}$</td>
+<td style="text-align: left;">阻力过大，系统不发生任何振荡，由快慢两个纯指数衰减项叠加缓慢回到平衡位置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 临界阻尼</strong><br>（Critically Damped）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{\tau_d} = \omega_0\)</span><br><span class="arithmatex">\(\iff R = 2\sqrt{\dfrac{L}{C}}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\omega = 0\)</span><br>（二重重根）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(q(t) = (Q_1 + Q_2 t)e^{-t/\tau_d}\)</span>$</td>
+<td style="text-align: left;">两个特征根合并，第二线性无关解出现因子 <span class="arithmatex">\(t\)</span>；<strong>在不发生超调振荡的前提下，以最快速度回归平衡态</strong>（仪表指针、减震器理想设计点）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-ac-circuits-complex-impedance-resonance">3 交流电路、复阻抗与受迫振荡谐振 (AC Circuits, Complex Impedance &amp; Resonance)<a class="headerlink" href="#3-ac-circuits-complex-impedance-resonance" title="Permanent link">&para;</a></h2>
+<h3 id="31-ac-generator-and-forced-oscillations">3.1 交流发电机与受迫振荡 (AC Generator and Forced Oscillations)<a class="headerlink" href="#31-ac-generator-and-forced-oscillations" title="Permanent link">&para;</a></h3>
+<p>为了补偿电阻 <span class="arithmatex">\(R\)</span> 的热耗散使振荡持续下去，需接入周期性提供能量的外加交变电源。<strong>交流发电机</strong>（AC generator）通过使 <span class="arithmatex">\(N\)</span> 匝面积为 <span class="arithmatex">\(A\)</span> 的线圈在匀强磁场 <span class="arithmatex">\(B\)</span> 中以恒定角速度 <span class="arithmatex">\(\omega_d\)</span> 旋转，并经由<strong>滑环</strong>（Slip rings，区别于直流电机的开口换向器）和金属电刷引出正弦交变电动势：</p>
+<div class="arithmatex">\[
+\mathcal{E}(t) = \mathcal{E}_m \cos(\omega_d t), \qquad \text{其中峰值电动势 } \mathcal{E}_m = NBA\omega_d
+\]</div>
+<p>（我国民用市电频率为 <span class="arithmatex">\(f = 50\text{ Hz}\)</span>，每秒电流方向反转 <span class="arithmatex">\(100\)</span> 次，驱动角频率 <span class="arithmatex">\(\omega_d = 2\pi f = 100\pi\text{ rad/s}\)</span>）。</p>
+<ul>
+<li><strong>自由振荡（Free oscillations）vs. 受迫振荡（Forced / Driven oscillations）</strong>：无外源时，电路按自身固有频率 <span class="arithmatex">\(\omega_0 = 1/\sqrt{LC}\)</span> 自由振荡；接入交流电源后，具有固有频率的暂态项在几个阻尼时间 <span class="arithmatex">\(\tau_d = 2L/R\)</span> 内衰减殆尽，电路进入<strong>正弦稳态</strong>（Steady state），此时电荷、电压与电流全部以<strong>外源的驱动角频率 <span class="arithmatex">\(\omega_d\)</span></strong> 作受迫振荡：
+  $$
+  i(t) = I\cos(\omega_d t - \phi) \qquad (\phi \text{ 定义为电流滞后于驱动电动势的相位角})
+  $$</li>
+<li><strong>峰值（Peak）与有效值 / 均方根值（Root-Mean-Square, RMS）</strong>：
+  本章公式中的 <span class="arithmatex">\(\mathcal{E}_m, |\tilde{V}|, I\)</span> 默认代表<strong>峰值振幅</strong>。工程与市电额定值（如 <span class="arithmatex">\(220\text{ V}\)</span>）通常使用<strong>有效值</strong>（RMS value），定义为正弦量平方在一个周期内平均值的平方根：
+  $$
+  V_{\text{rms}} = \sqrt{\langle v^2(t) \rangle} = \frac{V_{\text{peak}}}{\sqrt{2}}, \qquad I_{\text{rms}} = \frac{I_{\text{peak}}}{\sqrt{2}}, \qquad P_{\text{avg}} = \langle i^2(t)R \rangle = \frac{1}{2}I_{\text{peak}}^2 R = I_{\text{rms}}^2 R
+  $$</li>
+</ul>
+<h3 id="32-the-complex-impedance-method">3.2 复阻抗方法 (The Complex Impedance Method)<a class="headerlink" href="#32-the-complex-impedance-method" title="Permanent link">&para;</a></h3>
+<p>在稳态交流电路中，将任意元件两端的电压（电流流入端电势减去流出端电势）与流过元件的电流表示为复指数的实部：</p>
+<div class="arithmatex">\[
+v(t) = \mathfrak{R}\left(\tilde{V} e^{i\omega_d t}\right), \qquad i(t) = \mathfrak{R}\left(\tilde{I} e^{i\omega_d t}\right)
+\]</div>
+<p>由于对时间求导 <span class="arithmatex">\(\frac{d}{dt}\left(e^{i\omega_d t}\right) = (i\omega_d)e^{i\omega_d t}\)</span> 等效于直接乘以代数因子 <strong><span class="arithmatex">\(i\omega_d\)</span></strong>（积分 <span class="arithmatex">\(\int dt\)</span> 等效于除以 <span class="arithmatex">\(i\omega_d\)</span>），微积分方程瞬间简化为复代数方程！定义元件的<strong>复阻抗</strong>（Complex Impedance，记作 <span class="arithmatex">\(\tilde{Z}\)</span>）为复电压振幅与复电流振幅之比：</p>
+<div class="arithmatex">\[
+\tilde{Z} \equiv \frac{\tilde{V}}{\tilde{I}} = Z e^{i\phi}
+\]</div>
+<p>其中模长 <span class="arithmatex">\(Z = |\tilde{Z}| = \frac{|\tilde{V}|}{|\tilde{I}|}\)</span> 称为<strong>阻抗大小</strong>（Impedance magnitude，单位为欧姆 <span class="arithmatex">\(\Omega\)</span>），辐角 <span class="arithmatex">\(\phi\)</span> 即为<strong>电流滞后于电压的相位角</strong>（Phase angle by which current lags voltage）。</p>
+<p>三大基本无源元件的时域关系、复阻抗与相位特征汇总如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">电路元件</th>
+<th style="text-align: center;">时域电压-电流关系</th>
+<th style="text-align: center;">复阻抗 <span class="arithmatex">\(\tilde{Z} = \tilde{V}/\tilde{I}\)</span></th>
+<th style="text-align: center;">阻抗模长（电抗 Reactance）</th>
+<th style="text-align: left;">电流与电压的相位关系（<span class="arithmatex">\(\phi\)</span> 为电流滞后角）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>纯电阻 <span class="arithmatex">\(R\)</span></strong><br>（Resistive Load）</td>
+<td style="text-align: center;"><span class="arithmatex">\(v_R = R i_R\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tilde{Z}_R = R\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(Z_R = R\)</span></td>
+<td style="text-align: left;"><strong>同相（In phase，<span class="arithmatex">\(\phi = 0\)</span>）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>纯电感 <span class="arithmatex">\(L\)</span></strong><br>（Inductive Load）</td>
+<td style="text-align: center;"><span class="arithmatex">\(v_L = L\dfrac{di_L}{dt}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tilde{Z}_L = i\omega_d L = \omega_d L e^{+i\pi/2}\)</span></td>
+<td style="text-align: center;">感抗 <span class="arithmatex">\(X_L = \omega_d L\)</span></td>
+<td style="text-align: left;"><strong>电流滞后电压 <span class="arithmatex">\(\dfrac{\pi}{2}\)</span>（<span class="arithmatex">\(\phi = +\dfrac{\pi}{2}\)</span>，“感滞”）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>纯电容 <span class="arithmatex">\(C\)</span></strong><br>（Capacitive Load）</td>
+<td style="text-align: center;"><span class="arithmatex">\(i_C = C\dfrac{dv_C}{dt}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tilde{Z}_C = \dfrac{1}{i\omega_d C} = -i\dfrac{1}{\omega_d C} = \dfrac{1}{\omega_d C}e^{-i\pi/2}\)</span></td>
+<td style="text-align: center;">容抗 <span class="arithmatex">\(X_C = \dfrac{1}{\omega_d C}\)</span></td>
+<td style="text-align: left;"><strong>电流超前电压 <span class="arithmatex">\(\dfrac{\pi}{2}\)</span>（<span class="arithmatex">\(\phi = -\dfrac{\pi}{2}\)</span>，“容超”）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>复阻抗的串并联法则（与直流电阻完全同构）</strong>：
+由于基尔霍夫回路定律（KVL）与节点定律（KCL）对复振幅 <span class="arithmatex">\(\tilde{V}, \tilde{I}\)</span> 依然严格成立，复阻抗的串联与并联直接套用电阻公式：</p>
+<div class="arithmatex">\[
+\text{串联（Series）：}\tilde{Z}_{\text{eq}} = \sum_k \tilde{Z}_k, \qquad \text{并联（Parallel）：}\frac{1}{\tilde{Z}_{\text{eq}}} = \sum_k \frac{1}{\tilde{Z}_k}
+\]</div>
+<h3 id="33-rlc-series-rlc-circuit-and-resonance">3.3 串联 RLC 电路与谐振现象 (Series RLC Circuit and Resonance)<a class="headerlink" href="#33-rlc-series-rlc-circuit-and-resonance" title="Permanent link">&para;</a></h3>
+<p><strong>1. 串联 RLC 电路的总复阻抗</strong></p>
+<p>当电阻 <span class="arithmatex">\(R\)</span>、电感 <span class="arithmatex">\(L\)</span> 与电容 <span class="arithmatex">\(C\)</span> 串联接入驱动频率为 <span class="arithmatex">\(\omega_d\)</span> 的交流电路时，总复阻抗为三者之和：</p>
+<div class="arithmatex">\[
+\tilde{Z} = \tilde{Z}_R + \tilde{Z}_L + \tilde{Z}_C = R + i\left(\omega_d L - \frac{1}{\omega_d C}\right) = Z e^{i\phi}
+\]</div>
+<p>由复数的实部 <span class="arithmatex">\(Z\cos\phi = R\)</span> 与虚部 <span class="arithmatex">\(Z\sin\phi = \omega_d L - \frac{1}{\omega_d C}\)</span>，立即得到<strong>串联 RLC 电路的总阻抗大小 <span class="arithmatex">\(Z\)</span>、相位角 <span class="arithmatex">\(\phi\)</span> 及稳态电流振幅 <span class="arithmatex">\(I\)</span></strong>：</p>
+<div class="arithmatex">\[
+Z = \sqrt{R^2 + \left(\omega_d L - \frac{1}{\omega_d C}\right)^2}, \qquad \tan\phi = \frac{\omega_d L - \dfrac{1}{\omega_d C}}{R}, \qquad I = \frac{\mathcal{E}_m}{Z} = \frac{\mathcal{E}_m}{\sqrt{R^2 + \left(\omega_d L - \dfrac{1}{\omega_d C}\right)^2}}
+\]</div>
+<p><strong>2. 串联谐振（Series Resonance）与选频特性</strong></p>
+<p>当外加交流电源的驱动角频率 <span class="arithmatex">\(\omega_d\)</span> 恰好等于电路的固有角频率 <span class="arithmatex">\(\omega_0\)</span> 时，电路发生<strong>谐振</strong>（Resonance）：</p>
+<div class="arithmatex">\[
+\omega_d = \omega_0 = \frac{1}{\sqrt{LC}}
+\]</div>
+<p>在谐振状态下，电路同时呈现以下四个标志性特征：</p>
+<ol>
+<li><strong>感抗与容抗完全抵消</strong>：<span class="arithmatex">\(\omega_0 L = \dfrac{1}{\omega_0 C}\)</span>（电感与电容上的瞬时电压等大反向，<span class="arithmatex">\(v_L(t) + v_C(t) \equiv 0\)</span>）；</li>
+<li><strong>总阻抗达到最小值</strong>：虚部电抗清零，总阻抗简化为纯电阻 <span class="arithmatex">\(Z_{\min} = R\)</span>；</li>
+<li><strong>电流振幅达到最大值</strong>：<span class="arithmatex">\(I_{\max} = \dfrac{\mathcal{E}_m}{R}\)</span>（在固定 <span class="arithmatex">\(L, C\)</span> 下，电阻 <span class="arithmatex">\(R\)</span> 越小，谐振峰越高越尖锐，选频调谐 Selectivity 越灵敏）；</li>
+<li><strong>电流与驱动电动势完全同相</strong>：<span class="arithmatex">\(\tan\phi = 0 \implies \phi = 0\)</span>。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">驱动频率区间</th>
+<th style="text-align: left;">电抗主导关系</th>
+<th style="text-align: center;">相位角 <span class="arithmatex">\(\phi\)</span> 符号</th>
+<th style="text-align: left;">电流与电动势相位关系</th>
+<th style="text-align: left;">电路整体性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>低频区（<span class="arithmatex">\(\omega_d &lt; \omega_0\)</span>）</strong></td>
+<td style="text-align: left;">容抗大于感抗（<span class="arithmatex">\(\dfrac{1}{\omega_d C} &gt; \omega_d L\)</span>）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\phi &lt; 0\)</span></td>
+<td style="text-align: left;">电流 <strong>超前（Leads）</strong> 电动势</td>
+<td style="text-align: left;"><strong>容性（Capacitive）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>谐振点（<span class="arithmatex">\(\omega_d = \omega_0\)</span>）</strong></td>
+<td style="text-align: left;">感抗等于容抗（<span class="arithmatex">\(\omega_0 L = \dfrac{1}{\omega_0 C}\)</span>）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\phi = 0\)</span></td>
+<td style="text-align: left;">电流与电动势 <strong>同相（In phase）</strong></td>
+<td style="text-align: left;"><strong>纯阻性（Purely resistive，<span class="arithmatex">\(Z_{\min}=R\)</span>）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高频区（<span class="arithmatex">\(\omega_d &gt; \omega_0\)</span>）</strong></td>
+<td style="text-align: left;">感抗大于容抗（<span class="arithmatex">\(\omega_d L &gt; \dfrac{1}{\omega_d C}\)</span>）</td>
+<td style="text-align: center;"><span class="arithmatex">\(\phi &gt; 0\)</span></td>
+<td style="text-align: left;">电流 <strong>滞后（Lags）</strong> 电动势</td>
+<td style="text-align: left;"><strong>感性（Inductive）</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">对偶模型对比：理想并联 LC 回路的反谐振（Parallel LC Tank Circuit）</p>
+<p>若将理想电感 <span class="arithmatex">\(L\)</span> 与电容 <span class="arithmatex">\(C\)</span> <strong>并联</strong>，其总复导纳与总复阻抗为：
+$$
+\frac{1}{\tilde{Z}} = \frac{1}{i\omega_d L} + i\omega_d C = i\left(\omega_d C - \frac{1}{\omega_d L}\right) \implies \tilde{Z} = \frac{i\omega_d L}{1 - \omega_d^2 LC}
+$$
+当驱动频率达到 <span class="arithmatex">\(\omega_d = \omega_0 = \frac{1}{\sqrt{LC}}\)</span> 时，分母为零，<strong>并联总阻抗趋于无穷大（<span class="arithmatex">\(|\tilde{Z}| \to \infty\)</span>，对外电路相当于开路断路）</strong>！这是因为电感支路与电容支路的电流振幅相等但相位相反（相差 <span class="arithmatex">\(\pi\)</span>），干路总电流完全抵消为零，能量在并联 LC 内部循环吞吐（若计入电感线圈内阻 <span class="arithmatex">\(r\)</span>，详见 Exercise 13.8）。</p>
+</div>
+<hr />
+<h2 id="4-chapter-13-selected-exercises">4 Chapter 13 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-13-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 13.1, 13.2 &amp; 13.3: Series RL, Mixed RLC Network &amp; LC Voltage Divider（串联 RL、混联 RLC 电流与 LC 分压滤波器）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 13.1</strong>: Consider a series RL circuit with <span class="arithmatex">\(R = 300\ \Omega\)</span> and <span class="arithmatex">\(L = 0.9\text{ H}\)</span>, driven in the steady state by an emf of fixed magnitude <span class="arithmatex">\(50\text{ V}\)</span> and fixed angular frequency of <span class="arithmatex">\(1000\text{ rad/s}\)</span>. (a) Calculate the impedance <span class="arithmatex">\(Z\)</span> of the circuit. (b) Calculate the amplitude of the current. (c) Calculate the angle <span class="arithmatex">\(\phi\)</span> by which the current lags the emf.
+- <strong>Ex 13.2</strong>: In the steady state, calculate the amplitude of the current through the resistor in the RLC circuit of <code>Figure 13.2</code> (<span class="arithmatex">\(\mathcal{E}_m = 150\text{ V}\)</span>, <span class="arithmatex">\(f = 60\text{ Hz}\)</span>; series branch has <span class="arithmatex">\(C = 3\ \mu\text{F}\)</span> and <span class="arithmatex">\(L_1 = 0.2\text{ H}\)</span>; parallel branch has <span class="arithmatex">\(L_2 = 1\text{ H}\)</span> and <span class="arithmatex">\(R = 100\ \Omega\)</span>).
+- <strong>Ex 13.3</strong>: Consider the circuit of <code>Figure 13.3</code> in the steady state (<span class="arithmatex">\(f = 60\text{ Hz}\)</span>, input voltage <span class="arithmatex">\(U_1\)</span>, parallel <span class="arithmatex">\(10\ \mu\text{F}\)</span> capacitor, series inductor <span class="arithmatex">\(L\)</span>, and output parallel <span class="arithmatex">\(10\ \mu\text{F}\)</span> capacitor with open terminals <span class="arithmatex">\(U_2\)</span>). If the amplitude of the output voltage <span class="arithmatex">\(U_2\)</span> is to be <span class="arithmatex">\(1/10\)</span> of the amplitude of the input voltage <span class="arithmatex">\(U_1\)</span>, what is the value of the self-inductance <span class="arithmatex">\(L\)</span>?</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 串联 RL 交流电路的基本稳态计算（Exercise 13.1）</strong>：
+已知 <span class="arithmatex">\(R = 300\ \Omega\)</span>，<span class="arithmatex">\(L = 0.9\text{ H}\)</span>，<span class="arithmatex">\(\mathcal{E}_m = 50\text{ V}\)</span>，<span class="arithmatex">\(\omega_d = 1000\text{ rad/s}\)</span>。感抗为 <span class="arithmatex">\(X_L = \omega_d L = 1000 \times 0.9 = 900\ \Omega\)</span>。</p>
+<ul>
+<li><strong>(a) 总阻抗大小 <span class="arithmatex">\(Z\)</span></strong>：
+  $$
+  Z = \sqrt{R^2 + (\omega_d L)^2} = \sqrt{300^2 + 900^2} = 300\sqrt{10}\ \Omega \approx 948.7\ \Omega
+  $$</li>
+<li><strong>(b) 电流振幅 <span class="arithmatex">\(I\)</span></strong>：
+  $$
+  I = \frac{\mathcal{E}_m}{Z} = \frac{50}{300\sqrt{10}} = \frac{1}{6\sqrt{10}}\text{ A} \approx 0.0527\text{ A} = 52.7\text{ mA}
+  $$</li>
+<li><strong>(c) 电流滞后于电动势的相位角 <span class="arithmatex">\(\phi\)</span></strong>：
+  $$
+  \tan\phi = \frac{\omega_d L}{R} = \frac{900}{300} = 3 \implies \phi = \arctan(3) \approx 1.249\text{ rad} \approx 71.6^\circ
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 混联 RLC 网络中流过电阻支路的电流振幅（Exercise 13.2）</strong>：
+驱动角频率为 <span class="arithmatex">\(\omega = 2\pi f = 2\pi \times 60 = 120\pi\text{ rad/s} \approx 376.991\text{ rad/s}\)</span>。</p>
+<ol>
+<li><strong>计算串联干路复阻抗 <span class="arithmatex">\(\tilde{Z}_1\)</span></strong>：
+   干路包含 <span class="arithmatex">\(C = 3\times 10^{-6}\text{ F}\)</span> 与 <span class="arithmatex">\(L_1 = 0.2\text{ H}\)</span>，其复阻抗为纯虚数 <span class="arithmatex">\(\tilde{Z}_1 = i X_1\)</span>：
+   $$
+   X_1 = \omega L_1 - \frac{1}{\omega C} = 120\pi \times 0.2 - \frac{1}{120\pi \times 3 \times 10^{-6}} \approx 75.398 - 884.194 = -808.796\ \Omega
+   $$</li>
+<li><strong>计算右侧并联支路等效复阻抗 <span class="arithmatex">\(\tilde{Z}_p\)</span></strong>：
+   并联部分由 <span class="arithmatex">\(L_2 = 1\text{ H}\)</span>（感抗 <span class="arithmatex">\(X_2 = \omega L_2 = 120\pi \approx 376.991\ \Omega\)</span>，<span class="arithmatex">\(\tilde{Z}_{L2} = i X_2\)</span>）与电阻 <span class="arithmatex">\(R = 100\ \Omega\)</span> 组成：
+   $$
+   \tilde{Z}_p = \frac{R(i X_2)}{R + i X_2}
+   $$</li>
+<li><strong>计算电阻 <span class="arithmatex">\(R\)</span> 上的复电压 <span class="arithmatex">\(\tilde{V}_p\)</span> 与电流振幅 <span class="arithmatex">\(I_R\)</span></strong>：
+   由复阻抗分压公式，并联节点电压为 <span class="arithmatex">\(\tilde{V}_p = \mathcal{E}_m \frac{\tilde{Z}_p}{\tilde{Z}_1 + \tilde{Z}_p}\)</span>，故流过电阻 <span class="arithmatex">\(R\)</span> 的复电流为：
+   $$
+   \tilde{I}_R = \frac{\tilde{V}_p}{R} = \frac{\mathcal{E}_m}{R + \tilde{Z}_1\left(1 + \dfrac{R}{i X_2}\right)} = \frac{\mathcal{E}_m}{R\left(1 + \dfrac{X_1}{X_2}\right) + i X_1}
+   $$
+   代入数值计算分母实部与虚部：<span class="arithmatex">\(R\left(1 + \frac{X_1}{X_2}\right) = 100\left(1 - \frac{808.796}{376.991}\right) \approx -114.540\ \Omega\)</span>，虚部为 <span class="arithmatex">\(X_1 \approx -808.796\ \Omega\)</span>。
+   因此电阻电流的振幅为：
+   $$
+   I_R = |\tilde{I}_R| = \frac{\mathcal{E}_m}{\sqrt{R^2\left(1 + \dfrac{X_1}{X_2}\right)^2 + X_1^2}} = \frac{150}{\sqrt{(-114.540)^2 + (-808.796)^2}} = \frac{150}{816.867} \approx 0.184\text{ A}
+   $$</li>
+</ol>
+<hr />
+<p><strong>3. Π 型 LC 滤波网络的分压电感求解（Exercise 13.3）</strong>：
+观察 <code>Figure 13.3</code> 电路：左侧第一个 <span class="arithmatex">\(10\ \mu\text{F}\)</span> 电容器直接并联在理想电压源 <span class="arithmatex">\(U_1\)</span> 两端，因此其两端电压恒等于输入电压 <span class="arithmatex">\(\tilde{U}_1\)</span>（不影响右侧支路的分压比）。
+右侧支路是由电感 <span class="arithmatex">\(L\)</span>（复阻抗 <span class="arithmatex">\(\tilde{Z}_L = i\omega L\)</span>）和第二个电容器 <span class="arithmatex">\(C = 10\ \mu\text{F} = 10^{-5}\text{ F}\)</span>（复阻抗 <span class="arithmatex">\(\tilde{Z}_C = \frac{1}{i\omega C}\)</span>）组成的串联分压支路，且输出端开路（无负载电流流出）。因此输出复电压 <span class="arithmatex">\(\tilde{U}_2\)</span> 与输入复电压 <span class="arithmatex">\(\tilde{U}_1\)</span> 的关系为：</p>
+<div class="arithmatex">\[
+\frac{\tilde{U}_2}{\tilde{U}_1} = \frac{\tilde{Z}_C}{\tilde{Z}_L + \tilde{Z}_C} = \frac{\dfrac{1}{i\omega C}}{i\omega L + \dfrac{1}{i\omega C}} = \frac{1}{1 - \omega^2 LC}
+\]</div>
+<p>题目要求输出电压振幅是输入电压振幅的 <span class="arithmatex">\(\frac{1}{10}\)</span>：</p>
+<div class="arithmatex">\[
+\left|\frac{\tilde{U}_2}{\tilde{U}_1}\right| = \frac{1}{|1 - \omega^2 LC|} = \frac{1}{10} \implies 1 - \omega^2 LC = \pm 10
+\]</div>
+<p>由于 <span class="arithmatex">\(\omega^2 LC &gt; 0\)</span>（<span class="arithmatex">\(L &gt; 0, \ C &gt; 0\)</span>），舍去正号解（对应 <span class="arithmatex">\(\omega^2 LC = -9 &lt; 0\)</span>），取负号解 <span class="arithmatex">\(1 - \omega^2 LC = -10 \implies \omega^2 LC = 11\)</span>。
+代入 <span class="arithmatex">\(\omega = 2\pi f = 120\pi\text{ rad/s}\)</span> 与 <span class="arithmatex">\(C = 10^{-5}\text{ F}\)</span>：</p>
+<div class="arithmatex">\[
+L = \frac{11}{\omega^2 C} = \frac{11}{(120\pi)^2 \times 10^{-5}} \approx 7.74\text{ H}
+\]</div>
+</details>
+<details>
+<summary>Exercise 13.4, 13.5 &amp; 13.6: Coupled RLC Normal Modes, LC Switching Overvoltage &amp; Overdamped Decay（互感耦合简正模、断电转 LC 振荡高压与过阻尼极值分析）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 13.4</strong>: Two identical RLC circuits (<span class="arithmatex">\(L, C, R\)</span>) are coupled through a mutual inductance <span class="arithmatex">\(M\)</span> (<span class="arithmatex">\(0 &lt; M &lt; L\)</span>). (a) With capacitor charges <span class="arithmatex">\(q_1, q_2\)</span>, write down the coupled differential equations. (b) Introduce normal coordinates <span class="arithmatex">\(q_+ \equiv q_1 + q_2\)</span> and <span class="arithmatex">\(q_- \equiv q_1 - q_2\)</span>; show that the differential equations decouple into two independent damped oscillators. (c) Setting <span class="arithmatex">\(R = 0\)</span>, show that the normal mode frequencies are <span class="arithmatex">\(\omega_+ = \frac{1}{\sqrt{(L+M)C}}\)</span> and <span class="arithmatex">\(\omega_- = \frac{1}{\sqrt{(L-M)C}}\)</span>.
+- <strong>Ex 13.5</strong>: An ideal battery <span class="arithmatex">\(\mathcal{E} &gt; 0\)</span>, resistor <span class="arithmatex">\(r &gt; 0\)</span>, and a switch are in series between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> (<span class="arithmatex">\(+\)</span> terminal on side <span class="arithmatex">\(A\)</span>). An ideal inductor <span class="arithmatex">\(L\)</span> and a capacitor <span class="arithmatex">\(C\)</span> are also connected in parallel between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>. The switch has been closed for a long time and is opened at <span class="arithmatex">\(t = 0\)</span>. Let <span class="arithmatex">\(i_L\)</span> be the inductor current from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span>, and <span class="arithmatex">\(q\)</span> the charge on the <span class="arithmatex">\(A\)</span>-plate of <span class="arithmatex">\(C\)</span>.
+  (a) Just before <span class="arithmatex">\(t = 0\)</span>, find <span class="arithmatex">\(i_L, q\)</span> and <span class="arithmatex">\(V_A - V_B\)</span>.
+  (b) For <span class="arithmatex">\(t &gt; 0\)</span>, find <span class="arithmatex">\(q(t), i_L(t)\)</span> and <span class="arithmatex">\(V_A - V_B\)</span>. Write <span class="arithmatex">\(q(t) = Q\cos(\omega_0 t + \phi)\)</span> with <span class="arithmatex">\(Q &gt; 0\)</span>, and give <span class="arithmatex">\(Q, \omega_0, \phi\)</span>.
+  (c) Find the largest value of <span class="arithmatex">\(|V_A - V_B|\)</span> for <span class="arithmatex">\(t &gt; 0\)</span>, the first time it is reached, and which terminal is higher. Evaluate for <span class="arithmatex">\(\mathcal{E} = 12\text{ V}, r = 6.0\ \Omega, L = 0.20\text{ H}, C = 0.50\ \mu\text{F}\)</span>, and check by energy conservation.
+- <strong>Ex 13.6</strong>: A capacitor <span class="arithmatex">\(C\)</span> with initial charge <span class="arithmatex">\(Q_0 &gt; 0\)</span> is connected at <span class="arithmatex">\(t = 0\)</span> in series with <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(L\)</span> (<span class="arithmatex">\(i(0) = 0\)</span>). Let <span class="arithmatex">\(\omega_0 = 1/\sqrt{LC}\)</span>.
+  (a) Take <span class="arithmatex">\(R &gt; 2\sqrt{L/C}\)</span>. Show that <span class="arithmatex">\(q(t) = Q_0\frac{a e^{-bt} - b e^{-at}}{a - b}\)</span>, and find <span class="arithmatex">\(a &gt; b &gt; 0\)</span>.
+  (b) Find the leading forms of <span class="arithmatex">\(1/a\)</span> and <span class="arithmatex">\(1/b\)</span> when <span class="arithmatex">\(R \gg 2\sqrt{L/C}\)</span>, and compare <span class="arithmatex">\(1/b\)</span> with <span class="arithmatex">\(\tau_d = 2L/R\)</span>. Which time sets how long the capacitor takes to discharge?
+  (c) Keep <span class="arithmatex">\(L, C\)</span> fixed and let <span class="arithmatex">\(R\)</span> vary. Show that the slowest decay rate of the system is largest at <span class="arithmatex">\(R = 2\sqrt{L/C}\)</span>, where it equals <span class="arithmatex">\(\omega_0\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 互感耦合双 RLC 电路的简正模解耦（Exercise 13.4，经典理论模型）</strong>：</p>
+<ul>
+<li><strong>(a) 耦合微分方程组</strong>：
+  利用第十二章的电感矩阵关系及 <span class="arithmatex">\(i_1 = \frac{dq_1}{dt}, \ i_2 = \frac{dq_2}{dt}\)</span>，每个回路的基尔霍夫回路定律给出：
+  $$
+  \begin{cases}
+  L\dfrac{d^2 q_1}{dt^2} + M\dfrac{d^2 q_2}{dt^2} + R\dfrac{dq_1}{dt} + \dfrac{1}{C}q_1 = 0 \[8pt]
+  L\dfrac{d^2 q_2}{dt^2} + M\dfrac{d^2 q_1}{dt^2} + R\dfrac{dq_2}{dt} + \dfrac{1}{C}q_2 = 0
+  \end{cases}
+  $$</li>
+<li><strong>(b) 引入简正坐标（Normal coordinates）<span class="arithmatex">\(q_\pm = q_1 \pm q_2\)</span> 解耦</strong>：
+  将上面两式直接相加与相减，立即分解为两个彼此完全独立的单自由度阻尼振子方程：
+  $$
+  \begin{cases}
+  (L + M)\dfrac{d^2 q_+}{dt^2} + R\dfrac{dq_+}{dt} + \dfrac{1}{C}q_+ = 0 \quad (\text{对称模 Symmetric mode，等效电感 } L_+ = L + M) \[8pt]
+  (L - M)\dfrac{d^2 q_-}{dt^2} + R\dfrac{dq_-}{dt} + \dfrac{1}{C}q_- = 0 \quad (\text{反对称模 Antisymmetric mode，等效电感 } L_- = L - M)
+  \end{cases}
+  $$</li>
+<li><strong>(c) 无阻尼简正模频率（<span class="arithmatex">\(R = 0\)</span>）</strong>：
+  当 <span class="arithmatex">\(R = 0\)</span> 时，两个独立简谐振子的固有角频率分别为：
+  $$
+  \omega_+ = \frac{1}{\sqrt{(L + M)C}}, \qquad \omega_- = \frac{1}{\sqrt{(L - M)C}}
+  $$
+  由于 <span class="arithmatex">\(M &gt; 0\)</span>，对称同相模式 <span class="arithmatex">\(q_+\)</span> 的两线圈磁通同向相助，等效电感增大为 <span class="arithmatex">\(L + M\)</span>，因此振荡频率较低（<span class="arithmatex">\(\omega_+ &lt; \omega_-\)</span>）。</li>
+</ul>
+<hr />
+<p><strong>2. 直流稳态断电瞬间转入无损 LC 自由振荡的电压过冲（Exercise 13.5）</strong>：</p>
+<ul>
+<li><strong>(a) 断开开关前瞬间（<span class="arithmatex">\(t = 0^-\)</span>）</strong>：
+  开关长期闭合处于直流稳态，理想电感 <span class="arithmatex">\(L\)</span>（无内阻）将 <span class="arithmatex">\(A, B\)</span> 两点完全<strong>短路</strong>！因此 <span class="arithmatex">\(A, B\)</span> 间电势差为零，电容器不带电，全部电流由电池经电阻 <span class="arithmatex">\(r\)</span> 和电感 <span class="arithmatex">\(L\)</span> 流过：
+  $$
+  V_A(0^-) - V_B(0^-) = 0, \qquad q(0^-) = 0, \qquad i_L(0^-) = \frac{\mathcal{E}}{r}
+  $$</li>
+<li><strong>(b) 断开开关后（<span class="arithmatex">\(t &gt; 0\)</span>）的 LC 振荡</strong>：
+  开关断开后，<span class="arithmatex">\(L\)</span> 与 <span class="arithmatex">\(C\)</span> 构成闭合回路。由于 <span class="arithmatex">\(i_L\)</span> 从 <span class="arithmatex">\(A\)</span> 经 <span class="arithmatex">\(L\)</span> 流向 <span class="arithmatex">\(B\)</span>，然后从 <span class="arithmatex">\(B\)</span> 流向电容器的 <span class="arithmatex">\(A\)</span> 极板为其充电，故有 <span class="arithmatex">\(i_L(t) = -\frac{dq}{dt}\)</span>！
+  初始条件为：<span class="arithmatex">\(q(0^+) = 0\)</span>，<span class="arithmatex">\(\left.\frac{dq}{dt}\right|_{t=0^+} = -i_L(0^+) = -\frac{\mathcal{E}}{r}\)</span>。
+  代入标准通解 <span class="arithmatex">\(q(t) = Q\cos(\omega_0 t + \phi)\)</span>（要求 <span class="arithmatex">\(Q &gt; 0\)</span>，其中 <span class="arithmatex">\(\omega_0 = \frac{1}{\sqrt{LC}}\)</span>）：</li>
+<li>由 <span class="arithmatex">\(q(0) = Q\cos\phi = 0\)</span> 且 <span class="arithmatex">\(\dot{q}(0) = -\omega_0 Q\sin\phi = -\frac{\mathcal{E}}{r} &lt; 0\)</span>，可知 <span class="arithmatex">\(\cos\phi = 0, \ \sin\phi = +1\)</span>，故：
+    $$
+    \omega_0 = \frac{1}{\sqrt{LC}}, \qquad \phi = +\frac{\pi}{2}, \qquad Q = \frac{\mathcal{E}}{\omega_0 r} = \frac{\mathcal{E}\sqrt{LC}}{r}
+    $$</li>
+<li>从而各物理量的时间演化表达式为：
+    $$
+    q(t) = \frac{\mathcal{E}\sqrt{LC}}{r}\cos\left(\omega_0 t + \frac{\pi}{2}\right) = -\frac{\mathcal{E}\sqrt{LC}}{r}\sin(\omega_0 t)
+    $$
+    $$
+    i_L(t) = -\frac{dq}{dt} = \frac{\mathcal{E}}{r}\cos(\omega_0 t), \qquad V_A(t) - V_B(t) = \frac{q(t)}{C} = -\frac{\mathcal{E}}{r}\sqrt{\frac{L}{C}}\sin(\omega_0 t)
+    $$</li>
+<li><strong>(c) 最大电压过冲、首次达到时刻与能量守恒检验</strong>：
+  当 <span class="arithmatex">\(\omega_0 t_1 = \frac{\pi}{2}\)</span> 时，即首次达到时刻：
+  $$
+  t_1 = \frac{\pi}{2\omega_0} = \frac{\pi}{2}\sqrt{LC}
+  $$
+  <span class="arithmatex">\(|V_A - V_B|\)</span> 达到最大值：
+  $$
+  |V_A - V_B|<em _max="\max">{\max} = \frac{\mathcal{E}}{r}\sqrt{\frac{L}{C}}
+  $$
+  此时 <span class="arithmatex">\(V_A - V_B &lt; 0\)</span>，故<strong>端子 <span class="arithmatex">\(B\)</span> 处于高电势</strong>。
+  代入数值 <span class="arithmatex">\(\mathcal{E} = 12\text{ V}, \ r = 6.0\ \Omega, \ L = 0.20\text{ H}, \ C = 0.50 \times 10^{-6}\text{ F}\)</span>（特征波阻抗 <span class="arithmatex">\(\sqrt{L/C} = \sqrt{0.20 / (0.50\times 10^{-6})} = 632.46\ \Omega\)</span>）：
+  $$
+  |V_A - V_B|</em> \approx 105
+  $$
+  } = \frac{12}{6.0} \times 632.46 \approx 1.26 \times 10^3\text{ V} = 1.26\text{ kV}, \qquad \frac{|V_A - V_B|_{\max}}{\mathcal{E}} = \frac{1}{r}\sqrt{\frac{L}{C}<strong>能量守恒检验</strong>：初态电感磁能为 <span class="arithmatex">\(U_B(0) = \frac{1}{2}Li_L^2(0) = \frac{1}{2}L\left(\frac{\mathcal{E}}{r}\right)^2\)</span>；在 <span class="arithmatex">\(t_1\)</span> 时刻电流为零，能量全部转化为电容电场能 <span class="arithmatex">\(U_E(t_1) = \frac{1}{2}CV_{\max}^2\)</span>。令 <span class="arithmatex">\(\frac{1}{2}CV_{\max}^2 = \frac{1}{2}L\left(\frac{\mathcal{E}}{r}\right)^2\)</span>，立即解得 <span class="arithmatex">\(V_{\max} = \frac{\mathcal{E}}{r}\sqrt{\frac{L}{C}}\)</span>，完全一致！</li>
+</ul>
+<hr />
+<p><strong>3. 过阻尼 RLC 放电的双指数衰减率与最快稳定判据（Exercise 13.6，核心数学物理题）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 当 <span class="arithmatex">\(R &gt; 2\sqrt{L/C}\)</span> 时，特征方程 <span class="arithmatex">\(L s^2 + R s + \frac{1}{C} = 0\)</span>（对 <span class="arithmatex">\(q \propto e^{st}\)</span>）有两个负实根 <span class="arithmatex">\(s_1 = -a, \ s_2 = -b\)</span>，其中衰减率 <span class="arithmatex">\(a &gt; b &gt; 0\)</span> 分别为：
+  $$
+  a = \frac{R}{2L} + \sqrt{\left(\frac{R}{2L}\right)^2 - \omega_0^2}, \qquad b = \frac{R}{2L} - \sqrt{\left(\frac{R}{2L}\right)^2 - \omega_0^2}
+  $$
+  通解为 <span class="arithmatex">\(q(t) = C_1 e^{-bt} + C_2 e^{-at}\)</span>。代入初始条件 <span class="arithmatex">\(q(0) = C_1 + C_2 = Q_0\)</span> 与 <span class="arithmatex">\(i(0) = \dot{q}(0) = -b C_1 - a C_2 = 0\)</span>，解得 <span class="arithmatex">\(C_1 = \frac{a Q_0}{a - b}, \ C_2 = -\frac{b Q_0}{a - b}\)</span>，即：
+  $$
+  q(t) = Q_0 \frac{a e^{-bt} - b e^{-at}}{a - b}
+  $$</li>
+<li><strong>(b) 强阻尼极限（<span class="arithmatex">\(R \gg 2\sqrt{L/C}\)</span>，即 <span class="arithmatex">\(\omega_0 \ll \frac{R}{2L}\)</span>）</strong>：
+  利用泰勒展开 <span class="arithmatex">\(\sqrt{\left(\frac{R}{2L}\right)^2 - \omega_0^2} = \frac{R}{2L}\sqrt{1 - \frac{4L}{R^2 C}} \approx \frac{R}{2L} - \frac{1}{RC}\)</span>：</li>
+<li>快衰减率：<span class="arithmatex">\(a \approx \frac{R}{L} \implies \dfrac{1}{a} \approx \dfrac{L}{R} = \tau_L = \dfrac{1}{2}\tau_d\)</span>；</li>
+<li>慢衰减率：<span class="arithmatex">\(b \approx \frac{1}{RC} \implies \dfrac{1}{b} \approx RC = \tau_C \gg \tau_d\)</span>。
+  由于 <span class="arithmatex">\(b \ll a\)</span>，快指数项 <span class="arithmatex">\(e^{-at}\)</span> 迅速消失，长期放电过程由<strong>较慢的衰减时间 <span class="arithmatex">\(\dfrac{1}{b} \approx RC\)</span> 主导</strong>（物理原因：电阻 <span class="arithmatex">\(R\)</span> 极大时限制了放电电流，使电容器放电变得极其缓慢）。</li>
+<li><strong>(c) 证明临界阻尼 <span class="arithmatex">\(R = 2\sqrt{L/C}\)</span> 给出最快回归速率</strong>：
+  定义控制长期衰减的“最慢衰减率” <span class="arithmatex">\(r_{\text{slow}}(R)\)</span>：</li>
+<li>当 <span class="arithmatex">\(R &lt; 2\sqrt{L/C}\)</span>（欠阻尼）时：包络衰减率为 <span class="arithmatex">\(r_{\text{slow}}(R) = \frac{1}{\tau_d} = \frac{R}{2L}\)</span>，它随 <span class="arithmatex">\(R\)</span> 的增大而<strong>单调递增</strong>，在 <span class="arithmatex">\(R \to 2\sqrt{L/C}\)</span> 时达到 <span class="arithmatex">\(\omega_0\)</span>；</li>
+<li>当 <span class="arithmatex">\(R &gt; 2\sqrt{L/C}\)</span>（过阻尼）时：慢衰减率为 <span class="arithmatex">\(r_{\text{slow}}(R) = b = \frac{R}{2L} - \sqrt{\left(\frac{R}{2L}\right)^2 - \omega_0^2} = \dfrac{\omega_0^2}{\frac{R}{2L} + \sqrt{\left(\frac{R}{2L}\right)^2 - \omega_0^2}}\)</span>，由于分母随 <span class="arithmatex">\(R\)</span> 增大而严格增大，<span class="arithmatex">\(b(R)\)</span> 随 <span class="arithmatex">\(R\)</span> 的增大而<strong>单调递减</strong>！
+  因此，最慢衰减率在分界点——<strong>临界阻尼 <span class="arithmatex">\(R = 2\sqrt{L/C}\)</span> 处取得全局最大值 <span class="arithmatex">\(r_{\text{slow, max}} = \omega_0 = \frac{1}{\sqrt{LC}}\)</span></strong>。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 13.7, 13.8 &amp; 13.9: AC Generator Torque, Practical Parallel Tank Circuit &amp; Series Resonance Energy（交流发电机转矩极值、含阻并联谐振槽路与串联谐振恒定总储能）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 13.7</strong>: An AC generator coil (<span class="arithmatex">\(N\)</span> turns, area <span class="arithmatex">\(A\)</span>) turns at constant <span class="arithmatex">\(\omega\)</span> about the <span class="arithmatex">\(y\)</span> axis in uniform <span class="arithmatex">\(\vec{B} = B\hat{z}\)</span> (<span class="arithmatex">\(B &gt; 0\)</span>). At <span class="arithmatex">\(t\)</span>, its unit normal is <span class="arithmatex">\(\hat{n} = \hat{x}\cos\omega t - \hat{z}\sin\omega t\)</span>. Slip rings connect it to a series <span class="arithmatex">\(R\)</span>-<span class="arithmatex">\(L\)</span> load. Write <span class="arithmatex">\(K = NAB\)</span>.
+  (a) Find the generator's emf <span class="arithmatex">\(\mathcal{E}(t)\)</span>, the current amplitude <span class="arithmatex">\(I\)</span>, and the lag angle <span class="arithmatex">\(\phi\)</span>.
+  (b) Find the <span class="arithmatex">\(y\)</span> component of the magnetic torque <span class="arithmatex">\(\tau_y(t)\)</span> on the winding, its average over one turn, and the average torque the driving agent must supply.
+  (c) For fixed <span class="arithmatex">\(K, R, L\)</span>, find <span class="arithmatex">\(\omega\)</span> at which the average supplied torque is largest, and its largest value. How does it behave for <span class="arithmatex">\(\omega \ll R/L\)</span> and <span class="arithmatex">\(\omega \gg R/L\)</span>?
+- <strong>Ex 13.8</strong>: A coil (inductor <span class="arithmatex">\(L\)</span> in series with resistor <span class="arithmatex">\(r &gt; 0\)</span>) is connected in parallel with a capacitor <span class="arithmatex">\(C\)</span>, driven by <span class="arithmatex">\(\mathcal{E}_m\cos\omega_d t\)</span>. Let <span class="arithmatex">\(\omega_0 = 1/\sqrt{LC}\)</span>.
+  (a) Find the complex impedance <span class="arithmatex">\(\tilde{Z}\)</span> of the parallel pair.
+  (b) Find the driving frequency <span class="arithmatex">\(\omega_p &gt; 0\)</span> at which the current drawn from the source is in phase with the emf. Show that it exists only if <span class="arithmatex">\(r &lt; \sqrt{L/C}\)</span>, and that <span class="arithmatex">\(\omega_p &lt; \omega_0\)</span>.
+  (c) At <span class="arithmatex">\(\omega_d = \omega_p\)</span>, find the impedance <span class="arithmatex">\(Z(\omega_p)\)</span>, and the ratio of the current amplitude in the coil to that drawn from the source. What do both become as <span class="arithmatex">\(r \to 0\)</span>?
+- <strong>Ex 13.9</strong>: A series RLC circuit (<span class="arithmatex">\(R = 10.0\ \Omega, L = 0.100\text{ H}, C = 1.00\ \mu\text{F}\)</span>) is driven by an ideal ac source of <span class="arithmatex">\(10.0\text{ V rms}\)</span> at resonance <span class="arithmatex">\(\omega_0 = 1/\sqrt{LC}\)</span>.
+  (a) Find the peak current and peak values of <span class="arithmatex">\(v_R, v_L, v_C\)</span> (algebraically and numerically), and compare with <span class="arithmatex">\(\mathcal{E}_{\text{peak}}\)</span>.
+  (b) Show that <span class="arithmatex">\(v_L + v_C = 0\)</span> at every instant, so <span class="arithmatex">\(v_R = \mathcal{E}(t)\)</span>.
+  (c) Show that the total stored energy <span class="arithmatex">\(U(t) = \frac{1}{2}Li^2 + \frac{q^2}{2C}\)</span> does not change in time, find it, and compare with the heat produced in <span class="arithmatex">\(R\)</span> in one period.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 交流发电机驱动 RL 负载的瞬时转矩、平均转矩与最佳负载转速（Exercise 13.7）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 穿过 <span class="arithmatex">\(N\)</span> 匝线圈的总磁通量为 <span class="arithmatex">\(N\Phi_B(t) = NA(\vec{B}\cdot\hat{n}) = -NAB\sin(\omega t) = -K\sin(\omega t)\)</span>。由法拉第定律得感应电动势：
+  $$
+  \mathcal{E}(t) = -\frac{d(N\Phi_B)}{dt} = K\omega\cos(\omega t) \qquad (\text{峰值 } \mathcal{E}_m = K\omega)
+  $$
+  外接串联 RL 负载的阻抗大小为 <span class="arithmatex">\(Z = \sqrt{R^2 + \omega^2 L^2}\)</span>，故稳态电流振幅 <span class="arithmatex">\(I\)</span> 与滞后角 <span class="arithmatex">\(\phi\)</span> 分别为：
+  $$
+  I = \frac{K\omega}{\sqrt{R^2 + \omega^2 L^2}}, \qquad \phi = \arctan\left(\frac{\omega L}{R}\right) \quad \left(\cos\phi = \frac{R}{\sqrt{R^2+\omega^2 L^2}}, \ \sin\phi = \frac{\omega L}{\sqrt{R^2+\omega^2 L^2}}\right)
+  $$
+  瞬时电流为 <span class="arithmatex">\(i(t) = I\cos(\omega t - \phi)\)</span>。</li>
+<li><strong>(b) 磁力矩 <span class="arithmatex">\(y\)</span> 分量 <span class="arithmatex">\(\tau_y(t)\)</span> 与周期平均值</strong>：
+  线圈的磁偶极矩为 <span class="arithmatex">\(\vec{\mu}(t) = NiA\hat{n} = i(t)\frac{K}{B}(\hat{x}\cos\omega t - \hat{z}\sin\omega t)\)</span>。
+  由磁力矩公式 <span class="arithmatex">\(\vec{\tau}_B = \vec{\mu} \times \vec{B} = i(t)\frac{K}{B}(\hat{x}\cos\omega t - \hat{z}\sin\omega t) \times (B\hat{z}) = -K i(t)\cos(\omega t)\,\hat{y}\)</span>，故 <span class="arithmatex">\(y\)</span> 分量为：
+  $$
+  \tau_{B, y}(t) = -K I \cos(\omega t)\cos(\omega t - \phi) = -\frac{1}{2}K I \big[\cos\phi + \cos(2\omega t - \phi)\big]
+  $$
+  在一个周期内对时间求平均，<span class="arithmatex">\(\cos(2\omega t - \phi)\)</span> 平均为零，<span class="arithmatex">\(\langle\cos(\omega t)\cos(\omega t - \phi)\rangle = \frac{1}{2}\cos\phi\)</span>：
+  $$
+  \langle\tau_{B, y}\rangle = -\frac{1}{2}K I \cos\phi = -\frac{K^2 \omega R}{2(R^2 + \omega^2 L^2)}
+  $$
+  负号表示磁力矩阻碍线圈绕 <span class="arithmatex">\(+y\)</span> 轴旋转；因此外力维持恒定角速度 <span class="arithmatex">\(\omega\)</span> 所需提供的平均驱动力矩为：
+  $$
+  \langle\tau_{\text{agent}}\rangle = -\langle\tau_{B, y}\rangle = +\frac{K^2 \omega R}{2(R^2 + \omega^2 L^2)}
+  $$
+  <em>（验证：平均机械功率 <span class="arithmatex">\(\langle\tau_{\text{agent}}\rangle\omega = \frac{1}{2}I^2 R\)</span>，恰好等于电阻的平均热耗散功率！）。</em></li>
+<li><strong>(c) 使平均驱动转矩最大的角速度 <span class="arithmatex">\(\omega\)</span></strong>：
+  将 <span class="arithmatex">\(\langle\tau_{\text{agent}}\rangle = \frac{K^2 R}{2\left(\frac{R^2}{\omega} + \omega L^2\right)}\)</span> 的分母用均值不等式分析：当 <span class="arithmatex">\(\frac{R^2}{\omega} = \omega L^2\)</span>，即：
+  $$
+  \omega = \frac{R}{L} = \frac{1}{\tau_L}
+  $$
+  时，平均转矩达到最大值，最大值为：
+  $$
+  \langle\tau_{\text{agent}}\rangle_{\max} = \frac{K^2}{4L}
+  $$
+  渐近行为：当 <span class="arithmatex">\(\omega \ll R/L\)</span> 时，<span class="arithmatex">\(\langle\tau_{\text{agent}}\rangle \approx \frac{K^2}{2R}\omega \propto \omega\)</span>（随转速线性增大）；当 <span class="arithmatex">\(\omega \gg R/L\)</span> 时，感抗主导使电流趋于饱和且相位滞后趋于 <span class="arithmatex">\(\pi/2\)</span>（功率因数 <span class="arithmatex">\(\cos\phi \approx \frac{R}{\omega L} \to 0\)</span>），故 <span class="arithmatex">\(\langle\tau_{\text{agent}}\rangle \approx \frac{K^2 R}{2L^2 \omega} \propto \frac{1}{\omega}\)</span>（随转速反比减小）！</li>
+</ul>
+<hr />
+<p><strong>2. 实际电感线圈（<span class="arithmatex">\(L\)</span> 串 <span class="arithmatex">\(r\)</span>）与电容 <span class="arithmatex">\(C\)</span> 并联谐振槽路（Practical Parallel Tank Circuit，Exercise 13.8）</strong>：</p>
+<ul>
+<li><strong>(a) 并联总复阻抗 <span class="arithmatex">\(\tilde{Z}\)</span></strong>：
+  线圈支路复阻抗为 <span class="arithmatex">\(\tilde{Z}_{\text{coil}} = r + i\omega_d L\)</span>，电容支路复阻抗为 <span class="arithmatex">\(\tilde{Z}_C = \frac{1}{i\omega_d C}\)</span>。由并联公式：
+  $$
+  \frac{1}{\tilde{Z}} = \frac{1}{r + i\omega_d L} + i\omega_d C = \frac{r - i\omega_d L}{r^2 + \omega_d^2 L^2} + i\omega_d C = \frac{r}{r^2 + \omega_d^2 L^2} + i\omega_d\left(C - \frac{L}{r^2 + \omega_d^2 L^2}\right)
+  $$
+  取倒数即得：
+  $$
+  \tilde{Z} = \frac{r + i\omega_d L}{(1 - \omega_d^2 LC) + i\omega_d r C}
+  $$</li>
+<li><strong>(b) 干路电流与电源同相的并联谐振角频率 <span class="arithmatex">\(\omega_p\)</span></strong>：
+  要使干路总电流与电动势同相，要求 <span class="arithmatex">\(\tilde{Z}\)</span>（或 <span class="arithmatex">\(1/\tilde{Z}\)</span>）的虚部为零：
+  $$
+  C - \frac{L}{r^2 + \omega_p^2 L^2} = 0 \implies r^2 + \omega_p^2 L^2 = \frac{L}{C} \implies \omega_p = \sqrt{\frac{1}{LC} - \frac{r^2}{L^2}} = \sqrt{\omega_0^2 - \left(\frac{r}{L}\right)^2}
+  $$
+  显然，要使根号内大于零从而存在实数解 <span class="arithmatex">\(\omega_p &gt; 0\)</span>，必须满足条件 <strong><span class="arithmatex">\(r &lt; \sqrt{\dfrac{L}{C}}\)</span></strong>，且恒有 <strong><span class="arithmatex">\(\omega_p &lt; \omega_0\)</span></strong>。</li>
+<li><strong>(c) 并联谐振时的纯阻阻抗 <span class="arithmatex">\(Z(\omega_p)\)</span> 与支路电流放大比</strong>：
+  在 <span class="arithmatex">\(\omega_d = \omega_p\)</span> 时，<span class="arithmatex">\(r^2 + \omega_p^2 L^2 = \frac{L}{C}\)</span> 且 <span class="arithmatex">\(1/\tilde{Z}\)</span> 的虚部为零，代入得此时的纯电阻阻抗：
+  $$
+  Z(\omega_p) = \frac{r^2 + \omega_p^2 L^2}{r} = \frac{L}{r C}
+  $$
+  此时干路电流振幅为 <span class="arithmatex">\(I_{\text{source}} = \frac{\mathcal{E}_m}{Z(\omega_p)} = \frac{\mathcal{E}_m r C}{L}\)</span>，而流过线圈支路的电流振幅为 <span class="arithmatex">\(I_{\text{coil}} = \frac{\mathcal{E}_m}{\sqrt{r^2 + \omega_p^2 L^2}} = \frac{\mathcal{E}_m}{\sqrt{L/C}}\)</span>。两者之比为：
+  $$
+  \frac{I_{\text{coil}}}{I_{\text{source}}} = \frac{Z(\omega_p)}{\sqrt{r^2 + \omega_p^2 L^2}} = \frac{L / (rC)}{\sqrt{L/C}} = \frac{1}{r}\sqrt{\frac{L}{C}}
+  $$
+  当 <span class="arithmatex">\(r \to 0\)</span> 时，<span class="arithmatex">\(\omega_p \to \omega_0\)</span>，谐振阻抗 <strong><span class="arithmatex">\(Z(\omega_p) = \frac{L}{rC} \to \infty\)</span></strong>，且电流比 <strong><span class="arithmatex">\(\frac{I_{\text{coil}}}{I_{\text{source}}} \to \infty\)</span></strong>（干路无需输入电流，而 LC 环路内部存在巨大的环流，退化为 §3.3 末尾的理想并联 LC 反谐振槽路）。</li>
+</ul>
+<hr />
+<p><strong>3. 串联 RLC 谐振时的电压放大（品质因数 <span class="arithmatex">\(Q\)</span>）与恒定总电磁储能（Exercise 13.9，必考重点）</strong>：</p>
+<ul>
+<li><strong>(a) 谐振时的峰值电流与各元件峰值电压</strong>：
+  在谐振频率 <span class="arithmatex">\(\omega_0 = \frac{1}{\sqrt{LC}}\)</span> 下，总阻抗 <span class="arithmatex">\(Z = R\)</span>，电源峰值电动势为 <span class="arithmatex">\(\mathcal{E}_m = \sqrt{2}\,\mathcal{E}_{\text{rms}}\)</span>。
+  因此峰值电流及三个元件上的峰值电压分别为：
+  $$
+  I_{\text{peak}} = \frac{\sqrt{2}\,\mathcal{E}<em R_text_peak="R,\text{peak">{\text{rms}}}{R}, \qquad V</em>}} = I_{\text{peak}}R = \sqrt{2}\,\mathcal{E<em _text_peak="\text{peak">{\text{rms}} = \mathcal{E}<em L_text_peak="L,\text{peak">m
+  $$
+  $$
+  V</em> = I}</em>}}\omega_0 L = \frac{\sqrt{2}\,\mathcal{E<em C_text_peak="C,\text{peak">{\text{rms}}}{R}\sqrt{\frac{L}{C}}, \qquad V</em>}} = \frac{I_{\text{peak}}}{\omega_0 C} = \frac{\sqrt{2}\,\mathcal{E<em _text_peak="\text{peak">{\text{rms}}}{R}\sqrt{\frac{L}{C}}
+  $$
+  代入数值 <span class="arithmatex">\(R = 10.0\ \Omega, \ L = 0.100\text{ H}, \ C = 1.00 \times 10^{-6}\text{ F}, \ \mathcal{E}_{\text{rms}} = 10.0\text{ V}\)</span>（此时 <span class="arithmatex">\(\mathcal{E}_m = 10\sqrt{2} \approx 14.14\text{ V}\)</span>，<span class="arithmatex">\(\omega_0 = \frac{1}{\sqrt{10^{-7}}} = \sqrt{10}\times 10^3 \approx 3162.3\text{ rad/s}\)</span>，<span class="arithmatex">\(\sqrt{L/C} = 100\sqrt{10} \approx 316.23\ \Omega\)</span>）：
+  $$
+  I</em>
+  $$
+  $$
+  V_{L,\text{peak}} = V_{C,\text{peak}} = \sqrt{2} \times 100\sqrt{10} = 200\sqrt{5}\text{ V} \approx 447\text{ V}
+  $$
+  }} = \frac{10\sqrt{2}}{10.0} = \sqrt{2}\text{ A} \approx 1.41\text{ A}, \qquad V_{R,\text{peak}} = 10\sqrt{2}\text{ V} \approx 14.1\text{ V<strong>对比</strong>：电感与电容上的峰值电压是电源峰值电动势（<span class="arithmatex">\(14.1\text{ V}\)</span>）的 <span class="arithmatex">\(\frac{1}{R}\sqrt{\frac{L}{C}} = 10\sqrt{10} \approx 31.6\)</span> 倍（这一比值即为谐振电路的<strong>品质因数 Quality factor</strong>，体现了串联谐振的<strong>电压放大效应</strong>）！</li>
+<li><strong>(b) 证明任意时刻 <span class="arithmatex">\(v_L(t) + v_C(t) \equiv 0\)</span></strong>：
+  在谐振状态下 <span class="arithmatex">\(\phi = 0\)</span>，设 <span class="arithmatex">\(\mathcal{E}(t) = \mathcal{E}_m\cos(\omega_0 t)\)</span>，则稳态电流为 <span class="arithmatex">\(i(t) = I_{\text{peak}}\cos(\omega_0 t)\)</span>，极板电荷为 <span class="arithmatex">\(q(t) = \int i(t)\,dt = \frac{I_{\text{peak}}}{\omega_0}\sin(\omega_0 t)\)</span>。
+  计算任意瞬时的电感压降与电容压降（利用 <span class="arithmatex">\(\omega_0 L = \frac{1}{\omega_0 C}\)</span>）：
+  $$
+  v_L(t) = L\frac{di}{dt} = -\omega_0 L I_{\text{peak}}\sin(\omega_0 t), \qquad v_C(t) = \frac{q(t)}{C} = +\frac{I_{\text{peak}}}{\omega_0 C}\sin(\omega_0 t) = +\omega_0 L I_{\text{peak}}\sin(\omega_0 t)
+  $$
+  相加立即得到 <strong><span class="arithmatex">\(v_L(t) + v_C(t) \equiv 0\)</span></strong>（在每一瞬间电感电压与电容电压都精确抵消），因此回路中永远有 <span class="arithmatex">\(v_R(t) = \mathcal{E}(t)\)</span>。</li>
+<li><strong>(c) 证明谐振时电磁场总储能 <span class="arithmatex">\(U(t)\)</span> 恒定不变并与单周期焦耳热对比</strong>：
+  计算任意时刻储存在电感与电容中的总电磁能（利用 <span class="arithmatex">\(\frac{1}{C\omega_0^2} = L\)</span>）：
+  $$
+  \begin{aligned}
+  U(t) &amp;= \frac{1}{2}Li^2(t) + \frac{q^2(t)}{2C} = \frac{1}{2}L I_{\text{peak}}^2\cos^2(\omega_0 t) + \frac{I_{\text{peak}}^2}{2C\omega_0^2}\sin^2(\omega_0 t) \
+  &amp;= \frac{1}{2}L I_{\text{peak}}^2\big[\cos^2(\omega_0 t) + \sin^2(\omega_0 t)\big] = \frac{1}{2}L I_{\text{peak}}^2 = \frac{L\mathcal{E}<em _text_avg="\text{avg">{\text{rms}}^2}{R^2} = \text{const}
+  \end{aligned}
+  $$
+  代入数值：<span class="arithmatex">\(U = \frac{1}{2} \times 0.100 \times (\sqrt{2})^2 = 0.100\text{ J}\)</span>。
+  因为总储能 <span class="arithmatex">\(U(t)\)</span> 在谐振时完全不随时间变化，电源在每一瞬间输出的功率全部直接供给电阻发热！在一个周期 <span class="arithmatex">\(T = \frac{2\pi}{\omega_0} = 2\pi\sqrt{LC}\)</span> 内，电阻上产生的焦耳热为：
+  $$
+  H_T = P</em>
+  $$
+  两者的比值为 }} T = \frac{\mathcal{E}_{\text{rms}}^2}{R} \cdot 2\pi\sqrt{LC} = 10.0\text{ W} \times 2\pi\times 10^{-3.5}\text{ s} \approx 0.0199\text{ J} = 19.9\text{ mJ<span class="arithmatex">\(\dfrac{U}{H_T} = \dfrac{1}{2\pi R}\sqrt{\dfrac{L}{C}} \approx 5.03\)</span>（即品质因数 <span class="arithmatex">\(Q = 2\pi\frac{U}{H_T} \approx 31.6\)</span>）。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

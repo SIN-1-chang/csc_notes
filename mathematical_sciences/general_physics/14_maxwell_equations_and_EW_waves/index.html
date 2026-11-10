@@ -1,0 +1,2466 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/">
+      
+      
+        <link rel="prev" href="../13_AC_circuits/">
+      
+      
+        <link rel="next" href="../../probability_theory_and_statistics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>14 麦克斯韦方程组与电磁波 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-14-maxwells-equations-and-em-waves" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14 麦克斯韦方程组与电磁波
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-displacement-current-and-maxwells-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 位移电流与麦克斯韦方程组 (Displacement Current and Maxwell's Equations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 位移电流与麦克斯韦方程组 (Displacement Current and Maxwell&#39;s Equations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 原安培定理在非稳恒情形下的数学矛盾与“位移电流”修正
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 充电电容器的张成曲面佯谬与物理意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 麦克斯韦方程组汇总与磁单极子讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-traveling-electromagnetic-wave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电磁波与平面波性质 (The Traveling Electromagnetic Wave)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电磁波与平面波性质 (The Traveling Electromagnetic Wave)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 真空中电磁波动方程的严格推导与光速的理论预言
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 平面电磁波的三大结构性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-energy-transport-poynting-vector-radiation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电磁波的能量传输与动量光压 (Energy Transport, Poynting Vector &amp; Radiation Pressure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电磁波的能量传输与动量光压 (Energy Transport, Poynting Vector &amp; Radiation Pressure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-poyntings-theorem-and-poynting-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 坡印廷定理与坡印廷矢量 (Poynting's Theorem and Poynting Vector)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-momentum-and-radiation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电磁波的动量与辐射压强 / 光压 (Momentum and Radiation Pressure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-14-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 14 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-displacement-current-and-maxwells-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 位移电流与麦克斯韦方程组 (Displacement Current and Maxwell's Equations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 位移电流与麦克斯韦方程组 (Displacement Current and Maxwell&#39;s Equations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 原安培定理在非稳恒情形下的数学矛盾与“位移电流”修正
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 充电电容器的张成曲面佯谬与物理意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 麦克斯韦方程组汇总与磁单极子讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-traveling-electromagnetic-wave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电磁波与平面波性质 (The Traveling Electromagnetic Wave)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电磁波与平面波性质 (The Traveling Electromagnetic Wave)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 真空中电磁波动方程的严格推导与光速的理论预言
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 平面电磁波的三大结构性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-energy-transport-poynting-vector-radiation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电磁波的能量传输与动量光压 (Energy Transport, Poynting Vector &amp; Radiation Pressure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电磁波的能量传输与动量光压 (Energy Transport, Poynting Vector &amp; Radiation Pressure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-poyntings-theorem-and-poynting-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 坡印廷定理与坡印廷矢量 (Poynting's Theorem and Poynting Vector)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-momentum-and-radiation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电磁波的动量与辐射压强 / 光压 (Momentum and Radiation Pressure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-14-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 14 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-14-maxwells-equations-and-em-waves">Chapter 14: Maxwell's Equations and EM Waves（麦克斯韦方程组与电磁波）<a class="headerlink" href="#chapter-14-maxwells-equations-and-em-waves" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第十四章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 14: <em>Maxwell's Equations and EM Waves</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 14: <em>Maxwell's Equations and EM Waves</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 38</li>
+</ul>
+</div>
+<h2 id="1-displacement-current-and-maxwells-equations">1 位移电流与麦克斯韦方程组 (Displacement Current and Maxwell's Equations)<a class="headerlink" href="#1-displacement-current-and-maxwells-equations" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 原安培定理在非稳恒情形下的数学矛盾与“位移电流”修正<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>在第十一章引入法拉第电磁感应定律后，当时的电磁学基本方程组写为：</p>
+<div class="arithmatex">\[
+\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}, \qquad \nabla \cdot \vec{B} = 0, \qquad \nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t}, \qquad \nabla \times \vec{B} = \mu_0 \vec{j}
+\]</div>
+<p>在矢量微积分中，对于任意光滑矢量场 <span class="arithmatex">\(\vec{A}\)</span>，<strong>旋度的散度恒等于零</strong>：<span class="arithmatex">\(\nabla \cdot (\nabla \times \vec{A}) \equiv 0\)</span>。用这一数学恒等式分别检验上述两个旋度方程：</p>
+<ol>
+<li><strong>检验法拉第定律</strong>：对 <span class="arithmatex">\(\nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t}\)</span> 两边取散度，得 <span class="arithmatex">\(\nabla \cdot (\nabla \times \vec{E}) = -\frac{\partial}{\partial t}(\nabla \cdot \vec{B}) = 0\)</span>，这与磁场高斯定理 <span class="arithmatex">\(\nabla \cdot \vec{B} = 0\)</span> 完全自洽。</li>
+<li><strong>检验安培环路定理（致命矛盾 Fatal Inconsistency）</strong>：对 <span class="arithmatex">\(\nabla \times \vec{B} = \mu_0 \vec{j}\)</span> 两边取散度，结合第六章的电荷守恒连续性方程 <span class="arithmatex">\(\nabla \cdot \vec{j} = -\frac{\partial\rho}{\partial t}\)</span> 与电场高斯定理 <span class="arithmatex">\(\rho = \epsilon_0(\nabla \cdot \vec{E})\)</span>：
+   $$
+   \nabla \cdot (\nabla \times \vec{B}) = \mu_0(\nabla \cdot \vec{j}) = -\mu_0 \frac{\partial\rho}{\partial t} = -\mu_0 \epsilon_0 \frac{\partial}{\partial t}(\nabla \cdot \vec{E}) = -\nabla \cdot \left(\mu_0 \epsilon_0 \frac{\partial\vec{E}}{\partial t}\right)
+   $$
+   当电流非稳恒、空间电荷分布随时间变化（<span class="arithmatex">\(\frac{\partial\rho}{\partial t} \neq 0\)</span>）时，上式右侧不为零，直接违背了数学恒等式 <span class="arithmatex">\(\nabla \cdot (\nabla \times \vec{B}) \equiv 0\)</span>！</li>
+</ol>
+<p><strong>麦克斯韦的修正（Maxwell's Fix）</strong>：
+麦克斯韦敏锐地指出，只需在安培环路定理右侧补上一项由变化电场产生的等效电流密度——<strong>位移电流密度</strong>（Displacement Current Density，记作 <span class="arithmatex">\(\vec{j}_d\)</span> 或 <span class="arithmatex">\(\vec{J}_d\)</span>）：</p>
+<div class="arithmatex">\[
+\vec{j}_d \equiv \epsilon_0 \frac{\partial\vec{E}}{\partial t}, \qquad i_d \equiv \int_S \vec{j}_d \cdot d\vec{S} = \epsilon_0 \frac{d}{dt}\int_S \vec{E} \cdot d\vec{S} = \epsilon_0 \frac{d\Phi_E}{dt}
+\]</div>
+<p>将安培定理修正为<strong>安培-麦克斯韦定律</strong>（Ampère-Maxwell Law）：</p>
+<div class="arithmatex">\[
+\nabla \times \vec{B} = \mu_0(\vec{j} + \vec{j}_d) = \mu_0\left(\vec{j} + \epsilon_0\frac{\partial\vec{E}}{\partial t}\right) \iff \oint_C \vec{B} \cdot d\vec{l} = \mu_0 i_{\text{enc}} + \mu_0 \epsilon_0 \frac{d}{dt}\int_S \vec{E} \cdot d\vec{S}
+\]</div>
+<p>此时再取散度：<span class="arithmatex">\(\nabla \cdot (\nabla \times \vec{B}) = \mu_0\left(\nabla \cdot \vec{j} + \epsilon_0\frac{\partial}{\partial t}\nabla \cdot \vec{E}\right) = \mu_0\left(\nabla \cdot \vec{j} + \frac{\partial\rho}{\partial t}\right) = 0\)</span>，数学矛盾彻底消除！</p>
+<h3 id="12">1.2 充电电容器的张成曲面佯谬与物理意义<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>考察正在通过直导线以电流 <span class="arithmatex">\(i = \frac{dq}{dt}\)</span> 充电的平行板电容器（极板面积为 <span class="arithmatex">\(A\)</span>，忽略边缘效应）。围绕左端输电导线取一个闭合安培环路 <span class="arithmatex">\(C\)</span>，并根据斯托克斯定理任选以 <span class="arithmatex">\(C\)</span> 为边界的张成曲面：</p>
+<ul>
+<li><strong>选取平坦圆盘面 <span class="arithmatex">\(S_1\)</span>（直接切割导线）</strong>：穿过 <span class="arithmatex">\(S_1\)</span> 的传导电流为 <span class="arithmatex">\(i_{\text{enc}} = i\)</span>，而导线外无电场（<span class="arithmatex">\(\Phi_E = 0 \implies i_d = 0\)</span>），安培环路积分给出 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l} = \mu_0 i\)</span>。</li>
+<li><strong>选取袋状曲面 <span class="arithmatex">\(S_2\)</span>（从两极板之间的空隙穿过，不接触任何导线）</strong>：穿过 <span class="arithmatex">\(S_2\)</span> 的真实传导电流为零（<span class="arithmatex">\(i_{\text{enc}} = 0\)</span>）！但极板间存在随时间增强的匀强电场 <span class="arithmatex">\(E = \frac{q}{\epsilon_0 A}\)</span>，穿过 <span class="arithmatex">\(S_2\)</span> 的位移电流恰好为：
+  $$
+  i_d = \epsilon_0 \frac{d}{dt}(EA) = \epsilon_0 A \frac{d}{dt}\left(\frac{q}{\epsilon_0 A}\right) = \frac{dq}{dt} = i
+  $$
+  因此，在计入位移电流项后，曲面 <span class="arithmatex">\(S_2\)</span> 同样给出 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l} = \mu_0(0 + i_d) = \mu_0 i\)</span>！</li>
+</ul>
+<p><strong>深刻的物理对称性</strong>：位移电流 <span class="arithmatex">\(i_d\)</span> 在形式上将导线中的传导电流 <span class="arithmatex">\(i\)</span> 连续地“接力延续”穿过了电容器极板间隙。更重要的是，在电容器两极板之间虽无任何传导电流（<span class="arithmatex">\(j = 0\)</span>），但变化的电场 <span class="arithmatex">\(\frac{\partial\vec{E}}{\partial t}\)</span> 依然在极板间激发出了环绕轴线的真实磁场 <span class="arithmatex">\(\vec{B}\)</span>。<strong>正如法拉第定律指出“变化的磁场激发电场”，麦克斯韦位移电流揭示了其逆过程——“变化的电场激发磁场”</strong>！</p>
+<h3 id="13">1.3 麦克斯韦方程组汇总与磁单极子讨论<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>至此，经典电动力学的全部理论大厦由<strong>麦克斯韦方程组</strong>（Maxwell's Equations）与<strong>洛伦兹力定律</strong>（Lorentz Force Law）完整概括：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">定律名称</th>
+<th style="text-align: left;">微分形式（Differential Form）</th>
+<th style="text-align: left;">积分形式（Integral Form，静止回路/曲面）</th>
+<th style="text-align: left;">物理角色与内涵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 电场高斯定理</strong><br>（Gauss' Law for <span class="arithmatex">\(\vec{E}\)</span>）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}\)</span>$</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\oint_S \vec{E} \cdot d\vec{S} = \frac{1}{\epsilon_0}\int_V \rho\,dV = \frac{q_{\text{enc}}}{\epsilon_0}\)</span>$</td>
+<td style="text-align: left;"><strong>瞬时空间约束</strong>：电荷是电场的源与汇（库仑平方反比律）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 磁场高斯定理</strong><br>（Gauss' Law for <span class="arithmatex">\(\vec{B}\)</span>）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\nabla \cdot \vec{B} = 0\)</span>$</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\oint_S \vec{B} \cdot d\vec{S} = 0\)</span>$</td>
+<td style="text-align: left;"><strong>瞬时空间约束</strong>：自然界无磁单极子，磁感线恒闭合</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 法拉第感应定律</strong><br>（Faraday's Law）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t}\)</span>$</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\oint_C \vec{E} \cdot d\vec{l} = -\frac{d}{dt}\int_S \vec{B} \cdot d\vec{S}\)</span>$</td>
+<td style="text-align: left;"><strong>场的时间演化</strong>：变化的磁场激发涡旋电场</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. 安培-麦克斯韦定律</strong><br>（Ampère-Maxwell Law）</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\nabla \times \vec{B} = \mu_0\left(\vec{j} + \epsilon_0\frac{\partial\vec{E}}{\partial t}\right)\)</span>$</td>
+<td style="text-align: left;">$<span class="arithmatex">\(\oint_C \vec{B} \cdot d\vec{l} = \mu_0\int_S \vec{j}\cdot d\vec{S} + \mu_0\epsilon_0\frac{d}{dt}\int_S \vec{E}\cdot d\vec{S}\)</span>$</td>
+<td style="text-align: left;"><strong>场的时间演化</strong>：传导电流与变化的电场共同激发磁场</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>洛伦兹力公式</strong><br>（Lorentz Force Law）</td>
+<td style="text-align: left;">\multicolumn{2}{c</td>
+<td style="text-align: left;">}{$<span class="arithmatex">\(\vec{F} = q\left(\vec{E} + \vec{v} \times \vec{B}\right)\)</span>$（结合牛顿第二定律决定电荷运动）}</td>
+<td style="text-align: left;"><strong>场对物质的作用</strong>：电磁场对带电粒子施加作用力</td>
+</tr>
+</tbody>
+</table>
+<p><em>注：关于磁荷（Magnetic Charge, Section 14.2）：麦克斯韦方程组中唯一的不对称性在于存在电的静止源（电荷 <span class="arithmatex">\(\rho\)</span> 与电流 <span class="arithmatex">\(\vec{j}\)</span>），却不存在磁荷 <span class="arithmatex">\(\rho_m\)</span> 与磁流 <span class="arithmatex">\(\vec{j}_m\)</span>。保罗·狄拉克（Paul Dirac）曾证明，宇宙中只要存在一个磁单极子，就能从量子力学上完美解释为什么电荷是量子化的；但迄今为止所有实验搜寻均未发现磁单极子，<span class="arithmatex">\(\nabla\cdot\vec{B} = 0\)</span> 在实验精度内严格成立。</em></p>
+<hr />
+<h2 id="2-the-traveling-electromagnetic-wave">2 电磁波与平面波性质 (The Traveling Electromagnetic Wave)<a class="headerlink" href="#2-the-traveling-electromagnetic-wave" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 真空中电磁波动方程的严格推导与光速的理论预言<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>在没有电荷和电流的真空区域（<span class="arithmatex">\(\rho = 0, \ \vec{j} = \vec{0}\)</span>），麦克斯韦方程组具有高度的对称性：</p>
+<div class="arithmatex">\[
+\nabla \cdot \vec{E} = 0, \qquad \nabla \cdot \vec{B} = 0, \qquad \nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t}, \qquad \nabla \times \vec{B} = \mu_0 \epsilon_0 \frac{\partial\vec{E}}{\partial t}
+\]</div>
+<p>为了将耦合的一阶偏微分方程组解耦，分别对后两个旋度方程两边再取一次旋度，并交换空间求导与时间求导的次序：</p>
+<div class="arithmatex">\[
+\nabla \times (\nabla \times \vec{E}) = \nabla \times \left(-\frac{\partial\vec{B}}{\partial t}\right) = -\frac{\partial}{\partial t}(\nabla \times \vec{B}) = -\mu_0 \epsilon_0 \frac{\partial^2\vec{E}}{\partial t^2}
+\]</div>
+<div class="arithmatex">\[
+\nabla \times (\nabla \times \vec{B}) = \nabla \times \left(\mu_0 \epsilon_0 \frac{\partial\vec{E}}{\partial t}\right) = \mu_0 \epsilon_0 \frac{\partial}{\partial t}(\nabla \times \vec{E}) = -\mu_0 \epsilon_0 \frac{\partial^2\vec{B}}{\partial t^2}
+\]</div>
+<p>应用矢量分析中著名的<strong>旋度之旋度恒等式</strong>（由矢量三重积 <span class="arithmatex">\(\vec{A}\times(\vec{B}\times\vec{C}) = \vec{B}(\vec{A}\cdot\vec{C}) - (\vec{A}\cdot\vec{B})\vec{C}\)</span> 取 <span class="arithmatex">\(\vec{A}=\vec{B}=\nabla\)</span> 导出）：</p>
+<div class="arithmatex">\[
+\nabla \times (\nabla \times \vec{A}) = \nabla(\nabla \cdot \vec{A}) - \nabla^2\vec{A}
+\]</div>
+<p>代入真空条件 <span class="arithmatex">\(\nabla \cdot \vec{E} = 0\)</span> 与 <span class="arithmatex">\(\nabla \cdot \vec{B} = 0\)</span>，左边简化为 <span class="arithmatex">\(-\nabla^2\vec{E}\)</span> 与 <span class="arithmatex">\(-\nabla^2\vec{B}\)</span>。消去负号，即得到 <span class="arithmatex">\(\vec{E}\)</span> 和 <span class="arithmatex">\(\vec{B}\)</span> 满足的三维<strong>波动方程</strong>（Wave Equation）：</p>
+<div class="arithmatex">\[
+\nabla^2 \vec{E} = \mu_0 \epsilon_0 \frac{\partial^2\vec{E}}{\partial t^2}, \qquad \nabla^2 \vec{B} = \mu_0 \epsilon_0 \frac{\partial^2\vec{B}}{\partial t^2}
+\]</div>
+<p>对比标准波动方程 <span class="arithmatex">\(\nabla^2 \psi = \frac{1}{c^2}\frac{\partial^2 \psi}{\partial t^2}\)</span>（一维形式 <span class="arithmatex">\(\frac{\partial^2\psi}{\partial x^2} = \frac{1}{c^2}\frac{\partial^2\psi}{\partial t^2}\)</span> 的通解为沿 <span class="arithmatex">\(\pm x\)</span> 方向传播的行波 <span class="arithmatex">\(\psi = \psi_1(x - ct) + \psi_2(x + ct)\)</span>），麦克斯韦发现电磁波在真空中的传播速率 <span class="arithmatex">\(c\)</span> 完全由两个电磁学基本常数决定：</p>
+<div class="arithmatex">\[
+c = \frac{1}{\sqrt{\mu_0 \epsilon_0}} = \frac{1}{\sqrt{(4\pi \times 10^{-7}\text{ N/A}^2)(8.854 \times 10^{-12}\text{ F/m})}} \approx 2.998 \times 10^8\text{ m/s}
+\]</div>
+<p>这一数值与实验测得的<strong>光速</strong>惊人地吻合！麦克斯韦据此断定<strong>光就是一种电磁波</strong>，在赫兹（Hertz, 1887）于实验室产生无线电波二十多年前，便将整个光学（Optics）统一为电磁学的一个分支。</p>
+<p><strong>电磁波谱（The Electromagnetic Spectrum）与电磁波的发射</strong>：
+所有电磁波在真空中均以同一光速 <span class="arithmatex">\(c = \lambda f = \omega/k\)</span> 传播。按波长 <span class="arithmatex">\(\lambda\)</span> 从长到短（频率从低到高），电磁波谱依次涵盖：<strong>无线电波</strong>（Radio waves, <span class="arithmatex">\(\lambda &gt; 0.1\text{ m}\)</span>）、<strong>微波</strong>（Microwaves）、<strong>红外线</strong>（Infrared）、<strong>可见光</strong>（Visible light，仅占 <span class="arithmatex">\(400\text{ nm} \sim 700\text{ nm}\)</span> 的极窄窗口）、<strong>紫外线</strong>（Ultraviolet）、<strong>X 射线</strong>（X-rays）与 <strong><span class="arithmatex">\(\gamma\)</span> 射线</strong>（Gamma rays, <span class="arithmatex">\(\lambda &lt; 10^{-11}\text{ m}\)</span>）。宏观上，电磁波由<strong>加速运动的电荷</strong>（Accelerating charges，如 LC 振荡器通过传输线驱动电偶极天线 Electric dipole antenna 中的振荡电荷）向外辐射产生。</p>
+<h3 id="22">2.2 平面电磁波的三大结构性质<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>考察沿 <span class="arithmatex">\(+x\)</span> 方向（波矢 <span class="arithmatex">\(\vec{k} = k\hat{x}\)</span>，其中波数 <span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span>，角频率 <span class="arithmatex">\(\omega = \frac{2\pi}{T} = ck\)</span>，传播方向单位矢量 <span class="arithmatex">\(\hat{k} = \hat{x}\)</span>）传播的单色平面电磁波试探解：</p>
+<div class="arithmatex">\[
+\vec{E}(x, t) = \vec{E}_0 \cos[k(x - ct) + \phi] = \vec{E}_0 \cos(kx - \omega t + \phi), \qquad \vec{B}(x, t) = \vec{B}_0 \cos[k'(x - ct) + \phi']
+\]</div>
+<p>虽然波动方程允许任意方向的常矢量 <span class="arithmatex">\(\vec{E}_0, \vec{B}_0\)</span>，但一阶<strong>麦克斯韦方程组对 <span class="arithmatex">\(\vec{E}\)</span> 和 <span class="arithmatex">\(\vec{B}\)</span> 施加了三条严格的附加几何与代数约束</strong>：</p>
+<ol>
+<li><strong>横波性（Transverse Wave Property）</strong>：
+   计算散度得 <span class="arithmatex">\(\nabla \cdot \vec{E} = -k(\hat{x}\cdot\vec{E}_0)\sin(kx - \omega t + \phi) = 0\)</span>，以及 <span class="arithmatex">\(\nabla \cdot \vec{B} = -k'(\hat{x}\cdot\vec{B}_0)\sin(k'x - \omega' t + \phi') = 0\)</span>。这要求在任意时刻和位置必有：
+   $$
+   \hat{k} \cdot \vec{E} = 0, \qquad \hat{k} \cdot \vec{B} = 0 \iff E_x = B_x = 0
+   $$
+   即<strong>电场矢量 <span class="arithmatex">\(\vec{E}\)</span> 与磁场矢量 <span class="arithmatex">\(\vec{B}\)</span> 均垂直于波的传播方向 <span class="arithmatex">\(\hat{k}\)</span>，真空中的电磁波是严格的横波</strong>！</li>
+<li><strong>同频同相性（Identical Frequency and In-Phase Oscillation）</strong>：
+   将 <span class="arithmatex">\(\nabla \times \vec{E} = -k(\hat{x} \times \vec{E}_0)\sin(kx - \omega t + \phi)\)</span> 与 <span class="arithmatex">\(-\frac{\partial\vec{B}}{\partial t} = -k'c\vec{B}_0\sin(k'x - \omega' t + \phi')\)</span> 代入法拉第定律 <span class="arithmatex">\(\nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t}\)</span>。要使该式在所有 <span class="arithmatex">\((x, t)\)</span> 处恒成立，两正弦函数必须完全同步：
+   $$
+   k' = k \quad (\omega' = \omega), \qquad \phi' = \phi
+   $$
+   即<strong>电场 <span class="arithmatex">\(\vec{E}\)</span> 与磁场 <span class="arithmatex">\(\vec{B}\)</span> 具有相同的频率和完全相同的相位</strong>（在同一时刻、同一空间位置同时达到波峰、波谷或零点）。</li>
+<li><strong>正交右手螺旋与振幅锁定关系（Mutual Orthogonality and Amplitude Ratio）</strong>：
+   由法拉第定律的系数相等，直接得到 <span class="arithmatex">\(\vec{E}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> 的矢量叉乘锁定关系（推广至任意传播方向 <span class="arithmatex">\(\hat{k}\)</span>）：
+   $$
+   \vec{k} \times \vec{E}_0 = \omega \vec{B}_0 \iff \vec{B} = \frac{1}{c}\left(\hat{k} \times \vec{E}\right), \qquad E_0 = c B_0 \quad (E = cB)
+   $$
+   这表明：<strong><span class="arithmatex">\(\vec{E}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> 处处相互垂直（<span class="arithmatex">\(\vec{E} \perp \vec{B}\)</span>）</strong>，且 <span class="arithmatex">\((\vec{E}, \vec{B}, \hat{k})\)</span> 严格构成<strong>右手正交螺旋系</strong>（<span class="arithmatex">\(\vec{E} \times \vec{B}\)</span> 指向波的传播方向 <span class="arithmatex">\(\hat{k}\)</span>）。</li>
+</ol>
+<hr />
+<h2 id="3-energy-transport-poynting-vector-radiation-pressure">3 电磁波的能量传输与动量光压 (Energy Transport, Poynting Vector &amp; Radiation Pressure)<a class="headerlink" href="#3-energy-transport-poynting-vector-radiation-pressure" title="Permanent link">&para;</a></h2>
+<h3 id="31-poyntings-theorem-and-poynting-vector">3.1 坡印廷定理与坡印廷矢量 (Poynting's Theorem and Poynting Vector)<a class="headerlink" href="#31-poyntings-theorem-and-poynting-vector" title="Permanent link">&para;</a></h3>
+<p>空间电磁场的总能量密度为电场能密度与磁场能密度之和：</p>
+<div class="arithmatex">\[
+u = u_E + u_B = \frac{1}{2}\epsilon_0 E^2 + \frac{1}{2\mu_0} B^2
+\]</div>
+<p><strong>1. 电磁场能量的局域守恒定律（坡印廷定理）</strong></p>
+<p>对总能量密度 <span class="arithmatex">\(u\)</span> 求时间偏导数，并代入麦克斯韦旋度方程 <span class="arithmatex">\(\epsilon_0\frac{\partial\vec{E}}{\partial t} = \frac{1}{\mu_0}\nabla\times\vec{B} - \vec{j}\)</span> 与 <span class="arithmatex">\(\frac{\partial\vec{B}}{\partial t} = -\nabla\times\vec{E}\)</span>：</p>
+<div class="arithmatex">\[
+\frac{\partial u}{\partial t} = \epsilon_0 \vec{E}\cdot\frac{\partial\vec{E}}{\partial t} + \frac{1}{\mu_0}\vec{B}\cdot\frac{\partial\vec{B}}{\partial t} = \frac{1}{\mu_0}\vec{E}\cdot(\nabla\times\vec{B}) - \frac{1}{\mu_0}\vec{B}\cdot(\nabla\times\vec{E}) - \vec{j}\cdot\vec{E}
+\]</div>
+<p>应用第四章的叉乘散度恒等式 <span class="arithmatex">\(\nabla \cdot (\vec{E} \times \vec{B}) = \vec{B}\cdot(\nabla\times\vec{E}) - \vec{E}\cdot(\nabla\times\vec{B})\)</span>，立即得到<strong>电磁能量连续性方程（坡印廷定理微分形式）</strong>：</p>
+<div class="arithmatex">\[
+\nabla \cdot \vec{S} + \frac{\partial u}{\partial t} = -\vec{j} \cdot \vec{E} \qquad \left(\text{在无电流真空中 }\vec{j} = \vec{0} \implies \nabla \cdot \vec{S} + \frac{\partial u}{\partial t} = 0\right)
+\]</div>
+<p>其中定义了表征单位时间内垂直穿过单位面积的电磁能量流——<strong>坡印廷矢量</strong>（Poynting Vector，又称<strong>能流密度矢量</strong>，SI 单位为 <span class="arithmatex">\(\text{W/m}^2\)</span>）：</p>
+<div class="arithmatex">\[
+\vec{S} \equiv \frac{1}{\mu_0} \vec{E} \times \vec{B}
+\]</div>
+<p>（物理意义：右端源项 <span class="arithmatex">\(-\vec{j}\cdot\vec{E}\)</span> 表示电磁场对电流载流子做功的功率密度；当电流在电阻中流动时，<span class="arithmatex">\(\vec{j}\cdot\vec{E} = \rho_e J^2 &gt; 0\)</span> 为焦耳热功率密度，表现为电磁场能量的“汇” Sink）。</p>
+<p><strong>2. 平面电磁波中的能量均分与波强 / 光强（Intensity）</strong></p>
+<p>在平面电磁波中，由于 <span class="arithmatex">\(B = E/c\)</span> 且 <span class="arithmatex">\(c^2 = \frac{1}{\mu_0\epsilon_0}\)</span>，<strong>电场能量密度与磁场能量密度在任何时刻、任何地点都严格相等</strong>：</p>
+<div class="arithmatex">\[
+u_B = \frac{B^2}{2\mu_0} = \frac{(E/c)^2}{2\mu_0} = \frac{\mu_0 \epsilon_0 E^2}{2\mu_0} = \frac{1}{2}\epsilon_0 E^2 = u_E \implies u = u_E + u_B = \epsilon_0 E^2 = \frac{B^2}{\mu_0}
+\]</div>
+<p>瞬时能流密度大小为 <span class="arithmatex">\(S = \frac{EB}{\mu_0} = \epsilon_0 c E^2 = u c = (u_E + u_B)c\)</span>。对高频余弦平方项 <span class="arithmatex">\(\cos^2(kx - \omega t + \phi)\)</span> 在一个周期内求时间平均（<span class="arithmatex">\(\langle\cos^2\rangle = \frac{1}{2}\)</span>），定义坡印廷矢量的时间平均值为电磁波的<strong>波强</strong>或<strong>光强</strong>（Intensity，记作 <span class="arithmatex">\(I\)</span> 或 <span class="arithmatex">\(\overline{S}\)</span>）：</p>
+<div class="arithmatex">\[
+\overline{\vec{S}} = \frac{1}{2\mu_0}\vec{E}_0 \times \vec{B}_0, \qquad I = \overline{S} = S_{\text{avg}} = \frac{E_0 B_0}{2\mu_0} = \frac{1}{2}\epsilon_0 c E_0^2 = \frac{E_0^2}{2\mu_0 c} = \frac{c B_0^2}{2\mu_0}
+\]</div>
+<p>对于辐射总功率为 <span class="arithmatex">\(P_s\)</span> 的各向同性点波源（Isotropic point source），球面波前在半径 <span class="arithmatex">\(r\)</span> 处的球面面积为 <span class="arithmatex">\(4\pi r^2\)</span>，由能量守恒可知波强随距离按<strong>平方反比律</strong>衰减：</p>
+<div class="arithmatex">\[
+I(r) = \frac{P_s}{4\pi r^2}
+\]</div>
+<h3 id="32-momentum-and-radiation-pressure">3.2 电磁波的动量与辐射压强 / 光压 (Momentum and Radiation Pressure)<a class="headerlink" href="#32-momentum-and-radiation-pressure" title="Permanent link">&para;</a></h3>
+<p>电磁波不仅携带能量，还携带<strong>线动量</strong>（Linear Momentum）。由麦克斯韦方程组消去电荷与电流后可以证明，全空间机械动量 <span class="arithmatex">\(\vec{p}_{\text{mech}}\)</span> 与电磁场动量的总和守恒：</p>
+<div class="arithmatex">\[
+\frac{\partial}{\partial t}\left(\vec{p}_{\text{mech}} + \frac{1}{c^2}\int_V \vec{S}\,dV\right) = \vec{0} \implies \text{电磁场的动量密度 } \vec{g} = \frac{\vec{S}}{c^2}, \qquad \text{动量流率 } \frac{\vec{S}}{c}
+\]</div>
+<p>即若物体吸收了能量为 <span class="arithmatex">\(\Delta U\)</span> 的电磁辐射，则物体获得的动量大小为 <span class="arithmatex">\(\Delta p = \frac{\Delta U}{c}\)</span>。</p>
+<p>当波强为 <span class="arithmatex">\(I\)</span> 的平行光束（或电磁波）<strong>垂直入射</strong>到面积为 <span class="arithmatex">\(A\)</span> 的平坦表面上时，在 <span class="arithmatex">\(\Delta t\)</span> 时间内入射到表面上的总能量为 <span class="arithmatex">\(\Delta U = I A \Delta t\)</span>，产生的平均作用力为 <span class="arithmatex">\(F = \frac{\Delta p}{\Delta t}\)</span>，由此得到作用在单位面积上的<strong>辐射压强 / 光压</strong>（Radiation Pressure，记作 <span class="arithmatex">\(p_r = \frac{F}{A}\)</span>，单位 <span class="arithmatex">\(\text{Pa} = \text{N/m}^2\)</span>）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">表面光学性质</th>
+<th style="text-align: center;"><span class="arithmatex">\(\Delta t\)</span> 时间内传递的动量 <span class="arithmatex">\(\Delta p\)</span></th>
+<th style="text-align: center;">辐射压强（光压）公式 <span class="arithmatex">\(p_r = F/A\)</span></th>
+<th style="text-align: left;">物理机制说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 完全吸收（Total Absorption）</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\Delta p = \dfrac{\Delta U}{c} = \dfrac{I A \Delta t}{c}\)</span></td>
+<td style="text-align: center;">$<span class="arithmatex">\(p_r = \frac{I}{c}\)</span>$</td>
+<td style="text-align: left;">入射光子动量全部被靶面吸收，无反射波</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 完全反射（Total Reflection）</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\Delta p = \dfrac{2\Delta U}{c} = \dfrac{2 I A \Delta t}{c}\)</span></td>
+<td style="text-align: center;">$<span class="arithmatex">\(p_r = \frac{2I}{c}\)</span>$</td>
+<td style="text-align: left;">光波原路反向弹回，动量改变量加倍（如同弹性碰撞）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-chapter-14-selected-exercises">4 Chapter 14 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-14-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 14.1, 14.2 &amp; 14.3: Capacitor Displacement Current, Plane Wave Parameters &amp; Wire Poynting Vector（电容器位移电流、平面波参数与载流导线内坡印廷矢量）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 14.1</strong>: A capacitor consists of two parallel circular plates, each of radius <span class="arithmatex">\(a\)</span>. We connect the capacitor to an AC emf such that the charge on the capacitor follows <span class="arithmatex">\(Q = Q_0\sin\omega t\)</span>. Calculate the displacement current density <span class="arithmatex">\(j_d\)</span>, the total displacement current <span class="arithmatex">\(i_d\)</span>, and the magnetic field <span class="arithmatex">\(B\)</span> at a distance <span class="arithmatex">\(r &lt; a\)</span> from the axis, assuming <span class="arithmatex">\(\omega a \ll c\)</span> and ignoring boundary effects.
+- <strong>Ex 14.2</strong>: An electromagnetic wave is traveling in vacuum, where the electric field part is given by <span class="arithmatex">\(E_x = 0, \ E_y = 0.30\cos[\omega(t - x/c)]\text{ V/m}, \ E_z = 0\)</span>, where <span class="arithmatex">\(\omega = 2\pi \times 10^8\text{ s}^{-1}\)</span>. Calculate: (a) The wavelength; (b) The propagation direction; (c) The magnitude and direction of the magnetic field.
+- <strong>Ex 14.3</strong>: A steady current <span class="arithmatex">\(i\)</span> is flowing through a long cylindrical lead of radius <span class="arithmatex">\(a\)</span> and resistivity <span class="arithmatex">\(\rho_e\)</span> (uniform current and electric field). (a) Calculate the magnitudes and directions of <span class="arithmatex">\(\vec{E}, \vec{B}\)</span> and the Poynting vector <span class="arithmatex">\(\vec{S}\)</span> at a distance <span class="arithmatex">\(r &lt; a\)</span> from the central axis. (b) Verify the continuity equation <span class="arithmatex">\(\nabla\cdot\vec{S} + \frac{\partial u}{\partial t} = -\rho_e J^2 = -\vec{j}\cdot\vec{E}\)</span> inside the lead.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 圆形平行板电容器内的位移电流与感生磁场（Exercise 14.1）</strong>：
+极板面积为 <span class="arithmatex">\(A = \pi a^2\)</span>，极板间匀强电场大小为 <span class="arithmatex">\(E(t) = \frac{Q(t)}{\epsilon_0 \pi a^2} = \frac{Q_0}{\epsilon_0 \pi a^2}\sin(\omega t)\)</span>。</p>
+<ul>
+<li><strong>位移电流密度 <span class="arithmatex">\(j_d\)</span></strong>：
+  $$
+  j_d = \epsilon_0 \frac{\partial E}{\partial t} = \frac{Q_0 \omega}{\pi a^2}\cos(\omega t)
+  $$</li>
+<li><strong>总位移电流 <span class="arithmatex">\(i_d\)</span></strong>：
+  $$
+  i_d = j_d (\pi a^2) = Q_0 \omega \cos(\omega t) \qquad \left(\text{恰好等于传导电流 } i = \frac{dQ}{dt}\right)
+  $$</li>
+<li><strong>极板间距离轴线 <span class="arithmatex">\(r &lt; a\)</span> 处的磁感应强度 <span class="arithmatex">\(B(r, t)\)</span></strong>：
+  由轴对称性，取半径为 <span class="arithmatex">\(r &lt; a\)</span> 的同心圆作为安培环路（穿过该圆面的传导电流为 <span class="arithmatex">\(0\)</span>，位移电流为 <span class="arithmatex">\(\pi r^2 j_d\)</span>），应用安培-麦克斯韦定律 <span class="arithmatex">\(2\pi r B = \mu_0(\pi r^2 j_d)\)</span>：
+  $$
+  B(r, t) = \frac{1}{2}\mu_0 j_d r = \frac{\mu_0 Q_0 \omega r}{2\pi a^2}\cos(\omega t) \qquad (r &lt; a)
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 真空平面电磁波的波长、传播方向与伴随磁场（Exercise 14.2）</strong>：</p>
+<ul>
+<li><strong>(a) 波长 <span class="arithmatex">\(\lambda\)</span></strong>：
+  由 <span class="arithmatex">\(\omega = 2\pi f = 2\pi \times 10^8\text{ rad/s}\)</span> 得频率 <span class="arithmatex">\(f = 10^8\text{ Hz}\)</span>。故波长为：
+  $$
+  \lambda = \frac{c}{f} = \frac{2\pi c}{\omega} = \frac{3.00 \times 10^8\text{ m/s}}{10^8\text{ s}^{-1}} = 3.0\text{ m}
+  $$</li>
+<li><strong>(b) 传播方向</strong>：
+  相位因子为 <span class="arithmatex">\(\omega\left(t - \frac{x}{c}\right) = \omega t - kx\)</span>，等相面满足 <span class="arithmatex">\(x - ct = \text{const}\)</span>，故电磁波沿 <strong><span class="arithmatex">\(+x\)</span> 轴正方向</strong>（<span class="arithmatex">\(\hat{k} = +\hat{x}\)</span>）传播。</li>
+<li><strong>(c) 磁场的方向与大小</strong>：
+  由平面波正交关系 <span class="arithmatex">\(\vec{B} = \frac{1}{c}(\hat{k}\times\vec{E})\)</span>，因 <span class="arithmatex">\(\hat{k} = \hat{x}\)</span> 且 <span class="arithmatex">\(\vec{E} = E_y\hat{y}\)</span>，故 <span class="arithmatex">\(\vec{B}\)</span> 沿 <strong><span class="arithmatex">\(+z\)</span> 轴方向</strong>（<span class="arithmatex">\(\hat{x}\times\hat{y} = \hat{z}\)</span>）。
+  磁场振幅为 <span class="arithmatex">\(B_0 = \frac{E_0}{c} = \frac{0.30\text{ V/m}}{3.00 \times 10^8\text{ m/s}} = 1.0 \times 10^{-9}\text{ T} = 1.0\text{ nT}\)</span>，完整表达式为：
+  $$
+  \vec{B}(x, t) = \left(1.0 \times 10^{-9}\text{ T}\right)\cos\left[\omega\left(t - \frac{x}{c}\right)\right]\hat{z}
+  $$</li>
+</ul>
+<hr />
+<p><strong>3. 稳恒载流圆柱导线内部的坡印廷矢量与焦耳热能量流守恒（Exercise 14.3，深刻物理图像题）</strong>：</p>
+<ul>
+<li><strong>(a) 求导线内部 <span class="arithmatex">\(r &lt; a\)</span> 处的 <span class="arithmatex">\(\vec{E}, \vec{B}\)</span> 与 <span class="arithmatex">\(\vec{S}\)</span></strong>：
+  设圆柱导线轴线沿 <span class="arithmatex">\(+z\)</span> 方向，电流 <span class="arithmatex">\(i\)</span> 沿 <span class="arithmatex">\(+\hat{z}\)</span> 均匀分布，电流密度大小为 <span class="arithmatex">\(J = \frac{i}{\pi a^2}\)</span>：</li>
+<li><strong>电场 <span class="arithmatex">\(\vec{E}\)</span></strong>：由欧姆定律 <span class="arithmatex">\(\vec{E} = \rho_e \vec{j}\)</span>，方向<strong>沿轴向 <span class="arithmatex">\(+\hat{z}\)</span>（平行于电流方向）</strong>，大小为：
+     $$
+     E = \rho_e J = \frac{\rho_e i}{\pi a^2}
+     $$</li>
+<li><strong>磁场 <span class="arithmatex">\(\vec{B}\)</span></strong>：由安培环路定理 <span class="arithmatex">\(2\pi r B = \mu_0(\pi r^2 J)\)</span>，方向<strong>沿方位角 <span class="arithmatex">\(+\hat{\phi}\)</span>（右手螺旋环绕轴线）</strong>，大小为：
+     $$
+     B(r) = \frac{1}{2}\mu_0 J r = \frac{\mu_0 i r}{2\pi a^2}
+     $$</li>
+<li><strong>坡印廷矢量 <span class="arithmatex">\(\vec{S}\)</span></strong>：利用柱坐标基矢叉乘 <span class="arithmatex">\(\hat{z}\times\hat{\phi} = -\hat{r}\)</span>：
+     $$
+     \vec{S}(r) = \frac{1}{\mu_0}\vec{E} \times \vec{B} = \frac{1}{\mu_0}(\rho_e J\hat{z}) \times \left(\frac{1}{2}\mu_0 J r\hat{\phi}\right) = -\frac{1}{2}\rho_e J^2 r\,\hat{r} = -\frac{\rho_e i^2 r}{2\pi^2 a^4}\hat{r}
+     $$
+     即坡印廷矢量大小为 <span class="arithmatex">\(S(r) = \frac{1}{2}\rho_e J^2 r = \dfrac{\rho_e i^2 r}{2\pi^2 a^4}\)</span>，方向<strong>沿径向垂直指向导线中心轴线（<span class="arithmatex">\(-\hat{r}\)</span>，Radially inward）</strong>！
+     <em>（物理图像：导线发热所需的能量并不是顺着导线内部轴向流动的，而是由周围空间的电磁场通过导线侧面沿径向源源不断地流入导线内部并转化为焦耳热的！）。</em></li>
+<li><strong>(b) 验证能量连续性方程</strong>：
+  由于是稳恒电流，<span class="arithmatex">\(\vec{E}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> 不随时间变化，故能量密度的时间导数 <span class="arithmatex">\(\frac{\partial u}{\partial t} = 0\)</span>。
+  在柱坐标系下计算径向矢量场 <span class="arithmatex">\(\vec{S} = S_r(r)\hat{r}\)</span> 的散度（其中 <span class="arithmatex">\(S_r(r) = -\frac{1}{2}\rho_e J^2 r\)</span>）：
+  $$
+  \nabla \cdot \vec{S} + \frac{\partial u}{\partial t} = \frac{1}{r}\frac{d}{dr}\big(r S_r(r)\big) + 0 = \frac{1}{r}\frac{d}{dr}\left(-\frac{1}{2}\rho_e J^2 r^2\right) = -\rho_e J^2 = -\vec{j} \cdot \vec{E}
+  $$
+  方程两端严格相等，证毕。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 14.4, 14.5 &amp; 14.6: Feynman's Angular Momentum Paradox, Leaky Capacitor &amp; Magnetic Monopoles（球形电容器电磁角动量、漏电电容器与磁单极子超导环）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 14.4</strong>: A spherical capacitor has inner shell radius <span class="arithmatex">\(r_1\)</span> (charge <span class="arithmatex">\(+Q\)</span>) and outer shell radius <span class="arithmatex">\(r_2\)</span> (charge <span class="arithmatex">\(-Q\)</span>). Initially it is at rest in a uniform field <span class="arithmatex">\(\vec{B} = B\hat{z}\)</span>, which is later slowly removed. The two insulating shells are rigidly joined and can turn freely about the <span class="arithmatex">\(z\)</span> axis with moment of inertia <span class="arithmatex">\(I\)</span>. Find the final angular velocity <span class="arithmatex">\(\vec{\omega}\)</span>, with its sense relative to <span class="arithmatex">\(+z\)</span>.
+- <strong>Ex 14.5</strong>: A circular parallel-plate capacitor (radius <span class="arithmatex">\(a\)</span>, separation <span class="arithmatex">\(d \ll a\)</span>) is filled with a weakly conducting material (<span class="arithmatex">\(\sigma, \epsilon_0\)</span>). At <span class="arithmatex">\(t = 0\)</span> the isolated plates carry <span class="arithmatex">\(\pm Q_0\)</span>. (a) Find <span class="arithmatex">\(Q(t)\)</span> for <span class="arithmatex">\(t &gt; 0\)</span>. (b) Find the conduction current density <span class="arithmatex">\(\vec{j}_c\)</span>, displacement current density <span class="arithmatex">\(\vec{j}_d\)</span>, and magnetic field <span class="arithmatex">\(\vec{B}\)</span> between the plates. (c) Find the total heat produced, compare with initial stored energy, and explain using <span class="arithmatex">\(\vec{S}\)</span> where that heat comes from.
+- <strong>Ex 14.6</strong>: Suppose magnetic charge existed (<span class="arithmatex">\(\rho_m, \vec{j}_m\)</span>) with <span class="arithmatex">\(\nabla\cdot\vec{B} = \mu_0\rho_m\)</span> and <span class="arithmatex">\(\nabla\cdot\vec{j}_m + \partial\rho_m/\partial t = 0\)</span>, where a point magnetic charge <span class="arithmatex">\(q_m\)</span> produces <span class="arithmatex">\(\vec{B} = \frac{\mu_0 q_m \hat{r}}{4\pi r^2}\)</span>.
+  (a) Show that Faraday's law requires adding <span class="arithmatex">\(-\mu_0\vec{j}_m\)</span> to its right-hand side to satisfy <span class="arithmatex">\(\nabla\cdot(\nabla\times\vec{E}) = 0\)</span>, and write the integral form.
+  (b) A superconducting ring (<span class="arithmatex">\(R = 0\)</span>, self-inductance <span class="arithmatex">\(L\)</span>) lies in the plane <span class="arithmatex">\(z = 0\)</span> with no initial current. A magnetic charge <span class="arithmatex">\(q_m &gt; 0\)</span> moves along the <span class="arithmatex">\(z\)</span> axis from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>. Find the final current in the ring and its sense seen from above (<span class="arithmatex">\(+z\)</span>).</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 球形电容器在撤去外磁场时的旋转效应——费曼角动量佯谬（Exercise 14.4，经典压轴名题）</strong>：
+当沿 <span class="arithmatex">\(+z\)</span> 轴的匀强磁场 <span class="arithmatex">\(B_z(t)\)</span> 随时间缓慢减弱时，由轴对称性与法拉第定律，在距 <span class="arithmatex">\(z\)</span> 轴垂直距离为 <span class="arithmatex">\(\rho = r\sin\theta\)</span> 的水平圆周上会激发出沿方位角方向的感生电场 <span class="arithmatex">\(E_\phi\)</span>：</p>
+<div class="arithmatex">\[
+2\pi \rho E_\phi = -\frac{d}{dt}\left(\pi \rho^2 B_z(t)\right) \implies E_\phi(r, \theta) = -\frac{1}{2}\rho \frac{dB_z}{dt} = -\frac{1}{2}r\sin\theta \frac{dB_z}{dt}
+\]</div>
+<p>考察半径为 <span class="arithmatex">\(R\)</span>、均匀带有总电荷 <span class="arithmatex">\(q\)</span>（面密度 <span class="arithmatex">\(\sigma = \frac{q}{4\pi R^2}\)</span>）的绝缘球壳：在极角 <span class="arithmatex">\(\theta \to \theta + d\theta\)</span> 的细圆环带上，所带电荷为 <span class="arithmatex">\(dq = \sigma(2\pi R^2\sin\theta\,d\theta) = \frac{1}{2}q\sin\theta\,d\theta\)</span>，力臂为 <span class="arithmatex">\(\rho = R\sin\theta\)</span>。感生电场对该细圆环施加的绕 <span class="arithmatex">\(z\)</span> 轴微元力矩为：</p>
+<div class="arithmatex">\[
+d\tau_z = \rho (E_\phi\,dq) = (R\sin\theta)\left(-\frac{1}{2}R\sin\theta\frac{dB_z}{dt}\right)\left(\frac{1}{2}q\sin\theta\,d\theta\right) = -\frac{1}{4}q R^2 \frac{dB_z}{dt}\sin^3\theta\,d\theta
+\]</div>
+<p>利用积分 <span class="arithmatex">\(\int_0^\pi \sin^3\theta\,d\theta = \left[-\cos\theta + \frac{1}{3}\cos^3\theta\right]_0^\pi = \frac{4}{3}\)</span>，积分得到单层球壳所受的总力矩为 <span class="arithmatex">\(\tau_z(R, q) = -\frac{1}{3}q R^2\frac{dB_z}{dt}\)</span>。
+将内球壳（<span class="arithmatex">\(r_1, +Q\)</span>）与外球壳（<span class="arithmatex">\(r_2, -Q\)</span>）所受力矩相加，应用刚体定轴转动定律 <span class="arithmatex">\(I\frac{d\omega_z}{dt} = \tau_{\text{tot}, z}\)</span>：</p>
+<div class="arithmatex">\[
+I\frac{d\omega_z}{dt} = -\frac{1}{3}Q r_1^2 \frac{dB_z}{dt} - \frac{1}{3}(-Q) r_2^2 \frac{dB_z}{dt} = \frac{1}{3}Q(r_2^2 - r_1^2)\frac{dB_z}{dt}
+\]</div>
+<p>对时间从初态（<span class="arithmatex">\(B_z = B, \ \omega_z = 0\)</span>）积分至终态（<span class="arithmatex">\(B_z = 0, \ \Delta B_z = -B\)</span>），解得终态角速度为：</p>
+<div class="arithmatex">\[
+\omega_z = -\frac{Q B (r_2^2 - r_1^2)}{3I} \iff \vec{\omega} = -\frac{Q B (r_2^2 - r_1^2)}{3I}\hat{z}
+\]</div>
+<p>由于 <span class="arithmatex">\(r_2 &gt; r_1\)</span>，外球壳 <span class="arithmatex">\(-Q\)</span> 的力臂更大，其顺时针力矩占优，故终态角速度沿 <strong><span class="arithmatex">\(-\hat{z}\)</span> 方向（从 <span class="arithmatex">\(+z\)</span> 往下看为顺时针旋转 Clockwise）</strong>，大小为 <span class="arithmatex">\(\dfrac{QB(r_2^2 - r_1^2)}{3I}\)</span>。
+<em>（注：这恰好等于初态储存在两球壳之间正交电磁场中的总电磁角动量 <span class="arithmatex">\(L_{\text{em}, z} = \int [\vec{r}\times(\epsilon_0\vec{E}\times\vec{B})]_z\,dV = -\frac{1}{3}QB(r_2^2 - r_1^2)\)</span>，完美体现了“电磁场角动量转化为机械角动量”的角动量守恒定律！）。</em></p>
+<hr />
+<p><strong>2. 漏电平行板电容器的自放电：传导电流与位移电流精确抵消（Exercise 14.5）</strong>：</p>
+<ul>
+<li><strong>(a) 正极板电荷量 <span class="arithmatex">\(Q(t)\)</span> 的衰减规律</strong>：
+  设极板面积为 <span class="arithmatex">\(A = \pi a^2\)</span>。任意时刻极板间电场为 <span class="arithmatex">\(E(t) = \frac{Q(t)}{\epsilon_0 A}\)</span>，弱导电介质中的传导电流密度为 <span class="arithmatex">\(j_c(t) = \sigma E(t) = \frac{\sigma}{\epsilon_0 A}Q(t)\)</span>。
+  由电荷守恒，正极板电荷减少率等于流过介质的传导电流 <span class="arithmatex">\(I_c = j_c A\)</span>：
+  $$
+  -\frac{dQ}{dt} = j_c A = \frac{\sigma}{\epsilon_0}Q(t) \implies Q(t) = Q_0 \exp\left(-\frac{\sigma}{\epsilon_0}t\right) \qquad (t &gt; 0)
+  $$</li>
+<li><strong>(b) 传导电流密度 <span class="arithmatex">\(\vec{j}_c\)</span>、位移电流密度 <span class="arithmatex">\(\vec{j}_d\)</span> 与极板间磁场 <span class="arithmatex">\(\vec{B}\)</span></strong>：
+  设从正极板指向负极板的方向为 <span class="arithmatex">\(\hat{z}\)</span>。则电场为 <span class="arithmatex">\(\vec{E}(t) = \frac{Q(t)}{\epsilon_0 \pi a^2}\hat{z}\)</span>：</li>
+<li><strong>传导电流密度</strong>：
+    $$
+    \vec{j}_c(t) = \sigma\vec{E}(t) = +\frac{\sigma Q_0}{\epsilon_0 \pi a^2}\exp\left(-\frac{\sigma}{\epsilon_0}t\right)\hat{z}
+    $$</li>
+<li><strong>位移电流密度</strong>：
+    $$
+    \vec{j}_d(t) = \epsilon_0\frac{\partial\vec{E}}{\partial t} = \frac{1}{\pi a^2}\frac{dQ}{dt}\hat{z} = -\frac{\sigma Q_0}{\epsilon_0 \pi a^2}\exp\left(-\frac{\sigma}{\epsilon_0}t\right)\hat{z} = -\vec{j}_c(t)
+    $$</li>
+<li><strong>极板间磁场 <span class="arithmatex">\(\vec{B}\)</span></strong>：
+    由于在极板间每一点处，传导电流密度与位移电流密度都等大反向（<strong><span class="arithmatex">\(\vec{j}_c + \vec{j}_d \equiv \vec{0}\)</span></strong>），代入安培-麦克斯韦定律 <span class="arithmatex">\(2\pi r B_\phi = \mu_0 \int (\vec{j}_c + \vec{j}_d)\cdot d\vec{S} = 0\)</span>，结合轴对称性可知<strong>极板间的磁场处处恒等于零（<span class="arithmatex">\(\vec{B} = \vec{0}\)</span>）</strong>！</li>
+<li><strong>(c) 产生的总焦耳热与坡印廷矢量解释</strong>：
+  整个介质体积为 <span class="arithmatex">\(V = A d\)</span>，耗散的总焦耳热为：
+  $$
+  H = \int_0^\infty (j_c E)(A d)\,dt = A d \sigma \int_0^\infty \frac{Q_0^2}{\epsilon_0^2 A^2}\exp\left(-\frac{2\sigma}{\epsilon_0}t\right)dt = \frac{Q_0^2 d}{2\epsilon_0 A} = \frac{Q_0^2}{2C} = U_E(0)
+  $$
+  即产生的总热量精确等于初始储存在电容器中的全部静电能！
+  <strong>坡印廷矢量解释</strong>：因为极板间磁场处处为零（<span class="arithmatex">\(\vec{B} = \vec{0}\)</span>），所以<strong>坡印廷矢量处处为零（<span class="arithmatex">\(\vec{S} = \frac{1}{\mu_0}\vec{E}\times\vec{B} = \vec{0}\)</span>）</strong>！这意味着没有任何能量需要从其他地方流入或流出，每一小块体积元内的静电能密度 <span class="arithmatex">\(u_E = \frac{1}{2}\epsilon_0 E^2\)</span> 直接<strong>就地（Locally）</strong>转化为该体积元内的焦耳热（<span class="arithmatex">\(\frac{\partial u_E}{\partial t} = -\vec{j}_c\cdot\vec{E}\)</span>）。</li>
+</ul>
+<hr />
+<p><strong>3. 含磁单极子的广义法拉第定律与超导环俘获磁荷电流（Exercise 14.6）</strong>：</p>
+<ul>
+<li><strong>(a) 修正法拉第定律</strong>：
+  若 <span class="arithmatex">\(\nabla\cdot\vec{B} = \mu_0\rho_m \neq 0\)</span>，则原法拉第定律取散度会给出 <span class="arithmatex">\(\nabla\cdot(\nabla\times\vec{E}) = -\frac{\partial}{\partial t}(\nabla\cdot\vec{B}) = -\mu_0\frac{\partial\rho_m}{\partial t} = +\mu_0(\nabla\cdot\vec{j}_m) \neq 0\)</span>，违背恒等式 <span class="arithmatex">\(\nabla\cdot(\nabla\times\vec{E}) \equiv 0\)</span>。
+  在法拉第定律右侧加上 <span class="arithmatex">\(-\mu_0\vec{j}_m\)</span> 项：
+  $$
+  \nabla \times \vec{E} = -\frac{\partial\vec{B}}{\partial t} - \mu_0 \vec{j}_m
+  $$
+  此时取散度得 <span class="arithmatex">\(\nabla\cdot(\nabla\times\vec{E}) = -\mu_0\left(\frac{\partial\rho_m}{\partial t} + \nabla\cdot\vec{j}_m\right) = 0\)</span>，矛盾消除！
+  应用斯托克斯定理，对固定闭合回路 <span class="arithmatex">\(C\)</span> 及张成曲面 <span class="arithmatex">\(S\)</span> 的积分形式为：
+  $$
+  \oint_C \vec{E} \cdot d\vec{l} = -\frac{d}{dt}\int_S \vec{B} \cdot d\vec{S} - \mu_0 \int_S \vec{j}_m \cdot d\vec{S}
+  $$</li>
+<li><strong>(b) 磁单极子穿过超导环激发的持久电流</strong>：
+  取固定闭合回路 <span class="arithmatex">\(C\)</span> 沿着超导环导线内部，张成曲面 <span class="arithmatex">\(S\)</span> 为环所围的平圆盘（法向沿 <span class="arithmatex">\(+\hat{z}\)</span>，逆时针为正）。
+  由于超导体电阻为零，导线内部电场恒为零（<span class="arithmatex">\(\vec{E} = \vec{0} \implies \oint_C \vec{E}\cdot d\vec{l} = 0\)</span>）。因此修正法拉第定律给出：
+  $$
+  \frac{d\Phi_B}{dt} + \mu_0 I_{m,\text{enc}}(t) = 0
+  $$
+  将上式对时间从 <span class="arithmatex">\(t = -\infty\)</span>（磁荷在极下方，环中无电流）积分至 <span class="arithmatex">\(t = +\infty\)</span>（磁荷已远去至极上方）：</li>
+<li>磁单极子 <span class="arithmatex">\(q_m &gt; 0\)</span> 从下方穿过圆盘 <span class="arithmatex">\(S\)</span> 到上方，穿过曲面的总积分磁荷量为 <span class="arithmatex">\(\int_{-\infty}^{+\infty} I_{m,\text{enc}}(t)\,dt = +q_m\)</span>；</li>
+<li>因此穿过超导环的磁通量总改变量必为 <span class="arithmatex">\(\Delta\Phi_B = \Phi_B(+\infty) - \Phi_B(-\infty) = -\mu_0 q_m\)</span>；</li>
+<li>而在 <span class="arithmatex">\(t = \pm\infty\)</span> 时，磁单极子距环无穷远，其自身在环处产生的磁通为零，环的终态磁通完全由环自身的持久自感电流 <span class="arithmatex">\(I\)</span> 产生：<span class="arithmatex">\(\Phi_B(+\infty) = L I\)</span>（且初态 <span class="arithmatex">\(\Phi_B(-\infty) = 0\)</span>）。
+  联立立得：
+  $$
+  L I = -\mu_0 q_m \implies I = -\frac{\mu_0 q_m}{L}
+  $$
+  负号表示从上方（<span class="arithmatex">\(+z\)</span>）往下看，超导环中的终态持久电流方向为<strong>顺时针方向（Clockwise）</strong>，大小为 <span class="arithmatex">\(\dfrac{\mu_0 q_m}{L}\)</span>。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 14.7, 14.8 &amp; 14.9: Standing EM Waves, Radiating Current Sheet &amp; Solar Sail Mechanics（电磁驻波、辐射电流薄板与全反射太阳帆力学）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 14.7</strong>: Two plane waves of amplitude <span class="arithmatex">\(E_0\)</span> and frequency <span class="arithmatex">\(\omega = ck\)</span> travel in opposite directions along <span class="arithmatex">\(x\)</span>: <span class="arithmatex">\(\vec{E}_1 = E_0\cos(kx - \omega t)\hat{y}\)</span> and <span class="arithmatex">\(\vec{E}_2 = E_0\cos(kx + \omega t)\hat{y}\)</span>.
+  (a) Find the total fields <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span>, the nodal positions where <span class="arithmatex">\(\vec{E} = \vec{0}\)</span> at all times and where <span class="arithmatex">\(\vec{B} = \vec{0}\)</span> at all times, and the time from a maximum of <span class="arithmatex">\(\vec{E}\)</span> to the next maximum of <span class="arithmatex">\(\vec{B}\)</span>.
+  (b) Find the Poynting vector <span class="arithmatex">\(\vec{S}\)</span> of the total field, its time average at each <span class="arithmatex">\(x\)</span>, and verify <span class="arithmatex">\(\nabla\cdot\vec{S} + \partial u/\partial t = 0\)</span>.
+  (c) If the two waves traveled at an unknown speed <span class="arithmatex">\(v = \omega/k\)</span> with <span class="arithmatex">\(\vec{B} = (\hat{k}\times\vec{E})/v\)</span>, show that the total field satisfies Faraday's law for every <span class="arithmatex">\(v\)</span>, but Ampère-Maxwell in vacuum only if <span class="arithmatex">\(v = 1/\sqrt{\mu_0\epsilon_0}\)</span>.
+- <strong>Ex 14.8</strong>: An infinitely thin sheet at <span class="arithmatex">\(x = 0\)</span> carries a driven surface current <span class="arithmatex">\(\vec{K}(t) = K_0\cos(\omega t)\hat{y}\)</span>, radiating plane waves away on both sides (<span class="arithmatex">\(\vec{E}\)</span> along <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(\vec{B}\)</span> along <span class="arithmatex">\(z\)</span>).
+  (a) Show that <span class="arithmatex">\(E_y\)</span> is continuous at <span class="arithmatex">\(x = 0\)</span> while <span class="arithmatex">\(B_z(0^+, t) - B_z(0^-, t) = -\mu_0 K_0\cos(\omega t)\)</span>.
+  (b) Find <span class="arithmatex">\(\vec{E}\)</span> and <span class="arithmatex">\(\vec{B}\)</span> on both sides (<span class="arithmatex">\(x &gt; 0\)</span> and <span class="arithmatex">\(x &lt; 0\)</span>).
+  (c) Find the time-averaged power per unit area carried away on each side, and show that together they equal the time-averaged power per unit area spent by the source, <span class="arithmatex">\(\langle -\vec{K}\cdot\vec{E}(0, t) \rangle\)</span>.
+- <strong>Ex 14.9</strong>: A flat mirror sail of area <span class="arithmatex">\(A\)</span> reflects light specularly in a beam of intensity <span class="arithmatex">\(I\)</span>, with its normal at angle <span class="arithmatex">\(\theta \ (0 \le \theta &lt; \pi/2)\)</span> to the beam.
+  (a) Find the time-averaged force on the sail (magnitude and direction), and check <span class="arithmatex">\(\theta = 0\)</span>.
+  (b) Facing the Sun (<span class="arithmatex">\(\theta = 0\)</span>, <span class="arithmatex">\(L_\odot = 3.83 \times 10^{26}\text{ W}\)</span>, <span class="arithmatex">\(M_\odot = 1.99 \times 10^{30}\text{ kg}\)</span>), find the areal mass density <span class="arithmatex">\(m/A\)</span> for which light's force balances solar gravity, show it is independent of <span class="arithmatex">\(r\)</span>, and evaluate it.
+  (c) Find the force component perpendicular to the beam, and the angle <span class="arithmatex">\(\theta\)</span> at which it is largest.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 电磁驻波（Standing Electromagnetic Wave）的节点、能流吞吐与波速唯一性（Exercise 14.7）</strong>：</p>
+<ul>
+<li><strong>(a) 总电场 <span class="arithmatex">\(\vec{E}\)</span>、总磁场 <span class="arithmatex">\(\vec{B}\)</span> 与波节位置</strong>：
+  第一列波沿 <span class="arithmatex">\(+\hat{x}\)</span> 传播，<span class="arithmatex">\(\vec{B}_1 = \frac{1}{c}(\hat{x}\times\vec{E}_1) = +\frac{E_0}{c}\cos(kx - \omega t)\hat{z}\)</span>；第二列波沿 <span class="arithmatex">\(-\hat{x}\)</span> 传播，<span class="arithmatex">\(\vec{B}_2 = \frac{1}{c}(-\hat{x}\times\vec{E}_2) = -\frac{E_0}{c}\cos(kx + \omega t)\hat{z}\)</span>。
+  利用和差化积公式相加：
+  $$
+  \vec{E}(x, t) = \vec{E}_1 + \vec{E}_2 = 2E_0 \cos(kx)\cos(\omega t)\,\hat{y}
+  $$
+  $$
+  \vec{B}(x, t) = \vec{B}_1 + \vec{B}_2 = \frac{2E_0}{c}\sin(kx)\sin(\omega t)\,\hat{z}
+  $$</li>
+<li><strong>电场波节（<span class="arithmatex">\(\vec{E} \equiv \vec{0}\)</span>）</strong>：令 <span class="arithmatex">\(\cos(kx) = 0 \implies x = \left(n + \dfrac{1}{2}\right)\dfrac{\pi}{k} = \left(n + \dfrac{1}{2}\right)\dfrac{\lambda}{2} \quad (n \in \mathbb{Z})\)</span>；</li>
+<li><strong>磁场波节（<span class="arithmatex">\(\vec{B} \equiv \vec{0}\)</span>）</strong>：令 <span class="arithmatex">\(\sin(kx) = 0 \implies x = \dfrac{n\pi}{k} = n\dfrac{\lambda}{2} \quad (n \in \mathbb{Z})\)</span>（注意电场的波节恰为磁场的波腹，反之亦然！）；</li>
+<li><strong>时间相位差</strong>：<span class="arithmatex">\(|\vec{E}| \propto |\cos(\omega t)|\)</span> 在 <span class="arithmatex">\(\omega t = m\pi\)</span> 时达到最大，而 <span class="arithmatex">\(|\vec{B}| \propto |\sin(\omega t)|\)</span> 在 <span class="arithmatex">\(\omega t = \left(m + \frac{1}{2}\right)\pi\)</span> 时达到最大，故从 <span class="arithmatex">\(\vec{E}\)</span> 最大到下一个 <span class="arithmatex">\(\vec{B}\)</span> 最大的间隔时间为 <span class="arithmatex">\(\Delta t = \dfrac{\pi}{2\omega} = \dfrac{T}{4}\)</span>。</li>
+<li><strong>(b) 驻波的坡印廷矢量与局域能量守恒验证</strong>：
+  $$
+  \vec{S}(x, t) = \frac{1}{\mu_0}\vec{E} \times \vec{B} = \frac{4E_0^2}{\mu_0 c}\sin(kx)\cos(kx)\sin(\omega t)\cos(\omega t)\,\hat{x} = \frac{E_0^2}{\mu_0 c}\sin(2kx)\sin(2\omega t)\,\hat{x}
+  $$
+  在一个周期内对时间求平均，因 <span class="arithmatex">\(\langle\sin(2\omega t)\rangle = 0\)</span>，故<strong>驻波在任何位置处的平均能流均为零（<span class="arithmatex">\(\langle\vec{S}\rangle = \vec{0}\)</span>）</strong>（能量仅在相邻的电场波腹与磁场波腹之间来回振荡吞吐，不向远处净传输）。
+  验证连续性方程：
+  $$
+  \nabla \cdot \vec{S} = \frac{\partial S_x}{\partial x} = \frac{2k E_0^2}{\mu_0 c}\cos(2kx)\sin(2\omega t) = 2\epsilon_0 \omega E_0^2 \cos(2kx)\sin(2\omega t)
+  $$
+  而总能量密度为 <span class="arithmatex">\(u = \frac{1}{2}\epsilon_0 E^2 + \frac{1}{2\mu_0}B^2 = 2\epsilon_0 E_0^2\left[\cos^2(kx)\cos^2(\omega t) + \sin^2(kx)\sin^2(\omega t)\right]\)</span>，求时间偏导数：
+  $$
+  \frac{\partial u}{\partial t} = 2\epsilon_0 \omega E_0^2 \sin(2\omega t)\left[-\cos^2(kx) + \sin^2(kx)\right] = -2\epsilon_0 \omega E_0^2 \cos(2kx)\sin(2\omega t) = -\nabla \cdot \vec{S}
+  $$
+  故 <span class="arithmatex">\(\nabla\cdot\vec{S} + \frac{\partial u}{\partial t} = 0\)</span> 恒成立。</li>
+<li><strong>(c) 任意假想波速 <span class="arithmatex">\(v = \omega/k\)</span> 的检验</strong>：
+  若将 <span class="arithmatex">\(c\)</span> 换为 <span class="arithmatex">\(v = \omega/k\)</span>，则 <span class="arithmatex">\(E_y = 2E_0\cos(kx)\cos(\omega t), \ B_z = \frac{2E_0}{v}\sin(kx)\sin(\omega t)\)</span>。</li>
+<li>检验法拉第定律：<span class="arithmatex">\((\nabla\times\vec{E})_z = \frac{\partial E_y}{\partial x} = -2kE_0\sin(kx)\cos(\omega t)\)</span>，而 <span class="arithmatex">\(-\frac{\partial B_z}{\partial t} = -\frac{2\omega E_0}{v}\sin(kx)\cos(\omega t)\)</span>。由于 <span class="arithmatex">\(\frac{\omega}{v} = k\)</span>，<strong>对任意 <span class="arithmatex">\(v\)</span> 法拉第定律均自动满足</strong>！</li>
+<li>检验安培-麦克斯韦定律：<span class="arithmatex">\((\nabla\times\vec{B})_y = -\frac{\partial B_z}{\partial x} = -\frac{2kE_0}{v}\cos(kx)\sin(\omega t)\)</span>，而右侧 <span class="arithmatex">\(\mu_0\epsilon_0\frac{\partial E_y}{\partial t} = -2\mu_0\epsilon_0 \omega E_0\cos(kx)\sin(\omega t)\)</span>。要使两者相等，必须有 <span class="arithmatex">\(\frac{k}{v} = \mu_0\epsilon_0\omega = \mu_0\epsilon_0 k v \implies v^2 = \frac{1}{\mu_0\epsilon_0}\)</span>，即<strong>仅当 <span class="arithmatex">\(v = \dfrac{1}{\sqrt{\mu_0\epsilon_0}} = c\)</span> 时安培-麦克斯韦定律才成立</strong>！</li>
+</ul>
+<hr />
+<p><strong>2. 无限大交变面电流薄板向两侧辐射平面电磁波（Exercise 14.8，经典天线辐射原型）</strong>：</p>
+<ul>
+<li><strong>(a) 跨接 <span class="arithmatex">\(x = 0\)</span> 薄板的边界条件推导</strong>：</li>
+<li>取位于 <span class="arithmatex">\(xy\)</span> 平面内、跨接 <span class="arithmatex">\(x = 0\)</span> 的扁矩形回路（两条平行于 <span class="arithmatex">\(y\)</span> 轴的长边位于 <span class="arithmatex">\(x = 0^\pm\)</span>，长为 <span class="arithmatex">\(l\)</span>；法向沿 <span class="arithmatex">\(+\hat{z}\)</span>）。当矩形宽度 <span class="arithmatex">\(\Delta x \to 0\)</span> 时，穿过矩形的磁通量 <span class="arithmatex">\(\Phi_B \to 0\)</span>，由法拉第定律 <span class="arithmatex">\(\oint \vec{E}\cdot d\vec{l} = \left[E_y(0^+, t) - E_y(0^-, t)\right]l = -\frac{d\Phi_B}{dt} = 0\)</span>，证得 <strong><span class="arithmatex">\(E_y\)</span> 在 <span class="arithmatex">\(x = 0\)</span> 处连续</strong>：<span class="arithmatex">\(E_y(0^+, t) = E_y(0^-, t)\)</span>。</li>
+<li>取位于 <span class="arithmatex">\(xz\)</span> 平面内、跨接 <span class="arithmatex">\(x = 0\)</span> 的扁矩形安培环路（两条平行于 <span class="arithmatex">\(z\)</span> 轴的长边位于 <span class="arithmatex">\(x = 0^\pm\)</span>，长为 <span class="arithmatex">\(l\)</span>；积分绕行方向使右手拇指指向 <span class="arithmatex">\(+\hat{y}\)</span>）。当宽度 <span class="arithmatex">\(\Delta x \to 0\)</span> 时，电通量变化率项为零，环路包围的净传导电流为 <span class="arithmatex">\(I_{\text{enc}} = K_y(t)l = K_0 l\cos(\omega t)\)</span>。由右手法则（在 <span class="arithmatex">\(x = 0^+\)</span> 边沿 <span class="arithmatex">\(-\hat{z}\)</span> 走，在 <span class="arithmatex">\(x = 0^-\)</span> 边沿 <span class="arithmatex">\(+\hat{z}\)</span> 走）：
+     $$
+     \oint \vec{B}\cdot d\vec{l} = \left[-B_z(0^+, t) + B_z(0^-, t)\right]l = \mu_0 K_0 l \cos(\omega t) \implies B_z(0^+, t) - B_z(0^-, t) = -\mu_0 K_0 \cos(\omega t)
+     $$</li>
+<li><strong>(b) 两侧向外传播的辐射平面波 <span class="arithmatex">\(\vec{E}(x, t)\)</span> 与 <span class="arithmatex">\(\vec{B}(x, t)\)</span></strong>：
+  薄板向右侧（<span class="arithmatex">\(x &gt; 0\)</span>，波矢 <span class="arithmatex">\(+\hat{x}\)</span>）和左侧（<span class="arithmatex">\(x &lt; 0\)</span>，波矢 <span class="arithmatex">\(-\hat{x}\)</span>）对称辐射外行平面波（含延迟相位 <span class="arithmatex">\(\omega(t - |x|/c) = \omega t - k|x|\)</span>）。
+  由偶对称性知两侧 <span class="arithmatex">\(E_y\)</span> 相等；对向外辐射的波，在 <span class="arithmatex">\(x &gt; 0\)</span> 区有 <span class="arithmatex">\(B_z = +\frac{1}{c}E_y\)</span>，在 <span class="arithmatex">\(x &lt; 0\)</span> 区有 <span class="arithmatex">\(B_z = -\frac{1}{c}E_y\)</span>（故 <span class="arithmatex">\(B_z(0^+, t) = -B_z(0^-, t)\)</span>）。
+  代入 (a) 的磁场跃变条件：<span class="arithmatex">\(2B_z(0^+, t) = -\mu_0 K_0\cos(\omega t) \implies B_z(0^+, t) = -\frac{1}{2}\mu_0 K_0\cos(\omega t)\)</span>，进而 <span class="arithmatex">\(E_y(0, t) = c B_z(0^+, t) = -\frac{1}{2}\mu_0 c K_0\cos(\omega t)\)</span>。
+  将 <span class="arithmatex">\(t\)</span> 替换为推迟时间 <span class="arithmatex">\(t - \frac{|x|}{c}\)</span>，即得两侧全空间的辐射电磁场：
+  $$
+  \vec{E}(x, t) = -\frac{1}{2}\mu_0 c K_0 \cos\left[\omega\left(t - \frac{|x|}{c}\right)\right]\hat{y} \qquad (\forall x \neq 0)
+  $$
+  $$
+  \vec{B}(x, t) = -\frac{1}{2}\mu_0 K_0 \operatorname{sgn}(x) \cos\left[\omega\left(t - \frac{|x|}{c}\right)\right]\hat{z} = \begin{cases}
+  -\dfrac{1}{2}\mu_0 K_0 \cos\left[\omega\left(t - \dfrac{x}{c}\right)\right]\hat{z}, &amp; x &gt; 0, \[8pt]
+  +\dfrac{1}{2}\mu_0 K_0 \cos\left[\omega\left(t + \dfrac{x}{c}\right)\right]\hat{z}, &amp; x &lt; 0.
+  \end{cases}
+  $$</li>
+<li><strong>(c) 辐射功率与外源驱动功率守恒验证</strong>：
+  单侧辐射平面波的电场振幅为 <span class="arithmatex">\(E_0 = \frac{1}{2}\mu_0 c K_0\)</span>，磁场振幅为 <span class="arithmatex">\(B_0 = \frac{1}{2}\mu_0 K_0\)</span>。因此每侧单位面积带走的时间平均辐射功率（波强）为：
+  $$
+  \overline{S}<em _text_source="\text{source">{\text{each side}} = \frac{E_0 B_0}{2\mu_0} = \frac{1}{8}\mu_0 c K_0^2
+  $$
+  两侧合计辐射的总平均功率密度为 <span class="arithmatex">\(2\overline{S}_{\text{each side}} = \dfrac{1}{4}\mu_0 c K_0^2\)</span>。
+  另一方面，在 <span class="arithmatex">\(x = 0\)</span> 平面上，薄板自身产生的辐射电场 <span class="arithmatex">\(E_y(0, t) = -\frac{1}{2}\mu_0 c K_0\cos(\omega t)\)</span> 总是反抗面电流 <span class="arithmatex">\(K_y(t) = K_0\cos(\omega t)\)</span>（这就是<strong>辐射阻尼反作用力</strong>！）。外源为单位面积面电流克服该电场做功的平均功率为：
+  $$
+  P</em>
+  $$
+  外源消耗的功率一分不少地转化为了向两侧空间辐射出去的电磁波能量！}} = \big\langle -\vec{K}(t) \cdot \vec{E}(0, t) \big\rangle = \left\langle \frac{1}{2}\mu_0 c K_0^2 \cos^2(\omega t) \right\rangle = \frac{1}{4}\mu_0 c K_0^2 = 2\overline{S}_{\text{each side}</li>
+</ul>
+<hr />
+<p><strong>3. 镜面全反射太阳帆（Solar Sail）的斜入射光压力学与星际航行（Exercise 14.9）</strong>：</p>
+<ul>
+<li><strong>(a) 斜入射角 <span class="arithmatex">\(\theta\)</span> 下的平均光压力大小与方向</strong>：
+  设入射光束沿单位矢量 <span class="arithmatex">\(\hat{k}_{\text{in}}\)</span> 方向传播，太阳帆受光面的内法线（顺着受力方向背离光源一侧）单位矢量为 <span class="arithmatex">\(\hat{n}\)</span>，两者夹角为 <span class="arithmatex">\(\theta \ (0 \le \theta &lt; \pi/2)\)</span>。</li>
+<li><strong>有效截光面积</strong>：面积为 <span class="arithmatex">\(A\)</span> 的帆在垂直于入射光束平面上的投影截面积为 <span class="arithmatex">\(A_\perp = A\cos\theta\)</span>，故单位时间内拦截的入射光功率为 <span class="arithmatex">\(P_{\text{int}} = I A\cos\theta\)</span>；</li>
+<li><strong>动量传递方向与大小</strong>：入射光束输入动量流率为 <span class="arithmatex">\(\vec{\Pi}_{\text{in}} = \frac{P_{\text{int}}}{c}\hat{k}_{\text{in}}\)</span>；根据镜面反射定律（Specular reflection），反射光束方向为 <span class="arithmatex">\(\hat{k}_{\text{ref}} = \hat{k}_{\text{in}} - 2(\hat{k}_{\text{in}}\cdot\hat{n})\hat{n} = \hat{k}_{\text{in}} - 2\cos\theta\,\hat{n}\)</span>，带走动量流率为 <span class="arithmatex">\(\vec{\Pi}_{\text{ref}} = \frac{P_{\text{int}}}{c}\hat{k}_{\text{ref}}\)</span>。
+  由动量守恒，光束对太阳帆施加的时间平均作用力为：
+  $$
+  \vec{F} = \vec{\Pi}<em _text_ref="\text{ref">{\text{in}} - \vec{\Pi}</em>}} = \frac{I A\cos\theta}{c}\left(\hat{k<em _text_ref="\text{ref">{\text{in}} - \hat{k}</em>
+  $$
+  即光压力}}\right) = \frac{2 I A \cos^2\theta}{c}\hat{n<strong>方向严格垂直于帆面（沿法向 <span class="arithmatex">\(\hat{n}\)</span>）</strong>，大小为 <span class="arithmatex">\(F = \dfrac{2IA\cos^2\theta}{c}\)</span>。当 <span class="arithmatex">\(\theta = 0\)</span>（正入射）时，<span class="arithmatex">\(F/A = \frac{2I}{c}\)</span>，与正文完全反射光压公式一致。</li>
+<li><strong>(b) 太阳光压平衡太阳万有引力的临界比面质量 <span class="arithmatex">\(m/A\)</span></strong>：
+  在距太阳中心距离为 <span class="arithmatex">\(r\)</span> 处，太阳辐射强度为 <span class="arithmatex">\(I(r) = \frac{L_\odot}{4\pi r^2}\)</span>。当正对太阳（<span class="arithmatex">\(\theta = 0\)</span>）时，向外的光压力为 <span class="arithmatex">\(F_{\text{rad}} = \frac{2 I(r) A}{c} = \frac{L_\odot A}{2\pi c r^2}\)</span>；太阳对总质量 <span class="arithmatex">\(m\)</span> 的万有引力为 <span class="arithmatex">\(F_{\text{grav}} = \frac{G M_\odot m}{r^2}\)</span>。
+  注意到<strong>光压力与万有引力均严格按 <span class="arithmatex">\(1/r^2\)</span> 衰减</strong>！令二力平衡，距离 <span class="arithmatex">\(r^2\)</span> 直接消去：
+  $$
+  \frac{L_\odot A}{2\pi c r^2} = \frac{G M_\odot m}{r^2} \implies \frac{m}{A} = \frac{L_\odot}{2\pi c G M_\odot} \qquad (\text{与距太阳的距离 } r \text{ 完全无关！})
+  $$
+  代入数值 <span class="arithmatex">\(L_\odot = 3.83 \times 10^{26}\text{ W}, \ M_\odot = 1.99 \times 10^{30}\text{ kg}, \ G = 6.67 \times 10^{-11}\text{ N}\cdot\text{m}^2/\text{kg}^2, \ c = 3.00 \times 10^8\text{ m/s}\)</span>：
+  $$
+  \frac{m}{A} = \frac{3.83 \times 10^{26}}{2\pi \times (3.00 \times 10^8) \times (6.67 \times 10^{-11}) \times (1.99 \times 10^{30})} \approx 1.53 \times 10^{-3}\text{ kg/m}^2 = 1.53\text{ g/m}^2
+  $$</li>
+<li><strong>(c) 垂直于入射光束的横向升力分量 <span class="arithmatex">\(F_\perp\)</span> 及最佳倾角 <span class="arithmatex">\(\theta\)</span></strong>：
+  由于总力 <span class="arithmatex">\(\vec{F}\)</span> 沿法线 <span class="arithmatex">\(\hat{n}\)</span>（与光束夹角为 <span class="arithmatex">\(\theta\)</span>），其垂直于光束方向的横向分量大小为：
+  $$
+  F_\perp(\theta) = F \sin\theta = \frac{2IA}{c}\cos^2\theta \sin\theta
+  $$
+  对 <span class="arithmatex">\(\theta\)</span> 求导令其为零：<span class="arithmatex">\(\frac{d}{d\theta}(\cos^2\theta\sin\theta) = \cos\theta(-2\sin^2\theta + \cos^2\theta) = 0 \implies \tan^2\theta = \frac{1}{2}\)</span>。
+  因此当倾角为：
+  $$
+  \theta = \arctan\left(\frac{1}{\sqrt{2}}\right) = \arcsin\left(\frac{1}{\sqrt{3}}\right) \approx 35.26^\circ
+  $$
+  时，横向控制力达到最大值 <span class="arithmatex">\(F_{\perp,\max} = \dfrac{4}{3\sqrt{3}}\dfrac{IA}{c} \approx 0.770\,\dfrac{IA}{c}\)</span>（太阳帆正是利用这一横向分力来改变轨道角动量，实现星际变轨航行的！）。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

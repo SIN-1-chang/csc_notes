@@ -1,0 +1,2639 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/12_inductors_and_inductance/">
+      
+      
+        <link rel="prev" href="../11_faraday_law_of_induction/">
+      
+      
+        <link rel="next" href="../13_AC_circuits/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>12 电感器与电感 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-12-inductors-and-inductance" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12 电感器与电感
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-inductors-and-inductance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电感器与电感 (Inductors and Inductance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电感器与电感 (Inductors and Inductance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电感器的定义与电感-电容对偶性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 长直螺线管的电感推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-self-induction-and-terminal-potential-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 自感现象与电感器端电压 (Self-Induction and Terminal Potential Difference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 自感现象与电感器端电压 (Self-Induction and Terminal Potential Difference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-self-induced-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 自感电动势 (Self-Induced Emf)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-v_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 理想电感器两端的电势差 (\(V_L\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rl-rl-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 RL 暂态电路 (RL Circuits)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 RL 暂态电路 (RL Circuits)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电流的建立（增长）与衰减过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rl-rc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 RL 电路与 RC 电路的暂态特性全面对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-energy-stored-in-a-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 磁场储能与磁能密度 (Energy Stored in a Magnetic Field)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 磁场储能与磁能密度 (Energy Stored in a Magnetic Field)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电感器的磁能推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-u_b-fracb22mu_0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 磁场能量密度 (\(u_B = \frac{B^2}{2\mu_0}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mutual-induction-and-inductance-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 互感现象与电感矩阵 (Mutual Induction and Inductance Matrix)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 互感现象与电感矩阵 (Mutual Induction and Inductance Matrix)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 互感系数与互感电动势
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-m_12-m_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 互感互易定理 (\(M_{12} = M_{21}\)) 的能量守恒证明与电感矩阵
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-12-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 12 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-inductors-and-inductance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电感器与电感 (Inductors and Inductance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电感器与电感 (Inductors and Inductance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电感器的定义与电感-电容对偶性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 长直螺线管的电感推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-self-induction-and-terminal-potential-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 自感现象与电感器端电压 (Self-Induction and Terminal Potential Difference)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 自感现象与电感器端电压 (Self-Induction and Terminal Potential Difference)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-self-induced-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 自感电动势 (Self-Induced Emf)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-v_l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 理想电感器两端的电势差 (\(V_L\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rl-rl-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 RL 暂态电路 (RL Circuits)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 RL 暂态电路 (RL Circuits)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电流的建立（增长）与衰减过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rl-rc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 RL 电路与 RC 电路的暂态特性全面对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-energy-stored-in-a-magnetic-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 磁场储能与磁能密度 (Energy Stored in a Magnetic Field)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 磁场储能与磁能密度 (Energy Stored in a Magnetic Field)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电感器的磁能推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-u_b-fracb22mu_0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 磁场能量密度 (\(u_B = \frac{B^2}{2\mu_0}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mutual-induction-and-inductance-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 互感现象与电感矩阵 (Mutual Induction and Inductance Matrix)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 互感现象与电感矩阵 (Mutual Induction and Inductance Matrix)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 互感系数与互感电动势
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-m_12-m_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 互感互易定理 (\(M_{12} = M_{21}\)) 的能量守恒证明与电感矩阵
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-12-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 12 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-12-inductors-and-inductance">Chapter 12: Inductors and Inductance（电感器与电感）<a class="headerlink" href="#chapter-12-inductors-and-inductance" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第十二章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 12: <em>Inductors and Inductance</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 12: <em>Inductors and Inductance</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 36</li>
+</ul>
+</div>
+<h2 id="1-inductors-and-inductance">1 电感器与电感 (Inductors and Inductance)<a class="headerlink" href="#1-inductors-and-inductance" title="Permanent link">&para;</a></h2>
+<h3 id="11-">1.1 电感器的定义与电感-电容对偶性<a class="headerlink" href="#11-" title="Permanent link">&para;</a></h3>
+<p>在静电学中，我们使用<strong>电容器</strong>（Capacitor，基本构型为平行板电容器）来产生所需的匀强电场并在电场中储存静电能；作为磁学中的严格对偶元件，我们使用<strong>电感器</strong>（Inductor，基本构型为远离端点的长直螺线管）来产生所需的匀强磁场并在磁场中储存磁能。</p>
+<p>设一个共有 <span class="arithmatex">\(N\)</span> 匝的线圈（电感器）通有电流 <span class="arithmatex">\(i\)</span>，电流在周围空间激发磁场，使得穿过每一匝线圈横截面的磁通量为 <span class="arithmatex">\(\Phi_B\)</span>。我们将乘积 <span class="arithmatex">\(N\Phi_B\)</span> 称为<strong>磁通匝链数</strong>或<strong>磁链</strong>（Magnetic Flux Linkage）。由于根据毕奥-萨伐尔定律，空间各点的磁感应强度 <span class="arithmatex">\(\vec{B}\)</span> 与电流 <span class="arithmatex">\(i\)</span> 严格成正比，因此总磁链 <span class="arithmatex">\(N\Phi_B\)</span> 也与电流 <span class="arithmatex">\(i\)</span> 成正比。定义该比例常数为电感器的<strong>电感</strong>（Inductance，记作 <span class="arithmatex">\(L\)</span>）：</p>
+<div class="arithmatex">\[
+L = \frac{N\Phi_B}{i} \iff N\Phi_B = L i
+\]</div>
+<p>电感 <span class="arithmatex">\(L\)</span> 度量了单位电流在电感器中所产生的磁通匝链数。在国际单位制（SI）中，电感的单位为<strong>亨利</strong>（Henry，简记为 <span class="arithmatex">\(\text{H}\)</span>，以独立发现电磁感应现象的美国物理学家 Joseph Henry 命名）：</p>
+<div class="arithmatex">\[
+1\text{ H} = 1\ \frac{\text{T}\cdot\text{m}^2}{\text{A}} = 1\ \frac{\text{Wb}}{\text{A}} = 1\ \frac{\text{V}\cdot\text{s}}{\text{A}} = 1\ \Omega\cdot\text{s}
+\]</div>
+<p>电容器（Capacitor）与电感器（Inductor）的核心物理量对偶关系汇总如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">物理属性维度</th>
+<th style="text-align: left;">电容器（Capacitor — 电场储能元件）</th>
+<th style="text-align: left;">电感器（Inductor — 磁场储能元件）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>基本理想几何构型</strong></td>
+<td style="text-align: left;">平行板电容器（面积 <span class="arithmatex">\(S\)</span>，间距 <span class="arithmatex">\(d\)</span>，忽略边缘效应）</td>
+<td style="text-align: left;">长直螺线管（截面积 <span class="arithmatex">\(S\)</span>，长 <span class="arithmatex">\(l\)</span>，忽略端部发散效应）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>内部匀强场强公式</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \dfrac{\sigma}{\epsilon_0} = \dfrac{Q}{\epsilon_0 S}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(B = \mu_0 n i = \dfrac{\mu_0 N i}{l}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>本征参数定义式</strong></td>
+<td style="text-align: left;">电容 <span class="arithmatex">\(C = \dfrac{Q}{V}\)</span>（单位电压储存的电荷量）</td>
+<td style="text-align: left;">电感 <span class="arithmatex">\(L = \dfrac{N\Phi_B}{i}\)</span>（单位电流产生的磁通匝链数）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>理想构型参数公式</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(C = \dfrac{\epsilon_0 S}{d}\)</span>（填充电介质 <span class="arithmatex">\(\epsilon_r\)</span> 时乘以 <span class="arithmatex">\(\epsilon_r\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(L = \mu_0 n^2 l S = \dfrac{\mu_0 N^2 S}{l}\)</span>（填充磁芯 <span class="arithmatex">\(\mu_r\)</span> 时乘以 <span class="arithmatex">\(\mu_r\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>元件储存的总能量</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(U_E = \dfrac{Q^2}{2C} = \dfrac{1}{2}CV^2\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(U_B = \dfrac{1}{2}Li^2 = \dfrac{(N\Phi_B)^2}{2L}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>空间场的能量密度</strong></td>
+<td style="text-align: left;">电场能量密度 <span class="arithmatex">\(u_E = \dfrac{1}{2}\epsilon_0 E^2\)</span></td>
+<td style="text-align: left;">磁场能量密度 <span class="arithmatex">\(u_B = \dfrac{1}{2\mu_0}B^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12">1.2 长直螺线管的电感推导<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>考察长度为 <span class="arithmatex">\(l\)</span>、横截面积为 <span class="arithmatex">\(S\)</span>（课件中亦记为 <span class="arithmatex">\(A\)</span>）、单位长度匝数为 <span class="arithmatex">\(n = N/l\)</span> 的长直螺线管（满足 <span class="arithmatex">\(l \gg \sqrt{S}\)</span>，忽略端部的磁场发散效应）：</p>
+<ol>
+<li>当通以电流 <span class="arithmatex">\(i\)</span> 时，由安培环路定理知管内匀强磁场为 <span class="arithmatex">\(B = \mu_0 n i\)</span>；</li>
+<li>穿过单匝线圈横截面的磁通量为 <span class="arithmatex">\(\Phi_B = BS = \mu_0 n S i\)</span>，总匝数为 <span class="arithmatex">\(N = nl\)</span>，故总磁链为 <span class="arithmatex">\(N\Phi_B = (nl)(\mu_0 n S i) = \mu_0 n^2 l S i\)</span>；</li>
+<li>代入电感定义式，即得<strong>长直螺线管的自感公式</strong>及其<strong>单位长度电感</strong>：
+   $$
+   L = \frac{N\Phi_B}{i} = \mu_0 n^2 l S = \frac{\mu_0 N^2 S}{l}, \qquad \frac{L}{l} = \mu_0 n^2 S
+   $$</li>
+</ol>
+<p>与电容一样，无磁芯电感器的电感 <span class="arithmatex">\(L\)</span> <strong>仅取决于线圈的几何结构（尺寸、形状、匝数）</strong>，而与电流 <span class="arithmatex">\(i\)</span> 无关（因为 <span class="arithmatex">\(N\)</span> 既决定磁场 <span class="arithmatex">\(B \propto N\)</span>，又决定匝链数 <span class="arithmatex">\(N\Phi_B \propto N B\)</span>，故电感总是与匝数的平方 <span class="arithmatex">\(N^2\)</span> 成正比）。若在螺线管内部填满相对磁导率为 <span class="arithmatex">\(\mu_r\)</span> 的线性磁介质（如铁芯或铁氧体磁芯 Ferrite core），管内磁场增强为 <span class="arithmatex">\(B = \mu_r\mu_0 n i\)</span>，电感随之增大为真空时的 <span class="arithmatex">\(\mu_r\)</span> 倍：<span class="arithmatex">\(L = \mu_r\mu_0 n^2 l S\)</span>。</p>
+<hr />
+<h2 id="2-self-induction-and-terminal-potential-difference">2 自感现象与电感器端电压 (Self-Induction and Terminal Potential Difference)<a class="headerlink" href="#2-self-induction-and-terminal-potential-difference" title="Permanent link">&para;</a></h2>
+<h3 id="21-self-induced-emf">2.1 自感电动势 (Self-Induced Emf)<a class="headerlink" href="#21-self-induced-emf" title="Permanent link">&para;</a></h3>
+<p>当电感线圈自身的电流 <span class="arithmatex">\(i(t)\)</span> 随时间发生变化时，它自身激发并穿过自身的磁通匝链数 <span class="arithmatex">\(N\Phi_B = Li\)</span> 随之改变。根据法拉第电磁感应定律，在线圈自身内部必然产生感应电动势，这一现象称为<strong>自感</strong>（Self-Induction），所产生的电动势称为<strong>自感电动势</strong>（Self-Induced Emf，记作 <span class="arithmatex">\(\mathcal{E}_L\)</span>）：</p>
+<div class="arithmatex">\[
+\mathcal{E}_L = -\frac{d(N\Phi_B)}{dt} = -L\frac{di}{dt}
+\]</div>
+<p>根据楞次定律，公式中的负号表明：<strong>自感电动势 <span class="arithmatex">\(\mathcal{E}_L\)</span> 的方向总是阻碍（Oppose）线圈自身电流 <span class="arithmatex">\(i\)</span> 的变化</strong>：</p>
+<ul>
+<li><strong>当电流 <span class="arithmatex">\(i\)</span> 正在增大（<span class="arithmatex">\(\frac{di}{dt} &gt; 0\)</span>）时</strong>：自感电动势 <span class="arithmatex">\(\mathcal{E}_L\)</span> 的方向与电流 <span class="arithmatex">\(i\)</span> 的方向<strong>相反</strong>，反抗电流的增长；</li>
+<li><strong>当电流 <span class="arithmatex">\(i\)</span> 正在减小（<span class="arithmatex">\(\frac{di}{dt} &lt; 0\)</span>）时</strong>：自感电动势 <span class="arithmatex">\(\mathcal{E}_L\)</span> 的方向与电流 <span class="arithmatex">\(i\)</span> 的方向<strong>相同</strong>，试图维持原电流、反抗电流的衰减。</li>
+</ul>
+<p><em>日常生活实例（讲义 Section 12.2）</em>：当一台带有电动机或变压器的电器正在运转时，若直接拔下电源插头，由于绕组中的电流不能瞬间突变归零（在触点分离的极短时间内 <span class="arithmatex">\(\left|\frac{di}{dt}\right|\)</span> 极大），会产生高达数千伏的自感电动势 <span class="arithmatex">\(\mathcal{E}_L = -L\frac{di}{dt}\)</span>，击穿插头与插座间隙的空气并产生肉眼可见的<strong>电火花</strong>（Spark）。</p>
+<h3 id="22-v_l">2.2 理想电感器两端的电势差 (<span class="arithmatex">\(V_L\)</span>)<a class="headerlink" href="#22-v_l" title="Permanent link">&para;</a></h3>
+<p>在第十一章中我们强调过：在线圈内部磁通量随时间变化的区域内，感生电场是非保守场（<span class="arithmatex">\(\nabla\times\vec{E} \neq \vec{0}\)</span>），因此在线圈内部无法定义标量电势 <span class="arithmatex">\(V\)</span>。</p>
+<p>然而，在电路分析中，我们关心的是位于变化磁通区域<strong>外部</strong>的电感器两个引出端子 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>（那里只有由表面电荷分布建立的库仑静电场，电势依然严格良定义）。考察由理想无阻导线（<span class="arithmatex">\(r = 0\)</span>）绕制的电感线圈，内部总电场必须为零（<span class="arithmatex">\(\vec{E}_{\text{total}} = \vec{E}_{\text{static}} + \vec{E}_{\text{ind}} = \vec{0}\)</span>，否则无穷大电导率会导致无穷大电流）。对“从端子 <span class="arithmatex">\(a\)</span> 经线圈内部到端子 <span class="arithmatex">\(b\)</span>、再沿磁通区外部路径回到 <span class="arithmatex">\(a\)</span>”的闭合回路应用法拉第定律，可知外部路径积分得到的端子电势差 <span class="arithmatex">\(V_a - V_b = \int_a^b \vec{E}_{\text{static}}\cdot d\vec{l}\)</span> 在数值上恒等于自感电动势的大小：</p>
+<div class="arithmatex">\[
+V_a - V_b = +L\frac{di}{dt} \qquad (\text{电流 } i \text{ 的正方向规定为从端子 } a \text{ 流向端子 } b)
+\]</div>
+<div class="admonition warning">
+<p class="admonition-title">基尔霍夫回路定律（KVL）中电感器压降的符号铁律</p>
+<p>设电流 <span class="arithmatex">\(i\)</span> 从端子 <span class="arithmatex">\(a\)</span> 流入电感器、从端子 <span class="arithmatex">\(b\)</span> 流出：</p>
+<ul>
+<li><strong>顺着电流 <span class="arithmatex">\(i\)</span> 的方向跨越电感器（从 <span class="arithmatex">\(a\)</span> 到 <span class="arithmatex">\(b\)</span>）</strong>：电势变化量为 <strong><span class="arithmatex">\(\Delta V = V_b - V_a = -L\dfrac{di}{dt}\)</span></strong>（当电流增大 <span class="arithmatex">\(di/dt &gt; 0\)</span> 时电势降低；当电流减小 <span class="arithmatex">\(di/dt &lt; 0\)</span> 时电势反而升高！）；</li>
+<li><strong>逆着电流 <span class="arithmatex">\(i\)</span> 的方向跨越电感器（从 <span class="arithmatex">\(b\)</span> 到 <span class="arithmatex">\(a\)</span>）</strong>：电势变化量为 <strong><span class="arithmatex">\(\Delta V = V_a - V_b = +L\dfrac{di}{dt}\)</span></strong>。</li>
+</ul>
+</div>
+<hr />
+<h2 id="3-rl-rl-circuits">3 RL 暂态电路 (RL Circuits)<a class="headerlink" href="#3-rl-rl-circuits" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 电流的建立（增长）与衰减过程<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>将电阻 <span class="arithmatex">\(R\)</span>、电感器 <span class="arithmatex">\(L\)</span> 与电动势为 <span class="arithmatex">\(\mathcal{E}\)</span> 的理想电源串联构成 <strong>RL 电路</strong>。</p>
+<p><strong>1. 接通电源时的电流增长过程（Current Rise，初始条件 <span class="arithmatex">\(i(0) = 0\)</span>）</strong></p>
+<p>在 <span class="arithmatex">\(t = 0\)</span> 时刻合上开关接通电源 <span class="arithmatex">\(\mathcal{E}\)</span>，顺着电流方向应用基尔霍夫回路定律：</p>
+<div class="arithmatex">\[
+\mathcal{E} - iR - L\frac{di}{dt} = 0 \iff L\frac{di}{dt} + Ri = \mathcal{E} \iff \frac{L}{R}\frac{di}{dt} + i = \frac{\mathcal{E}}{R}
+\]</div>
+<p>由量纲分析可知，比值 <span class="arithmatex">\(\tau_L = \frac{L}{R}\)</span> 具有时间的量纲（<span class="arithmatex">\([\tau_L] = \frac{\text{H}}{\Omega} = \frac{\text{V}\cdot\text{s/A}}{\text{V/A}} = \text{s}\)</span>），称为 RL 电路的<strong>感性时间常数</strong>（Inductive Time Constant）：</p>
+<div class="arithmatex">\[
+\tau_L = \frac{L}{R}
+\]</div>
+<p>求解上述一阶常系数非齐次线性微分方程（代入初始条件 <span class="arithmatex">\(i(0) = 0\)</span>），可得电流 <span class="arithmatex">\(i(t)\)</span>、电阻电压 <span class="arithmatex">\(V_R(t)\)</span> 与电感端电压 <span class="arithmatex">\(V_L(t)\)</span> 随时间的演化：</p>
+<div class="arithmatex">\[
+i(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-t/\tau_L}\right), \qquad V_R(t) = i(t)R = \mathcal{E}\left(1 - e^{-t/\tau_L}\right), \qquad V_L(t) = L\frac{di}{dt} = \mathcal{E}e^{-t/\tau_L}
+\]</div>
+<ul>
+<li>在刚接通瞬间（<span class="arithmatex">\(t = 0^+\)</span>）：由于电感电流不能突变（<span class="arithmatex">\(i(0^+) = 0\)</span>），<strong>电感器在 <span class="arithmatex">\(t = 0^+\)</span> 瞬间相当于断路（Open circuit）</strong>，全部电源电压降落在电感两端（<span class="arithmatex">\(V_L(0^+) = \mathcal{E}\)</span>）；</li>
+<li>经过一个时间常数（<span class="arithmatex">\(t = \tau_L\)</span>）：电流增长到稳态终值 <span class="arithmatex">\(\frac{\mathcal{E}}{R}\)</span> 的 <span class="arithmatex">\(1 - e^{-1} \approx 63.2\%\)</span>；</li>
+<li>经过很长时间达到稳态后（<span class="arithmatex">\(t \to \infty\)</span>）：<span class="arithmatex">\(\frac{di}{dt} \to 0 \implies V_L \to 0\)</span>，<strong>理想电感器在直流稳态下相当于一根无阻短路导线（Short circuit / Ordinary connecting wire）</strong>，稳态电流由纯电阻决定：<span class="arithmatex">\(i(\infty) = \frac{\mathcal{E}}{R}\)</span>。</li>
+</ul>
+<p><strong>2. 切除电源后的电流衰减过程（Current Decay，初始条件 <span class="arithmatex">\(i(0) = i_0 = \mathcal{E}/R\)</span>）</strong></p>
+<p>当电路达到稳态电流 <span class="arithmatex">\(i_0\)</span> 后，在新的 <span class="arithmatex">\(t = 0\)</span> 时刻将开关切换至直接通过电阻 <span class="arithmatex">\(R\)</span> 短路闭合（切除电源 <span class="arithmatex">\(\mathcal{E}\)</span>）。此时回路方程化为：</p>
+<div class="arithmatex">\[
+L\frac{di}{dt} + Ri = 0 \implies i(t) = i_0 e^{-t/\tau_L} = \frac{\mathcal{E}}{R}e^{-t/\tau_L}
+\]</div>
+<h3 id="32-rl-rc">3.2 RL 电路与 RC 电路的暂态特性全面对比<a class="headerlink" href="#32-rl-rc" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">对比维度</th>
+<th style="text-align: left;">RC 串联电路（Capacitive Circuit, Chapter 7）</th>
+<th style="text-align: left;">RL 串联电路（Inductive Circuit, Chapter 12）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>控制微分方程（接通 <span class="arithmatex">\(\mathcal{E}\)</span>）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(R\dfrac{dq}{dt} + \dfrac{1}{C}q = \mathcal{E}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(L\dfrac{di}{dt} + Ri = \mathcal{E}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>特征时间常数（Time Constant）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\tau_C = RC\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\tau_L = \dfrac{L}{R}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>不能发生突变的连续状态量</strong></td>
+<td style="text-align: left;">极板电荷 <span class="arithmatex">\(q(t)\)</span>（及电容电压 <span class="arithmatex">\(V_C = q/C\)</span>）不能突变</td>
+<td style="text-align: left;">电感电流 <span class="arithmatex">\(i(t)\)</span>（及磁链 <span class="arithmatex">\(N\Phi_B = Li\)</span>）不能突变</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>接通瞬间（<span class="arithmatex">\(t = 0^+\)</span>）等效状态</strong></td>
+<td style="text-align: left;">未充电电容相当于<strong>短路导线</strong>（<span class="arithmatex">\(V_C = 0, \ i = \mathcal{E}/R\)</span>）</td>
+<td style="text-align: left;">无初流电感相当于<strong>断路开关</strong>（<span class="arithmatex">\(i = 0, \ V_L = \mathcal{E}\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>直流稳态（<span class="arithmatex">\(t \to \infty\)</span>）等效状态</strong></td>
+<td style="text-align: left;">充满电的电容相当于<strong>断路开关</strong>（<span class="arithmatex">\(i = 0, \ V_C = \mathcal{E}\)</span>）</td>
+<td style="text-align: left;">稳恒流电感相当于<strong>短路导线</strong>（<span class="arithmatex">\(V_L = 0, \ i = \mathcal{E}/R\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>充电/建立过程演化公式</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(q(t) = C\mathcal{E}\left(1 - e^{-t/\tau_C}\right), \quad i(t) = \dfrac{\mathcal{E}}{R}e^{-t/\tau_C}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(i(t) = \dfrac{\mathcal{E}}{R}\left(1 - e^{-t/\tau_L}\right), \quad V_L(t) = \mathcal{E}e^{-t/\tau_L}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>放电/衰减过程演化公式</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(q(t) = q_0 e^{-t/\tau_C}, \quad i(t) = -\dfrac{q_0}{RC}e^{-t/\tau_C}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(i(t) = i_0 e^{-t/\tau_L}, \quad V_L(t) = -i_0 R e^{-t/\tau_L}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>稳态储存的场能量</strong></td>
+<td style="text-align: left;">电场能 <span class="arithmatex">\(U_E = \dfrac{Q^2}{2C} = \dfrac{1}{2}C\mathcal{E}^2\)</span></td>
+<td style="text-align: left;">磁场能 <span class="arithmatex">\(U_B = \dfrac{1}{2}Li^2 = \dfrac{1}{2}L\left(\dfrac{\mathcal{E}}{R}\right)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-energy-stored-in-a-magnetic-field">4 磁场储能与磁能密度 (Energy Stored in a Magnetic Field)<a class="headerlink" href="#4-energy-stored-in-a-magnetic-field" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 电感器的磁能推导<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>将 RL 电路的回路方程 <span class="arithmatex">\(\mathcal{E} = iR + L\frac{di}{dt}\)</span> 两边同乘以瞬时电流 <span class="arithmatex">\(i\)</span>，得到电路的瞬时功率平衡方程：</p>
+<div class="arithmatex">\[
+\mathcal{E}i = i^2 R + L i \frac{di}{dt}
+\]</div>
+<p>根据能量守恒定律，等式三项的物理意义分别为：</p>
+<ol>
+<li><strong>左侧 <span class="arithmatex">\(\mathcal{E}i = \mathcal{E}\frac{dq}{dt}\)</span></strong>：电源克服非静电力做功、向电路输出总能量的功率；</li>
+<li><strong>右侧第一项 <span class="arithmatex">\(i^2 R\)</span></strong>：电阻上不可逆地转化为焦耳热（Thermal energy）耗散掉的功率；</li>
+<li><strong>右侧第二项 <span class="arithmatex">\(Li\frac{di}{dt}\)</span></strong>：输入到电感器中并储存在其磁场内的<strong>磁能增长率</strong> <span class="arithmatex">\(\frac{dU_B}{dt}\)</span>：
+   $$
+   \frac{dU_B}{dt} = L i \frac{di}{dt} = \frac{d}{dt}\left(\frac{1}{2}Li^2\right)
+   $$</li>
+</ol>
+<p>从电流为 <span class="arithmatex">\(0\)</span> 积分至稳态电流 <span class="arithmatex">\(i\)</span>，即得到通有电流 <span class="arithmatex">\(i\)</span> 的电感器 <span class="arithmatex">\(L\)</span> 所储存的总<strong>磁场能量</strong>（Magnetic Potential Energy）：</p>
+<div class="arithmatex">\[
+U_B = \int_0^i L i'\,di' = \frac{1}{2} L i^2
+\]</div>
+<h3 id="42-u_b-fracb22mu_0">4.2 磁场能量密度 (<span class="arithmatex">\(u_B = \frac{B^2}{2\mu_0}\)</span>)<a class="headerlink" href="#42-u_b-fracb22mu_0" title="Permanent link">&para;</a></h3>
+<p>考察长度为 <span class="arithmatex">\(l\)</span>（课件记为 <span class="arithmatex">\(h\)</span>）、横截面积为 <span class="arithmatex">\(S\)</span>（课件记为 <span class="arithmatex">\(A\)</span>）的理想长直螺线管。管外磁场为零，磁能完全均匀储存在管内体积 <span class="arithmatex">\(V = Sl\)</span> 的空间中。将 <span class="arithmatex">\(L = \mu_0 n^2 l S\)</span> 代入磁能公式，并利用管内磁场 <span class="arithmatex">\(B = \mu_0 n i\)</span>：</p>
+<div class="arithmatex">\[
+U_B = \frac{1}{2}Li^2 = \frac{1}{2}(\mu_0 n^2 l S)i^2 = \frac{(\mu_0 n i)^2}{2\mu_0}(Sl) = \frac{B^2}{2\mu_0}(Sl)
+\]</div>
+<p>由此定义单位体积内储存的磁场能量为<strong>磁场能量密度</strong>（Magnetic Energy Density，记作 <span class="arithmatex">\(u_B\)</span>，SI 单位为 <span class="arithmatex">\(\text{J/m}^3\)</span>）：</p>
+<div class="arithmatex">\[
+u_B = \frac{U_B}{Sl} = \frac{B^2}{2\mu_0} \quad (\text{真空或非磁性介质中}), \qquad u_B = \frac{B^2}{2\mu} = \frac{B^2}{2\mu_r\mu_0} = \frac{1}{2}\vec{B}\cdot\vec{H} \quad (\text{线性磁介质中})
+\]</div>
+<p>虽然上式由理想螺线管导出，但它<strong>对空间任意磁场分布均普适成立</strong>！对于非均匀磁场（如同轴电缆或螺绕环），既可以先求自感 <span class="arithmatex">\(L\)</span> 再算 <span class="arithmatex">\(\frac{1}{2}Li^2\)</span>，也可以先对全空间积分磁能密度 <span class="arithmatex">\(U_B = \int \frac{B^2}{2\mu_0}\,dV\)</span>，进而利用 <span class="arithmatex">\(L = \frac{2U_B}{i^2}\)</span> 反推复杂导体系统的自感（见 Exercise 12.7）。</p>
+<hr />
+<h2 id="5-mutual-induction-and-inductance-matrix">5 互感现象与电感矩阵 (Mutual Induction and Inductance Matrix)<a class="headerlink" href="#5-mutual-induction-and-inductance-matrix" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 互感系数与互感电动势<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>当两个线圈（Coil 1，匝数 <span class="arithmatex">\(N_1\)</span>；Coil 2，匝数 <span class="arithmatex">\(N_2\)</span>）彼此靠近放置时，线圈 1 中的电流 <span class="arithmatex">\(i_1\)</span> 激发的磁场 <span class="arithmatex">\(\vec{B}_1\)</span> 会有一部分穿过线圈 2，在线圈 2 的每一匝中产生磁通量 <span class="arithmatex">\(\Phi_{21}\)</span>。这种通过磁通耦合在两个电路之间产生感应的物理过程称为<strong>互感</strong>（Mutual Induction）。</p>
+<p>定义线圈 2 对线圈 1 的<strong>互感系数</strong>（Mutual Inductance，简称<strong>互感</strong>，记作 <span class="arithmatex">\(M_{21}\)</span>，单位同样为亨利 <span class="arithmatex">\(\text{H}\)</span>）为单位电流 <span class="arithmatex">\(i_1\)</span> 在线圈 2 中产生的磁通匝链数：</p>
+<div class="arithmatex">\[
+M_{21} = \frac{N_2 \Phi_{21}}{i_1} \iff N_2 \Phi_{21} = M_{21} i_1
+\]</div>
+<p>当电流 <span class="arithmatex">\(i_1(t)\)</span> 随时间变化时，由法拉第定律，在线圈 2 中产生的<strong>互感电动势</strong>为：</p>
+<div class="arithmatex">\[
+\mathcal{E}_{21} = -\frac{d(N_2 \Phi_{21})}{dt} = -M_{21}\frac{di_1}{dt}
+\]</div>
+<p>完全对称地，当线圈 2 通有变化电流 <span class="arithmatex">\(i_2(t)\)</span> 时，在线圈 1 中产生的互感系数与互感电动势分别为：</p>
+<div class="arithmatex">\[
+M_{12} = \frac{N_1 \Phi_{12}}{i_2}, \qquad \mathcal{E}_{12} = -M_{12}\frac{di_2}{dt}
+\]</div>
+<p><strong>经典模型（Example 12.1：同轴共面大小圆线圈的互感）</strong>：
+设半径为 <span class="arithmatex">\(R_1\)</span>、匝数为 <span class="arithmatex">\(N_1\)</span> 的大圆线圈与半径为 <span class="arithmatex">\(R_2 \ll R_1\)</span>、匝数为 <span class="arithmatex">\(N_2\)</span> 的小圆线圈同心共面放置（或同轴近距放置）。由于 <span class="arithmatex">\(R_2 \ll R_1\)</span>，不能直接求小线圈在整個大线圈截面上产生的非均匀磁场通量 <span class="arithmatex">\(\Phi_{12}\)</span>，而应<strong>先算大线圈通电 <span class="arithmatex">\(i_1\)</span> 在小线圈处产生的近乎均匀的磁场</strong>：
+大线圈在圆心处的磁场为 <span class="arithmatex">\(B_1 = \frac{\mu_0 N_1 i_1}{2R_1}\)</span>，穿过小线圈单匝面积 <span class="arithmatex">\(\pi R_2^2\)</span> 的磁通量为 <span class="arithmatex">\(\Phi_{21} \approx \pi R_2^2 B_1 = \frac{\mu_0 N_1 i_1 \pi R_2^2}{2R_1}\)</span>，从而一步求得互感：</p>
+<div class="arithmatex">\[
+M = M_{21} = \frac{N_2 \Phi_{21}}{i_1} = \frac{\mu_0 N_1 N_2 \pi R_2^2}{2R_1}
+\]</div>
+<h3 id="52-m_12-m_21">5.2 互感互易定理 (<span class="arithmatex">\(M_{12} = M_{21}\)</span>) 的能量守恒证明与电感矩阵<a class="headerlink" href="#52-m_12-m_21" title="Permanent link">&para;</a></h3>
+<p>互感系数仅由两个线圈的几何形状、大小、相对位置与取向决定。无论两个线圈的形状和大小多么不对称，恒有<strong>互感互易定理</strong>（Reciprocity Theorem）：</p>
+<div class="arithmatex">\[
+M_{12} = M_{21} \equiv M
+\]</div>
+<details>
+<summary>点击展开：利用双路径磁能守恒严格证明互易定理 M₁₂ = M₂₁（Section 12.5）</summary>
+<p>设两个固定且无电阻的线圈 <span class="arithmatex">\(L_1, L_2\)</span> 分别连接可控电流源 <span class="arithmatex">\(\mathcal{E}_1, \mathcal{E}_2\)</span>。考察将两线圈电流从初态 <span class="arithmatex">\((0, 0)\)</span> 缓慢建立到终态 <span class="arithmatex">\((i_1, i_2)\)</span> 的两条不同路径，计算外电源所做的总功：</p>
+<ol>
+<li><strong>路径 1（先将线圈 1 从 <span class="arithmatex">\(0\)</span> 升至 <span class="arithmatex">\(i_1\)</span> 并保持 <span class="arithmatex">\(i_2 = 0\)</span>；再保持 <span class="arithmatex">\(i_1\)</span> 不变，将线圈 2 从 <span class="arithmatex">\(0\)</span> 升至 <span class="arithmatex">\(i_2\)</span>）</strong>：</li>
+<li>第一阶段（<span class="arithmatex">\(0 \to i_1, \ i_2 = 0\)</span>）：电源 1 克服自感做功 <span class="arithmatex">\(W_1 = \frac{1}{2}L_1 i_1^2\)</span>，电源 2 做功为 <span class="arithmatex">\(0\)</span>；</li>
+<li>第二阶段（保持 <span class="arithmatex">\(i_1\)</span> 恒定，<span class="arithmatex">\(i_2' : 0 \to i_2\)</span>）：电源 2 克服自身自感做功 <span class="arithmatex">\(W_2 = \frac{1}{2}L_2 i_2^2\)</span>。<strong>但在此过程中</strong>，变化的 <span class="arithmatex">\(i_2'\)</span> 通过互感在线圈 1 中产生互感电动势 <span class="arithmatex">\(\mathcal{E}_{12}' = -M_{12}\frac{di_2'}{dt}\)</span>！为了维持线圈 1 中的电流 <span class="arithmatex">\(i_1\)</span> 恒定不变，电源 1 必须输出补偿电压 <span class="arithmatex">\(V_1' = -\mathcal{E}_{12}' = +M_{12}\frac{di_2'}{dt}\)</span>，从而电源 1 额外做功：
+     $$
+     W_1' = \int P_1'\,dt = \int_0^t i_1 \left(M_{12}\frac{di_2'}{dt'}\right)dt' = M_{12} i_1 \int_0^{i_2} di_2' = M_{12} i_1 i_2
+     $$
+   因此，沿路径 1 两电源所做的总功为：
+   $$
+   W_{\text{Path 1}} = \frac{1}{2}L_1 i_1^2 + \frac{1}{2}L_2 i_2^2 + M_{12} i_1 i_2
+   $$</li>
+<li><strong>路径 2（先将线圈 2 从 <span class="arithmatex">\(0\)</span> 升至 <span class="arithmatex">\(i_2\)</span> 并保持 <span class="arithmatex">\(i_1 = 0\)</span>；再保持 <span class="arithmatex">\(i_2\)</span> 不变，将线圈 1 从 <span class="arithmatex">\(0\)</span> 升至 <span class="arithmatex">\(i_1\)</span>）</strong>：
+   完全对称地重复上述分析，在第二阶段电源 2 为维持 <span class="arithmatex">\(i_2\)</span> 恒定需克服 <span class="arithmatex">\(\mathcal{E}_{21}' = -M_{21}\frac{di_1'}{dt}\)</span> 额外做功 <span class="arithmatex">\(W_2' = M_{21} i_1 i_2\)</span>，故沿路径 2 的总功为：
+   $$
+   W_{\text{Path 2}} = \frac{1}{2}L_1 i_1^2 + \frac{1}{2}L_2 i_2^2 + M_{21} i_1 i_2
+   $$</li>
+<li><strong>由状态函数唯一性得出结论</strong>：
+   由于线圈无电阻热耗散，外电源所做的功全部转化为空间磁场的能量 <span class="arithmatex">\(U_B = \int \frac{B^2}{2\mu_0}\,dV\)</span>。而终态空间合磁场 <span class="arithmatex">\(\vec{B} = \vec{B}_1 + \vec{B}_2\)</span> 仅由终态电流 <span class="arithmatex">\((i_1, i_2)\)</span> 唯一确定，与建立电流的历史路径无关。因此必有 <span class="arithmatex">\(W_{\text{Path 1}} = W_{\text{Path 2}}\)</span>，消去自感能量项即证得：
+   $$
+   M_{12} i_1 i_2 = M_{21} i_1 i_2 \implies M_{12} = M_{21} = M
+   $$</li>
+</ol>
+</details>
+<p><strong>双耦合回路的对称电感矩阵（Inductance Matrix）与总磁能</strong>：
+将自感与互感同时计入，两个耦合线圈的总磁通匝链数、总感应电动势以及系统总磁能可写成优美的矩阵与二次型形式：</p>
+<div class="arithmatex">\[
+\begin{pmatrix} N_1\Phi_1 \\ N_2\Phi_2 \end{pmatrix} = \begin{pmatrix} L_1 &amp; M \\ M &amp; L_2 \end{pmatrix} \begin{pmatrix} i_1 \\ i_2 \end{pmatrix}, \qquad \begin{pmatrix} \mathcal{E}_{\text{ind}, 1} \\ \mathcal{E}_{\text{ind}, 2} \end{pmatrix} = -\begin{pmatrix} L_1 &amp; M \\ M &amp; L_2 \end{pmatrix} \frac{d}{dt}\begin{pmatrix} i_1 \\ i_2 \end{pmatrix}
+\]</div>
+<div class="arithmatex">\[
+U_B = \frac{1}{2}\begin{pmatrix} i_1 &amp; i_2 \end{pmatrix} \begin{pmatrix} L_1 &amp; M \\ M &amp; L_2 \end{pmatrix} \begin{pmatrix} i_1 \\ i_2 \end{pmatrix} = \frac{1}{2}L_1 i_1^2 + \frac{1}{2}L_2 i_2^2 + M i_1 i_2
+\]</div>
+<p>（注：互感项 <span class="arithmatex">\(M\)</span> 可正可负，取决于两线圈选定的电流正方向所产生的磁场是同向相助还是反向相消）。</p>
+<hr />
+<h2 id="6-chapter-12-selected-exercises">6 Chapter 12 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#6-chapter-12-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 12.1, 12.2 &amp; 12.3: Coaxial Shells, Rectangular Toroid &amp; Wire-Loop Mutual Inductance（同轴圆筒自感、矩形螺绕环自感与直导线-矩形框互感）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 12.1</strong>: Consider two coaxial cylindrical conducting shells of radii <span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2 \ (R_1 &lt; R_2)\)</span> and length <span class="arithmatex">\(l\)</span>. A current <span class="arithmatex">\(I\)</span> flows down the inner shell and back along the outer one, spread uniformly round each shell. Ignore boundary effects. Calculate the self-inductance of the system.
+- <strong>Ex 12.2</strong>: A toroidal coil with an air core has a rectangular cross-section. The inner radius is <span class="arithmatex">\(a\)</span>, the outer radius is <span class="arithmatex">\(b\)</span>, and the height is <span class="arithmatex">\(h\)</span>. The toroid has <span class="arithmatex">\(N\)</span> turns of wire uniformly wound around it. Find the self-inductance <span class="arithmatex">\(L\)</span> of the toroid.
+- <strong>Ex 12.3</strong>: An infinitely long straight wire carrying current <span class="arithmatex">\(I\)</span> lies in the same plane as a rectangular loop of dimensions <span class="arithmatex">\(a \times b\)</span>. The near edge of the loop is at distance <span class="arithmatex">\(c\)</span> from the wire, and the far edge is at distance <span class="arithmatex">\(b + c\)</span> from the wire.
+  (a) Find <span class="arithmatex">\(M_{21}\)</span>, the flux through the loop per unit current in the wire.
+  (b) If <span class="arithmatex">\(a = 10\text{ cm}, \ b = 5\text{ cm}, \ c = 3\text{ cm}\)</span>, calculate <span class="arithmatex">\(M\)</span>.
+  (c) What is the induced emf in the loop if <span class="arithmatex">\(dI/dt = 100\text{ A/s}\)</span>? Give its magnitude and the sense of the induced current on the side nearer the wire.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 同轴薄圆柱壳传输线的自感（Exercise 12.1）</strong>：
+由安培环路定理，在 <span class="arithmatex">\(r &lt; R_1\)</span>（内壳内部）和 <span class="arithmatex">\(r &gt; R_2\)</span>（外壳外部）处磁场均为 <span class="arithmatex">\(B = 0\)</span>；仅在两壳之间的环形空间 <span class="arithmatex">\(R_1 &lt; r &lt; R_2\)</span> 内存在方位角方向的磁场：</p>
+<div class="arithmatex">\[
+B(r) = \frac{\mu_0 I}{2\pi r} \qquad (R_1 &lt; r &lt; R_2)
+\]</div>
+<ul>
+<li><strong>方法 1（由穿过轴向矩形截面的磁通量计算）</strong>：
+  连接内外圆筒构成单匝闭合回路（<span class="arithmatex">\(N = 1\)</span>），穿过长为 <span class="arithmatex">\(l\)</span>、径向从 <span class="arithmatex">\(R_1\)</span> 到 <span class="arithmatex">\(R_2\)</span> 的子午面矩形截面的磁通量为：
+  $$
+  \Phi_B = \int_{R_1}^{R_2} B(r) l\,dr = \frac{\mu_0 I l}{2\pi} \int_{R_1}^{R_2} \frac{dr}{r} = \frac{\mu_0 l I}{2\pi}\ln\left(\frac{R_2}{R_1}\right) \implies L = \frac{\Phi_B}{I} = \frac{\mu_0 l}{2\pi}\ln\left(\frac{R_2}{R_1}\right)
+  $$</li>
+<li><strong>方法 2（由磁场能量密度积分计算）</strong>：
+  $$
+  U_B = \int_{R_1}^{R_2} \frac{B^2(r)}{2\mu_0} (2\pi r l\,dr) = \frac{\mu_0 l I^2}{4\pi}\ln\left(\frac{R_2}{R_1}\right) = \frac{1}{2}LI^2 \implies L = \frac{\mu_0 l}{2\pi}\ln\left(\frac{R_2}{R_1}\right)
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 矩形截面空芯螺绕环（Toroid）的自感（Exercise 12.2）</strong>：
+由第九章结论，螺绕环内部距中心轴距离为 <span class="arithmatex">\(r \ (a &lt; r &lt; b)\)</span> 处的磁感应强度为 <span class="arithmatex">\(B(r) = \frac{\mu_0 N i}{2\pi r}\)</span>。
+在矩形截面上取宽为 <span class="arithmatex">\(dr\)</span>、高为 <span class="arithmatex">\(h\)</span> 的竖直窄条面元 <span class="arithmatex">\(dS = h\,dr\)</span>，穿过单匝截面的磁通量为：</p>
+<div class="arithmatex">\[
+\Phi_B = \int_a^b B(r) h\,dr = \frac{\mu_0 N i h}{2\pi} \int_a^b \frac{dr}{r} = \frac{\mu_0 N i h}{2\pi}\ln\left(\frac{b}{a}\right)
+\]</div>
+<p>因此，<span class="arithmatex">\(N\)</span> 匝螺绕环的自感为：</p>
+<div class="arithmatex">\[
+L = \frac{N\Phi_B}{i} = \frac{\mu_0 N^2 h}{2\pi}\ln\left(\frac{b}{a}\right)
+\]</div>
+<hr />
+<p><strong>3. 无限长直导线与共面矩形线框的互感及互感电动势（Exercise 12.3）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 长直导线在距其 <span class="arithmatex">\(r\)</span> 处产生的磁场垂直于线框平面，大小为 <span class="arithmatex">\(B(r) = \frac{\mu_0 I}{2\pi r}\)</span>。在矩形框内取平行于导线的窄条微元 <span class="arithmatex">\(dS = a\,dr\)</span>（从 <span class="arithmatex">\(r = c\)</span> 积分至 <span class="arithmatex">\(r = b + c\)</span>），穿过单匝矩形框（<span class="arithmatex">\(N_2 = 1\)</span>）的磁通量为：
+  $$
+  \Phi_{21} = \int_c^{b+c} \frac{\mu_0 I}{2\pi r} a\,dr = \frac{\mu_0 a I}{2\pi}\ln\left(\frac{b + c}{c}\right) \implies M_{21} = \frac{\Phi_{21}}{I} = \frac{\mu_0 a}{2\pi}\ln\left(\frac{b + c}{c}\right)
+  $$</li>
+<li><strong>(b)</strong> 代入数值 <span class="arithmatex">\(a = 0.10\text{ m}, \ b = 0.05\text{ m}, \ c = 0.03\text{ m}\)</span> 及 <span class="arithmatex">\(\frac{\mu_0}{2\pi} = 2 \times 10^{-7}\text{ H/m}\)</span>：
+  $$
+  M = (2 \times 10^{-7}) \times 0.10 \times \ln\left(\frac{5 + 3}{3}\right) = 2 \times 10^{-8}\ln\left(\frac{8}{3}\right)\text{ H} \approx 1.96 \times 10^{-8}\text{ H} = 19.6\text{ nH}
+  $$</li>
+<li><strong>(c)</strong> 当 <span class="arithmatex">\(\frac{dI}{dt} = 100\text{ A/s}\)</span> 时，互感电动势大小为：
+  $$
+  |\mathcal{E}| = M\left|\frac{dI}{dt}\right| \approx 1.96 \times 10^{-8}\text{ H} \times 100\text{ A/s} \approx 1.96 \times 10^{-6}\text{ V} = 1.96\ \mu\text{V}
+  $$
+  <strong>近端边的感应电流方向</strong>：由于直导线电流 <span class="arithmatex">\(I\)</span> 正在增大（<span class="arithmatex">\(\frac{dI}{dt} &gt; 0\)</span>），穿过矩形框的磁通量增加；根据楞次定律（或反向平行电流相互排斥以阻碍磁通增加），矩形框中靠近直导线的那条近端边上的感应电流方向必与直导线电流 <span class="arithmatex">\(I\)</span> 的方向<strong>相反</strong>（Opposite to the current <span class="arithmatex">\(I\)</span> in the wire）。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 12.4: Neumann Formula for Mutual Inductance &amp; Far-Field Dipole Coupling（互感的诺伊曼双线积分公式证明与远场偶极近似）</summary>
+<p><strong>Problem Statement:</strong>
+Two circular loops of radii <span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2\)</span> lie in parallel planes separated by distance <span class="arithmatex">\(d\)</span>. Their centers are on the same axis perpendicular to both planes. Count both currents positive in the same sense about the axis.
+(a) Show that the mutual inductance of any two loops can be written in the Neumann form:
+$<span class="arithmatex">\(M = \frac{\mu_0}{4\pi} \oint_{C_1} \oint_{C_2} \frac{d\vec{l}_1 \cdot d\vec{l}_2}{|\vec{r}_1 - \vec{r}_2|}\)</span>$
+<em>Hint</em>: write the flux through loop 2 as <span class="arithmatex">\(\oint \vec{A}\cdot d\vec{l}_2\)</span> with <span class="arithmatex">\(\vec{A}(\vec{r}_2) = \frac{\mu_0 i_1}{4\pi}\oint_{C_1} \frac{d\vec{l}_1}{|\vec{r}_1 - \vec{r}_2|}\)</span>. First show that <span class="arithmatex">\(\nabla\times\vec{A}\)</span> equals the magnetic field of loop 1 given by the Biot-Savart law; then use Stokes' theorem.
+(b) Show that for the case of <span class="arithmatex">\(d \gg R_1, R_2\)</span>, the mutual inductance is:
+$<span class="arithmatex">\(M \approx \frac{\pi\mu_0}{2d^3} R_1^2 R_2^2\)</span>$</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>(a) 磁矢势 <span class="arithmatex">\(\vec{A}\)</span>（Vector Potential）与诺伊曼互感公式（Neumann Formula）的严格证明</strong>：
+第一步：验证在场点 <span class="arithmatex">\(\vec{r}_2\)</span> 处对坐标 <span class="arithmatex">\(\vec{r}_2\)</span> 求旋度 <span class="arithmatex">\(\nabla_2 \times \vec{A}(\vec{r}_2)\)</span> 给出毕奥-萨伐尔定律。
+将算符 <span class="arithmatex">\(\nabla_2 \times\)</span> 移入对源点 <span class="arithmatex">\(\vec{r}_1\)</span> 的线积分号内，应用第四章的标量乘矢量旋度恒等式 <span class="arithmatex">\(\nabla_2 \times (f\vec{v}) = (\nabla_2 f)\times\vec{v} + f(\nabla_2\times\vec{v})\)</span>（此处 <span class="arithmatex">\(f = \frac{1}{|\vec{r}_2 - \vec{r}_1|}\)</span>，且源线元 <span class="arithmatex">\(\vec{v} = d\vec{l}_1\)</span> 与场点坐标 <span class="arithmatex">\(\vec{r}_2\)</span> 无关，故 <span class="arithmatex">\(\nabla_2 \times d\vec{l}_1 = \vec{0}\)</span>）：</p>
+<div class="arithmatex">\[
+\nabla_2 \times \left(\frac{d\vec{l}_1}{|\vec{r}_2 - \vec{r}_1|}\right) = \nabla_2\left(\frac{1}{|\vec{r}_2 - \vec{r}_1|}\right) \times d\vec{l}_1 = \left(-\frac{\vec{r}_2 - \vec{r}_1}{|\vec{r}_2 - \vec{r}_1|^3}\right) \times d\vec{l}_1 = \frac{d\vec{l}_1 \times (\vec{r}_2 - \vec{r}_1)}{|\vec{r}_2 - \vec{r}_1|^3}
+\]</div>
+<p>代回积分式，立即得到回路 1 在 <span class="arithmatex">\(\vec{r}_2\)</span> 处产生的磁感应强度：</p>
+<div class="arithmatex">\[
+\nabla_2 \times \vec{A}(\vec{r}_2) = \frac{\mu_0 i_1}{4\pi} \oint_{C_1} \frac{d\vec{l}_1 \times (\vec{r}_2 - \vec{r}_1)}{|\vec{r}_2 - \vec{r}_1|^3} = \vec{B}_1(\vec{r}_2)
+\]</div>
+<p>第二步：利用斯托克斯定理（Stokes' theorem）计算穿过回路 2（边界为 <span class="arithmatex">\(C_2\)</span>，张成曲面为 <span class="arithmatex">\(S_2\)</span>）的磁通量 <span class="arithmatex">\(\Phi_{21}\)</span>：</p>
+<div class="arithmatex">\[
+\Phi_{21} = \int_{S_2} \vec{B}_1(\vec{r}_2) \cdot d\vec{S}_2 = \int_{S_2} (\nabla_2 \times \vec{A}) \cdot d\vec{S}_2 = \oint_{C_2} \vec{A}(\vec{r}_2) \cdot d\vec{l}_2 = \frac{\mu_0 i_1}{4\pi} \oint_{C_1} \oint_{C_2} \frac{d\vec{l}_1 \cdot d\vec{l}_2}{|\vec{r}_1 - \vec{r}_2|}
+\]</div>
+<p>两边同除以 <span class="arithmatex">\(i_1\)</span>，即证得<strong>诺伊曼公式</strong>（Neumann formula）：</p>
+<div class="arithmatex">\[
+M = \frac{\Phi_{21}}{i_1} = \frac{\mu_0}{4\pi} \oint_{C_1} \oint_{C_2} \frac{d\vec{l}_1 \cdot d\vec{l}_2}{|\vec{r}_1 - \vec{r}_2|}
+\]</div>
+<p><em>（注：由于点乘 <span class="arithmatex">\(d\vec{l}_1\cdot d\vec{l}_2\)</span> 与距离 <span class="arithmatex">\(|\vec{r}_1 - \vec{r}_2|\)</span> 关于下标 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(2\)</span> 完全对称，诺伊曼公式从纯几何上直接彰显了互易定理 <span class="arithmatex">\(M_{12} = M_{21}\)</span>！）。</em></p>
+<hr />
+<p><strong>(b) 远距离（<span class="arithmatex">\(d \gg R_1, R_2\)</span>）下两平行共轴圆环的互感</strong>：
+当 <span class="arithmatex">\(d \gg R_1, R_2\)</span> 时，由第九章 Example 9.1 载流圆环轴线磁场公式可知，圆环 1（通有电流 <span class="arithmatex">\(i_1\)</span>）在距离为 <span class="arithmatex">\(d\)</span> 的圆环 2 中心处产生的轴向磁场为：</p>
+<div class="arithmatex">\[
+B_1(d) = \frac{\mu_0 i_1 R_1^2}{2(R_1^2 + d^2)^{3/2}} \approx \frac{\mu_0 i_1 R_1^2}{2d^3} \qquad (d \gg R_1)
+\]</div>
+<p>由于 <span class="arithmatex">\(R_2 \ll d\)</span>，在整个圆环 2 的截面积 <span class="arithmatex">\(\pi R_2^2\)</span> 上，磁场可视为均匀且等于轴线值 <span class="arithmatex">\(B_1(d)\)</span>。因此穿过圆环 2 的磁通量及互感系数为：</p>
+<div class="arithmatex">\[
+\Phi_{21} \approx (\pi R_2^2) B_1(d) \approx \frac{\pi \mu_0 R_1^2 R_2^2}{2d^3} i_1 \implies M = \frac{\Phi_{21}}{i_1} \approx \frac{\pi \mu_0}{2d^3} R_1^2 R_2^2
+\]</div>
+</details>
+<details>
+<summary>Exercise 12.5 &amp; 12.6: Linear Current Reversal in Solenoid &amp; Inductive Voltage Spike on Opening Switch（螺线管线性电流反向与断电瞬间的电感高压尖峰）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 12.5</strong>: A long air-core solenoid of length <span class="arithmatex">\(l\)</span>, area <span class="arithmatex">\(S\)</span>, and <span class="arithmatex">\(n\)</span> turns/m has negligible resistance. Current is positive when entering at terminal <span class="arithmatex">\(A\)</span> and leaving at <span class="arithmatex">\(B\)</span>. An ideal current source makes <span class="arithmatex">\(i(t) = I_0(1 - 2t/T)\)</span> for <span class="arithmatex">\(0 \le t \le T\)</span> (<span class="arithmatex">\(I_0, T &gt; 0\)</span>). Let <span class="arithmatex">\(L = \mu_0 n^2 l S\)</span> be its self-inductance.
+  (a) Find the self-induced emf <span class="arithmatex">\(\mathcal{E}_L\)</span> and potential difference <span class="arithmatex">\(V_A - V_B\)</span>. Which terminal is at higher potential, and does this change when <span class="arithmatex">\(i\)</span> passes through zero?
+  (b) Find the magnetic energy <span class="arithmatex">\(U_B\)</span> at <span class="arithmatex">\(t = 0, T/2, T\)</span>, and the work done by the source on the solenoid during <span class="arithmatex">\([0, T/2]\)</span> and <span class="arithmatex">\([T/2, T]\)</span>.
+- <strong>Ex 12.6</strong>: A coil of inductance <span class="arithmatex">\(L\)</span> and internal resistance <span class="arithmatex">\(r\)</span> has terminals <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>. A resistor <span class="arithmatex">\(R\)</span> is connected directly between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>. An ideal battery <span class="arithmatex">\(\mathcal{E}\)</span> is connected between <span class="arithmatex">\(A\)</span> (<span class="arithmatex">\(+\)</span>) and <span class="arithmatex">\(B\)</span> (<span class="arithmatex">\(-\)</span>) through a switch. The switch has been closed for a long time and is opened at <span class="arithmatex">\(t = 0\)</span>.
+  (a) Just before <span class="arithmatex">\(t = 0\)</span>, find the current through the coil, the current through <span class="arithmatex">\(R\)</span>, and <span class="arithmatex">\(V_A - V_B\)</span>.
+  (b) For <span class="arithmatex">\(t &gt; 0\)</span>, find the current through the coil, and find <span class="arithmatex">\(V_A - V_B\)</span> just after <span class="arithmatex">\(t = 0\)</span>. For which values of <span class="arithmatex">\(R\)</span> is <span class="arithmatex">\(|V_A - V_B|\)</span> just after <span class="arithmatex">\(t = 0\)</span> larger than <span class="arithmatex">\(\mathcal{E}\)</span>?
+  (c) Find the heat produced in <span class="arithmatex">\(R\)</span> after <span class="arithmatex">\(t = 0\)</span>, and show that the total heat produced in <span class="arithmatex">\(R\)</span> and <span class="arithmatex">\(r\)</span> equals the initial magnetic energy stored in the coil.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 线性反向电流驱动下的螺线管端电压与能量吞吐（Exercise 12.5）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 电流随时间的变化率为恒定负值：<span class="arithmatex">\(\frac{di}{dt} = -\frac{2I_0}{T} &lt; 0\)</span>。其中 <span class="arithmatex">\(L = \mu_0 n^2 l S\)</span>。
+  由自感电动势与端电压公式：
+  $$
+  \mathcal{E}_L = -L\frac{di}{dt} = +\frac{2LI_0}{T} = \frac{2\mu_0 n^2 l S I_0}{T}, \qquad V_A - V_B = L\frac{di}{dt} = -\frac{2LI_0}{T} &lt; 0
+  $$
+  由于 <span class="arithmatex">\(V_A - V_B &lt; 0\)</span>（即 <span class="arithmatex">\(V_B &gt; V_A\)</span>），<strong>端子 <span class="arithmatex">\(B\)</span> 始终处于高电势</strong>！而且因为端电压取决于导数 <span class="arithmatex">\(\frac{di}{dt}\)</span>（在整个 <span class="arithmatex">\([0, T]\)</span> 内恒为 <span class="arithmatex">\(-\frac{2I_0}{T}\)</span>）而非电流 <span class="arithmatex">\(i\)</span> 本身，所以<strong>当 <span class="arithmatex">\(t = T/2\)</span> 电流穿过零点反号时，高电势端子并不会改变（始终是 <span class="arithmatex">\(B\)</span> 高于 <span class="arithmatex">\(A\)</span>）</strong>。</li>
+<li><strong>(b)</strong> 由 <span class="arithmatex">\(U_B(t) = \frac{1}{2}Li^2(t)\)</span>：</li>
+<li>在 <span class="arithmatex">\(t = 0\)</span> 时（<span class="arithmatex">\(i = +I_0\)</span>）：<span class="arithmatex">\(U_B(0) = \dfrac{1}{2}LI_0^2\)</span>；</li>
+<li>在 <span class="arithmatex">\(t = T/2\)</span> 时（<span class="arithmatex">\(i = 0\)</span>）：<span class="arithmatex">\(U_B(T/2) = 0\)</span>；</li>
+<li>在 <span class="arithmatex">\(t = T\)</span> 时（<span class="arithmatex">\(i = -I_0\)</span>）：<span class="arithmatex">\(U_B(T) = \dfrac{1}{2}L(-I_0)^2 = \dfrac{1}{2}LI_0^2\)</span>。
+  无阻电感不产生焦耳热，电流源对螺线管所做的功等于磁能的变化量 <span class="arithmatex">\(W = \Delta U_B\)</span>：</li>
+<li>在前半段 <span class="arithmatex">\(0 \le t \le T/2\)</span>：<span class="arithmatex">\(W_{0 \to T/2} = U_B(T/2) - U_B(0) = -\dfrac{1}{2}LI_0^2 &lt; 0\)</span>（此时 <span class="arithmatex">\(i &gt; 0\)</span> 从 <span class="arithmatex">\(A\)</span> 流向 <span class="arithmatex">\(B\)</span>，但 <span class="arithmatex">\(V_B &gt; V_A\)</span>，电感器把储存的磁能释放回馈给电流源，源做负功）；</li>
+<li>在后半段 <span class="arithmatex">\(T/2 \le t \le T\)</span>：<span class="arithmatex">\(W_{T/2 \to T} = U_B(T) - U_B(T/2) = +\dfrac{1}{2}LI_0^2 &gt; 0\)</span>（此时电流反向从 <span class="arithmatex">\(B\)</span> 流向 <span class="arithmatex">\(A\)</span>，顺着电势降方向，电流源做正功重新为电感器建立反向磁场储能）。</li>
+</ul>
+<hr />
+<p><strong>2. 实际电感线圈断电瞬间的反冲高压与焦耳热守恒（Exercise 12.6，经典必考电路题）</strong>：</p>
+<ul>
+<li><strong>(a) 断开开关前瞬间（<span class="arithmatex">\(t = 0^-\)</span>，直流稳态）</strong>：
+  理想电池直接跨接在 <span class="arithmatex">\(A, B\)</span> 两端，故端电压为 <span class="arithmatex">\(V_A - V_B = \mathcal{E}\)</span>。
+  电感器已达稳态（<span class="arithmatex">\(\frac{di}{dt} = 0\)</span>），仅由其内阻 <span class="arithmatex">\(r\)</span> 限流，故流过线圈的稳恒电流（从 <span class="arithmatex">\(A\)</span> 到 <span class="arithmatex">\(B\)</span>）和流过并联电阻 <span class="arithmatex">\(R\)</span> 的电流（从 <span class="arithmatex">\(A\)</span> 到 <span class="arithmatex">\(B\)</span>）分别为：
+  $$
+  i_{\text{coil}}(0^-) = i_0 = \frac{\mathcal{E}}{r}, \qquad i_R(0^-) = \frac{\mathcal{E}}{R}, \qquad V_A(0^-) - V_B(0^-) = \mathcal{E}
+  $$</li>
+<li><strong>(b) 断开开关后（<span class="arithmatex">\(t &gt; 0\)</span>）的衰减电流与 <span class="arithmatex">\(t = 0^+\)</span> 瞬间的反冲端电压</strong>：
+  断开开关后，线圈 <span class="arithmatex">\((L, r)\)</span> 与外电阻 <span class="arithmatex">\(R\)</span> 构成串联闭合回路，总电阻为 <span class="arithmatex">\(R + r\)</span>，时间常数为 <span class="arithmatex">\(\tau = \frac{L}{R + r}\)</span>。
+  由于电感中的电流不能突变，在 <span class="arithmatex">\(t = 0^+\)</span> 瞬间线圈电流保持为 <span class="arithmatex">\(i_{\text{coil}}(0^+) = i_0 = \frac{\mathcal{E}}{r}\)</span>（方向仍在线圈内从 <span class="arithmatex">\(A\)</span> 流向 <span class="arithmatex">\(B\)</span>，然后从端子 <span class="arithmatex">\(B\)</span> 流出、经外电阻 <span class="arithmatex">\(R\)</span> 从 <span class="arithmatex">\(B\)</span> 流向 <span class="arithmatex">\(A\)</span>！）。因此在 <span class="arithmatex">\(t &gt; 0\)</span> 时：
+  $$
+  i(t) = \frac{\mathcal{E}}{r} \exp\left(-\frac{R + r}{L}t\right)
+  $$
+  由于电流在外电阻 <span class="arithmatex">\(R\)</span> 中是<strong>从 <span class="arithmatex">\(B\)</span> 流向 <span class="arithmatex">\(A\)</span></strong> 的，因此在 <span class="arithmatex">\(t &gt; 0\)</span> 时端子 <span class="arithmatex">\(A\)</span> 的电势低于端子 <span class="arithmatex">\(B\)</span>：
+  $$
+  V_A(t) - V_B(t) = -i(t)R = -\frac{R}{r}\mathcal{E} \exp\left(-\frac{R + r}{L}t\right) \implies V_A(0^+) - V_B(0^+) = -\frac{R}{r}\mathcal{E}
+  $$
+  对比 <span class="arithmatex">\(\mathcal{E}\)</span> 可知：只要外电阻满足 <strong><span class="arithmatex">\(R &gt; r\)</span></strong>，断电瞬间端电压的绝对值 <span class="arithmatex">\(|V_A(0^+) - V_B(0^+)| = \frac{R}{r}\mathcal{E}\)</span> 就会<strong>大于原电源电动势 <span class="arithmatex">\(\mathcal{E}\)</span></strong>！（当 <span class="arithmatex">\(R \gg r\)</span> 时会产生极高的感应过电压尖峰）。</li>
+<li><strong>(c) 断电后在电阻 <span class="arithmatex">\(R\)</span> 上产生的焦耳热 <span class="arithmatex">\(H_R\)</span></strong>：
+  因为 <span class="arithmatex">\(R\)</span> 与线圈内阻 <span class="arithmatex">\(r\)</span> 串联流过同一个衰减电流 <span class="arithmatex">\(i(t)\)</span>，两者消耗的焦耳热按阻值成正比分配。总耗散焦耳热为：
+  $$
+  H_{\text{tot}} = \int_0^\infty i^2(t)(R + r)\,dt = \frac{\mathcal{E}^2}{r^2}(R + r) \cdot \frac{L}{2(R + r)} = \frac{1}{2}L\left(\frac{\mathcal{E}}{r}\right)^2 = \frac{1}{2}Li_0^2 = U_B(0)
+  $$
+  其中外电阻 <span class="arithmatex">\(R\)</span> 上分得的焦耳热为：
+  $$
+  H_R = \frac{R}{R + r} H_{\text{tot}} = \frac{R}{R + r} \cdot \frac{L\mathcal{E}^2}{2r^2}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 12.7, 12.8 &amp; 12.9: Internal Inductance of Solid Coax, Gapped Iron Toroid &amp; Coupled Solenoids（实心同轴电缆内自感辨析、开气隙铁芯螺绕环与同轴双螺线管）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 12.7</strong>: A long coaxial cable (length <span class="arithmatex">\(l\)</span>) consists of a <em>solid</em> inner conductor of radius <span class="arithmatex">\(a\)</span> (carrying uniform current <span class="arithmatex">\(I\)</span> along <span class="arithmatex">\(+z\)</span>) and a thin outer shell of radius <span class="arithmatex">\(b &gt; a\)</span> (carrying <span class="arithmatex">\(I\)</span> back).
+  (a) Find <span class="arithmatex">\(B(r)\)</span> for <span class="arithmatex">\(r &lt; a\)</span>, <span class="arithmatex">\(a &lt; r &lt; b\)</span>, and <span class="arithmatex">\(r &gt; b\)</span>, and find the magnetic energy stored inside the inner conductor (<span class="arithmatex">\(r &lt; a\)</span>) and between the conductors (<span class="arithmatex">\(a &lt; r &lt; b\)</span>).
+  (b) Using <span class="arithmatex">\(U_B = \frac{1}{2}LI^2\)</span>, find the self-inductance <span class="arithmatex">\(L\)</span> of length <span class="arithmatex">\(l\)</span>.
+  (c) A student instead computes the magnetic flux through a flat rectangle of length <span class="arithmatex">\(l\)</span> extending from <span class="arithmatex">\(r = 0\)</span> to <span class="arithmatex">\(r = b\)</span>, and divides by <span class="arithmatex">\(I\)</span>. Find the result, and explain why it is not the self-inductance.
+- <strong>Ex 12.8</strong>: A thin toroidal iron core (mean circumference <span class="arithmatex">\(l\)</span>, area <span class="arithmatex">\(S\)</span>, linear relative permeability <span class="arithmatex">\(\mu_r\)</span>) has a narrow air gap of width <span class="arithmatex">\(g \ll \sqrt{S}\)</span> cut across it. <span class="arithmatex">\(N\)</span> turns carry current <span class="arithmatex">\(i\)</span>. Assume no flux leakage or fringing.
+  (a) Explain why the magnitude <span class="arithmatex">\(B\)</span> is the same in the iron and in the gap, and find <span class="arithmatex">\(B\)</span>.
+  (b) Find the self-inductance <span class="arithmatex">\(L\)</span> of the winding.
+  (c) Find the fraction of the stored energy <span class="arithmatex">\(\frac{1}{2}Li^2\)</span> that is in the gap, and evaluate it for <span class="arithmatex">\(\mu_r = 5000, \ l = 0.20\text{ m}, \ g = 1.0\text{ mm}\)</span>.
+- <strong>Ex 12.9</strong>: Two fixed, long, thin-wound solenoids share the <span class="arithmatex">\(z\)</span> axis and have the same length <span class="arithmatex">\(l\)</span>: inner radius <span class="arithmatex">\(a\)</span> (<span class="arithmatex">\(n_1\)</span> turns/m) and outer radius <span class="arithmatex">\(b &gt; a\)</span> (<span class="arithmatex">\(n_2\)</span> turns/m).
+  (a) Find <span class="arithmatex">\(L_1, L_2, M_{12}, M_{21}\)</span>.
+  (b) Currents are brought from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(I_1, I_2\)</span> along two paths; find the total work done by the two sources in each case.
+  (c) Find the final magnetic energy by integrating <span class="arithmatex">\(\frac{B^2}{2\mu_0}\)</span> over <span class="arithmatex">\(r &lt; a\)</span> and <span class="arithmatex">\(a &lt; r &lt; b\)</span>, and compare with (b).</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 实心内导体同轴电缆的内自感：磁能法 vs. 朴素磁通法的深刻辨析（Exercise 12.7，核心压轴题）</strong>：</p>
+<ul>
+<li><strong>(a) 各区域磁场与磁能积分</strong>：
+  由第九章同轴电缆安培环路结论，磁场方向沿方位角 <span class="arithmatex">\(+\hat{\phi}\)</span>（逆时针），各区域大小为：
+  $$
+  B(r) = \begin{cases}
+  \dfrac{\mu_0 I r}{2\pi a^2}, &amp; r &lt; a \quad (\text{实心内导体内部}), \[6pt]
+  \dfrac{\mu_0 I}{2\pi r}, &amp; a &lt; r &lt; b \quad (\text{内外导体之间}), \[6pt]
+  0, &amp; r &gt; b \quad (\text{电缆外部}).
+  \end{cases}
+  $$
+  利用磁能密度 <span class="arithmatex">\(u_B = \frac{B^2}{2\mu_0}\)</span> 在柱壳体积元 <span class="arithmatex">\(dV = 2\pi r l\,dr\)</span> 上分别积分：</li>
+<li><strong>实心内导体内部（<span class="arithmatex">\(0 \le r &lt; a\)</span>）储存的磁能</strong>：
+    $$
+    U_{\text{in}} = \int_0^a \frac{1}{2\mu_0}\left(\frac{\mu_0 I r}{2\pi a^2}\right)^2 (2\pi r l\,dr) = \frac{\mu_0 l I^2}{4\pi a^4} \int_0^a r^3\,dr = \frac{\mu_0 l I^2}{16\pi}
+    $$</li>
+<li><strong>两导体之间空腔（<span class="arithmatex">\(a &lt; r &lt; b\)</span>）储存的磁能</strong>：
+    $$
+    U_{\text{between}} = \int_a^b \frac{1}{2\mu_0}\left(\frac{\mu_0 I}{2\pi r}\right)^2 (2\pi r l\,dr) = \frac{\mu_0 l I^2}{4\pi} \int_a^b \frac{dr}{r} = \frac{\mu_0 l I^2}{4\pi}\ln\left(\frac{b}{a}\right)
+    $$</li>
+<li><strong>(b) 由总磁能 <span class="arithmatex">\(U_B = U_{\text{in}} + U_{\text{between}} = \frac{1}{2}LI^2\)</span> 求真实总自感 <span class="arithmatex">\(L\)</span></strong>：
+  $$
+  U_B = \frac{\mu_0 l I^2}{4\pi}\left[\frac{1}{4} + \ln\left(\frac{b}{a}\right)\right] = \frac{1}{2}LI^2 \implies L = \frac{\mu_0 l}{2\pi}\left[\frac{1}{4} + \ln\left(\frac{b}{a}\right)\right]
+  $$
+  （其中 <span class="arithmatex">\(\frac{\mu_0 l}{8\pi}\)</span> 称为实心导线的<strong>内自感</strong> Internal inductance，与半径 <span class="arithmatex">\(a\)</span> 无关！）。</li>
+<li><strong>(c) 为什么直接算 <span class="arithmatex">\(0 \le r \le b\)</span> 矩形截面的磁通量除以 <span class="arithmatex">\(I\)</span> 会出错？</strong>
+  若直接将 <span class="arithmatex">\(B(r)\)</span> 在 <span class="arithmatex">\([0, b]\)</span> 上对 <span class="arithmatex">\(l\,dr\)</span> 积分求磁通量：
+  $$
+  \frac{\Phi_{\text{rect}}}{I} = \frac{1}{I}\left[ \int_0^a \frac{\mu_0 I r}{2\pi a^2}l\,dr + \int_a^b \frac{\mu_0 I}{2\pi r}l\,dr \right] = \frac{\mu_0 l}{2\pi}\left[\frac{1}{2} + \ln\left(\frac{b}{a}\right)\right] \neq L
+  $$
+  可以看到，内自感项变成了 <span class="arithmatex">\(\frac{1}{2}\)</span> 而不是正确的 <span class="arithmatex">\(\frac{1}{4}\)</span>（多算了一倍）！
+  <strong>物理原因</strong>：在实心内导体内部（<span class="arithmatex">\(0 &lt; r &lt; a\)</span>）的磁通微元 <span class="arithmatex">\(d\Phi(r) = B(r)l\,dr\)</span>，<strong>并没有与全部电流 <span class="arithmatex">\(I\)</span> 发生匝链（Linkage）</strong>，它只包围了半径 <span class="arithmatex">\(r\)</span> 以内的那一部分电流 <span class="arithmatex">\(I_{\text{enc}}(r) = I\frac{r^2}{a^2}\)</span>（仅占总电流的权重因子 <span class="arithmatex">\(\frac{r^2}{a^2}\)</span>）！如果計入部分匝链权重 <span class="arithmatex">\(\int_0^a \left(\frac{r^2}{a^2}\right) B(r)l\,dr = \frac{\mu_0 l I}{2\pi a^4}\int_0^a r^3\,dr = \frac{\mu_0 l I}{8\pi}\)</span>，结果就与能量法完全一致了。</li>
+</ul>
+<hr />
+<p><strong>2. 开气隙铁芯螺绕环的磁路分析与气隙储能占比（Exercise 12.8，工程磁路必考题）</strong>：</p>
+<ul>
+<li><strong>(a) 为什么铁芯与气隙中的 <span class="arithmatex">\(B\)</span> 相等？求 <span class="arithmatex">\(B\)</span></strong>：
+  跨接铁芯与气隙的交界面作扁圆柱高斯药盒，由磁场高斯定理 <span class="arithmatex">\(\oint \vec{B}\cdot d\vec{S} = 0\)</span>（且忽略边缘漏磁 Fringing）可知，磁感应强度的法向分量跨界面连续，故<strong>铁芯中的 <span class="arithmatex">\(B\)</span> 与气隙中的 <span class="arithmatex">\(B\)</span> 大小严格相等</strong>。
+  然而磁场强度 <span class="arithmatex">\(H = B/\mu\)</span> 在两介质中截然不同：在铁芯中（长度 <span class="arithmatex">\(l - g\)</span>）<span class="arithmatex">\(H_{\text{iron}} = \frac{B}{\mu_r\mu_0}\)</span>；在空气隙中（宽度 <span class="arithmatex">\(g\)</span>）<span class="arithmatex">\(H_{\text{gap}} = \frac{B}{\mu_0}\)</span>。
+  沿中心圆周应用关于 <span class="arithmatex">\(\vec{H}\)</span> 的安培环路定理 <span class="arithmatex">\(\oint \vec{H}\cdot d\vec{l} = N i\)</span>：
+  $$
+  H_{\text{iron}}(l - g) + H_{\text{gap}} g = \frac{B}{\mu_0}\left(\frac{l - g}{\mu_r} + g\right) = Ni \implies B = \frac{\mu_0 N i}{\dfrac{l - g}{\mu_r} + g}
+  $$</li>
+<li><strong>(b) 绕组的自感 <span class="arithmatex">\(L\)</span></strong>：
+  穿过单匝截面的磁通量为 <span class="arithmatex">\(\Phi_B = BS\)</span>，故自感为：
+  $$
+  L = \frac{N\Phi_B}{i} = \frac{\mu_0 N^2 S}{\dfrac{l - g}{\mu_r} + g}
+  $$</li>
+<li><strong>(c) 储存在狭窄空气隙中的磁能占总磁能的比例</strong>：
+  在气隙中磁能密度为 <span class="arithmatex">\(u_{\text{gap}} = \frac{B^2}{2\mu_0}\)</span>（体积 <span class="arithmatex">\(Sg\)</span>），在铁芯中磁能密度为 <span class="arithmatex">\(u_{\text{iron}} = \frac{1}{2}BH_{\text{iron}} = \frac{B^2}{2\mu_r\mu_0}\)</span>（体积 <span class="arithmatex">\(S(l - g)\)</span>）。因此气隙磁能占比为：
+  $$
+  f_{\text{gap}} = \frac{U_{\text{gap}}}{U_{\text{tot}}} = \frac{\dfrac{B^2}{2\mu_0}Sg}{\dfrac{B^2}{2\mu_0}Sg + \dfrac{B^2}{2\mu_r\mu_0}S(l - g)} = \frac{g}{g + \dfrac{l - g}{\mu_r}}
+  $$
+  代入 <span class="arithmatex">\(\mu_r = 5000, \ l = 0.20\text{ m} = 200\text{ mm}, \ g = 1.0\text{ mm}\)</span>（此时 <span class="arithmatex">\(\frac{l - g}{\mu_r} = \frac{199}{5000}\text{ mm} = 0.0398\text{ mm}\)</span>）：
+  $$
+  f_{\text{gap}} = \frac{1.0}{1.0 + 0.0398} \approx 0.962 = 96.2\%
+  $$
+  <strong>惊人结论</strong>：尽管空气隙的宽度（<span class="arithmatex">\(1\text{ mm}\)</span>）仅占整个铁芯周长（<span class="arithmatex">\(200\text{ mm}\)</span>）的 <span class="arithmatex">\(0.5\%\)</span>，但由于气隙中 <span class="arithmatex">\(H_{\text{gap}} = \mu_r H_{\text{iron}}\)</span> 极高，<strong>整个电感器中超过 <span class="arithmatex">\(96\%\)</span> 的磁场能量实际上都集中储存在这 <span class="arithmatex">\(1\text{ mm}\)</span> 宽的空气隙之中</strong>！</li>
+</ul>
+<hr />
+<p><strong>3. 两个同轴长直螺线管的自感、互感与空间磁能积分验证（Exercise 12.9）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 内螺线管截面积为 <span class="arithmatex">\(\pi a^2\)</span>，外螺线管截面积为 <span class="arithmatex">\(\pi b^2 \ (b &gt; a)\)</span>：</li>
+<li>各自的自感分别为：<span class="arithmatex">\(L_1 = \mu_0 n_1^2 \pi a^2 l\)</span>，<span class="arithmatex">\(L_2 = \mu_0 n_2^2 \pi b^2 l\)</span>；</li>
+<li>计算 <span class="arithmatex">\(M_{21}\)</span>：内管通电 <span class="arithmatex">\(i_1\)</span> 时，磁场 <span class="arithmatex">\(B_1 = \mu_0 n_1 i_1\)</span> 仅存在于 <span class="arithmatex">\(r &lt; a\)</span> 内，故穿过外管单匝的磁通量为 <span class="arithmatex">\(\Phi_{21} = B_1(\pi a^2) = \mu_0 n_1 \pi a^2 i_1\)</span>，外管总匝数 <span class="arithmatex">\(N_2 = n_2 l\)</span>，得 <span class="arithmatex">\(M_{21} = \frac{N_2\Phi_{21}}{i_1} = \mu_0 n_1 n_2 \pi a^2 l\)</span>；</li>
+<li>计算 <span class="arithmatex">\(M_{12}\)</span>：外管通电 <span class="arithmatex">\(i_2\)</span> 时，在整个 <span class="arithmatex">\(r &lt; b\)</span> 内产生均匀磁场 <span class="arithmatex">\(B_2 = \mu_0 n_2 i_2\)</span>，穿过内管单匝（面积 <span class="arithmatex">\(\pi a^2\)</span>）的磁通量为 <span class="arithmatex">\(\Phi_{12} = B_2(\pi a^2) = \mu_0 n_2 \pi a^2 i_2\)</span>，内管总匝数 <span class="arithmatex">\(N_1 = n_1 l\)</span>，得 <span class="arithmatex">\(M_{12} = \frac{N_1\Phi_{12}}{i_2} = \mu_0 n_1 n_2 \pi a^2 l = M_{21} = M\)</span>。</li>
+<li><strong>(b)</strong> 由 §5.2 的推导，无论先建立 <span class="arithmatex">\(I_1\)</span> 再建立 <span class="arithmatex">\(I_2\)</span>，还是先建立 <span class="arithmatex">\(I_2\)</span> 再建立 <span class="arithmatex">\(I_1\)</span>，计入维持恒流源克服互感电动势所做的附加功 <span class="arithmatex">\(M I_1 I_2\)</span> 后，两电源所做的总功完全相同：
+  $$
+  W_{\text{tot}} = \frac{1}{2}L_1 I_1^2 + \frac{1}{2}L_2 I_2^2 + M I_1 I_2 = \frac{1}{2}\mu_0 l \left[ n_1^2 \pi a^2 I_1^2 + n_2^2 \pi b^2 I_2^2 + 2n_1 n_2 \pi a^2 I_1 I_2 \right]
+  $$</li>
+<li><strong>(c) 直接对空间分区域积分磁能密度 <span class="arithmatex">\(\frac{B^2}{2\mu_0}\)</span></strong>：
+  当两管电流分别为 <span class="arithmatex">\(I_1, I_2\)</span> 时，将空间分为两个有场区域：</li>
+<li><strong>内管内部核心区（<span class="arithmatex">\(r &lt; a\)</span>，体积 <span class="arithmatex">\(V_1 = \pi a^2 l\)</span>）</strong>：两管磁场同向叠加，<span class="arithmatex">\(B_{\text{core}} = \mu_0(n_1 I_1 + n_2 I_2)\)</span>；</li>
+<li><strong>两管之间的环形区（<span class="arithmatex">\(a &lt; r &lt; b\)</span>，体积 <span class="arithmatex">\(V_2 = \pi(b^2 - a^2)l\)</span>）</strong>：内管在此区域无磁场，仅有外管磁场 <span class="arithmatex">\(B_{\text{annulus}} = \mu_0 n_2 I_2\)</span>。
+  将两区域的磁能相加并展开合并：
+  $$
+  \begin{aligned}
+  U_B &amp;= \frac{B_{\text{core}}^2}{2\mu_0}(\pi a^2 l) + \frac{B_{\text{annulus}}^2}{2\mu_0}\pi(b^2 - a^2)l \
+  &amp;= \frac{1}{2}\mu_0 l \left[ \pi a^2 (n_1 I_1 + n_2 I_2)^2 + \pi(b^2 - a^2) n_2^2 I_2^2 \right] \
+  &amp;= \frac{1}{2}\mu_0 l \left[ n_1^2 \pi a^2 I_1^2 + 2n_1 n_2 \pi a^2 I_1 I_2 + n_2^2 \pi b^2 I_2^2 \right] = \frac{1}{2}L_1 I_1^2 + M I_1 I_2 + \frac{1}{2}L_2 I_2^2
+  \end{aligned}
+  $$
+  与 (b) 中电源所做的总功完全相等！可以看到，交叉互感能项 <span class="arithmatex">\(M I_1 I_2\)</span> 的物理起源正是内管核心区（<span class="arithmatex">\(r &lt; a\)</span>）内两磁场叠加平方 <span class="arithmatex">\((\vec{B}_1 + \vec{B}_2)^2 = B_1^2 + B_2^2 + 2\vec{B}_1\cdot\vec{B}_2\)</span> 中的<strong>交叉干涉项</strong> <span class="arithmatex">\(\int \frac{\vec{B}_1\cdot\vec{B}_2}{\mu_0}\,dV\)</span>。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2479 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/09_magnetic_field_of_current/">
+      
+      
+        <link rel="prev" href="../08_magnetic_field/">
+      
+      
+        <link rel="next" href="../10_magnetism_of_materials/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>09 电流的磁场 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-9-magnetic-field-of-a-current" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              09 电流的磁场
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-biot-savart-law-and-force-between-currents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 毕奥-萨伐尔定律与电流间的磁场力 (Biot-Savart Law and Force Between Currents)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 毕奥-萨伐尔定律与电流间的磁场力 (Biot-Savart Law and Force Between Currents)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-the-biot-savart-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 毕奥-萨伐尔定律 (The Biot-Savart Law)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 两个基础积分模型：载流圆环与无限长直导线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 两平行载流直导线间的相互作用力与“安培”的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-amperes-law-and-symmetric-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 安培环路定理及其对称性应用 (Ampère's Law and Symmetric Applications)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 安培环路定理及其对称性应用 (Ampère&#39;s Law and Symmetric Applications)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 磁场环流与安培环路定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 四大高度对称体系的安培环路求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-differential-forms-gauss-law-for-magnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 安培定理的微分形式与磁场高斯定理 (Differential Forms &amp; Gauss' Law for Magnetism)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 安培定理的微分形式与磁场高斯定理 (Differential Forms &amp; Gauss&#39; Law for Magnetism)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-nablatimesvecb-mu_0vecj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 斯托克斯定理与安培环路定理的微分形式 (\(\nabla\times\vec{B} = \mu_0\vec{j}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nablacdotvecb-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 磁场的散度与磁场高斯定理 (\(\nabla\cdot\vec{B} = 0\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 静磁学与静电学基本规律全面对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-9-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 9 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-biot-savart-law-and-force-between-currents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 毕奥-萨伐尔定律与电流间的磁场力 (Biot-Savart Law and Force Between Currents)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 毕奥-萨伐尔定律与电流间的磁场力 (Biot-Savart Law and Force Between Currents)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-the-biot-savart-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 毕奥-萨伐尔定律 (The Biot-Savart Law)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 两个基础积分模型：载流圆环与无限长直导线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 两平行载流直导线间的相互作用力与“安培”的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-amperes-law-and-symmetric-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 安培环路定理及其对称性应用 (Ampère's Law and Symmetric Applications)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 安培环路定理及其对称性应用 (Ampère&#39;s Law and Symmetric Applications)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 磁场环流与安培环路定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 四大高度对称体系的安培环路求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-differential-forms-gauss-law-for-magnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 安培定理的微分形式与磁场高斯定理 (Differential Forms &amp; Gauss' Law for Magnetism)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 安培定理的微分形式与磁场高斯定理 (Differential Forms &amp; Gauss&#39; Law for Magnetism)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-nablatimesvecb-mu_0vecj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 斯托克斯定理与安培环路定理的微分形式 (\(\nabla\times\vec{B} = \mu_0\vec{j}\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nablacdotvecb-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 磁场的散度与磁场高斯定理 (\(\nabla\cdot\vec{B} = 0\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 静磁学与静电学基本规律全面对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-9-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 9 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-9-magnetic-field-of-a-current">Chapter 9: Magnetic Field of a Current（电流的磁场）<a class="headerlink" href="#chapter-9-magnetic-field-of-a-current" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第九章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 9: <em>Magnetic Field of a Current</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 9: <em>Magnetic Field of a Current</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 33</li>
+</ul>
+</div>
+<h2 id="1-biot-savart-law-and-force-between-currents">1 毕奥-萨伐尔定律与电流间的磁场力 (Biot-Savart Law and Force Between Currents)<a class="headerlink" href="#1-biot-savart-law-and-force-between-currents" title="Permanent link">&para;</a></h2>
+<h3 id="11-the-biot-savart-law">1.1 毕奥-萨伐尔定律 (The Biot-Savart Law)<a class="headerlink" href="#11-the-biot-savart-law" title="Permanent link">&para;</a></h3>
+<p>静止电荷产生不随时间变化的静电场（Electrostatics），而<strong>稳恒电流</strong>（Steady current）则产生不随时间变化的稳恒磁场，这一理论称为<strong>静磁学</strong>（Magnetostatics）。两者的关键区别在于：产生电场的电荷微元 <span class="arithmatex">\(dq\)</span> 是<strong>标量</strong>（Scalar），而产生磁场的<strong>电流元</strong>（Current-length element）<span class="arithmatex">\(i\,d\vec{l}\)</span>（课件中亦记为 <span class="arithmatex">\(i\,d\vec{s}\)</span>）则是<strong>矢量</strong>（Vector）。</p>
+<p>实验表明，电流元 <span class="arithmatex">\(i\,d\vec{l}\)</span> 在距离为 <span class="arithmatex">\(r\)</span> 的空间点 <span class="arithmatex">\(P\)</span> 处产生的微元磁场 <span class="arithmatex">\(d\vec{B}\)</span> 遵循平方反比律，称为<strong>毕奥-萨伐尔定律</strong>（Biot-Savart Law）：</p>
+<div class="arithmatex">\[
+d\vec{B} = \frac{\mu_0}{4\pi} \frac{i\,d\vec{l} \times \vec{r}}{r^3} = \frac{\mu_0}{4\pi} \frac{i\,d\vec{l} \times \hat{r}}{r^2}
+\]</div>
+<p>公式中各物理量的定义与方向准则如下：</p>
+<ul>
+<li><span class="arithmatex">\(\vec{r}\)</span>：从电流元 <span class="arithmatex">\(i\,d\vec{l}\)</span> 指向场点 <span class="arithmatex">\(P\)</span> 的位置矢量（<span class="arithmatex">\(\hat{r} = \vec{r}/r\)</span> 为对应的单位矢量）；若点 <span class="arithmatex">\(P\)</span> 恰位于电流元延长线上（<span class="arithmatex">\(\theta = 0\)</span> 或 <span class="arithmatex">\(\pi\)</span>），则 <span class="arithmatex">\(d\vec{l}\times\vec{r} = \vec{0}\)</span>，<span class="arithmatex">\(d\vec{B} = \vec{0}\)</span>；</li>
+<li><span class="arithmatex">\(\mu_0\)</span>：<strong>真空磁导率</strong>（Permeability constant / Vacuum permeability）：
+  $$
+  \mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A} = 4\pi \times 10^{-7}\text{ N/A}^2
+  $$</li>
+<li><strong>右手握线定则（Right-hand grip rule / Curled-straight right-hand rule）</strong>：用右手握住载流导线，伸直的大拇指指向电流 <span class="arithmatex">\(i\)</span> 的方向，四指自然弯曲的方向即为磁感线环绕的方向（对于弯曲导线，需对每一小段电流元分别应用叉乘 <span class="arithmatex">\(i\,d\vec{l}\times\vec{r}\)</span> 再积分叠加）。</li>
+</ul>
+<h3 id="12">1.2 两个基础积分模型：载流圆环与无限长直导线<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p><strong>1. 载流圆环轴线上的磁场（Example 9.1: A Circular Ring Carrying Current <span class="arithmatex">\(i\)</span>）</strong></p>
+<p>设半径为 <span class="arithmatex">\(a\)</span> 的细圆环置于 <span class="arithmatex">\(xy\)</span> 平面内，圆心在原点，通有逆时针方向的稳恒电流 <span class="arithmatex">\(i\)</span>（从 <span class="arithmatex">\(+z\)</span> 轴往下看）。求 <span class="arithmatex">\(z\)</span> 轴上 <span class="arithmatex">\((0, 0, z)\)</span> 处的磁场 <span class="arithmatex">\(\vec{B}\)</span>：</p>
+<ol>
+<li><strong>取微元与叉乘</strong>：在柱坐标 <span class="arithmatex">\((r, \theta, z)\)</span> 下，取方位角 <span class="arithmatex">\(\theta \to \theta + d\theta\)</span> 处的电流元 <span class="arithmatex">\(d\vec{l} = \hat{\theta}\,a\,d\theta\)</span>。从电流元指向轴线点 <span class="arithmatex">\(P(0, 0, z)\)</span> 的矢量为 <span class="arithmatex">\(\vec{r} = -a\hat{r} + z\hat{z}\)</span>，距离为 <span class="arithmatex">\(r = \sqrt{a^2 + z^2}\)</span>。利用正交基矢叉乘关系 <span class="arithmatex">\(\hat{\theta}\times\hat{r} = -\hat{z}\)</span> 与 <span class="arithmatex">\(\hat{\theta}\times\hat{z} = +\hat{r}\)</span>：
+   $$
+   d\vec{B} = \frac{\mu_0}{4\pi} \frac{i\hat{\theta}\,a\,d\theta \times (-a\hat{r} + z\hat{z})}{(a^2 + z^2)^{3/2}} = \frac{\mu_0 i a\,d\theta}{4\pi(a^2 + z^2)^{3/2}}(a\hat{z} + z\hat{r})
+   $$</li>
+<li><strong>对称性抵消与积分</strong>：绕圆环积分一周（<span class="arithmatex">\(\theta \in [0, 2\pi]\)</span>），径向分量 <span class="arithmatex">\(z\hat{r}\)</span> 成对完全抵消，仅剩沿 <span class="arithmatex">\(+z\)</span> 轴的分量：
+   $$
+   \vec{B}(0, 0, z) = \hat{z} \frac{\mu_0 i a^2}{4\pi(a^2 + z^2)^{3/2}} \int_0^{2\pi} d\theta = \frac{\mu_0 i a^2}{2(a^2 + z^2)^{3/2}}\hat{z}
+   $$
+   （注：当 <span class="arithmatex">\(z = 0\)</span> 时，环心磁场为 <span class="arithmatex">\(B = \frac{\mu_0 i}{2a}\)</span>；当远场 <span class="arithmatex">\(z \gg a\)</span> 时，注意到圆环磁矩 <span class="arithmatex">\(\mu = i(\pi a^2)\)</span>，上式化为 <span class="arithmatex">\(\vec{B} \approx \frac{\mu_0}{2\pi}\frac{\vec{\mu}}{|z|^3}\)</span>，这与电偶极子在轴线上的远场 <span class="arithmatex">\(\vec{E} = \frac{1}{2\pi\epsilon_0}\frac{\vec{p}}{|z|^3}\)</span> 形式完全对应！）。</li>
+</ol>
+<p><strong>2. 无限长载流直导线的磁场（Example 9.2: Infinitely Long Straight Wire）</strong></p>
+<p>设无限长直导线沿 <span class="arithmatex">\(z\)</span> 轴放置，通有沿 <span class="arithmatex">\(+z\)</span> 方向的电流 <span class="arithmatex">\(i\)</span>。求距导线垂直距离为 <span class="arithmatex">\(R\)</span>（讲义记为 <span class="arithmatex">\(x\)</span>）的点 <span class="arithmatex">\(P(x, 0, 0)\)</span> 处的磁场：</p>
+<ol>
+<li><strong>取微元</strong>：在位置 <span class="arithmatex">\(z \to z+dz\)</span> 处取电流元 <span class="arithmatex">\(i\,d\vec{l} = i\,dz\,\hat{z}\)</span>，到点 <span class="arithmatex">\(P\)</span> 的位移矢量为 <span class="arithmatex">\(\vec{r} = x\hat{x} - z\hat{z}\)</span>，距离 <span class="arithmatex">\(r = \sqrt{x^2 + z^2}\)</span>。由于 <span class="arithmatex">\(\hat{z}\times\hat{x} = \hat{y}\)</span> 且 <span class="arithmatex">\(\hat{z}\times\hat{z} = \vec{0}\)</span>，所有微元在 <span class="arithmatex">\(P\)</span> 点产生的磁场均沿 <span class="arithmatex">\(+\hat{y}\)</span> 方向（切向环绕导线）：
+   $$
+   d\vec{B} = \frac{\mu_0}{4\pi} \frac{i\hat{z}\,dz \times (x\hat{x} - z\hat{z})}{(x^2 + z^2)^{3/2}} = \hat{y} \frac{\mu_0 i x\,dz}{4\pi(x^2 + z^2)^{3/2}}
+   $$</li>
+<li><strong>积分求解</strong>：令 <span class="arithmatex">\(z = x\tan\alpha \ (\alpha \in (-\pi/2, \pi/2))\)</span>，或利用课件中的角度换元 <span class="arithmatex">\(\sin\theta = x/r\)</span>（<span class="arithmatex">\(\int_{-\infty}^{+\infty} \frac{x\,dz}{(x^2+z^2)^{3/2}} = \frac{1}{x}\int_0^\pi \sin\theta\,d\theta = \frac{2}{x}\)</span>）：
+   $$
+   \vec{B} = \hat{y} \frac{\mu_0 i x}{4\pi} \int_{-\infty}^{+\infty} \frac{dz}{(x^2 + z^2)^{3/2}} = \frac{\mu_0 i}{2\pi x}\hat{y} \iff B = \frac{\mu_0 i}{2\pi R}
+   $$
+   （若为半无限长直导线，积分区间为 <span class="arithmatex">\([0, \infty)\)</span>，在端点垂线上的磁场大小减半为 <span class="arithmatex">\(B = \frac{\mu_0 i}{4\pi R}\)</span>）。</li>
+</ol>
+<h3 id="13">1.3 两平行载流直导线间的相互作用力与“安培”的定义<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>设两根无限长平行直导线 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 相距为 <span class="arithmatex">\(d\)</span>，分别通有稳恒电流 <span class="arithmatex">\(i_a\)</span> 和 <span class="arithmatex">\(i_b\)</span>。计算导线 <span class="arithmatex">\(a\)</span> 对导线 <span class="arithmatex">\(b\)</span>（取长度为 <span class="arithmatex">\(L\)</span> 的一段）所施加的磁场力，分为两步：</p>
+<ol>
+<li><strong>先求场</strong>：导线 <span class="arithmatex">\(a\)</span> 在导线 <span class="arithmatex">\(b\)</span> 所在位置产生的磁感应强度大小为 <span class="arithmatex">\(B_a = \frac{\mu_0 i_a}{2\pi d}\)</span>，方向垂直于两导线构成的平面；</li>
+<li><strong>再求力</strong>：通有电流 <span class="arithmatex">\(i_b\)</span> 的导线 <span class="arithmatex">\(b\)</span> 在磁场 <span class="arithmatex">\(\vec{B}_a\)</span> 中受到安培力 <span class="arithmatex">\(\vec{F}_{ba} = i_b\vec{L}\times\vec{B}_a\)</span>，单位长度所受磁力大小为：
+   $$
+   \frac{F_{ba}}{L} = \frac{\mu_0 i_a i_b}{2\pi d}
+   $$
+   由右手定则可知：<strong>同向平行电流相互吸引（Parallel currents attract），反向平行电流相互排斥（Antiparallel currents repel）</strong>。</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">计量学常识：SI 基本单位“安培（Ampere）”的定义演变</p>
+<ul>
+<li><strong>旧定义（1948–2019 年）</strong>：在真空中相距 <span class="arithmatex">\(d = 1\text{ m}\)</span> 的两根无限长平行细直导线，若通以相等的恒定电流，当每米导线长度上所受作用力恰好为 <span class="arithmatex">\(2 \times 10^{-7}\text{ N/m}\)</span> 时，该电流定义为 <span class="arithmatex">\(1\text{ A}\)</span>。这一定义人为将真空磁导率精确锁定为 <span class="arithmatex">\(\mu_0 \equiv 4\pi \times 10^{-7}\text{ N/A}^2\)</span>。</li>
+<li><strong>现行定义（2019 年起至今）</strong>：通过将元电荷的值精确固定为 <span class="arithmatex">\(e = 1.602176634 \times 10^{-19}\text{ C}\)</span> 来定义安培（<span class="arithmatex">\(1\text{ A} = 1\text{ C/s}\)</span>），而真空磁导率 <span class="arithmatex">\(\mu_0\)</span> 则变为一个由实验测定的物理量（在 <span class="arithmatex">\(10^{-10}\)</span> 相对精度内仍等于 <span class="arithmatex">\(4\pi \times 10^{-7}\text{ N/A}^2\)</span>）。</li>
+</ul>
+</div>
+<hr />
+<h2 id="2-amperes-law-and-symmetric-applications">2 安培环路定理及其对称性应用 (Ampère's Law and Symmetric Applications)<a class="headerlink" href="#2-amperes-law-and-symmetric-applications" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 磁场环流与安培环路定理<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>对于无限长载流直导线产生的圆形磁场 <span class="arithmatex">\(\vec{B} = \frac{\mu_0 i}{2\pi r}\hat{\phi}\)</span>，考察任意闭合路径（称为<strong>安培环路</strong> Amperian loop）<span class="arithmatex">\(C\)</span> 上的线积分 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l}\)</span>。由于线元在方位角方向的分量为 <span class="arithmatex">\(dl_\phi = r\,d\phi\)</span>，故 <span class="arithmatex">\(\vec{B}\cdot d\vec{l} = \frac{\mu_0 i}{2\pi}\,d\phi\)</span>：</p>
+<ul>
+<li>若闭合路径 <span class="arithmatex">\(C\)</span> 沿右手螺旋方向单次包围导线（<span class="arithmatex">\(\Delta\phi = 2\pi\)</span>），则环流（Circulation）恒为 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l} = \mu_0 i\)</span>（与路径形状及离导线的远近无关：越远虽然场强按 <span class="arithmatex">\(1/r\)</span> 减弱，但路径周长按 <span class="arithmatex">\(r\)</span> 成正比变长，两者精确抵消）；</li>
+<li>若闭合路径不包围导线（<span class="arithmatex">\(\Delta\phi = 0\)</span>），则环流为零；若路径绕导线 <span class="arithmatex">\(m\)</span> 圈（计入正负号），则环流为 <span class="arithmatex">\(m\mu_0 i\)</span>。</li>
+</ul>
+<p>将这一结果推广至任意稳恒电流分布，即得到静磁学基本定律——<strong>安培环路定理</strong>（Ampère's Law）：</p>
+<div class="arithmatex">\[
+\oint_C \vec{B} \cdot d\vec{l} = \mu_0 i_{\text{enc}} = \mu_0 \sum_{\text{enc}} i = \mu_0 \int_S \vec{j} \cdot d\vec{S}
+\]</div>
+<p>其中 <span class="arithmatex">\(i_{\text{enc}}\)</span> 为安培环路 <span class="arithmatex">\(C\)</span> 所包围（穿过以 <span class="arithmatex">\(C\)</span> 为边界的任意张成曲面 <span class="arithmatex">\(S\)</span>）的<strong>净电流代数和</strong>。</p>
+<p><strong>包围电流的正负号右手定则（Sign Convention，Example 9.3）</strong>：
+弯曲右手四指使其顺着安培环路 <span class="arithmatex">\(C\)</span> 的积分绕行方向（Direction of integration），伸直的大拇指所指方向即为正方向：</p>
+<ul>
+<li>与大拇指方向一致穿出环路的电流计为<strong>正</strong>（<span class="arithmatex">\(+i\)</span>）；</li>
+<li>与大拇指方向相反穿入环路的电流计为<strong>负</strong>（<span class="arithmatex">\(-i\)</span>）；</li>
+<li><strong>未被安培环路包围的外部电流</strong>（尽管它们对环路各点上的局域场强 <span class="arithmatex">\(\vec{B}\)</span> 有贡献）对环流积分 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l}\)</span> 的<strong>净贡献恒为零</strong>！</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">对称性分析的重要差异：磁场 <span class="arithmatex">\(\vec{B}\)</span> 在镜面反射下的轴矢量性质</p>
+<p>在应用安培环路定理前，需先通过对称性确定 <span class="arithmatex">\(\vec{B}\)</span> 的方向。讲义（Section 9.2）特别提醒：由于磁场 <span class="arithmatex">\(\vec{B}\)</span> 是由叉乘 <span class="arithmatex">\(i\,d\vec{l}\times\vec{r}\)</span> 构造的<strong>赝矢量 / 轴矢量</strong>（Pseudovector / Axial vector），当电流分布关于某镜面对称时，镜像点处的磁场 <span class="arithmatex">\(\vec{B}\)</span> <strong>垂直于镜面的分量保持不变，而平行于镜面的分量方向反转</strong>——这与真矢量电场 <span class="arithmatex">\(\vec{E}\)</span> 的镜面反射规律恰好相反！如果不确定方向，最稳妥的方法是直接用毕奥-萨伐尔定律叉乘判别。</p>
+</div>
+<h3 id="22">2.2 四大高度对称体系的安培环路求解<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>当稳恒电流分布具有柱对称、平面对称或螺线管/螺绕环对称性时，可选取适当的安培环路 <span class="arithmatex">\(C\)</span> 秒解磁场分布：</p>
+<p><strong>1. 无限长圆柱形载流导线的内外磁场（Example 9.4：半径为 <span class="arithmatex">\(R\)</span>，均匀通有总电流 <span class="arithmatex">\(i\)</span>）</strong></p>
+<p>由柱对称性，磁感线为同心圆，取半径为 <span class="arithmatex">\(r\)</span> 的同心圆作为安培环路（<span class="arithmatex">\(\oint \vec{B}\cdot d\vec{l} = 2\pi r B\)</span>）：</p>
+<ul>
+<li><strong>导线外部（<span class="arithmatex">\(r \ge R\)</span>）</strong>：包围全部电流 <span class="arithmatex">\(i_{\text{enc}} = i\)</span>，故 <span class="arithmatex">\(2\pi r B = \mu_0 i \implies B(r) = \dfrac{\mu_0 i}{2\pi r}\)</span>（按 <span class="arithmatex">\(1/r\)</span> 衰减）。</li>
+<li><strong>导线内部（<span class="arithmatex">\(r &lt; R\)</span>）</strong>：电流密度均匀（<span class="arithmatex">\(j = \frac{i}{\pi R^2}\)</span>），安培环路包围的电流按截面积之比缩放为 <span class="arithmatex">\(i_{\text{enc}} = i\frac{\pi r^2}{\pi R^2} = i\frac{r^2}{R^2}\)</span>，故：
+  $$
+  2\pi r B = \mu_0 i \frac{r^2}{R^2} \implies B(r) = \frac{\mu_0 i}{2\pi R^2} r \qquad (\text{在导线内部随 } r \text{ 线性增长})
+  $$</li>
+</ul>
+<p><strong>2. 无限大均匀载流平板 / 运动电荷薄板（Example 9.5: A Sheet / Slab of Moving Charge）</strong></p>
+<p>设无限大平板厚度为 <span class="arithmatex">\(w \ (-w/2 \le y \le w/2)\)</span>，内部载流子浓度为 <span class="arithmatex">\(n\)</span>、电荷大小为 <span class="arithmatex">\(e\)</span>、定向漂移速率为 <span class="arithmatex">\(v\)</span>，形成沿 <span class="arithmatex">\(+z\)</span>（或垂直纸面向外）的均匀体电流密度 <span class="arithmatex">\(j = nev\)</span>（对应单位宽度的<strong>面电流密度</strong> Surface current density 为 <span class="arithmatex">\(J_s = jw = nevw\)</span>）。
+由平面对称性，磁场 <span class="arithmatex">\(\vec{B}\)</span> 平行于平板且垂直于电流方向，在平板上下两侧等大反向。跨接平板作长边为 <span class="arithmatex">\(a\)</span>（平行于 <span class="arithmatex">\(\vec{B}\)</span>）、短边垂直于平板的矩形安培环路：</p>
+<ul>
+<li><strong>平板外部（<span class="arithmatex">\(|y| \ge w/2\)</span>）</strong>：<span class="arithmatex">\(\oint \vec{B}\cdot d\vec{l} = 2Ba = \mu_0(jwa) = \mu_0 J_s a\)</span>，解得：
+  $$
+  B_{\text{outside}} = \frac{1}{2}\mu_0 J_s = \frac{1}{2}\mu_0 nevw \qquad (\text{处处恒定，与距平板的距离无关，类比于无限大带电平板 } E = \frac{\sigma}{2\epsilon_0})
+  $$</li>
+<li><strong>平板内部（<span class="arithmatex">\(|y| &lt; w/2\)</span>）</strong>：取上下长边位于 <span class="arithmatex">\(\pm y\)</span> 处的对称矩形环路，包围厚度为 <span class="arithmatex">\(2|y|\)</span>，故 <span class="arithmatex">\(2Ba = \mu_0 j(2|y|a) \implies B_{\text{inside}}(y) = \mu_0 j |y| = \mu_0 nev|y|\)</span>。</li>
+</ul>
+<p><strong>3. 理想无限长螺线管（Example 9.6: Infinitely Long Solenoid）</strong></p>
+<p><strong>螺线管</strong>（Solenoid）是由导线紧密缠绕而成的长螺旋线圈（长度远大于直径）。在理想无限长密绕螺线管极限下，绕组可视为纯粹绕轴环流的圆柱面电流层：</p>
+<ul>
+<li><strong>管外磁场为零（<span class="arithmatex">\(\vec{B}_{\text{outside}} = \vec{0}\)</span>）</strong>：由于无轴向电流故无方位角分量 <span class="arithmatex">\(B_\phi\)</span>；由磁通连续性知无径向分量 <span class="arithmatex">\(B_r\)</span>；在管外取矩形安培环路知轴向分量 <span class="arithmatex">\(B_z\)</span> 为常数，结合无穷远处场强为零，可知<strong>理想长直螺线管外部磁场处处为零</strong>。</li>
+<li><strong>管内匀强磁场（<span class="arithmatex">\(\vec{B}_{\text{inside}}\)</span>）</strong>：取矩形安培环路 <span class="arithmatex">\(abcda\)</span>，使边 <span class="arithmatex">\(ab\)</span>（长为 <span class="arithmatex">\(h\)</span> 或 <span class="arithmatex">\(a\)</span>）位于管内平行于轴线，边 <span class="arithmatex">\(cd\)</span> 位于管外（<span class="arithmatex">\(B = 0\)</span>），两条垂直短边与管内轴向磁场垂直无贡献。设单位长度匝数为 <span class="arithmatex">\(n\)</span>，则环路包围 <span class="arithmatex">\(nh\)</span> 匝线圈，净电流为 <span class="arithmatex">\(i_{\text{enc}} = nih\)</span>：
+  $$
+  \oint_{abcda} \vec{B}\cdot d\vec{l} = Bh = \mu_0 (nih) \implies B = \mu_0 n i
+  $$
+  即<strong>理想螺线管内部是平行于轴线的匀强磁场</strong>（大小仅取决于单位长度匝数 <span class="arithmatex">\(n\)</span> 与电流 <span class="arithmatex">\(i\)</span>，与螺线管的直径、总长度及管内距轴线的位置均无关，其在磁学中的地位正如平行板电容器在电学中的地位）。</li>
+</ul>
+<p><strong>4. 环形螺线管 / 螺绕环（Example 9.7: Toroid / Torus）</strong></p>
+<p>将长螺线管弯曲首尾相接形成中空圆环（甜甜圈形状），称为<strong>螺绕环</strong>（Toroid / Torus），总匝数为 <span class="arithmatex">\(N\)</span>，通有电流 <span class="arithmatex">\(i\)</span>。由旋转对称性，磁感线为环管内部的同心圆。取半径为 <span class="arithmatex">\(r\)</span> 的同心圆作为安培环路：</p>
+<ul>
+<li><strong>在环管内部空腔中</strong>：安培环路包围全部 <span class="arithmatex">\(N\)</span> 匝内圈导线，<span class="arithmatex">\(i_{\text{enc}} = Ni\)</span>，故：
+  $$
+  (B)(2\pi r) = \mu_0 N i \implies B(r) = \frac{\mu_0 N i}{2\pi r} \qquad (\text{注意：螺绕环截面上的磁场不均匀，与半径 } r \text{ 成反比})
+  $$</li>
+<li><strong>在中心空洞区（<span class="arithmatex">\(r &lt; R_{\text{inner}}\)</span>）与环管外部（<span class="arithmatex">\(r &gt; R_{\text{outer}}\)</span>）</strong>：安培环路包围的净电流为零（外部环路同时穿过内圈 <span class="arithmatex">\(N\)</span> 匝与外圈反向 <span class="arithmatex">\(N\)</span> 匝，正负抵消），故 <strong><span class="arithmatex">\(B = 0\)</span></strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">对称电流模型</th>
+<th style="text-align: left;">安培环路选取</th>
+<th style="text-align: left;">环路积分方程</th>
+<th style="text-align: left;">磁感应强度大小 <span class="arithmatex">\(B\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>无限长圆柱直导线</strong>（半径 <span class="arithmatex">\(R\)</span>，电流 <span class="arithmatex">\(i\)</span>）</td>
+<td style="text-align: left;">半径为 <span class="arithmatex">\(r\)</span> 的同心圆</td>
+<td style="text-align: left;"><span class="arithmatex">\(2\pi r B = \mu_0 i_{\text{enc}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(B = \begin{cases} \dfrac{\mu_0 i r}{2\pi R^2}, &amp; r &lt; R \\ \dfrac{\mu_0 i}{2\pi r}, &amp; r \ge R \end{cases}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>无限大均匀电流薄片</strong>（面电流密度 <span class="arithmatex">\(J_s\)</span>）</td>
+<td style="text-align: left;">跨接薄片的矩形回路（宽 <span class="arithmatex">\(a\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(2Ba = \mu_0 J_s a\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(B = \dfrac{1}{2}\mu_0 J_s\)</span>（两侧反向匀强场）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>理想无限长螺线管</strong>（单位长度 <span class="arithmatex">\(n\)</span> 匝，电流 <span class="arithmatex">\(i\)</span>）</td>
+<td style="text-align: left;">一边在管内、一边在管外的矩形</td>
+<td style="text-align: left;"><span class="arithmatex">\(Bh = \mu_0 (nh)i\)</span></td>
+<td style="text-align: left;">管内 <span class="arithmatex">\(B = \mu_0 n i\)</span>（匀强），管外 <span class="arithmatex">\(B = 0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>理想螺绕环（Toroid）</strong>（总匝数 <span class="arithmatex">\(N\)</span>，电流 <span class="arithmatex">\(i\)</span>）</td>
+<td style="text-align: left;">半径为 <span class="arithmatex">\(r\)</span> 的同心圆</td>
+<td style="text-align: left;"><span class="arithmatex">\(2\pi r B = \mu_0 N i\)</span></td>
+<td style="text-align: left;">管内 <span class="arithmatex">\(B = \dfrac{\mu_0 N i}{2\pi r}\)</span>，管外及中心孔 <span class="arithmatex">\(B = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-differential-forms-gauss-law-for-magnetism">3 安培定理的微分形式与磁场高斯定理 (Differential Forms &amp; Gauss' Law for Magnetism)<a class="headerlink" href="#3-differential-forms-gauss-law-for-magnetism" title="Permanent link">&para;</a></h2>
+<h3 id="31-nablatimesvecb-mu_0vecj">3.1 斯托克斯定理与安培环路定理的微分形式 (<span class="arithmatex">\(\nabla\times\vec{B} = \mu_0\vec{j}\)</span>)<a class="headerlink" href="#31-nablatimesvecb-mu_0vecj" title="Permanent link">&para;</a></h3>
+<p>根据矢量分析中的<strong>斯托克斯定理</strong>（Stokes' Theorem，又称旋度基本定理 Fundamental theorem for curls，见 Appendix 9B），任意矢量场 <span class="arithmatex">\(\vec{A}\)</span> 沿闭合路径 <span class="arithmatex">\(C\)</span> 的环流等于其旋度穿过以 <span class="arithmatex">\(C\)</span> 为边界的任意曲面 <span class="arithmatex">\(S\)</span> 的通量（曲面法向 <span class="arithmatex">\(d\vec{S}\)</span> 与路径 <span class="arithmatex">\(C\)</span> 方向满足右手螺旋定则）：</p>
+<div class="arithmatex">\[
+\oint_C \vec{A} \cdot d\vec{l} = \int_S (\nabla \times \vec{A}) \cdot d\vec{S}
+\]</div>
+<p>将斯托克斯定理应用于安培环路定理左侧 <span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{l} = \mu_0 \int_S \vec{j}\cdot d\vec{S}\)</span>，移项得：</p>
+<div class="arithmatex">\[
+\int_S \left(\nabla \times \vec{B} - \mu_0 \vec{j}\right) \cdot d\vec{S} = 0
+\]</div>
+<p>由于该式对任意闭合路径 <span class="arithmatex">\(C\)</span> 所张成的任意曲面 <span class="arithmatex">\(S\)</span> 均恒成立，被积函数必须处处为零，从而得到<strong>安培环路定理的微分形式</strong>：</p>
+<div class="arithmatex">\[
+\nabla \times \vec{B}(\vec{r}) = \mu_0 \vec{j}(\vec{r})
+\]</div>
+<p><em>（物理说明：在稳恒电流条件下，连续性方程 <span class="arithmatex">\(\nabla\cdot\vec{j} = 0\)</span> 保证了穿过以同一回路 <span class="arithmatex">\(C\)</span> 为边界的任意不同曲面的总电流 <span class="arithmatex">\(\int_S \vec{j}\cdot d\vec{S}\)</span> 完全相等；而在非稳恒的时变情况下，<span class="arithmatex">\(\nabla\cdot\vec{j} = -\partial_t \rho \neq 0\)</span>，不同曲面上的电流积分不再相等，这促使麦克斯韦引入了位移电流 Displacement current 并建立了完整的麦克斯韦方程组）。</em></p>
+<h3 id="32-nablacdotvecb-0">3.2 磁场的散度与磁场高斯定理 (<span class="arithmatex">\(\nabla\cdot\vec{B} = 0\)</span>)<a class="headerlink" href="#32-nablacdotvecb-0" title="Permanent link">&para;</a></h3>
+<p>对于连续分布的体电流密度 <span class="arithmatex">\(\vec{j}(\vec{r}')\)</span>，将电流元 <span class="arithmatex">\(i\,d\vec{l}\)</span> 替换为 <span class="arithmatex">\(\vec{j}(\vec{r}')\,d^3r'\)</span>，毕奥-萨伐尔定律写为：</p>
+<div class="arithmatex">\[
+\vec{B}(\vec{r}) = \frac{\mu_0}{4\pi} \int \frac{\vec{j}(\vec{r}') \times (\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|^3}\,d^3r'
+\]</div>
+<p>对场点坐标 <span class="arithmatex">\(\vec{r} = (x, y, z)\)</span> 求散度 <span class="arithmatex">\(\nabla\cdot\vec{B}\)</span>，并将算符 <span class="arithmatex">\(\nabla\)</span> 移入积分号内。利用第四章的叉乘散度恒等式 <span class="arithmatex">\(\nabla\cdot(\vec{C}\times\vec{D}) = (\nabla\times\vec{C})\cdot\vec{D} - \vec{C}\cdot(\nabla\times\vec{D})\)</span>：</p>
+<ol>
+<li>因为源电流密度 <span class="arithmatex">\(\vec{j}(\vec{r}')\)</span> 仅依赖于源点坐标 <span class="arithmatex">\(\vec{r}' = (x', y', z')\)</span>，与场点坐标 <span class="arithmatex">\(\vec{r} = (x, y, z)\)</span> 无关，故 <span class="arithmatex">\(\nabla_{\vec{r}} \times \vec{j}(\vec{r}') = \vec{0}\)</span>；</li>
+<li>注意到 <span class="arithmatex">\(\dfrac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} = -\nabla_{\vec{r}}\left(\frac{1}{|\vec{r} - \vec{r}'|}\right)\)</span> 正好是一个标量函数的梯度（即点电荷电势的梯度），而<strong>任何梯度的旋度恒等于零</strong>：<span class="arithmatex">\(\nabla_{\vec{r}} \times \left(\frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\right) = -\nabla_{\vec{r}} \times \nabla_{\vec{r}}\left(\frac{1}{|\vec{r} - \vec{r}'|}\right) = \vec{0}\)</span>！</li>
+</ol>
+<p>因此，被积函数恒为零，我们严格证得<strong>磁场的高斯定理（微分形式与积分形式）</strong>：</p>
+<div class="arithmatex">\[
+\nabla \cdot \vec{B} = 0 \iff \Phi_B = \oint_S \vec{B} \cdot d\vec{A} = \int_V (\nabla \cdot \vec{B})\,dV = 0
+\]</div>
+<ul>
+<li><strong>物理内涵</strong>：穿过任意闭合高斯面 <span class="arithmatex">\(S\)</span> 的<strong>净磁通量（Net magnetic flux）恒等于零</strong>。这在数学上严格表述了“<strong>自然界中不存在磁单极子（Magnetic monopoles do not exist）</strong>，磁感线永远是无头无尾的闭合曲线”。</li>
+<li><strong>普适性</strong>：与电场高斯定理 <span class="arithmatex">\(\nabla\cdot\vec{E}(\vec{x}, t) = \rho(\vec{x}, t)/\epsilon_0\)</span> 一样，磁场高斯定理 <span class="arithmatex">\(\nabla\cdot\vec{B}(\vec{x}, t) = 0\)</span> 是麦克斯韦方程组的四大基本方程之一，对随时间变化的动态磁场同样严格成立。</li>
+</ul>
+<h3 id="33">3.3 静磁学与静电学基本规律全面对比<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">理论维度</th>
+<th style="text-align: left;">静电学（Electrostatics）</th>
+<th style="text-align: left;">静磁学（Magnetostatics）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>基本场源微元</strong></td>
+<td style="text-align: left;">标量电荷元 <span class="arithmatex">\(dq\)</span></td>
+<td style="text-align: left;">矢量电流元 <span class="arithmatex">\(i\,d\vec{s}\)</span>（或 <span class="arithmatex">\(\vec{j}\,dV\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>基本实验叠加定律</strong></td>
+<td style="text-align: left;"><strong>库仑定律</strong>：<span class="arithmatex">\(d\vec{E} = \dfrac{1}{4\pi\epsilon_0}\dfrac{dq\,\hat{r}}{r^2}\)</span></td>
+<td style="text-align: left;"><strong>毕奥-萨伐尔定律</strong>：<span class="arithmatex">\(d\vec{B} = \dfrac{\mu_0}{4\pi}\dfrac{i\,d\vec{s}\times\hat{r}}{r^2}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>散度与通量定理（Gauss' Law）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\oint_S \vec{E}\cdot d\vec{A} = \dfrac{q_{\text{enc}}}{\epsilon_0} \iff \nabla\cdot\vec{E} = \dfrac{\rho}{\epsilon_0}\)</span>（有源场）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\oint_S \vec{B}\cdot d\vec{A} = 0 \iff \nabla\cdot\vec{B} = 0\)</span>（无源场，无磁单极）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>旋度与环流定理（Circulation）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\oint_C \vec{E}\cdot d\vec{s} = 0 \iff \nabla\times\vec{E} = \vec{0}\)</span>（无旋保守场）</td>
+<td style="text-align: left;"><strong>安培环路定理</strong>：<span class="arithmatex">\(\oint_C \vec{B}\cdot d\vec{s} = \mu_0 i_{\text{enc}} \iff \nabla\times\vec{B} = \mu_0\vec{j}\)</span>（有旋场）</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Appendices 9A &amp; 9B: 旋度的几何意义（小叶轮旋转判据）与斯托克斯定理</summary>
+<p><strong>1. 旋度的几何意义与常见误区辨析（Appendix 9A: Geometrical Meaning of Curl）</strong></p>
+<ul>
+<li><strong>物理图像</strong>：矢量场的旋度 <span class="arithmatex">\(\nabla\times\vec{v}\)</span> 度量了场围绕某点发生旋转或环流（Circulate / Swirl）的趋势。如果把矢量场看作流体流速场，并在某点放入一个微小的浮体或小叶轮（Paddlewheel），<strong>只要该点处的旋度 <span class="arithmatex">\(\nabla\times\vec{v} \neq \vec{0}\)</span>，小浮体就会开始绕自身中心自转</strong>！</li>
+<li><strong>常见误区</strong>：不要以为“流线弯曲才有旋度，流线平直就没有旋度”。旋度不仅取决于流线的曲率（Curvature），还取决于场强大小在垂直于流线方向上的剪切变化（Shear variation）：</li>
+<li><strong>平直流线但旋度非零</strong>（如 Lecture 9 Slide 34 图 b，<span class="arithmatex">\(\vec{v} = -ky\hat{x}\)</span>）：虽然所有流线都是平行于 <span class="arithmatex">\(x\)</span> 轴的直线，但由于上下两侧流速不等（产生剪切力差），放入其中的小浮体依然会发生旋转（<span class="arithmatex">\(\nabla\times\vec{v} = k\hat{z} \neq \vec{0}\)</span>）；</li>
+<li><strong>辐射直线且旋度为零</strong>（如点电荷径向场 <span class="arithmatex">\(\vec{E} \propto \hat{r}/r^2\)</span>）：处处满足 <span class="arithmatex">\(\nabla\times\vec{E} = \vec{0}\)</span>，称为<strong>无旋场</strong>（Irrotational field）。</li>
+</ul>
+<hr />
+<p><strong>2. 斯托克斯定理与电势存在性回顾（Appendix 9B: Stokes' Theorem）</strong></p>
+<p>斯托克斯定理 <span class="arithmatex">\(\int_S (\nabla\times\vec{v})\cdot d\vec{A} = \oint_P \vec{v}\cdot d\vec{s}\)</span> 表明：曲面上所有微观涡旋（Curl）的总通量，完全等于沿着曲面边界闭合路径 <span class="arithmatex">\(P\)</span> 的宏观环流。
+将其应用于静电场 <span class="arithmatex">\(\vec{E}\)</span>：正是因为处处有 <span class="arithmatex">\(\nabla\times\vec{E} = \vec{0}\)</span>，才保证了沿任意闭合回路 <span class="arithmatex">\(\oint \vec{E}\cdot d\vec{s} = 0\)</span>（积分与路径无关），从而使我们能够单值地定义静电势 <span class="arithmatex">\(V(\vec{r}) \equiv -\int_O^{\vec{r}} \vec{E}\cdot d\vec{s}\)</span>。</p>
+</details>
+<hr />
+<h2 id="4-chapter-9-selected-exercises">4 Chapter 9 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-9-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 9.1 &amp; 9.2: Three-Segment Bent Wire &amp; Rotating Charged Spherical Shell（三段折线导线磁场与旋转带电球壳内外磁场）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 9.1</strong>: Three straight leads carry a current <span class="arithmatex">\(I\)</span> in the directions shown in <code>Figure 9.8</code>. The middle lead has length <span class="arithmatex">\(l\)</span>. The two outer leads are semi-infinite; each is joined to one end of the middle lead, lies on the side of it away from <span class="arithmatex">\(P\)</span>, and makes an angle of <span class="arithmatex">\(45^\circ\)</span> with the line of the middle lead. The foot of the perpendicular dropped from <span class="arithmatex">\(P\)</span> onto the middle lead is a distance <span class="arithmatex">\(a\)</span> from its left end (<span class="arithmatex">\(0 &lt; a &lt; l\)</span>), and <span class="arithmatex">\(P\)</span> is a distance <span class="arithmatex">\(b\)</span> from the lead. Calculate the magnitude and direction of the magnetic field at point <span class="arithmatex">\(P\)</span>.
+- <strong>Ex 9.2</strong>: A sphere with radius <span class="arithmatex">\(R\)</span> has a uniform charge distribution on its surface, carrying a total charge <span class="arithmatex">\(Q\)</span>. The center of the sphere is at the origin, and the sphere is rotating around the <span class="arithmatex">\(z\)</span> axis with angular velocity <span class="arithmatex">\(\omega\)</span> in a counterclockwise fashion, as seen from the positive <span class="arithmatex">\(z\)</span> axis. Calculate the magnitude of the magnetic field at point <span class="arithmatex">\((0, 0, z)\)</span> for both <span class="arithmatex">\(|z| &lt; R\)</span> and <span class="arithmatex">\(|z| &gt; R\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 三段折线导线在点 <span class="arithmatex">\(P\)</span> 产生的合磁场（Exercise 9.1）</strong>：
+以点 <span class="arithmatex">\(P\)</span> 到中间导线的垂足为原点 <span class="arithmatex">\((0, 0, 0)\)</span>，令中间导线沿 <span class="arithmatex">\(x\)</span> 轴从左端点 <span class="arithmatex">\(A(-a, 0)\)</span> 延伸至右端点 <span class="arithmatex">\(B(l-a, 0)\)</span>（电流沿 <span class="arithmatex">\(+\hat{x}\)</span> 方向），点 <span class="arithmatex">\(P\)</span> 位于 <span class="arithmatex">\((0, -b, 0)\)</span>，纸面外法向为 <span class="arithmatex">\(+\hat{z}\)</span>。分别用毕奥-萨伐尔定律计算三段导线的贡献（以<strong>垂直纸面向里 <span class="arithmatex">\(-\hat{z}\)</span></strong> 为正方向）：</p>
+<ol>
+<li><strong>中间直导线段 <span class="arithmatex">\(AB\)</span></strong>：
+   点 <span class="arithmatex">\(P\)</span> 到 <span class="arithmatex">\(AB\)</span> 的垂直距离为 <span class="arithmatex">\(b\)</span>，左端点 <span class="arithmatex">\(A\)</span> 和右端点 <span class="arithmatex">\(B\)</span> 到原点的距离分别为 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(l-a\)</span>（斜边距离分别为 <span class="arithmatex">\(r_1 = \sqrt{a^2 + b^2}\)</span> 和 <span class="arithmatex">\(r_2 = \sqrt{(l-a)^2 + b^2}\)</span>）。由有限长直导线公式，磁场方向垂直纸面向里（<span class="arithmatex">\(-\hat{z}\)</span>），大小为：
+   $$
+   B_{\text{mid}} = \frac{\mu_0 I}{4\pi b}\left( \frac{a}{\sqrt{a^2 + b^2}} + \frac{l - a}{\sqrt{(l - a)^2 + b^2}} \right)
+   $$</li>
+<li><strong>左侧半无限长引线（从左上方以 <span class="arithmatex">\(45^\circ\)</span> 流入端点 <span class="arithmatex">\(A(-a, 0)\)</span>）</strong>：
+   沿电流方向（指向 <span class="arithmatex">\(A\)</span>）的单位矢量为 <span class="arithmatex">\(\hat{u}_1 = \frac{1}{\sqrt{2}}(\hat{x} - \hat{y})\)</span>，从 <span class="arithmatex">\(A\)</span> 指向 <span class="arithmatex">\(P\)</span> 的矢量为 <span class="arithmatex">\(\vec{R}_1 = a\hat{x} - b\hat{y} \ (r_1 = \sqrt{a^2 + b^2})\)</span>。
+   点 <span class="arithmatex">\(P\)</span> 到该引线所在直线的有向垂直距离（对应向里 <span class="arithmatex">\(-\hat{z}\)</span> 方向）为 <span class="arithmatex">\(d_1 = (-\hat{z})\cdot(\hat{u}_1\times\vec{R}_1) = \frac{b - a}{\sqrt{2}}\)</span>，且沿引线方向投影为 <span class="arithmatex">\(-\hat{u}_1\cdot\vec{R}_1 = -\frac{a + b}{\sqrt{2}}\)</span>。代入半无限长导线公式 <span class="arithmatex">\(B = \frac{\mu_0 I}{4\pi d_\perp}(1 - \cos\alpha_1) = \frac{\mu_0 I d_\perp}{4\pi r_1(r_1 - \vec{R}_1\cdot\hat{u}_{\text{ray}})}\)</span>，得向里分量为：
+   $$
+   B_{\text{left}} = \frac{\mu_0 I}{4\pi} \frac{b - a}{\sqrt{a^2 + b^2}\left(\sqrt{2(a^2 + b^2)} + a + b\right)} = \frac{\mu_0 I}{4\pi(b - a)}\left( \sqrt{2} - \frac{a + b}{\sqrt{a^2 + b^2}} \right)
+   $$</li>
+<li><strong>右侧半无限长引线（从端点 <span class="arithmatex">\(B(l-a, 0)\)</span> 向右上方以 <span class="arithmatex">\(45^\circ\)</span> 流出）</strong>：
+   由左右镜像对称性，只需将左引线公式中的 <span class="arithmatex">\(a\)</span> 替换为 <span class="arithmatex">\(l - a\)</span>，即得向里分量为：
+   $$
+   B_{\text{right}} = \frac{\mu_0 I}{4\pi} \frac{b - (l - a)}{\sqrt{(l - a)^2 + b^2}\left(\sqrt{2[(l - a)^2 + b^2]} + l - a + b\right)} = \frac{\mu_0 I}{4\pi(b - l + a)}\left( \sqrt{2} - \frac{l - a + b}{\sqrt{(l - a)^2 + b^2}} \right)
+   $$</li>
+</ol>
+<p>将三部分相加，总磁场沿 <span class="arithmatex">\(z\)</span> 轴方向，指向纸面内（<span class="arithmatex">\(-\hat{z}\)</span>）的总大小为：</p>
+<div class="arithmatex">\[
+B_P = B_{\text{mid}} + B_{\text{left}} + B_{\text{right}} = \frac{\mu_0 I}{4\pi}\left[ \frac{a}{b r_1} + \frac{l - a}{b r_2} + \frac{b - a}{r_1\left(\sqrt{2}\,r_1 + a + b\right)} + \frac{b - l + a}{r_2\left(\sqrt{2}\,r_2 + l - a + b\right)} \right]
+\]</div>
+<p>其中 <span class="arithmatex">\(r_1 = \sqrt{a^2 + b^2}\)</span>，<span class="arithmatex">\(r_2 = \sqrt{(l - a)^2 + b^2}\)</span>。</p>
+<hr />
+<p><strong>2. 旋转均匀带电薄球壳在旋转轴（<span class="arithmatex">\(z\)</span> 轴）上的磁场分布（Exercise 9.2，经典必考积分题）</strong>：
+球壳面电荷密度为 <span class="arithmatex">\(\sigma = \frac{Q}{4\pi R^2}\)</span>。将球壳按极角 <span class="arithmatex">\(\theta \in [0, \pi]\)</span> 切分为无数个平行于 <span class="arithmatex">\(xy\)</span> 平面的细圆环：
+- 极角 <span class="arithmatex">\(\theta\)</span> 处的细圆环半径为 <span class="arithmatex">\(a(\theta) = R\sin\theta\)</span>，中心位于 <span class="arithmatex">\((0, 0, R\cos\theta)\)</span>，环宽为 <span class="arithmatex">\(R\,d\theta\)</span>；
+- 细圆环所带电荷量为 <span class="arithmatex">\(dq = \sigma(2\pi R\sin\theta)(R\,d\theta) = \frac{Q}{2}\sin\theta\,d\theta\)</span>；
+- 随球壳以角速度 <span class="arithmatex">\(\omega\)</span> 旋转时，细圆环形成的微元电流为 <span class="arithmatex">\(di = \frac{\omega}{2\pi}dq = \frac{Q\omega}{4\pi}\sin\theta\,d\theta\)</span>。</p>
+<p>直接套用 §1.2 中 Example 9.1 的载流圆环轴线磁场公式 <span class="arithmatex">\(dB_z = \frac{\mu_0 [a(\theta)]^2 di}{2\left([a(\theta)]^2 + (z - R\cos\theta)^2\right)^{3/2}}\)</span>，从 <span class="arithmatex">\(\theta = 0\)</span> 到 <span class="arithmatex">\(\pi\)</span> 积分：</p>
+<div class="arithmatex">\[
+B_z(z) = \frac{\mu_0 Q \omega R^2}{8\pi} \int_0^\pi \frac{\sin^3\theta\,d\theta}{\left(R^2 + z^2 - 2Rz\cos\theta\right)^{3/2}}
+\]</div>
+<p>作换元 <span class="arithmatex">\(s = \sqrt{R^2 + z^2 - 2Rz\cos\theta}\)</span>，则 <span class="arithmatex">\(\cos\theta = \frac{R^2 + z^2 - s^2}{2Rz}\)</span>，<span class="arithmatex">\(\sin\theta\,d\theta = \frac{s\,ds}{Rz}\)</span>，积分上下限从 <span class="arithmatex">\(s_{\min} = \big||z| - R\big|\)</span> 到 <span class="arithmatex">\(s_{\max} = |z| + R\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\int_0^\pi \frac{\sin^3\theta\,d\theta}{s^3} &amp;= \frac{1}{Rz} \int_{\big||z|-R\big|}^{|z|+R} \frac{1}{s^2}\left[1 - \left(\frac{R^2 + z^2 - s^2}{2Rz}\right)^2\right] ds \\
+&amp;= \frac{1}{4R^3 z^3} \int_{\big||z|-R\big|}^{|z|+R} \left[ 2(R^2 + z^2) - s^2 - \frac{(R^2 - z^2)^2}{s^2} \right] ds \\
+&amp;= \frac{1}{4R^3 z^3} \left[ 2(R^2 + z^2)s - \frac{s^3}{3} + \frac{(R^2 - z^2)^2}{s} \right]_{\big||z|-R\big|}^{|z|+R}
+\end{aligned}
+\]</div>
+<p>分球内和球外两种情况代入上下限：
+- <strong>当 <span class="arithmatex">\(|z| &lt; R\)</span>（球壳内部，<span class="arithmatex">\(\big||z| - R\big| = R - |z|\)</span>）</strong>：
+  方括号计算结果为 <span class="arithmatex">\(\frac{16}{3}|z|^3\)</span>，与分母中的 <span class="arithmatex">\(4R^3 |z|^3\)</span> 约分后消去 <span class="arithmatex">\(z\)</span>，得到 <span class="arithmatex">\(\frac{4}{3R^3}\)</span>。因此<strong>旋转带电球壳内部是沿 <span class="arithmatex">\(+z\)</span> 方向的匀强磁场</strong>：
+  $$
+  \vec{B}<em _text_outside="\text{outside">{\text{inside}} = \frac{\mu_0 Q \omega}{6\pi R}\hat{z} \qquad (|z| &lt; R)
+  $$
+- <strong>当 <span class="arithmatex">\(|z| &gt; R\)</span>（球壳外部，<span class="arithmatex">\(\big||z| - R\big| = |z| - R\)</span>）</strong>：
+  方括号计算结果为 <span class="arithmatex">\(\frac{16}{3}R^3\)</span>，约分后得到 <span class="arithmatex">\(\frac{4}{3|z|^3}\)</span>。因此<strong>球壳外部轴线上表现为标准磁偶极子场</strong>：
+  $$
+  \vec{B}</em> \qquad (|z| &gt; R)
+  $$}} = \frac{\mu_0 Q \omega R^2}{6\pi |z|^3}\hat{z</p>
+</details>
+<details>
+<summary>Exercise 9.3, 9.4 &amp; 9.5: Coaxial Cable, Overlapping Cylinders Cavity &amp; Intersecting Current Sheets（同轴电缆、交叠圆柱空腔匀强场与正交电流板）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 9.3</strong>: A long straight coaxial cable consists of a conducting cylinder with radius <span class="arithmatex">\(a\)</span>, and a conducting tube with inner radius <span class="arithmatex">\(b\)</span> and outer radius <span class="arithmatex">\(c \ (a &lt; b &lt; c)\)</span>. Currents of same magnitude <span class="arithmatex">\(I\)</span> but opposite directions are passing through the system (<code>Figure 9.9</code>), distributed uniformly within each conductor. Calculate the magnitude of <span class="arithmatex">\(B\)</span> at radius <span class="arithmatex">\(r\)</span> for: (a) <span class="arithmatex">\(r &lt; a\)</span>; (b) <span class="arithmatex">\(a &lt; r &lt; b\)</span>; (c) <span class="arithmatex">\(b &lt; r &lt; c\)</span>; (d) <span class="arithmatex">\(r &gt; c\)</span>.
+- <strong>Ex 9.4</strong>: Consider two infinitely long cylinders of radius <span class="arithmatex">\(R\)</span> whose parallel axes are a distance <span class="arithmatex">\(2a\)</span> apart (<span class="arithmatex">\(R &gt; a\)</span>). In the shaded non-overlapping area two opposite currents are passing through (<code>Figure 9.10</code>), where the current density is uniform with magnitude <span class="arithmatex">\(j\)</span>, and no current flows in the overlap. Calculate the magnitude and direction of the magnetic field at any point inside the overlapping area.
+- <strong>Ex 9.5</strong>: Two infinitely large thin inter-penetrating boards are assembled as shown in <code>Figure 9.11</code> (<span class="arithmatex">\(xy\)</span> plane carries surface current density <span class="arithmatex">\(J_s\hat{y}\)</span>, <span class="arithmatex">\(xz\)</span> plane carries <span class="arithmatex">\(J_s\hat{z}\)</span>). Calculate the magnitude of the magnetic field in each of the four regions of space.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 同轴电缆四个区域的磁场分布（Exercise 9.3）</strong>：
+由柱对称性，取半径为 <span class="arithmatex">\(r\)</span> 的同心圆作为安培环路，<span class="arithmatex">\(\oint \vec{B}\cdot d\vec{l} = 2\pi r B = \mu_0 I_{\text{enc}}(r)\)</span>：</p>
+<ul>
+<li><strong>(a) 内导体内部（<span class="arithmatex">\(r &lt; a\)</span>）</strong>：<span class="arithmatex">\(I_{\text{enc}} = I\frac{\pi r^2}{\pi a^2} = I\frac{r^2}{a^2}\)</span>，故：
+  $$
+  B(r) = \frac{\mu_0 I r}{2\pi a^2} \qquad (r &lt; a)
+  $$</li>
+<li><strong>(b) 内外导体之间（<span class="arithmatex">\(a &lt; r &lt; b\)</span>）</strong>：包围全部内导体电流 <span class="arithmatex">\(I_{\text{enc}} = I\)</span>，故：
+  $$
+  B(r) = \frac{\mu_0 I}{2\pi r} \qquad (a &lt; r &lt; b)
+  $$</li>
+<li><strong>(c) 外导体管壁内部（<span class="arithmatex">\(b &lt; r &lt; c\)</span>）</strong>：外导体截面积为 <span class="arithmatex">\(\pi(c^2 - b^2)\)</span>，反向电流密度为 <span class="arithmatex">\(j_{\text{out}} = \frac{I}{\pi(c^2 - b^2)}\)</span>。安培环路包围的净电流为 <span class="arithmatex">\(I_{\text{enc}} = I - I\frac{\pi(r^2 - b^2)}{\pi(c^2 - b^2)} = I\frac{c^2 - r^2}{c^2 - b^2}\)</span>，故：
+  $$
+  B(r) = \frac{\mu_0 I}{2\pi r}\left(\frac{c^2 - r^2}{c^2 - b^2}\right) \qquad (b &lt; r &lt; c)
+  $$</li>
+<li><strong>(d) 电缆外部（<span class="arithmatex">\(r &gt; c\)</span>）</strong>：正反电流完全抵消，<span class="arithmatex">\(I_{\text{enc}} = I - I = 0\)</span>，故：
+  $$
+  B(r) = 0 \qquad (r &gt; c, \ \text{同轴电缆对外部空间实现磁屏蔽})
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 两交叠反向载流圆柱空腔内的匀强磁场（Exercise 9.4，高频必考压轴模型）</strong>：
+本题是静磁学中与第二章 Exercise 2.5（两交叠带电球体）完全对偶的经典名题！
+<strong>第一步（建立完整实心圆柱内部磁场的矢量公式）</strong>：
+设无限长实心圆柱内部通有沿轴向的均匀电流密度 <span class="arithmatex">\(\vec{j}\)</span>。在柱内距轴心位置矢量为 <span class="arithmatex">\(\vec{r}\)</span>（垂直于轴线）处，由安培环路定理知磁场大小为 <span class="arithmatex">\(B = \frac{\mu_0(\pi r^2 j)}{2\pi r} = \frac{1}{2}\mu_0 j r\)</span>，方向遵循右手螺旋定则（沿 <span class="arithmatex">\(\vec{j}\times\vec{r}\)</span> 方向）。因此，写成矢量叉乘形式恒有：</p>
+<div class="arithmatex">\[
+\vec{B}_{\text{inside}}(\vec{r}) = \frac{1}{2}\mu_0 (\vec{j} \times \vec{r})
+\]</div>
+<p><strong>第二步（叠加原理消去交叠区）</strong>：
+将“在交叠区无电流、在两侧月牙区分别流过 <span class="arithmatex">\(-\vec{j}\)</span>（左柱，向里 <span class="arithmatex">\(\otimes\)</span>）和 <span class="arithmatex">\(+\vec{j}\)</span>（右柱，向外 <span class="arithmatex">\(\odot\)</span>）”的系统，等效看作<strong>两个完整的实心圆柱电流的直接叠加</strong>：在交叠区内，左柱的 <span class="arithmatex">\(-\vec{j}\)</span> 与右柱的 <span class="arithmatex">\(+\vec{j}\)</span> 叠加恰好为 <span class="arithmatex">\(\vec{j}_{\text{net}} = \vec{0}\)</span>（无电流），与原系统完全一致！
+设垂直纸面向外为 <span class="arithmatex">\(+z\)</span> 方向（<span class="arithmatex">\(\hat{z}\)</span>），两圆柱轴心位于 <span class="arithmatex">\(x\)</span> 轴上：左柱心 <span class="arithmatex">\(O_1(-a, 0)\)</span> 的电流密度为 <span class="arithmatex">\(\vec{j}_1 = -j\hat{z}\)</span>，右柱心 <span class="arithmatex">\(O_2(+a, 0)\)</span> 的电流密度为 <span class="arithmatex">\(\vec{j}_2 = +j\hat{z}\)</span>，从左柱心指向右柱心的位移矢量为 <span class="arithmatex">\(\vec{d} = \overrightarrow{O_1 O_2} = 2a\hat{x}\)</span>。
+对于交叠区内的任意一点 <span class="arithmatex">\(P\)</span>，记其相对于左柱心 <span class="arithmatex">\(O_1\)</span> 的位置矢量为 <span class="arithmatex">\(\vec{r}_1 = \overrightarrow{O_1 P}\)</span>，相对于右柱心 <span class="arithmatex">\(O_2\)</span> 的位置矢量为 <span class="arithmatex">\(\vec{r}_2 = \overrightarrow{O_2 P}\)</span>（满足 <span class="arithmatex">\(\vec{r}_1 - \vec{r}_2 = \overrightarrow{O_1 O_2} = \vec{d} = 2a\hat{x}\)</span>）。由叠加原理：</p>
+<div class="arithmatex">\[
+\vec{B} = \vec{B}_1 + \vec{B}_2 = \frac{1}{2}\mu_0 (-j\hat{z} \times \vec{r}_1) + \frac{1}{2}\mu_0 (+j\hat{z} \times \vec{r}_2) = -\frac{1}{2}\mu_0 j \hat{z} \times (\vec{r}_1 - \vec{r}_2) = -\frac{1}{2}\mu_0 j (\hat{z} \times 2a\hat{x}) = -\mu_0 j a\,\hat{y}
+\]</div>
+<p><strong>结论</strong>：交叠区域内的磁场是一个<strong>处处均匀的匀强磁场</strong>！其大小恒为 <strong><span class="arithmatex">\(B = \mu_0 j a\)</span></strong>，方向垂直于两轴心连线<strong>竖直向下</strong>（<span class="arithmatex">\(-\hat{y}\)</span> 方向）。</p>
+<hr />
+<p><strong>3. 两正交无限大载流薄板在四个象限中的磁场（Exercise 9.5）</strong>：
+由 §2.2 Example 9.5 可知，单块面电流密度为 <span class="arithmatex">\(J_s\)</span> 的无限大薄板在两侧产生的匀强磁场大小均为 <span class="arithmatex">\(B_0 = \frac{1}{2}\mu_0 J_s\)</span>，方向由右手定则 <span class="arithmatex">\(\frac{1}{2}\mu_0 \vec{J}_s \times \hat{n}\)</span>（<span class="arithmatex">\(\hat{n}\)</span> 为从薄板指向场点的法向量）给出：
+1. <strong>水平板（位于 <span class="arithmatex">\(z = 0\)</span> 的 <span class="arithmatex">\(xy\)</span> 平面，电流沿 <span class="arithmatex">\(+\hat{y}\)</span>，即 <span class="arithmatex">\(\vec{J}_{s1} = J_s\hat{y}\)</span>）</strong>：
+   在 <span class="arithmatex">\(z &gt; 0\)</span>（上半空间，<span class="arithmatex">\(\hat{n} = +\hat{z}\)</span>）产生 <span class="arithmatex">\(\vec{B}_1 = +\frac{1}{2}\mu_0 J_s (\hat{y}\times\hat{z}) = +\frac{1}{2}\mu_0 J_s \hat{x}\)</span>；在 <span class="arithmatex">\(z &lt; 0\)</span>（下半空间）产生 <span class="arithmatex">\(-\frac{1}{2}\mu_0 J_s \hat{x}\)</span>。故对任意位置恒有：
+   $$
+   \vec{B}_1 = \frac{1}{2}\mu_0 J_s \operatorname{sgn}(z)\,\hat{x}
+   $$
+2. <strong>竖直板（位于 <span class="arithmatex">\(y = 0\)</span> 的 <span class="arithmatex">\(xz\)</span> 平面，电流沿 <span class="arithmatex">\(+\hat{z}\)</span>，即 <span class="arithmatex">\(\vec{J}_{s2} = J_s\hat{z}\)</span>）</strong>：
+   在 <span class="arithmatex">\(y &gt; 0\)</span>（右半空间，<span class="arithmatex">\(\hat{n} = +\hat{y}\)</span>）产生 <span class="arithmatex">\(\vec{B}_2 = \frac{1}{2}\mu_0 J_s (\hat{z}\times\hat{y}) = -\frac{1}{2}\mu_0 J_s \hat{x}\)</span>；在 <span class="arithmatex">\(y &lt; 0\)</span>（左半空间）产生 <span class="arithmatex">\(+\frac{1}{2}\mu_0 J_s \hat{x}\)</span>。故对任意位置恒有：
+   $$
+   \vec{B}_2 = -\frac{1}{2}\mu_0 J_s \operatorname{sgn}(y)\,\hat{x}
+   $$</p>
+<p>将两板磁场在四个象限（Four regions）内叠加：
+- <strong>在第一象限（<span class="arithmatex">\(y &gt; 0, z &gt; 0\)</span>）和第三象限（<span class="arithmatex">\(y &lt; 0, z &lt; 0\)</span>）</strong>（即 <span class="arithmatex">\(yz &gt; 0\)</span> 的两个对角区域）：<span class="arithmatex">\(\operatorname{sgn}(y) = \operatorname{sgn}(z)\)</span>，<span class="arithmatex">\(\vec{B}_1\)</span> 与 <span class="arithmatex">\(\vec{B}_2\)</span> 等大反向，<strong>合磁场大小 <span class="arithmatex">\(B = 0\)</span></strong>；
+- <strong>在第二象限（<span class="arithmatex">\(y &lt; 0, z &gt; 0\)</span>）和第四象限（<span class="arithmatex">\(y &gt; 0, z &lt; 0\)</span>）</strong>（即 <span class="arithmatex">\(yz &lt; 0\)</span> 的两个对角区域）：<span class="arithmatex">\(\operatorname{sgn}(y) = -\operatorname{sgn}(z)\)</span>，<span class="arithmatex">\(\vec{B}_1\)</span> 与 <span class="arithmatex">\(\vec{B}_2\)</span> 同向叠加，<strong>合磁场大小 <span class="arithmatex">\(B = \mu_0 J_s\)</span></strong>（在 <span class="arithmatex">\(y&lt;0, z&gt;0\)</span> 区沿 <span class="arithmatex">\(+\hat{x}\)</span>，在 <span class="arithmatex">\(y&gt;0, z&lt;0\)</span> 区沿 <span class="arithmatex">\(-\hat{x}\)</span>）。</p>
+</details>
+<details>
+<summary>Exercise 9.6, 9.7 &amp; 9.8: Repelling Hanging Wires, Figure-Eight Circulation &amp; Helical Solenoid（悬挂导线斥力平衡、“8”字回路环流与考虑轴向电流的螺旋螺线管）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 9.6</strong>: Two long, straight, parallel wires, each of mass <span class="arithmatex">\(\lambda\)</span> per unit length, hang side by side from a common horizontal axis by light insulating threads of length <span class="arithmatex">\(L\)</span>. When carrying equal opposite currents <span class="arithmatex">\(I\)</span>, they repel each other, and in equilibrium the threads of each wire make an angle <span class="arithmatex">\(\theta\)</span> with the vertical. Find <span class="arithmatex">\(I\)</span> in terms of <span class="arithmatex">\(\lambda, L, \theta, \mu_0\)</span> and <span class="arithmatex">\(g\)</span>.
+- <strong>Ex 9.7</strong>: Two long straight wires cross the plane of the page at right angles at <span class="arithmatex">\(A\)</span> (current <span class="arithmatex">\(i_1 &gt; 0\)</span> out of the page) and <span class="arithmatex">\(B\)</span> (current <span class="arithmatex">\(i_2 &gt; 0\)</span> into the page). Evaluate <span class="arithmatex">\(\oint \vec{B}\cdot d\vec{l}\)</span> along: (a) A path that goes around <span class="arithmatex">\(A\)</span> twice, counterclockwise, without going around <span class="arithmatex">\(B\)</span>; (b) A figure-eight path whose two loops meet at a single crossing point, where one loop goes around <span class="arithmatex">\(A\)</span> counterclockwise and the other goes around <span class="arithmatex">\(B\)</span>.
+- <strong>Ex 9.8</strong>: A long solenoid of radius <span class="arithmatex">\(R\)</span> is wound from a single wire as a tight, single-layer helix with <span class="arithmatex">\(n\)</span> turns per unit length, carrying steady current <span class="arithmatex">\(i\)</span>. Model the winding as a thin cylindrical sheet of radius <span class="arithmatex">\(R\)</span> that carries a current <span class="arithmatex">\(ni\)</span> per unit length around the axis and, in addition, a total current <span class="arithmatex">\(i\)</span> along the axis. (a) Find the magnitudes of the axial and azimuthal components of <span class="arithmatex">\(\vec{B}\)</span> inside (<span class="arithmatex">\(r &lt; R\)</span>) and outside (<span class="arithmatex">\(r &gt; R\)</span>). (b) Find the ratio of the magnitude of the field just outside the winding to its magnitude inside.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 双悬挂反向载流导线的平衡电流（Exercise 9.6）</strong>：
+当每根导线的悬线与竖直方向夹角为 <span class="arithmatex">\(\theta\)</span> 时，两根平行导线之间的水平间距为：</p>
+<div class="arithmatex">\[
+d = 2L\sin\theta
+\]</div>
+<p>考察其中一根导线的单位长度受力：它受到竖直向下的重力 <span class="arithmatex">\(\lambda g\)</span>、水平向外的安培排斥力 <span class="arithmatex">\(f_B = \frac{\mu_0 I^2}{2\pi d} = \frac{\mu_0 I^2}{4\pi L\sin\theta}\)</span> 以及沿悬线方向的拉力 <span class="arithmatex">\(T\)</span>。由三力平衡条件 <span class="arithmatex">\(\tan\theta = \frac{f_B}{\lambda g}\)</span>：</p>
+<div class="arithmatex">\[
+\frac{\mu_0 I^2}{4\pi L\sin\theta} = \lambda g \tan\theta \implies I = 2\sin\theta\sqrt{\frac{\pi \lambda g L}{\mu_0 \cos\theta}}
+\]</div>
+<hr />
+<p><strong>2. 绕行两圈路径与“8”字形自交路径的安培环流（Exercise 9.7）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 路径逆时针（从读者方向看）绕导线 <span class="arithmatex">\(A\)</span> 两圈且不包围 <span class="arithmatex">\(B\)</span>。由右手定则，穿出纸面的电流 <span class="arithmatex">\(i_1\)</span> 对应逆时针绕行方向为正，绕行两圈（<span class="arithmatex">\(\Delta\phi = 4\pi\)</span>）累加两次：
+  $$
+  \oint \vec{B} \cdot d\vec{l} = +2\mu_0 i_1
+  $$</li>
+<li><strong>(b)</strong> 对于在交点处发生交叉（Crosses itself）的“8”字形连续路径：当左半环逆时针绕过 <span class="arithmatex">\(A\)</span>（贡献 <span class="arithmatex">\(+\mu_0 i_1\)</span>）并通过交叉点进入右半环时，右半环的绕行方向必然自动反转变为<strong>顺时针</strong>（Clockwise）绕过 <span class="arithmatex">\(B\)</span>！
+  由于导线 <span class="arithmatex">\(B\)</span> 的电流 <span class="arithmatex">\(i_2\)</span> 是穿入纸面的（<span class="arithmatex">\(\otimes\)</span>），顺时针绕行方向通过右手定则判别恰与穿入纸面的方向一致（贡献也为正：<span class="arithmatex">\(+\mu_0 i_2\)</span>）。因此总环流为两部分之和：
+  $$
+  \oint_{\text{figure-eight}} \vec{B} \cdot d\vec{l} = \mu_0(i_1 + i_2)
+  $$</li>
+</ul>
+<hr />
+<p><strong>3. 计入轴向推进电流的单层螺旋螺线管（Exercise 9.8）</strong>：
+将圆柱面电流分解为“环向電流层（单位长度 <span class="arithmatex">\(ni\)</span>）”与“轴向圆柱面电流（总电流 <span class="arithmatex">\(i\)</span> 均匀分布在周长 <span class="arithmatex">\(2\pi R\)</span> 上）”两部分的独立叠加：</p>
+<ul>
+<li><strong>(a) 管内（<span class="arithmatex">\(r &lt; R\)</span>）与管外（<span class="arithmatex">\(r &gt; R\)</span>）的轴向分量 <span class="arithmatex">\(B_z\)</span> 和方位角分量 <span class="arithmatex">\(B_\phi\)</span></strong>：</li>
+<li><strong>轴向分量 <span class="arithmatex">\(B_z\)</span>（由环向电流 <span class="arithmatex">\(ni\)</span> 产生，即标准理想螺线管模型）</strong>：
+     $$
+     B_z = \begin{cases}
+     \mu_0 n i, &amp; r &lt; R \quad (\text{管内}), \
+     0, &amp; r &gt; R \quad (\text{管外}).
+     \end{cases}
+     $$</li>
+<li><strong>方位角分量 <span class="arithmatex">\(B_\phi\)</span>（由轴向圆管电流 <span class="arithmatex">\(i\)</span> 产生，取半径为 <span class="arithmatex">\(r\)</span> 的同心圆安培环路 <span class="arithmatex">\(2\pi r B_\phi = \mu_0 I_{\text{axial, enc}}\)</span>）</strong>：<ul>
+<li>当 <span class="arithmatex">\(r &lt; R\)</span>（管内）时：圆环路内部无轴向电流（<span class="arithmatex">\(I_{\text{axial, enc}} = 0\)</span>），故 <span class="arithmatex">\(B_\phi = 0\)</span>；</li>
+<li>当 <span class="arithmatex">\(r &gt; R\)</span>（管外）时：圆环路包围全部轴向电流 <span class="arithmatex">\(I_{\text{axial, enc}} = i\)</span>，故 <span class="arithmatex">\(B_\phi = \dfrac{\mu_0 i}{2\pi r}\)</span>。</li>
+</ul>
+</li>
+<li><strong>(b) 紧贴管外壁（<span class="arithmatex">\(r = R^+\)</span>）与管内（<span class="arithmatex">\(r &lt; R\)</span>）的磁感应强度模长之比</strong>：
+  在管内 <span class="arithmatex">\(|\vec{B}_{\text{in}}| = \mu_0 n i\)</span>；在紧贴管外壁 <span class="arithmatex">\(r = R^+\)</span> 处，<span class="arithmatex">\(|\vec{B}_{\text{out}}(R^+)| = \frac{\mu_0 i}{2\pi R}\)</span>。两者之比为：
+  $$
+  \frac{B(R^+)}{B_{\text{inside}}} = \frac{\mu_0 i / (2\pi R)}{\mu_0 n i} = \frac{1}{2\pi n R}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 9.9 &amp; 9.10: Wire Threaded Through a Toroid &amp; Validity Test of Magnetic Fields（穿过螺绕环的导线受力与磁场无散性判别）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 9.9</strong>: An ideal toroidal coil of <span class="arithmatex">\(N\)</span> turns carries a steady current <span class="arithmatex">\(I\)</span>. Its tube has a circular cross section of radius <span class="arithmatex">\(a\)</span>, whose center runs around a circle of radius <span class="arithmatex">\(R \ (R &gt; a)\)</span> in the <span class="arithmatex">\(xy\)</span> plane, centered at the origin. The magnetic field inside the tube circulates counterclockwise as seen from <span class="arithmatex">\(+z\)</span>. A thin, straight test wire is threaded through the winding along the <span class="arithmatex">\(x\)</span> axis, from <span class="arithmatex">\(x = R - a\)</span> to <span class="arithmatex">\(x = R + a\)</span>, carrying current <span class="arithmatex">\(i\)</span> in the <span class="arithmatex">\(+x\)</span> direction.
+  (a) Find the magnetic force on this segment of wire.
+  (b) Let <span class="arithmatex">\(B_0\)</span> be the magnitude of the field on the central circle of the tube (<span class="arithmatex">\(r = R\)</span>). Show that the magnitude of the force is larger than <span class="arithmatex">\(2aiB_0\)</span>.
+- <strong>Ex 9.10</strong>: Each of the following time-independent vector fields (<span class="arithmatex">\(k \neq 0\)</span>) is proposed as the magnetic field in some region of space. For each, decide whether it can be a magnetic field. If it can, find the current density <span class="arithmatex">\(\vec{j}\)</span> that must flow in that region; if it cannot, find its outward flux through the surface of the cube <span class="arithmatex">\(0 \le x \le s, \ 0 \le y \le s, \ 0 \le z \le s\)</span> (<span class="arithmatex">\(s &gt; 0\)</span>):
+  (a) <span class="arithmatex">\(\vec{B} = k(x\hat{x} - y\hat{y})\)</span>; (b) <span class="arithmatex">\(\vec{B} = k(x\hat{x} + y\hat{y})\)</span>; (c) <span class="arithmatex">\(\vec{B} = kx\hat{z}\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 沿径向穿过螺绕环管腔的载流直导线所受安培力（Exercise 9.9）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 在 <span class="arithmatex">\(x\)</span> 轴上从 <span class="arithmatex">\(x = R - a\)</span> 到 <span class="arithmatex">\(x = R + a\)</span> 的管腔区间内，螺绕环的磁场逆时针环绕，因此在正 <span class="arithmatex">\(x\)</span> 半轴上磁场方向沿 <span class="arithmatex">\(+\hat{y}\)</span> 方向，大小为 <span class="arithmatex">\(B(x) = \frac{\mu_0 NI}{2\pi x}\)</span>：
+  $$
+  \vec{B}(x, 0, 0) = \frac{\mu_0 NI}{2\pi x}\hat{y} \qquad (R - a \le x \le R + a)
+  $$
+  测试导线线元为 <span class="arithmatex">\(i\,d\vec{l} = i\,dx\,\hat{x}\)</span>，所受微元安培力为 <span class="arithmatex">\(d\vec{F} = i\,dx\,\hat{x} \times \left(\frac{\mu_0 NI}{2\pi x}\hat{y}\right) = \frac{\mu_0 NI i}{2\pi x}dx\,\hat{z}\)</span>。在 <span class="arithmatex">\([R - a, R + a]\)</span> 上积分得总磁力：
+  $$
+  \vec{F} = \hat{z} \frac{\mu_0 NI i}{2\pi} \int_{R - a}^{R + a} \frac{dx}{x} = \frac{\mu_0 NI i}{2\pi}\ln\left(\frac{R + a}{R - a}\right)\hat{z}
+  $$</li>
+<li><strong>(b) 与中心圆场强 <span class="arithmatex">\(B_0 = \frac{\mu_0 NI}{2\pi R}\)</span> 均匀估算值 <span class="arithmatex">\(2aiB_0\)</span> 的大小比较</strong>：
+  注意到 <span class="arithmatex">\(\frac{\mu_0 NI}{2\pi} = R B_0\)</span>，故实际磁力大小可写为 <span class="arithmatex">\(F = i R B_0 \ln\left(\frac{1 + a/R}{1 - a/R}\right)\)</span>。
+  利用对数函数的泰勒级数展开（对 <span class="arithmatex">\(0 &lt; u = \frac{a}{R} &lt; 1\)</span>）：
+  $$
+  \ln\left(\frac{1 + u}{1 - u}\right) = 2\left(u + \frac{u^3}{3} + \frac{u^5}{5} + \cdots\right) &gt; 2u = \frac{2a}{R}
+  $$
+  （或从凸函数性质看：因 <span class="arithmatex">\(B(x) \propto \frac{1}{x}\)</span> 是严格下凸函数，<span class="arithmatex">\(f''(x) &gt; 0\)</span>，由琴生不等式知其在对称区间 <span class="arithmatex">\([R-a, R+a]\)</span> 上的积分平均值必严格大于中点值 <span class="arithmatex">\(B(R) = B_0\)</span>）。因此恒有：
+  $$
+  F = i R B_0 \ln\left(\frac{1 + a/R}{1 - a/R}\right) &gt; i R B_0 \left(\frac{2a}{R}\right) = 2aiB_0
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 候选磁场矢量的无散性检验（<span class="arithmatex">\(\nabla\cdot\vec{B} = 0\)</span>）、电流密度与立方体磁通量（Exercise 9.10）</strong>：
+判断一个稳恒矢量场能否作为真实物理磁场的充要条件是它必须满足磁场高斯定理 <strong><span class="arithmatex">\(\nabla\cdot\vec{B} = 0\)</span></strong>。若满足，则由安培环路定理微分形式 <span class="arithmatex">\(\vec{j} = \frac{1}{\mu_0}(\nabla\times\vec{B})\)</span> 求出所需电流密度；若不满足，则由散度定理 <span class="arithmatex">\(\Phi = \oint_S \vec{B}\cdot d\vec{A} = \int_{\text{cube}} (\nabla\cdot\vec{B})\,dV\)</span> 求出穿过边长为 <span class="arithmatex">\(s\)</span> 的立方体的净通量：</p>
+<ul>
+<li><strong>(a) <span class="arithmatex">\(\vec{B} = k(x\hat{x} - y\hat{y})\)</span></strong>：
+  计算散度：<span class="arithmatex">\(\nabla\cdot\vec{B} = \frac{\partial(kx)}{\partial x} + \frac{\partial(-ky)}{\partial y} = k - k = 0\)</span>。
+  因此它<strong>可以作为真实磁场</strong>！计算其旋度求电流密度：
+  $$
+  \vec{j} = \frac{1}{\mu_0}(\nabla\times\vec{B}) = \vec{0} \qquad (\text{该区域内无电流，磁场由区域外部的电流或磁极产生})
+  $$</li>
+<li><strong>(b) <span class="arithmatex">\(\vec{B} = k(x\hat{x} + y\hat{y})\)</span></strong>：
+  计算散度：<span class="arithmatex">\(\nabla\cdot\vec{B} = \frac{\partial(kx)}{\partial x} + \frac{\partial(ky)}{\partial y} = k + k = 2k \neq 0\)</span>。
+  因此它<strong>不能作为真实磁场</strong>！利用散度定理计算穿过立方体 <span class="arithmatex">\([0, s]^3\)</span>（体积 <span class="arithmatex">\(V = s^3\)</span>）的向外通量：
+  $$
+  \Phi = \int_V (\nabla\cdot\vec{B})\,dV = 2k \cdot s^3 = 2ks^3
+  $$</li>
+<li><strong>(c) <span class="arithmatex">\(\vec{B} = kx\hat{z}\)</span></strong>：
+  计算散度：<span class="arithmatex">\(\nabla\cdot\vec{B} = \frac{\partial(kx)}{\partial z} = 0\)</span>。
+  因此它<strong>可以作为真实磁场</strong>！由安培环路定理微分形式计算区域内的电流密度：
+  $$
+  \vec{j} = \frac{1}{\mu_0}(\nabla\times\vec{B}) = \frac{1}{\mu_0}\left(-\hat{y}\frac{\partial B_z}{\partial x}\right) = -\frac{k}{\mu_0}\hat{y}
+  $$</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2411 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/06_resistance_and_capacitance/">
+      
+      
+        <link rel="prev" href="../05_electrical_properties_of_conductors/">
+      
+      
+        <link rel="next" href="../07_DC_circuits/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>06 电阻与电容 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-resistance-and-capacitance" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              06 电阻与电容
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-steady-current-and-current-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 稳恒电流与电流密度 (Steady Current and Current Density)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 稳恒电流与电流密度 (Steady Current and Current Density)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电流与稳恒条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电流密度矢量与漂移速度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resistance-ohms-law-and-continuity-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电阻、欧姆定律与连续性方程 (Resistance, Ohm's Law and Continuity Equation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电阻、欧姆定律与连续性方程 (Resistance, Ohm&#39;s Law and Continuity Equation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电阻、电阻率与欧姆定律
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-drude-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 自由电子模型（Drude Model）对欧姆定律的微观解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-equation-of-continuity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 电荷守恒与连续性方程 (Equation of Continuity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-capacitors-and-capacitance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电容器与电容计算 (Capacitors and Capacitance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电容器与电容计算 (Capacitors and Capacitance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电容的定义与几何决定性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电容计算的通用四步法与三大经典模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dielectrics-semiconductors-superconductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 电介质中的静电场与材料物理拓展 (Dielectrics, Semiconductors &amp; Superconductors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 电介质中的静电场与材料物理拓展 (Dielectrics, Semiconductors &amp; Superconductors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vecd-vecp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电介质、电位移矢量 \(\vec{D}\) 与极化强度 \(\vec{P}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-6-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 6 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-steady-current-and-current-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 稳恒电流与电流密度 (Steady Current and Current Density)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 稳恒电流与电流密度 (Steady Current and Current Density)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电流与稳恒条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电流密度矢量与漂移速度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-resistance-ohms-law-and-continuity-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电阻、欧姆定律与连续性方程 (Resistance, Ohm's Law and Continuity Equation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电阻、欧姆定律与连续性方程 (Resistance, Ohm&#39;s Law and Continuity Equation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电阻、电阻率与欧姆定律
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-drude-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 自由电子模型（Drude Model）对欧姆定律的微观解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-equation-of-continuity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 电荷守恒与连续性方程 (Equation of Continuity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-capacitors-and-capacitance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电容器与电容计算 (Capacitors and Capacitance)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电容器与电容计算 (Capacitors and Capacitance)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电容的定义与几何决定性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电容计算的通用四步法与三大经典模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-dielectrics-semiconductors-superconductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 电介质中的静电场与材料物理拓展 (Dielectrics, Semiconductors &amp; Superconductors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 电介质中的静电场与材料物理拓展 (Dielectrics, Semiconductors &amp; Superconductors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vecd-vecp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电介质、电位移矢量 \(\vec{D}\) 与极化强度 \(\vec{P}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-6-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 6 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-6-resistance-and-capacitance">Chapter 6: Resistance and Capacitance（电阻与电容）<a class="headerlink" href="#chapter-6-resistance-and-capacitance" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第六章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 6: <em>Resistance and Capacitance</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 6: <em>Resistance and Capacitance</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapters 29 &amp; 30</li>
+</ul>
+</div>
+<h2 id="1-steady-current-and-current-density">1 稳恒电流与电流密度 (Steady Current and Current Density)<a class="headerlink" href="#1-steady-current-and-current-density" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 电流与稳恒条件<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>当对导体施加外电场时，导体内的传导电子（Conduction electrons）在静电力驱动下产生宏观定向运动，形成<strong>电流</strong>（Electric Current）。设无穷小时间间隔 <span class="arithmatex">\(dt\)</span> 内穿过某假想截面的净电荷量为 <span class="arithmatex">\(dq\)</span>，则电流 <span class="arithmatex">\(I\)</span>（课件亦记为 <span class="arithmatex">\(i\)</span>）定义为：</p>
+<div class="arithmatex">\[
+I = \frac{dq}{dt} \iff q = \int_{t_1}^{t_2} I\,dt
+\]</div>
+<p>由于电荷 <span class="arithmatex">\(q\)</span> 与时间 <span class="arithmatex">\(t\)</span> 均为标量，<strong>电流 <span class="arithmatex">\(I\)</span> 是标量（Scalar）</strong>，其国际单位制（SI base unit）为<strong>安培</strong>（Ampere，<span class="arithmatex">\(\text{A} = \text{C/s}\)</span>）。在电路图中标注的电流箭头仅代表正载流子（Positive charge carriers）等效流动的方向（与实际带负电的电子定向移动方向相反）。</p>
+<p>本章重点研究<strong>稳恒电流</strong>（Steady Current），即电流的宏观性质不随时间变化（<span class="arithmatex">\(\frac{\partial\rho}{\partial t} = 0\)</span>）。在稳恒条件下，由局域电荷守恒可知，无论导体截面形状如何变化或截面如何倾斜，<strong>穿过导体任意完整横截面的电流 <span class="arithmatex">\(I\)</span> 处处相等</strong>；在电路分支节点处则满足<strong>节点定律</strong>（Junction Rule）：流入节点的电流之和等于流出节点的电流之和（<span class="arithmatex">\(i_0 = i_1 + i_2\)</span>）。</p>
+<h3 id="12">1.2 电流密度矢量与漂移速度<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>对于非均匀或变截面导体，虽然总电流 <span class="arithmatex">\(I\)</span> 处处相同，但电流在横截面上的空间分布可能不同。为此定义空间点 <span class="arithmatex">\(\vec{r}\)</span> 处的<strong>电流密度</strong>（Current Density，矢量 <span class="arithmatex">\(\vec{j}\)</span> 或 <span class="arithmatex">\(\vec{J}\)</span>，单位 <span class="arithmatex">\(\text{A/m}^2\)</span>）：其方向为正电荷载流子的局部运动方向（即令单位面积电流 <span class="arithmatex">\(\lim_{|\delta\vec{S}|\to 0}\frac{\delta I}{|\delta\vec{S}|}\)</span> 取得最大值的面积微元法向 <span class="arithmatex">\(\hat{n}\)</span>），其大小为垂直穿过单位面积的电流。由此，穿过任意曲面 <span class="arithmatex">\(S\)</span> 的总电流为矢量点乘的曲面积分：</p>
+<div class="arithmatex">\[
+I = \int_S \vec{j} \cdot d\vec{S} \qquad (\text{对比电通量公式：} \Phi = \int_S \vec{E} \cdot d\vec{S})
+\]</div>
+<p><strong>微观漂移速度（Drift Velocity, <span class="arithmatex">\(\vec{v}_d\)</span>）与热运动速率（Thermal Speed, <span class="arithmatex">\(v_{\text{th}}\)</span>）</strong>：</p>
+<ol>
+<li><strong>无外场时的随机热运动</strong>：当导体未通电时，传导电子作剧烈的无规则热运动，净位移为零。若按经典理想气体能量均分定理 <span class="arithmatex">\(\frac{1}{2}mv_{\text{th}}^2 = \frac{3}{2}k_B T\)</span> 估算，室温（<span class="arithmatex">\(T = 300\text{ K}\)</span>）下电子的热运动速率高达 <span class="arithmatex">\(v_{\text{th}} = \sqrt{3k_B T/m} \approx 1.17 \times 10^5\text{ m/s}\)</span>（若计入量子力学泡利不相容原理，金属费米面电子的实际速率还要大十倍以上，约 <span class="arithmatex">\(10^6\text{ m/s}\)</span>）。</li>
+<li><strong>有外场时的定向漂移</strong>：施加电场 <span class="arithmatex">\(\vec{E}\)</span> 后，电子在高速热运动背景上叠加了一个逆着电场方向的微小平均速度，称为<strong>漂移速度</strong> <span class="arithmatex">\(\vec{v}_d\)</span>（典型值仅约 <span class="arithmatex">\(10^{-4}\text{ m/s}\)</span>，比热运动慢约 <span class="arithmatex">\(9\)</span> 个数量级）。</li>
+<li><strong>电流密度的微观表达式</strong>：设导体内载流子数密度（Number density）为 <span class="arithmatex">\(n\)</span>，截面积为 <span class="arithmatex">\(S\)</span>。在 <span class="arithmatex">\(\Delta t\)</span> 时间内穿过截面的电子数为 <span class="arithmatex">\(N = n S v_d \Delta t\)</span>，故电流大小为 <span class="arithmatex">\(I = \frac{Ne}{\Delta t} = neSv_d\)</span>。写成矢量形式即为：
+   $$
+   \vec{j} = n q \vec{v}_d = -n e \vec{v}_d \qquad (\text{对带电 }-e\text{ 的电子，}\vec{j}\text{ 与 }\vec{v}_d\text{ 反向})
+   $$</li>
+</ol>
+<hr />
+<h2 id="2-resistance-ohms-law-and-continuity-equation">2 电阻、欧姆定律与连续性方程 (Resistance, Ohm's Law and Continuity Equation)<a class="headerlink" href="#2-resistance-ohms-law-and-continuity-equation" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 电阻、电阻率与欧姆定律<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>宏观上，当导体两端施加电势差 <span class="arithmatex">\(V\)</span> 并产生电流 <span class="arithmatex">\(I\)</span> 时，定义导体的<strong>电阻</strong>（Resistance，SI 单位为欧姆 Ohm，<span class="arithmatex">\(\Omega = \text{V/A}\)</span>）为：</p>
+<div class="arithmatex">\[
+R = \frac{V}{I}
+\]</div>
+<p>为了剥离几何尺寸的影响以表征材料本身的导电能力，引入材料的<strong>电导率</strong>（Conductivity, <span class="arithmatex">\(\sigma\)</span>，单位 <span class="arithmatex">\(\text{S/m} = (\Omega\cdot\text{m})^{-1}\)</span>）与<strong>电阻率</strong>（Resistivity, <span class="arithmatex">\(\rho_e\)</span>，课件亦记为 <span class="arithmatex">\(\rho\)</span>，单位 <span class="arithmatex">\(\Omega\cdot\text{m}\)</span>），二者互为倒数（<span class="arithmatex">\(\rho_e = \sigma^{-1}\)</span>），并满足局域<strong>欧姆定律的微分形式</strong>：</p>
+<div class="arithmatex">\[
+\vec{j} = \sigma \vec{E} \iff \vec{E} = \rho_e \vec{j}
+\]</div>
+<p>对于长度为 <span class="arithmatex">\(L\)</span>、横截面积为 <span class="arithmatex">\(S\)</span>（或 <span class="arithmatex">\(A\)</span>）的均匀柱体导体，由 <span class="arithmatex">\(V = EL\)</span> 与 <span class="arithmatex">\(I = jS = \sigma E S\)</span>，即可导出宏观电阻与材料电阻率的关系：</p>
+<div class="arithmatex">\[
+R = \frac{V}{I} = \frac{EL}{\sigma E S} = \frac{L}{\sigma S} = \rho_e \frac{L}{S}
+\]</div>
+<p><em>注：电阻 <span class="arithmatex">\(R\)</span> 是特定几何形状<strong>物体（Object）</strong>的属性，而电阻率 <span class="arithmatex">\(\rho_e\)</span> 是<strong>材料（Material）</strong>的本征属性。若材料的 <span class="arithmatex">\(\rho_e\)</span> 不随外加电场或电压变化，则称该器件遵循<strong>欧姆定律</strong>（Ohm's Law，如正常条件下的金属）；而半导体 <span class="arithmatex">\(p\text{-}n\)</span> 结二极管（Diode）的 <span class="arithmatex">\(I\text{-}V\)</span> 曲线呈指数非线性，不遵循欧姆定律。</em></p>
+<h3 id="22-drude-model">2.2 自由电子模型（Drude Model）对欧姆定律的微观解释<a class="headerlink" href="#22-drude-model" title="Permanent link">&para;</a></h3>
+<p>在金属自由电子模型中，传导电子不断与金属晶格正离子发生碰撞（注：电子与电子之间的碰撞满足总动量守恒，本身不会改变宏观总电流；真正产生电阻的是<strong>电子与金属离子的碰撞</strong>）。</p>
+<ol>
+<li><strong>碰撞失忆假设与平均自由时间 <span class="arithmatex">\(\tau\)</span></strong>：由于碰撞极其频繁且散射方向随机，可认为每次碰撞后电子都“失去了对先前漂移速度的全部记忆”（Loses memory），以随机方向重新出发。设两次连续碰撞之间的平均时间间隔为<strong>平均自由时间</strong>（Mean free time, <span class="arithmatex">\(\tau\)</span>）。</li>
+<li><strong>漂移速度与电导率推导</strong>：在电场 <span class="arithmatex">\(\vec{E}\)</span> 中，电子（质量 <span class="arithmatex">\(m\)</span>，电荷 <span class="arithmatex">\(-e\)</span>）获得的加速度为 <span class="arithmatex">\(\vec{a} = -\frac{e\vec{E}}{m}\)</span>。在任意时刻，电子自上一次碰撞以来平均经历了时间 <span class="arithmatex">\(\tau\)</span>，因此对所有电子求平均后获得的漂移速度为：
+   $$
+   \vec{v}_d = \vec{a}\tau = -\frac{e\vec{E}}{m}\tau
+   $$
+   将其代入 <span class="arithmatex">\(\vec{j} = -ne\vec{v}_d\)</span>，立即得到<strong>德鲁德电导率与电阻率公式</strong>：
+   $$
+   \vec{j} = -ne\left(-\frac{e\vec{E}}{m}\tau\right) = \frac{ne^2\tau}{m}\vec{E} \implies \sigma = \frac{ne^2\tau}{m}, \qquad \rho_e = \frac{1}{\sigma} = \frac{m}{ne^2\tau}
+   $$
+   在常温常压下，金属中的载流子浓度 <span class="arithmatex">\(n\)</span> 与平均自由时间 <span class="arithmatex">\(\tau\)</span> 均与外电场 <span class="arithmatex">\(E\)</span> 无关，因此 <span class="arithmatex">\(\sigma\)</span> 和 <span class="arithmatex">\(\rho_e\)</span> 为常数，这从微观上解释了金属为何遵循欧姆定律。</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">经典图像的局限：电阻率的温度依赖关系（Classical vs. Quantum）</p>
+<p>设电子两次碰撞间走过的平均距离——<strong>平均自由程</strong>（Mean free path）为 <span class="arithmatex">\(\lambda = v_{\text{th}}\tau\)</span>。若按经典图像假设 <span class="arithmatex">\(\lambda\)</span> 与温度 <span class="arithmatex">\(T\)</span> 无关，且电子速率为经典热运动速率 <span class="arithmatex">\(v_{\text{th}} = \sqrt{3k_B T/m} \propto \sqrt{T}\)</span>，则会推出 <span class="arithmatex">\(\tau = \frac{\lambda}{v_{\text{th}}} \propto T^{-1/2}\)</span>，进而预言金属电阻率 <span class="arithmatex">\(\rho_e = \frac{m}{ne^2\tau} \propto \sqrt{T}\)</span>（随温度的平方根增长）。
+然而实验测得<strong>真实金属在室温附近的电阻率随温度近似呈线性增长（<span class="arithmatex">\(\rho_e \propto T\)</span>）</strong>！这一矛盾表明经典气体模型失效，必须引入量子力学（费米面电子速率 <span class="arithmatex">\(v_F\)</span> 与温度无关，而晶格热振动声子散射截面正比于 <span class="arithmatex">\(T\)</span>）才能正确解释。</p>
+</div>
+<h3 id="23-equation-of-continuity">2.3 电荷守恒与连续性方程 (Equation of Continuity)<a class="headerlink" href="#23-equation-of-continuity" title="Permanent link">&para;</a></h3>
+<p>电荷在任何物理过程中均严格守恒。考察空间中任意固定的闭合曲面 <span class="arithmatex">\(S\)</span>（包围体积 <span class="arithmatex">\(V\)</span>）：在单位时间内，穿过闭合面 <span class="arithmatex">\(S\)</span> 向外流出的总电流 <span class="arithmatex">\(\oint_S \vec{j}\cdot d\vec{S}\)</span>，必然等于体积 <span class="arithmatex">\(V\)</span> 内部总电荷量 <span class="arithmatex">\(\int_V \rho\,dV\)</span> 的减少率：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\int_V \rho(\vec{r}, t)\,dV + \oint_S \vec{j}(\vec{r}, t) \cdot d\vec{S} = 0
+\]</div>
+<p>利用第四章的散度定理（Divergence theorem）将面积分转化为体积分 <span class="arithmatex">\(\oint_S \vec{j}\cdot d\vec{S} = \int_V (\nabla\cdot\vec{j})\,dV\)</span>，并将时间导数移入积分号内：</p>
+<div class="arithmatex">\[
+\int_V \left(\frac{\partial\rho}{\partial t} + \nabla \cdot \vec{j}\right) dV = 0
+\]</div>
+<p>由于体积 <span class="arithmatex">\(V\)</span> 是任意选取的，被积函数必须处处为零，从而得到电磁学中极其重要的<strong>连续性方程（微分形式）</strong>：</p>
+<div class="arithmatex">\[
+\frac{\partial\rho}{\partial t} + \nabla \cdot \vec{j} = 0 \iff \nabla \cdot \vec{j} = -\frac{\partial\rho}{\partial t}
+\]</div>
+<p>特别地，对于<strong>稳恒电流</strong>（Steady current），空间各点电荷密度不随时间变化（<span class="arithmatex">\(\frac{\partial\rho}{\partial t} = 0\)</span>），故恒有 <span class="arithmatex">\(\nabla\cdot\vec{j} = 0\)</span>。</p>
+<hr />
+<h2 id="3-capacitors-and-capacitance">3 电容器与电容计算 (Capacitors and Capacitance)<a class="headerlink" href="#3-capacitors-and-capacitance" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 电容的定义与几何决定性<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>由两个相互孤立的导体（称为极板 Plates）组成的系统称为<strong>电容器</strong>（Capacitor，广泛用于调谐电路、电源滤波及 DRAM/闪光灯储能）。当两导体分别携带等量异号电荷 <span class="arithmatex">\(+q\)</span> 和 <span class="arithmatex">\(-q\)</span> 时，每个导体各自成为等势体，两导体之间存在电势差 <span class="arithmatex">\(V &gt; 0\)</span>（注意：电容器的带电量 <span class="arithmatex">\(q\)</span> 指的是<strong>其中一个极板所带电荷量的绝对值</strong>，<span class="arithmatex">\(V\)</span> 指两极板间电势差的绝对值）。</p>
+<p>实验与理论均表明，<span class="arithmatex">\(q\)</span> 与 <span class="arithmatex">\(V\)</span> 恒成正比，比例系数 <span class="arithmatex">\(C\)</span> 称为电容器的<strong>电容</strong>（Capacitance，SI 单位为<strong>法拉</strong> Farad，<span class="arithmatex">\(1\text{ F} = 1\text{ C/V}\)</span>；常用微法 <span class="arithmatex">\(1\ \mu\text{F} = 10^{-6}\text{ F}\)</span> 与皮法 <span class="arithmatex">\(1\text{ pF} = 10^{-12}\text{ F}\)</span>）：</p>
+<div class="arithmatex">\[
+q = CV \iff C = \frac{q}{V}
+\]</div>
+<p><strong>为什么电容 <span class="arithmatex">\(C\)</span> 与带电量 <span class="arithmatex">\(q\)</span> 及电压 <span class="arithmatex">\(V\)</span> 无关？</strong>
+根据第五章拉普拉斯方程的线性叠加性与唯一性定理，当固定形状和相对位置的两导体间为真空（或线性电介质）时，若将两极板上的电荷量翻倍（<span class="arithmatex">\(\pm q \to \pm 2q\)</span>），则空间各处的电场强度 <span class="arithmatex">\(\vec{E}\)</span> 精确翻倍，从而两极板间的线积分电势差 <span class="arithmatex">\(V\)</span> 也精确翻倍。因此比值 <span class="arithmatex">\(C = q/V\)</span> 完全独立于 <span class="arithmatex">\(q\)</span> 和 <span class="arithmatex">\(V\)</span>，<strong>仅由导体的几何尺寸（形状、大小、相对位置）以及极板间的电介质材料决定</strong>，通用量纲形式可写为 <span class="arithmatex">\(C = \epsilon_0 L_{\text{eff}}\)</span>（<span class="arithmatex">\(L_{\text{eff}}\)</span> 为等效特征长度）。</p>
+<h3 id="32">3.2 电容计算的通用四步法与三大经典模型<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>忽略极板边缘电场向外弯曲发散的<strong>边缘效应</strong>（Fringing / Edge effect），计算任意给定几何构型电容器电容 <span class="arithmatex">\(C\)</span> 的标准四步法如下：</p>
+<ol>
+<li><strong>设电荷</strong>：假设两极板分别带有等量异号电荷 <span class="arithmatex">\(+q\)</span> 和 <span class="arithmatex">\(-q\)</span>；</li>
+<li><strong>求电场</strong>：利用对称性与高斯定理 <span class="arithmatex">\(\epsilon_0\oint \vec{E}\cdot d\vec{A} = q_{\text{enc}}\)</span>（或镜像法）求出两极板之间的电场分布 <span class="arithmatex">\(\vec{E}(\vec{r})\)</span>；</li>
+<li><strong>算电压</strong>：任选一条从负极板到正极板的积分路径，计算电势差绝对值 <span class="arithmatex">\(V = -\int_-^+ \vec{E}\cdot d\vec{s} = \int_+^- \vec{E}\cdot d\vec{l}\)</span>；</li>
+<li><strong>得电容</strong>：代入定义式 <span class="arithmatex">\(C = \dfrac{q}{V}\)</span> 消去 <span class="arithmatex">\(q\)</span> 即得电容。</li>
+</ol>
+<p>三大经典真空电容器模型的推导过程与结论对比如下表（Examples 6.1, 6.2 &amp; 6.3）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">电容器几何构型</th>
+<th style="text-align: left;">极板间电场强度 <span class="arithmatex">\(E\)</span></th>
+<th style="text-align: left;">极板间电势差 <span class="arithmatex">\(V = \int_+^- \vec{E}\cdot d\vec{l}\)</span></th>
+<th style="text-align: left;">电容公式 <span class="arithmatex">\(C = q/V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 平行板电容器</strong><br>（Parallel-Plate，面积 <span class="arithmatex">\(S\)</span>，间距 <span class="arithmatex">\(d\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \dfrac{\sigma_s}{\epsilon_0} = \dfrac{q}{\epsilon_0 S}\)</span><br>（板间匀强场，板外为 <span class="arithmatex">\(0\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(V = Ed = \dfrac{qd}{\epsilon_0 S}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(C = \dfrac{\epsilon_0 S}{d}\)</span><br>（单位面积电容 <span class="arithmatex">\(\dfrac{C}{S} = \dfrac{\epsilon_0}{d}\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 同轴圆柱形电容器</strong><br>（Cylindrical，长 <span class="arithmatex">\(L \gg b &gt; a\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(E(r) = \dfrac{\lambda}{2\pi\epsilon_0 r} = \dfrac{q}{2\pi\epsilon_0 L r}\)</span><br>（同轴圆柱高斯面，<span class="arithmatex">\(a &lt; r &lt; b\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(V = \displaystyle\int_a^b E(r)\,dr = \frac{q}{2\pi\epsilon_0 L}\ln\left(\frac{b}{a}\right)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(C = \dfrac{2\pi\epsilon_0 L}{\ln(b/a)}\)</span><br>（单位长度电容 <span class="arithmatex">\(\dfrac{C}{L} = \dfrac{2\pi\epsilon_0}{\ln(b/a)}\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 孤立导体球电容器</strong><br>（Isolated Sphere，半径 <span class="arithmatex">\(a\)</span>，外极板在 <span class="arithmatex">\(\infty\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(E(r) = \dfrac{q}{4\pi\epsilon_0 r^2} \quad (r &gt; a)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(V = \displaystyle\int_a^\infty E(r)\,dr = \frac{q}{4\pi\epsilon_0 a}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(C = 4\pi\epsilon_0 a\)</span><br>（同心球壳 <span class="arithmatex">\(b \to \infty\)</span> 的极限）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-dielectrics-semiconductors-superconductors">4 电介质中的静电场与材料物理拓展 (Dielectrics, Semiconductors &amp; Superconductors)<a class="headerlink" href="#4-dielectrics-semiconductors-superconductors" title="Permanent link">&para;</a></h2>
+<h3 id="41-vecd-vecp">4.1 电介质、电位移矢量 <span class="arithmatex">\(\vec{D}\)</span> 与极化强度 <span class="arithmatex">\(\vec{P}\)</span><a class="headerlink" href="#41-vecd-vecp" title="Permanent link">&para;</a></h3>
+<p>在金属导体中，自由电子的移动可完全屏蔽外电场，使导体内 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>。而在绝缘体或<strong>电介质</strong>（Dielectrics）中，电荷被束缚在原子或分子内部，电场可以穿透介质。为了避免处理在 <span class="arithmatex">\(1\text{ \AA}\)</span> 微观尺度上剧烈震荡的微观电场 <span class="arithmatex">\(\vec{E}_m\)</span>，我们在宏观上考察其空间平均值 <span class="arithmatex">\(\vec{E} = \langle\vec{E}_m\rangle\)</span>。</p>
+<ol>
+<li><strong>微观极化机制与电极化强度 <span class="arithmatex">\(\vec{P}\)</span></strong>：
+   在外电场作用下，电介质中原本电中性的分子正负电荷中心发生相对偏移，形成微观电偶极子（Electric dipoles）。定义单位体积内的电偶极矩矢量为<strong>电极化强度</strong>（Polarization，矢量 <span class="arithmatex">\(\vec{P}\)</span>）。极化会在介质内部和表面产生<strong>束缚电荷</strong>（Bound charge，又称极化电荷），其体密度与面密度分别为：
+   $$
+   \rho_{\text{bound}} = -\nabla \cdot \vec{P}, \qquad \sigma_{\text{bound}} = \vec{P} \cdot \hat{n}
+   $$
+   （因此对于均匀极化的电介质平板，<span class="arithmatex">\(\nabla\cdot\vec{P} = 0\)</span>，内部无体束缚电荷，仅有表面束缚电荷 <span class="arithmatex">\(\sigma_b = \vec{P}\cdot\hat{n}\)</span>）。</li>
+<li><strong>电位移矢量 <span class="arithmatex">\(\vec{D}\)</span> 与介质中的高斯定理</strong>：
+   定义<strong>电位移矢量</strong>（Electric Displacement Vector）<span class="arithmatex">\(\vec{D}\)</span> 为：
+   $$
+   \vec{D} \equiv \epsilon_0 \vec{E} + \vec{P}
+   $$
+   对于均匀各向同性线性电介质（Linear dielectric），有 <span class="arithmatex">\(\vec{D} = \epsilon \vec{E} = \epsilon_r \epsilon_0 \vec{E}\)</span>，其中 <span class="arithmatex">\(\epsilon\)</span> 称为材料的<strong>介电常数</strong>（Permittivity），无量纲比值 <span class="arithmatex">\(\epsilon_r = \frac{\epsilon}{\epsilon_0} \ge 1\)</span> 称为<strong>相对介电常数</strong>或<strong>介电常数</strong>（Dielectric constant / Relative permittivity，真空中 <span class="arithmatex">\(\epsilon_r = 1\)</span>）。
+   引入 <span class="arithmatex">\(\vec{D}\)</span> 后，<strong>电介质中的高斯定理</strong>（积分形式与微分形式）可统一写为仅包含<strong>自由电荷</strong>（Free charge，<span class="arithmatex">\(q_{\text{free}}\)</span> 与 <span class="arithmatex">\(\rho_{\text{free}}\)</span>，不包含极化束缚电荷）的简洁形式：
+   $$
+   \oint_S \vec{D} \cdot d\vec{S} = q_{\text{free}}, \qquad \nabla \cdot \vec{D} = \rho_{\text{free}}
+   $$
+   当整个高斯面所在的介质均匀（<span class="arithmatex">\(\epsilon\)</span> 处处相同）时，也可直接写为 <span class="arithmatex">\(\oint_S \vec{E}\cdot d\vec{S} = \frac{q_{\text{free}}}{\epsilon_r \epsilon_0}\)</span>。</li>
+</ol>
+<p><strong>经典结论（Example 6.4：充满电介质的平行板电容器）</strong>：
+在极板自由面电荷密度 <span class="arithmatex">\(\pm\sigma_s\)</span> 不变的平行板电容器中填满相对介电常数为 <span class="arithmatex">\(\epsilon_r\)</span> 的电介质，由高斯定理 <span class="arithmatex">\(\oint \vec{D}\cdot d\vec{S} = q_{\text{free}}\)</span> 可知电位移矢量保持不变（<span class="arithmatex">\(D = \sigma_s\)</span>），因此介质内宏观电场减弱为原来的 <span class="arithmatex">\(1/\epsilon_r\)</span>，电容增大为真空时的 <span class="arithmatex">\(\epsilon_r\)</span> 倍：</p>
+<div class="arithmatex">\[
+D = \sigma_s \implies E = \frac{D}{\epsilon} = \frac{\sigma_s}{\epsilon_r \epsilon_0} \implies V = Ed = \frac{\sigma_s d}{\epsilon_r \epsilon_0} \implies C = \frac{\epsilon_r \epsilon_0 S}{d} = \epsilon_r C_{\text{vac}}
+\]</div>
+<details>
+<summary>Appendices 6A, 6B &amp; 6C: 半导体物理、超导 BCS 理论与巴丁（John Bardeen）</summary>
+<p><strong>1. 半导体的导电特征与掺杂（Appendix 6A: Semiconductors）</strong></p>
+<ul>
+<li><strong>本征载流子浓度与负温度系数</strong>：德鲁德公式 <span class="arithmatex">\(\rho = \frac{m}{ne^2\tau}\)</span> 同样适用于半导体（如 <span class="arithmatex">\(\text{Si}, \text{Ge}, \text{GaAs}\)</span>）。与金属不同，半导体在室温下的本征载流子浓度 <span class="arithmatex">\(n_i\)</span> 极小（故室温电阻率远高于铜），但随着温度 <span class="arithmatex">\(T\)</span> 升高，热激发使更多价电子跃迁成为自由载流子，<span class="arithmatex">\(n(T)\)</span> <strong>随温度呈指数级急剧上升</strong>。这完全压倒了 <span class="arithmatex">\(\tau\)</span> 的减小，导致半导体的电阻率随温度升高而显著下降，即具有<strong>大且为负的电阻率温度系数</strong>（Negative temperature coefficient of resistivity）。</li>
+<li><strong>掺杂（Doping）</strong>：通过在硅中掺入微量特定杂质（如掺入五价磷 <span class="arithmatex">\(\text{P}\)</span> 形成电子导电的 <strong><span class="arithmatex">\(n\)</span> 型硅 <span class="arithmatex">\(n\text{-Si}\)</span></strong>，或掺入三价硼 <span class="arithmatex">\(\text{B}\)</span> 形成空穴导电的 <strong><span class="arithmatex">\(p\)</span> 型硅 <span class="arithmatex">\(p\text{-Si}\)</span></strong>），可以人工精确调控自由载流子浓度与电阻率（跨越 <span class="arithmatex">\(8\)</span> 个数量级以上），这构成了现代微电子工业的基石。</li>
+</ul>
+<hr />
+<p><strong>2. 超导现象与 BCS 库珀对机制（Appendices 6B &amp; 6C: Superconductors &amp; John Bardeen）</strong></p>
+<ul>
+<li><strong>超导零电阻发现</strong>：1911 年荷兰物理学家昂内斯（Kamerlingh Onnes）发现汞（<span class="arithmatex">\(\text{Hg}\)</span>）在冷却至临界温度 <span class="arithmatex">\(T_c \approx 4.2\text{ K}\)</span> 以下时，其电阻突然完全消失（严格降为 <span class="arithmatex">\(0\)</span>）。</li>
+<li><strong>BCS 理论与库珀对（Cooper Pairs）</strong>：1957 年，巴丁（Bardeen）、库珀（Cooper）与施里弗（Schrieffer）提出了著名的 <strong>BCS 超导微观理论</strong>。在极低温下，一个运动电子穿过晶格时会吸引周围的正离子使晶格发生微小畸变，形成一个短暂的正电荷富集区（声子媒介），进而吸引第二个电子跟随其后，使两个电子配对形成<strong>库珀对</strong>（Cooper pair）。这种电子间的协同配对运动阻止了单个电子与晶格离子的非弹性碰撞散射，从而彻底消除了电阻，使电流在超导体中流动而无任何焦耳热损耗。</li>
+<li><strong>约翰·巴丁（John Bardeen, 1908–1991）</strong>：科学史上唯一一位在同一领域（物理学）两度荣获诺贝尔奖的科学家——1947 年在贝尔实验室与 Brattain、Shockley 发明<strong>晶体管</strong>（Transistor，获 1956 年诺贝尔物理学奖），随后又创立 <strong>BCS 超导理论</strong>（获 1972 年诺贝尔物理学奖）。</li>
+</ul>
+</details>
+<hr />
+<h2 id="5-chapter-6-selected-exercises">5 Chapter 6 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#5-chapter-6-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 6.1 &amp; 6.2: Coaxial Cylindrical Resistor &amp; Copper Wire Numerical Estimates（同轴圆柱漏电电阻与铜导线微观参数计算）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.1</strong>: A copper cylinder has radius <span class="arithmatex">\(a\)</span> and length <span class="arithmatex">\(l\)</span>. It is surrounded by a coaxial copper tube of equal length. The inner radius of the copper tube is <span class="arithmatex">\(b\)</span> (<span class="arithmatex">\(l \gg b\)</span>, so edge effects are neglected). The space between the cylinder and the tube is filled with a uniform material of conductivity <span class="arithmatex">\(\sigma\)</span>; the copper conducts far better than this material, so treat both copper pieces as perfect conductors. Find the resistance <span class="arithmatex">\(R\)</span> between the cylinder and the tube.
+- <strong>Ex 6.2</strong>: A copper cylinder has a cross-sectional area of <span class="arithmatex">\(1000\text{ mm}^2\)</span> and length <span class="arithmatex">\(2.0\text{ m}\)</span>. The potential difference between the two ends of the cylinder is <span class="arithmatex">\(100\text{ mV}\)</span>. The conductivity of copper is <span class="arithmatex">\(\sigma = 5.7 \times 10^7\text{ S/m}\)</span> and the number density of charge carriers is <span class="arithmatex">\(n = 8.49 \times 10^{28}\text{ m}^{-3}\)</span> (equivalently, <span class="arithmatex">\(ne = 1.36 \times 10^{10}\text{ C/m}^3\)</span>). Compute: (a) The resistivity <span class="arithmatex">\(\rho_e\)</span>; (b) The current <span class="arithmatex">\(I\)</span>; (c) The current density <span class="arithmatex">\(j\)</span>; (d) The electric field <span class="arithmatex">\(E\)</span> inside the copper cylinder; (e) The drift velocity <span class="arithmatex">\(v_d\)</span> of the electrons.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 同轴圆柱导体间的径向电阻推导（Exercise 6.1）</strong>：
+设从内铜柱流向外铜管的稳恒总电流为 <span class="arithmatex">\(I\)</span>。由柱对称性，在半径为 <span class="arithmatex">\(r \ (a &lt; r &lt; b)\)</span>、长为 <span class="arithmatex">\(l\)</span> 的同轴圆柱面上，电流密度 <span class="arithmatex">\(\vec{j}\)</span> 沿径向均匀向外分布：</p>
+<div class="arithmatex">\[
+j(r) = \frac{I}{2\pi r l} \implies E(r) = \frac{j(r)}{\sigma} = \frac{I}{2\pi \sigma l r}
+\]</div>
+<p>沿径向从 <span class="arithmatex">\(a\)</span> 到 <span class="arithmatex">\(b\)</span> 积分求内外铜导体之间的电势差 <span class="arithmatex">\(V\)</span>：</p>
+<div class="arithmatex">\[
+V = \int_a^b E(r)\,dr = \frac{I}{2\pi \sigma l} \int_a^b \frac{dr}{r} = \frac{I}{2\pi \sigma l} \ln\left(\frac{b}{a}\right)
+\]</div>
+<p>因此，内外导体间的电阻为：</p>
+<div class="arithmatex">\[
+R = \frac{V}{I} = \frac{\ln(b/a)}{2\pi \sigma l}
+\]</div>
+<p><em>（趣味对比：结合同轴圆柱形电容器公式 <span class="arithmatex">\(C = \frac{2\pi\epsilon L}{\ln(b/a)}\)</span>，可以看到在相同几何构型下恒有乘积关系 <span class="arithmatex">\(RC = \frac{\epsilon}{\sigma} = \rho_e \epsilon\)</span>！）</em></p>
+<hr />
+<p><strong>2. 铜导线的宏观与微观电学量数值计算（Exercise 6.2）</strong>：
+统一化为国际单位：<span class="arithmatex">\(S = 1000\text{ mm}^2 = 1.0 \times 10^{-3}\text{ m}^2\)</span>，<span class="arithmatex">\(L = 2.0\text{ m}\)</span>，<span class="arithmatex">\(V = 100\text{ mV} = 0.10\text{ V}\)</span>。</p>
+<ul>
+<li><strong>(a) 电阻率 <span class="arithmatex">\(\rho_e\)</span></strong>：
+  $$
+  \rho_e = \frac{1}{\sigma} = \frac{1}{5.7 \times 10^7\text{ S/m}} \approx 1.75 \times 10^{-8}\ \Omega\cdot\text{m}
+  $$</li>
+<li><strong>(b) 总电流 <span class="arithmatex">\(I\)</span></strong>：
+  先算电阻 <span class="arithmatex">\(R = \frac{L}{\sigma S} = \frac{2.0}{5.7 \times 10^7 \times 1.0 \times 10^{-3}} \approx 3.51 \times 10^{-5}\ \Omega\)</span>，故电流为：
+  $$
+  I = \frac{V}{R} = \frac{\sigma S V}{L} = \frac{5.7 \times 10^7 \times 10^{-3} \times 0.10}{2.0} = 2.85 \times 10^3\text{ A}
+  $$</li>
+<li><strong>(c) 电流密度 <span class="arithmatex">\(j\)</span></strong>：
+  $$
+  j = \frac{I}{S} = \frac{2.85 \times 10^3\text{ A}}{1.0 \times 10^{-3}\text{ m}^2} = 2.85 \times 10^6\text{ A/m}^2
+  $$</li>
+<li><strong>(d) 铜柱内部电场强度 <span class="arithmatex">\(E\)</span></strong>：
+  $$
+  E = \frac{V}{L} = \frac{0.10\text{ V}}{2.0\text{ m}} = 0.050\text{ V/m} \qquad (\text{或由 } E = j/\sigma \text{ 验证一致})
+  $$</li>
+<li><strong>(e) 电子的漂移速率 <span class="arithmatex">\(v_d\)</span></strong>：
+  $$
+  v_d = \frac{j}{ne} = \frac{2.85 \times 10^6\text{ A/m}^2}{1.36 \times 10^{10}\text{ C/m}^3} \approx 2.10 \times 10^{-4}\text{ m/s} = 0.21\text{ mm/s}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 6.3, 6.4 &amp; 6.5: Three Coaxial Tubes, Two-Wire Line &amp; Wire-to-Plane Capacitance（三同轴圆管、双平行传输线与导线-接地平面电容）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.3</strong>: Consider three thin coaxial metallic tubes of the same length <span class="arithmatex">\(l\)</span>, and radii <span class="arithmatex">\(a, b, c \ (a &lt; b &lt; c)\)</span> in vacuum. The inner and outer tubes are connected via a conducting wire. Ignore edge effects (<span class="arithmatex">\(l \gg c\)</span>). Calculate the capacitance <span class="arithmatex">\(C\)</span> between the middle tube and the other two.
+- <strong>Ex 6.4</strong>: Two parallel long wires are separated by a distance <span class="arithmatex">\(d\)</span> measured between their axes, and each wire has a radius <span class="arithmatex">\(a \ (d \gg a)\)</span> in vacuum. Calculate the capacitance per unit length.
+- <strong>Ex 6.5</strong>: Consider a long wire of radius <span class="arithmatex">\(a\)</span> parallel to an infinite grounded metallic plate (<span class="arithmatex">\(V = 0\)</span>). The distance from the axis of the wire to the plate is <span class="arithmatex">\(h \ (h \gg a)\)</span> in vacuum. Calculate the capacitance per unit length.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 三同轴金属管（内外管相连）的并联总电容（Exercise 6.3）</strong>：
+由于内管（半径 <span class="arithmatex">\(a\)</span>）与外管（半径 <span class="arithmatex">\(c\)</span>）用导线相连，二者处于同一电势（记为 <span class="arithmatex">\(V = 0\)</span>）。设中间管（半径 <span class="arithmatex">\(b\)</span>）电势为 <span class="arithmatex">\(V &gt; 0\)</span>，所带总电荷为 <span class="arithmatex">\(Q\)</span>，其中分布在中间管内壁的电荷为 <span class="arithmatex">\(q_1\)</span>，分布在外壁的电荷为 <span class="arithmatex">\(q_2\)</span>（满足 <span class="arithmatex">\(Q = q_1 + q_2\)</span>）。
+- 在内腔区域 <span class="arithmatex">\(a &lt; r &lt; b\)</span>：高斯定理给出 <span class="arithmatex">\(E_1(r) = \frac{q_1}{2\pi\epsilon_0 l r}\)</span>，积分得电势差 <span class="arithmatex">\(V = \frac{q_1}{2\pi\epsilon_0 l}\ln\left(\frac{b}{a}\right) \implies q_1 = \frac{2\pi\epsilon_0 l}{\ln(b/a)}V\)</span>；
+- 在外腔区域 <span class="arithmatex">\(b &lt; r &lt; c\)</span>：高斯定理给出 <span class="arithmatex">\(E_2(r) = \frac{q_2}{2\pi\epsilon_0 l r}\)</span>，积分得电势差 <span class="arithmatex">\(V = \frac{q_2}{2\pi\epsilon_0 l}\ln\left(\frac{c}{b}\right) \implies q_2 = \frac{2\pi\epsilon_0 l}{\ln(c/b)}V\)</span>。</p>
+<p>因此，该系统等效于内外两个圆柱形电容器的<strong>并联</strong>，总电容为：</p>
+<div class="arithmatex">\[
+C = \frac{Q}{V} = \frac{q_1 + q_2}{V} = 2\pi\epsilon_0 l \left[ \frac{1}{\ln(b/a)} + \frac{1}{\ln(c/b)} \right]
+\]</div>
+<hr />
+<p><strong>2. 双平行长直导线传输线的单位长度电容（Exercise 6.4）</strong>：
+设两根平行导线分别携带线电荷密度 <span class="arithmatex">\(+\lambda\)</span> 和 <span class="arithmatex">\(-\lambda\)</span>。由于 <span class="arithmatex">\(d \gg a\)</span>，忽略导线表面电荷分布的非均匀性（视作位于各自轴线 <span class="arithmatex">\(x = 0\)</span> 与 <span class="arithmatex">\(x = d\)</span> 处的无限长均匀带电直线）。
+在两导线轴线连线上距左导线轴心为 <span class="arithmatex">\(x \ (a \le x \le d - a)\)</span> 处，两导线产生的电场方向相同，叠加为：</p>
+<div class="arithmatex">\[
+E(x) = \frac{\lambda}{2\pi\epsilon_0 x} + \frac{\lambda}{2\pi\epsilon_0(d - x)}
+\]</div>
+<p>从正导线外表面 <span class="arithmatex">\(x = a\)</span> 积分至负导线外表面 <span class="arithmatex">\(x = d - a\)</span>，得两导线间的电势差：</p>
+<div class="arithmatex">\[
+V = \int_a^{d - a} \frac{\lambda}{2\pi\epsilon_0}\left(\frac{1}{x} + \frac{1}{d - x}\right)dx = \frac{\lambda}{2\pi\epsilon_0}\left[\ln x - \ln(d - x)\right]_a^{d - a} = \frac{\lambda}{\pi\epsilon_0}\ln\left(\frac{d - a}{a}\right) \approx \frac{\lambda}{\pi\epsilon_0}\ln\left(\frac{d}{a}\right)
+\]</div>
+<p>因此，单位长度的电容为：</p>
+<div class="arithmatex">\[
+\frac{C}{L} = \frac{\lambda}{V} = \frac{\pi\epsilon_0}{\ln\left(\dfrac{d - a}{a}\right)} \approx \frac{\pi\epsilon_0}{\ln(d/a)} \qquad (d \gg a)
+\]</div>
+<hr />
+<p><strong>3. 长直导线与无限大接地金属平板间的单位长度电容（Exercise 6.5）</strong>：
+利用第五章的镜像法（Method of images）：将位于 <span class="arithmatex">\(z = +h\)</span> 处带 <span class="arithmatex">\(+\lambda\)</span> 的导线与位于 <span class="arithmatex">\(z = 0\)</span> 的接地平板，等效替换为位于 <span class="arithmatex">\(z = +h\)</span> 的 <span class="arithmatex">\(+\lambda\)</span> 与位于 <span class="arithmatex">\(z = -h\)</span> 的镜像线电荷 <span class="arithmatex">\(-\lambda\)</span>（两者轴心间距为 <span class="arithmatex">\(d = 2h\)</span>）。
+接地平面 <span class="arithmatex">\(z = 0\)</span> 恰为该双线系统的零电势对称面，因此导线表面（<span class="arithmatex">\(z = h - a\)</span>）与接地平面（<span class="arithmatex">\(z = 0\)</span>）之间的电势差 <span class="arithmatex">\(V\)</span> 恰好是间距为 <span class="arithmatex">\(d = 2h\)</span> 的双平行导线电势差的一半：</p>
+<div class="arithmatex">\[
+V = \int_0^{h - a} \frac{\lambda}{2\pi\epsilon_0}\left(\frac{1}{h - z} + \frac{1}{h + z}\right)dz = \frac{\lambda}{2\pi\epsilon_0}\ln\left(\frac{2h - a}{a}\right) \approx \frac{\lambda}{2\pi\epsilon_0}\ln\left(\frac{2h}{a}\right)
+\]</div>
+<p>由此立即得到导线与接地平板之间单位长度的电容为：</p>
+<div class="arithmatex">\[
+\frac{C}{L} = \frac{\lambda}{V} = \frac{2\pi\epsilon_0}{\ln\left(\dfrac{2h - a}{a}\right)} \approx \frac{2\pi\epsilon_0}{\ln(2h/a)} \qquad (h \gg a)
+\]</div>
+</details>
+<details>
+<summary>Exercise 6.6, 6.7 &amp; 6.8: Two-Carrier Conductivity, Interface Charge &amp; Hemisphere Grounding Electrode（双载流子导电、异质界面自由电荷与半球接地极跨步电压）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.6</strong>: A uniform material contains two kinds of mobile charge carrier: positive (<span class="arithmatex">\(+e, n_+, m_+, \tau_+\)</span>) and negative (<span class="arithmatex">\(-e, n_-, m_-, \tau_-\)</span>). A uniform field <span class="arithmatex">\(\vec{E} = E_0\hat{x}\)</span> is applied. (a) Find the drift velocities <span class="arithmatex">\(\vec{v}_+\)</span> and <span class="arithmatex">\(\vec{v}_-\)</span>. (b) Find the current density <span class="arithmatex">\(\vec{j}\)</span> and conductivity <span class="arithmatex">\(\sigma\)</span>. Under what condition do the two kinds contribute equally?
+- <strong>Ex 6.7</strong>: Two long rods with the same area <span class="arithmatex">\(S\)</span> and conductivities <span class="arithmatex">\(\sigma_1, \sigma_2\)</span> are joined end to end along the <span class="arithmatex">\(x\)</span> axis. A steady current <span class="arithmatex">\(I &gt; 0\)</span> flows in the <span class="arithmatex">\(+x\)</span> direction from rod 1 into rod 2 (permittivity of both is <span class="arithmatex">\(\epsilon_0\)</span>). (a) Find <span class="arithmatex">\(\vec{E}\)</span> in each rod. Why can the fields differ when the current is the same? (b) Find the free charge <span class="arithmatex">\(Q\)</span> on the interface between the two rods. For which ordering of <span class="arithmatex">\(\sigma_1\)</span> and <span class="arithmatex">\(\sigma_2\)</span> is <span class="arithmatex">\(Q\)</span> positive?
+- <strong>Ex 6.8</strong>: A metal hemisphere of radius <span class="arithmatex">\(a\)</span> is buried in level ground (conductivity <span class="arithmatex">\(\sigma\)</span>) with its flat face in the ground's surface. A steady current <span class="arithmatex">\(I\)</span> flows radially outward from the hemisphere into the ground. (a) Find <span class="arithmatex">\(\vec{j}\)</span> and <span class="arithmatex">\(\vec{E}\)</span> at <span class="arithmatex">\(r &gt; a\)</span>, and the resistance <span class="arithmatex">\(R\)</span> between the hemisphere and a distant electrode. (b) A person stands with one foot at <span class="arithmatex">\(r\)</span> and the other at <span class="arithmatex">\(r + s\)</span>. Find the potential difference <span class="arithmatex">\(V(r) - V(r + s)\)</span>, and explain why it is safer to keep the feet close together.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 双载流子体系（如半导体中的空穴与电子）的漂移与电导率（Exercise 6.6）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 直接套用平均自由时间漂移公式 <span class="arithmatex">\(\vec{v}_d = \frac{q\vec{E}}{m}\tau\)</span>：
+  $$
+  \vec{v}<em>+ = +\frac{e\tau</em>+}{m_+}E_0\hat{x}, \qquad \vec{v}<em>- = -\frac{e\tau</em>-}{m_-}E_0\hat{x}
+  $$</li>
+<li><strong>(b)</strong> 正载流子沿 <span class="arithmatex">\(+\hat{x}\)</span> 漂移，负载流子沿 <span class="arithmatex">\(-\hat{x}\)</span> 漂移，两者产生的电流密度方向<strong>相同</strong>（均沿 <span class="arithmatex">\(+\hat{x}\)</span>），叠加得：
+  $$
+  \vec{j} = n_+ e\vec{v}<em>+ + n</em>-(-e)\vec{v}<em>- = e^2\left(\frac{n</em>+\tau_+}{m_+} + \frac{n_-\tau_-}{m_-}\right)E_0\hat{x} \implies \sigma = e^2\left(\frac{n_+\tau_+}{m_+} + \frac{n_-\tau_-}{m_-}\right)
+  $$
+  当 <span class="arithmatex">\(\dfrac{n_+\tau_+}{m_+} = \dfrac{n_-\tau_-}{m_-}\)</span> 时，两种载流子对电流密度的贡献相等。</li>
+</ul>
+<hr />
+<p><strong>2. 异质材料串联界面上的稳恒自由电荷积累（Exercise 6.7，高频必考概念题）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 在稳恒电流下，由连续性方程知两棒内的电流密度相等：<span class="arithmatex">\(j_1 = j_2 = \frac{I}{S}\)</span>。但因两棒电导率 <span class="arithmatex">\(\sigma_1 \neq \sigma_2\)</span>，由 <span class="arithmatex">\(\vec{E} = \vec{j}/\sigma\)</span> 可知两棒内的电场强度不同：
+  $$
+  \vec{E}_1 = \frac{I}{\sigma_1 S}\hat{x}, \qquad \vec{E}_2 = \frac{I}{\sigma_2 S}\hat{x}
+  $$
+  物理原因：为了在导电能力较弱（电导率较小）的材料中维持同样大小的稳恒电流密度，必须有更强的电场来驱动载流子。</li>
+<li><strong>(b)</strong> 跨接两棒交界面作底面积为 <span class="arithmatex">\(S\)</span> 的扁圆柱高斯面（左底面在棒 1 内，右底面在棒 2 内）。由高斯定理 <span class="arithmatex">\(\epsilon_0\oint \vec{E}\cdot d\vec{S} = Q\)</span>：
+  $$
+  \epsilon_0(E_2 S - E_1 S) = Q \implies Q = \epsilon_0 I\left(\frac{1}{\sigma_2} - \frac{1}{\sigma_1}\right)
+  $$
+  当 <strong><span class="arithmatex">\(\sigma_1 &gt; \sigma_2\)</span></strong>（即电流从良导体流入较差导体）时，界面上积累的自由电荷 <span class="arithmatex">\(Q &gt; 0\)</span>（正是这一层界面静电荷产生的附加电场，使得左侧电场减弱为 <span class="arithmatex">\(E_1\)</span>、右侧电场增强为 <span class="arithmatex">\(E_2\)</span>，从而自动维持稳恒条件 <span class="arithmatex">\(j_1 = j_2\)</span>！）。</li>
+</ul>
+<hr />
+<p><strong>3. 半球形接地电极的接地电阻与跨步电压（Exercise 6.8）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 大地仅占下半空间，半径为 <span class="arithmatex">\(r \ (r &gt; a)\)</span> 的半球面面积为 <span class="arithmatex">\(2\pi r^2\)</span>。电流沿径向均匀流入大地：
+  $$
+  \vec{j}(r) = \frac{I}{2\pi r^2}\hat{r} \implies \vec{E}(r) = \frac{\vec{j}(r)}{\sigma} = \frac{I}{2\pi\sigma r^2}\hat{r}
+  $$
+  对电场从 <span class="arithmatex">\(r = a\)</span> 积分至 <span class="arithmatex">\(\infty\)</span> 得半球电极相对于无穷远处的电势 <span class="arithmatex">\(V(a) = \int_a^\infty \frac{I}{2\pi\sigma r^2}\,dr = \frac{I}{2\pi\sigma a}\)</span>，故接地电阻为：
+  $$
+  R = \frac{V(a)}{I} = \frac{1}{2\pi\sigma a}
+  $$</li>
+<li><strong>(b) 跨步电压（Step Voltage）</strong>：
+  两脚分别位于 <span class="arithmatex">\(r\)</span> 与 <span class="arithmatex">\(r + s\)</span> 处，两脚之间的电势差为：
+  $$
+  V(r) - V(r + s) = \int_r^{r + s} \frac{I}{2\pi\sigma r'^2}\,dr' = \frac{I}{2\pi\sigma}\left(\frac{1}{r} - \frac{1}{r + s}\right) = \frac{Is}{2\pi\sigma r(r + s)}
+  $$
+  当人靠近接地电极或高压电线落地点时，两脚间距 <span class="arithmatex">\(s\)</span> 越大，加在人体两脚之间的跨步电压就越大，驱动流过人体的触电电流也越危险；若将双脚并拢紧贴（<span class="arithmatex">\(s \to 0\)</span>），则两脚处于同一等势面上，电势差趋近于零，从而保证安全。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 6.9 &amp; 6.10: Charge Relaxation Time &amp; Dielectric-Filled Capacitors（欧姆导体电荷弛豫时间与电介质串并联电容器）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.9</strong>: A material of uniform conductivity <span class="arithmatex">\(\sigma\)</span> obeys <span class="arithmatex">\(\vec{j} = \sigma\vec{E}\)</span>; take its permittivity to be <span class="arithmatex">\(\epsilon_0\)</span>.
+  (a) Using the continuity equation and Gauss' law in differential form, show that a free charge density <span class="arithmatex">\(\rho(\vec{r}, 0)\)</span> present at <span class="arithmatex">\(t = 0\)</span> becomes <span class="arithmatex">\(\rho(\vec{r}, t) = \rho(\vec{r}, 0)e^{-t/\tau_q}\)</span> at every point, and find the time constant <span class="arithmatex">\(\tau_q\)</span>.
+  (b) A ball of this material, of radius <span class="arithmatex">\(b\)</span>, is isolated in vacuum and carries no charge. At <span class="arithmatex">\(t = 0\)</span> a charge <span class="arithmatex">\(Q\)</span> is placed on a small metal bead of radius <span class="arithmatex">\(a\)</span> at its center. Find the current <span class="arithmatex">\(I(r, t)\)</span> flowing outward through a concentric sphere of radius <span class="arithmatex">\(r \ (a &lt; r &lt; b)\)</span>, and the charge <span class="arithmatex">\(Q_S(t)\)</span> on the surface of the ball.
+- <strong>Ex 6.10</strong>: A parallel-plate capacitor has plates of area <span class="arithmatex">\(S\)</span> a distance <span class="arithmatex">\(d\)</span> apart, carrying charges <span class="arithmatex">\(+q\)</span> and <span class="arithmatex">\(-q\)</span>.
+  (a) A slab of dielectric of dielectric constant <span class="arithmatex">\(\epsilon_r\)</span> and thickness <span class="arithmatex">\(w &lt; d\)</span>, with area <span class="arithmatex">\(S\)</span>, is placed between the plates and parallel to them. Find <span class="arithmatex">\(\vec{D}\)</span> and <span class="arithmatex">\(\vec{E}\)</span> in the empty part of the gap and in the slab, and the capacitance <span class="arithmatex">\(C\)</span>. Does <span class="arithmatex">\(C\)</span> depend on where the slab is placed?
+  (b) The slab is removed, and a block of the same dielectric, of thickness <span class="arithmatex">\(d\)</span> and area <span class="arithmatex">\(S/2\)</span>, is placed so that it touches both plates and fills half of the space between them. Find the capacitance.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 导电介质内的电荷指数弛豫（Charge Relaxation）与球体向外放电过程（Exercise 6.9，核心压轴题）</strong>：</p>
+<ul>
+<li><strong>(a) 推导电荷弛豫方程与时间常数 <span class="arithmatex">\(\tau_q\)</span></strong>：
+  将欧姆定律 <span class="arithmatex">\(\vec{j} = \sigma\vec{E}\)</span> 代入连续性方程 <span class="arithmatex">\(\frac{\partial\rho}{\partial t} + \nabla\cdot\vec{j} = 0\)</span>，并利用高斯定理微分形式 <span class="arithmatex">\(\nabla\cdot\vec{E} = \frac{\rho}{\epsilon_0}\)</span>：
+  $$
+  \frac{\partial\rho}{\partial t} + \sigma(\nabla\cdot\vec{E}) = \frac{\partial\rho}{\partial t} + \frac{\sigma}{\epsilon_0}\rho = 0
+  $$
+  这是一个关于时间 <span class="arithmatex">\(t\)</span> 的一阶常系数齐次线性微分方程，对空间每一点 <span class="arithmatex">\(\vec{r}\)</span> 积分即得指数衰减解：
+  $$
+  \rho(\vec{r}, t) = \rho(\vec{r}, 0) e^{-t/\tau_q}, \qquad \text{其中弛豫时间常数 } \tau_q = \frac{\epsilon_0}{\sigma} = \rho_e \epsilon_0
+  $$</li>
+<li><strong>(b) 球体内部的瞬态径向电流 <span class="arithmatex">\(I(r, t)\)</span> 与外表面电荷 <span class="arithmatex">\(Q_S(t)\)</span></strong>：
+  在 <span class="arithmatex">\(a &lt; r &lt; b\)</span> 的球壳介质区域内，由于初始时刻 <span class="arithmatex">\(t = 0\)</span> 时没有体电荷（<span class="arithmatex">\(\rho(\vec{r}, 0) = 0\)</span>），根据 (a) 的结论 <span class="arithmatex">\(\rho(\vec{r}, t) = \rho(\vec{r}, 0)e^{-t/\tau_q}\)</span>，在 <span class="arithmatex">\(t &gt; 0\)</span> 的任何时刻，<strong><span class="arithmatex">\(a &lt; r &lt; b\)</span> 的介质内部体电荷密度始终保持为零（<span class="arithmatex">\(\rho(\vec{r}, t) \equiv 0\)</span>）</strong>！
+  这意味着电荷从中心金属小珠流出后，直接穿过介质层到达最外表面 <span class="arithmatex">\(r = b\)</span>，而不会在中间介质层内堆积。
+  设时刻 <span class="arithmatex">\(t\)</span> 中心金属珠上剩余的电荷量为 <span class="arithmatex">\(q(t)\)</span>（满足 <span class="arithmatex">\(q(0) = Q\)</span>）。在半径为 <span class="arithmatex">\(r \ (a &lt; r &lt; b)\)</span> 的同心球面上，所包围的内部总电荷就是 <span class="arithmatex">\(q(t)\)</span>。由高斯定理与欧姆定律：
+  $$
+  E(r, t) = \frac{q(t)}{4\pi\epsilon_0 r^2} \implies j(r, t) = \sigma E(r, t) = \frac{\sigma q(t)}{4\pi\epsilon_0 r^2}
+  $$
+  因此，穿过半径为 <span class="arithmatex">\(r\)</span> 的同心球面向外流出的总电流为：
+  $$
+  I(r, t) = 4\pi r^2 j(r, t) = \frac{\sigma}{\epsilon_0} q(t) = \frac{q(t)}{\tau_q}
+  $$
+  由电荷守恒 <span class="arithmatex">\(I(r, t) = -\frac{dq(t)}{dt}\)</span>，得 <span class="arithmatex">\(\frac{dq}{dt} = -\frac{q}{\tau_q} \implies q(t) = Q e^{-t/\tau_q}\)</span>。代入即得：
+  $$
+  I(r, t) = \frac{Q}{\tau_q} e^{-t/\tau_q} = \frac{\sigma Q}{\epsilon_0} e^{-\sigma t / \epsilon_0} \quad (\text{与半径 } r \text{ 无关！}), \qquad Q_S(t) = Q - q(t) = Q\left(1 - e^{-t/\tau_q}\right)
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 平行板电容器的分层（串联）与分块（并联）电介质填充（Exercise 6.10）</strong>：</p>
+<ul>
+<li><strong>(a) 平行于极板插入厚度为 <span class="arithmatex">\(w &lt; d\)</span> 的电介质板（等效串联）</strong>：
+  极板自由面电荷密度为 <span class="arithmatex">\(\sigma_s = \frac{q}{S}\)</span>。由介质高斯定理 <span class="arithmatex">\(\oint \vec{D}\cdot d\vec{S} = q_{\text{free}}\)</span>，在真空层和电介质板内部，电位移矢量大小处处相同且垂直于极板：
+  $$
+  D_{\text{vac}} = D_{\text{slab}} = \frac{q}{S}
+  $$
+  从而两部分区域内的电场强度大小分别为：
+  $$
+  E_{\text{vac}} = \frac{D}{\epsilon_0} = \frac{q}{\epsilon_0 S}, \qquad E_{\text{slab}} = \frac{D}{\epsilon_r\epsilon_0} = \frac{q}{\epsilon_r\epsilon_0 S}
+  $$
+  沿垂直极板路径积分，总电势差等于真空段电压（总厚度 <span class="arithmatex">\(d - w\)</span>）与介质段电压（厚度 <span class="arithmatex">\(w\)</span>）之和：
+  $$
+  V = E_{\text{vac}}(d - w) + E_{\text{slab}}w = \frac{q}{\epsilon_0 S}\left(d - w + \frac{w}{\epsilon_r}\right) \implies C = \frac{q}{V} = \frac{\epsilon_0 S}{d - w + \dfrac{w}{\epsilon_r}}
+  $$
+  显然，总电容 <span class="arithmatex">\(C\)</span> 仅取决于真空总厚度 <span class="arithmatex">\(d - w\)</span> 与介质厚度 <span class="arithmatex">\(w\)</span>，<strong>与电介质板在极板间放置的具体上下位置完全无关</strong>。</li>
+<li><strong>(b) 厚度为 <span class="arithmatex">\(d\)</span>、面积为 <span class="arithmatex">\(S/2\)</span> 的电介质块填充左半边（等效并联）</strong>：
+  上下金属极板各自为等势体，故真空右半区与介质左半区承受相同的电势差 <span class="arithmatex">\(V\)</span>，内部电场均为 <span class="arithmatex">\(E = \frac{V}{d}\)</span>。
+  但在介质区 <span class="arithmatex">\(D_1 = \epsilon_r\epsilon_0 E = \epsilon_r\epsilon_0\frac{V}{d}\)</span>（对应极板自由面密度 <span class="arithmatex">\(\sigma_1 = D_1\)</span>），在真空区 <span class="arithmatex">\(D_2 = \epsilon_0 E = \epsilon_0\frac{V}{d}\)</span>（对应极板自由面密度 <span class="arithmatex">\(\sigma_2 = D_2\)</span>）。因此极板总自由电荷量为：
+  $$
+  q = \sigma_1\frac{S}{2} + \sigma_2\frac{S}{2} = \frac{\epsilon_0 S}{2d}(\epsilon_r + 1)V \implies C = \frac{q}{V} = \frac{\epsilon_0 S}{2d}(\epsilon_r + 1)
+  $$</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

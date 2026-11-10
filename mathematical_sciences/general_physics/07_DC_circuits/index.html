@@ -1,0 +1,2697 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/07_DC_circuits/">
+      
+      
+        <link rel="prev" href="../06_resistance_and_capacitance/">
+      
+      
+        <link rel="next" href="../08_magnetic_field/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>07 直流电路 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-7-dc-circuits" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              07 直流电路
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-concepts-in-electric-circuits-and-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电路基本概念与电动势 (Concepts in Electric Circuits and Emf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电路基本概念与电动势 (Concepts in Electric Circuits and Emf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电动势与实际电源模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ammeter-voltmeter-and-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电路测量仪表与接地 (Ammeter, Voltmeter and Grounding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-energy-conservation-and-kirchhoffs-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电路中的能量守恒与基尔霍夫定律 (Energy Conservation and Kirchhoff's Rules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电路中的能量守恒与基尔霍夫定律 (Energy Conservation and Kirchhoff&#39;s Rules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-joule-heating-power-dissipation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电阻的热耗散功率 (Joule Heating / Power Dissipation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-kirchhoffs-circuit-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 基尔霍夫两大定律 (Kirchhoff's Circuit Rules)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-series-and-parallel-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 电阻与电容器的串并联等效对比 (Series and Parallel Combinations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-energy-stored-in-a-capacitor-energy-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电容器储能与电场能量密度 (Energy Stored in a Capacitor &amp; Energy Density)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电容器储能与电场能量密度 (Energy Stored in a Capacitor &amp; Energy Density)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电容器的静电能公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-energy-density-of-the-electric-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电场的能量密度 (Energy Density of the Electric Field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rc-rc-circuits-charging-and-discharging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 RC 暂态电路 (RC Circuits: Charging and Discharging)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 RC 暂态电路 (RC Circuits: Charging and Discharging)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tau-rc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 容性时间常数 (\(\tau = RC\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 电容器的充电与放电过程对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-capacitors-with-dielectrics-atomic-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 电介质电容器与原子极化微观机制 (Capacitors with Dielectrics &amp; Atomic View)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 电介质电容器与原子极化微观机制 (Capacitors with Dielectrics &amp; Atomic View)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 介电常数、击穿场强与感应束缚电荷
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-7-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 7 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-concepts-in-electric-circuits-and-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电路基本概念与电动势 (Concepts in Electric Circuits and Emf)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电路基本概念与电动势 (Concepts in Electric Circuits and Emf)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 电动势与实际电源模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ammeter-voltmeter-and-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电路测量仪表与接地 (Ammeter, Voltmeter and Grounding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-energy-conservation-and-kirchhoffs-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电路中的能量守恒与基尔霍夫定律 (Energy Conservation and Kirchhoff's Rules)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电路中的能量守恒与基尔霍夫定律 (Energy Conservation and Kirchhoff&#39;s Rules)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-joule-heating-power-dissipation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电阻的热耗散功率 (Joule Heating / Power Dissipation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-kirchhoffs-circuit-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 基尔霍夫两大定律 (Kirchhoff's Circuit Rules)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-series-and-parallel-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 电阻与电容器的串并联等效对比 (Series and Parallel Combinations)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-energy-stored-in-a-capacitor-energy-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电容器储能与电场能量密度 (Energy Stored in a Capacitor &amp; Energy Density)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电容器储能与电场能量密度 (Energy Stored in a Capacitor &amp; Energy Density)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 电容器的静电能公式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-energy-density-of-the-electric-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电场的能量密度 (Energy Density of the Electric Field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-rc-rc-circuits-charging-and-discharging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 RC 暂态电路 (RC Circuits: Charging and Discharging)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 RC 暂态电路 (RC Circuits: Charging and Discharging)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tau-rc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 容性时间常数 (\(\tau = RC\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 电容器的充电与放电过程对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-capacitors-with-dielectrics-atomic-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 电介质电容器与原子极化微观机制 (Capacitors with Dielectrics &amp; Atomic View)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 电介质电容器与原子极化微观机制 (Capacitors with Dielectrics &amp; Atomic View)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 介电常数、击穿场强与感应束缚电荷
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-7-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 7 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-7-dc-circuits">Chapter 7: DC Circuits（直流电路）<a class="headerlink" href="#chapter-7-dc-circuits" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第七章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 7: <em>DC Circuits</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 7: <em>DC Circuits</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapters 30 &amp; 31</li>
+</ul>
+</div>
+<h2 id="1-concepts-in-electric-circuits-and-emf">1 电路基本概念与电动势 (Concepts in Electric Circuits and Emf)<a class="headerlink" href="#1-concepts-in-electric-circuits-and-emf" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 电动势与实际电源模型<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p><strong>电路</strong>（Electric Circuit）是电荷可以沿着流动的闭合路径。为了使载流子持续流过电阻或灯泡等耗能元件，必须在元件两端维持稳定的电势差。这需要引入<strong>电动势装置</strong>（Emf device，其中 emf 代表 <strong>Electromotive Force</strong>），它通过内部非静电力做功来维持两端端子（Terminals）之间的电势差并为载流子提供能量：</p>
+<ul>
+<li><strong>化学电池（Battery / Fuel cell）</strong>：依靠内部电化学反应驱动电荷移动；</li>
+<li><strong>发电机（Electric generator）</strong>：依靠机械力与电磁感应驱动电荷；</li>
+<li><strong>太阳能电池（Solar cell）</strong>：依靠光能激发驱动电荷。</li>
+</ul>
+<p><strong>电动势的定义</strong>：电动势装置将单位正电荷从低电势端子（负极 <span class="arithmatex">\(-\)</span>）移动到高电势端子（正极 <span class="arithmatex">\(+\)</span>）所做的功称为该装置的<strong>电动势</strong>（Emf，记作 <span class="arithmatex">\(\mathcal{E}\)</span>），其 SI 单位为<strong>伏特</strong>（Volt，<span class="arithmatex">\(\text{V} = \text{J/C}\)</span>）：</p>
+<div class="arithmatex">\[
+\mathcal{E} = \frac{W}{q} \iff dW = \mathcal{E}\,dq
+\]</div>
+<p>在电路图中，电动势 <span class="arithmatex">\(\mathcal{E}\)</span> 用一个<strong>从负极（<span class="arithmatex">\(-\)</span>）指向正极（<span class="arithmatex">\(+\)</span>）、尾端带有小圆圈的箭头</strong>表示（以区别于电流箭头）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">电源类型 / 工作状态</th>
+<th style="text-align: left;">内部结构与电流方向特征</th>
+<th style="text-align: left;">端电压（Terminal Voltage）<span class="arithmatex">\(V_b - V_a\)</span></th>
+<th style="text-align: left;">能量转化方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>理想电源（Ideal emf device）</strong></td>
+<td style="text-align: left;">内部对电荷移动无任何阻碍（内阻 <span class="arithmatex">\(r = 0\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(V = \mathcal{E}\)</span>（恒等于电动势，与电流无关）</td>
+<td style="text-align: left;">视电流方向而定</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>实际电源放电（Discharging）</strong></td>
+<td style="text-align: left;">含内阻（Internal resistance）<span class="arithmatex">\(r &gt; 0\)</span>；内部电流<strong>顺着</strong> <span class="arithmatex">\(\mathcal{E}\)</span> 箭头方向（从 <span class="arithmatex">\(-\)</span> 到 <span class="arithmatex">\(+\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(V = \mathcal{E} - ir &lt; \mathcal{E}\)</span></td>
+<td style="text-align: left;">将化学能/其他能转化为电路电能与内阻热能</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>实际电源被充电（Charging）</strong></td>
+<td style="text-align: left;">外电源驱动电流<strong>逆着</strong> <span class="arithmatex">\(\mathcal{E}\)</span> 箭头方向（从 <span class="arithmatex">\(+\)</span> 流入 <span class="arithmatex">\(-\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(V = \mathcal{E} + ir &gt; \mathcal{E}\)</span></td>
+<td style="text-align: left;">从外电路吸收电能转化为内部化学能及内阻热能</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-ammeter-voltmeter-and-grounding">1.2 电路测量仪表与接地 (Ammeter, Voltmeter and Grounding)<a class="headerlink" href="#12-ammeter-voltmeter-and-grounding" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>电流表 / 安培计（Ammeter）</strong>：
+   用于测量支路中的电流 <span class="arithmatex">\(i\)</span>。必须断开导线将电流表<strong>串联</strong>（In series）接入待测支路中。为了不改变原电路的待测电流，电流表的内阻 <span class="arithmatex">\(R_A\)</span> 必须远小于电路中的其他电阻（<strong><span class="arithmatex">\(R_A \ll R\)</span></strong>；理想电流表 <span class="arithmatex">\(R_A = 0\)</span>）。</li>
+<li><strong>电压表 / 伏特计（Voltmeter）</strong>：
+   用于测量电路任意两点间的电势差 <span class="arithmatex">\(V\)</span>。必须将电压表两端<strong>并联</strong>（In parallel）跨接在待测元件两端。为了不分流原电路电流从而不改变待测电压，电压表的内阻 <span class="arithmatex">\(R_V\)</span> 必须远大于待测元件的电阻（<strong><span class="arithmatex">\(R_V \gg R\)</span></strong>；理想电压表 <span class="arithmatex">\(R_V = \infty\)</span>）。</li>
+<li><strong>电路接地（Grounding a Circuit）</strong>：
+   将电路中的某特定节点与大地（地下导电湿润土壤或岩石）相连。由于地球电容极大，吸收或提供电荷时电势几乎不变，因此单点接地<strong>仅意味着将该接地节点的电势规定为零参考点（<span class="arithmatex">\(V_{\text{ground}} = 0\)</span>）</strong>，单一接地线本身没有电流流过，也不会改变电路各支路的电流分布。</li>
+</ol>
+<hr />
+<h2 id="2-energy-conservation-and-kirchhoffs-rules">2 电路中的能量守恒与基尔霍夫定律 (Energy Conservation and Kirchhoff's Rules)<a class="headerlink" href="#2-energy-conservation-and-kirchhoffs-rules" title="Permanent link">&para;</a></h2>
+<h3 id="21-joule-heating-power-dissipation">2.1 电阻的热耗散功率 (Joule Heating / Power Dissipation)<a class="headerlink" href="#21-joule-heating-power-dissipation" title="Permanent link">&para;</a></h3>
+<p>当电子在电场驱动下以恒定的漂移速度 <span class="arithmatex">\(v_d\)</span> 通过电阻 <span class="arithmatex">\(R\)</span> 时，其平均动能保持不变，减少的电势能通过电子与晶格分子的频繁碰撞转化为电阻及周围环境的<strong>热能</strong>（Thermal energy，表现为晶格温度升高）。</p>
+<p>在时间间隔 <span class="arithmatex">\(dt\)</span> 内，流过电阻的电荷量为 <span class="arithmatex">\(dq = i\,dt\)</span>，损失的电势能为 <span class="arithmatex">\(dU = V_R\,dq = i V_R\,dt\)</span>。因此，电阻上的<strong>电能耗散功率</strong>（Rate of electrical energy dissipation，单位为瓦特 Watt，<span class="arithmatex">\(1\text{ W} = 1\text{ V}\cdot\text{A} = 1\text{ J/s}\)</span>）为：</p>
+<div class="arithmatex">\[
+P = i V_R = i^2 R = \frac{V_R^2}{R}
+\]</div>
+<p>对于由理想电源 <span class="arithmatex">\(\mathcal{E}\)</span> 与单个电阻 <span class="arithmatex">\(R\)</span> 组成的简单闭合回路，在 <span class="arithmatex">\(dt\)</span> 时间内电源提供的能量为 <span class="arithmatex">\(dU_{\text{emf}} = \mathcal{E}\,dq = i\mathcal{E}\,dt\)</span>。由能量守恒定律（Conservation of energy），回路总能量变化率为零：</p>
+<div class="arithmatex">\[
+\frac{dU}{dt} = i\mathcal{E} - i^2 R = 0 \implies \mathcal{E} - iR = 0
+\]</div>
+<h3 id="22-kirchhoffs-circuit-rules">2.2 基尔霍夫两大定律 (Kirchhoff's Circuit Rules)<a class="headerlink" href="#22-kirchhoffs-circuit-rules" title="Permanent link">&para;</a></h3>
+<p>求解任意复杂多回路直流电路（Multiloop circuits）的普适工具是基尔霍夫两大定律：</p>
+<p><strong>1. 基尔霍夫回路定律（Kirchhoff's Loop Rule / KVL，基于能量守恒与静电场环路定理）</strong></p>
+<p>沿电路中任意闭合回路绕行一周，所经历的各段<strong>电势变化量的代数和恒为零</strong>：</p>
+<div class="arithmatex">\[
+\sum_{\text{closed loop}} \Delta V = 0
+\]</div>
+<p>使用回路定律时，需先为每条支路预先标定参考电流方向，再任选回路绕行方向（顺时针或逆时针），并严格遵守以下<strong>电势升降符号规则</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">跨过的电路元件</th>
+<th style="text-align: left;">绕行方向与元件方向的关系</th>
+<th style="text-align: center;">电势变化量 <span class="arithmatex">\(\Delta V = V_{\text{final}} - V_{\text{initial}}\)</span></th>
+<th style="text-align: left;">物理原因说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>电阻 <span class="arithmatex">\(R\)</span></strong></td>
+<td style="text-align: left;"><strong>顺着</strong>电流 <span class="arithmatex">\(i\)</span> 的方向通过电阻</td>
+<td style="text-align: center;"><strong><span class="arithmatex">\(-iR\)</span></strong>（电势降低）</td>
+<td style="text-align: left;">电流在电阻中总是从高电势流向低电势</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>电阻 <span class="arithmatex">\(R\)</span></strong></td>
+<td style="text-align: left;"><strong>逆着</strong>电流 <span class="arithmatex">\(i\)</span> 的方向通过电阻</td>
+<td style="text-align: center;"><strong><span class="arithmatex">\(+iR\)</span></strong>（电势升高）</td>
+<td style="text-align: left;">逆流而上，从低电势端走向高电势端</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>理想电动势 <span class="arithmatex">\(\mathcal{E}\)</span></strong></td>
+<td style="text-align: left;"><strong>顺着</strong>电动势 <span class="arithmatex">\(\mathcal{E}\)</span> 箭头方向（从 <span class="arithmatex">\(-\)</span> 到 <span class="arithmatex">\(+\)</span>）</td>
+<td style="text-align: center;"><strong><span class="arithmatex">\(+\mathcal{E}\)</span></strong>（电势升高）</td>
+<td style="text-align: left;">正极电势高于负极电势</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>理想电动势 <span class="arithmatex">\(\mathcal{E}\)</span></strong></td>
+<td style="text-align: left;"><strong>逆着</strong>电动势 <span class="arithmatex">\(\mathcal{E}\)</span> 箭头方向（从 <span class="arithmatex">\(+\)</span> 到 <span class="arithmatex">\(-\)</span>）</td>
+<td style="text-align: center;"><strong><span class="arithmatex">\(-\mathcal{E}\)</span></strong>（电势降低）</td>
+<td style="text-align: left;">从高电势正极走向低电势负极</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>电容器 <span class="arithmatex">\(C\)</span></strong></td>
+<td style="text-align: left;">从带正电 <span class="arithmatex">\(+q\)</span> 极板跨越到带负电 <span class="arithmatex">\(-q\)</span> 极板</td>
+<td style="text-align: center;"><strong><span class="arithmatex">\(-\dfrac{q}{C}\)</span></strong>（电势降低）</td>
+<td style="text-align: left;">正极板电势高于负极板（反之从 <span class="arithmatex">\(-\)</span> 到 <span class="arithmatex">\(+\)</span> 为 <span class="arithmatex">\(+\dfrac{q}{C}\)</span>）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 基尔霍夫节点定律（Kirchhoff's Junction / Node Rule / KCL，基于稳恒条件下的电荷守恒）</strong></p>
+<p>包围电路中任意一个节点（Node / Junction）作闭合曲面 <span class="arithmatex">\(S\)</span>，在稳恒电流下节点处无电荷堆积，故 <span class="arithmatex">\(\oint_S \vec{j}\cdot d\vec{S} = 0\)</span>。即<strong>流入任意节点的电流之和恒等于流出该节点的电流之和</strong>：</p>
+<div class="arithmatex">\[
+\sum_{\text{in}} i_{\text{in}} = \sum_{\text{out}} i_{\text{out}} \iff \sum_{\alpha} i_\alpha = 0
+\]</div>
+<h3 id="23-series-and-parallel-combinations">2.3 电阻与电容器的串并联等效对比 (Series and Parallel Combinations)<a class="headerlink" href="#23-series-and-parallel-combinations" title="Permanent link">&para;</a></h3>
+<p>利用回路定律与节点定律，可将串联（In series）或并联（In parallel）的多个电阻或电容器替换为单一等效元件（<span class="arithmatex">\(R_{\text{eq}}\)</span> 或 <span class="arithmatex">\(C_{\text{eq}}\)</span>）。两者的记忆口诀与公式对比如下表（Appendix 7A）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">组合方式</th>
+<th style="text-align: left;">电阻组合（Resistors）</th>
+<th style="text-align: left;">电容器组合（Capacitors）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>串联（In Series）</strong></td>
+<td style="text-align: left;"><strong>特征：等电流（"ser-<span class="arithmatex">\(i\)</span>"，<span class="arithmatex">\(i\)</span> 处处相同）</strong><br>总电压 <span class="arithmatex">\(V = \sum V_j = i\sum R_j\)</span><br>$<span class="arithmatex">\(R_{\text{eq}} = \sum_{j=1}^n R_j\)</span>$</td>
+<td style="text-align: left;"><strong>特征：等电荷（"seri-<span class="arithmatex">\(q\)</span>"，各极板感应电荷 <span class="arithmatex">\(q\)</span> 相同）</strong><br>总电压 <span class="arithmatex">\(V = \sum V_j = q\sum \frac{1}{C_j}\)</span><br>$<span class="arithmatex">\(\frac{1}{C_{\text{eq}}} = \sum_{j=1}^n \frac{1}{C_j}\)</span>$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>并联（In Parallel）</strong></td>
+<td style="text-align: left;"><strong>特征：等电压（"par-<span class="arithmatex">\(V\)</span>"，两端电势差 <span class="arithmatex">\(V\)</span> 相同）</strong><br>总电流 <span class="arithmatex">\(i = \sum i_j = V\sum \frac{1}{R_j}\)</span><br>$<span class="arithmatex">\(\frac{1}{R_{\text{eq}}} = \sum_{j=1}^n \frac{1}{R_j}\)</span>$</td>
+<td style="text-align: left;"><strong>特征：等电压（"par-<span class="arithmatex">\(V\)</span>"，两端电势差 <span class="arithmatex">\(V\)</span> 相同）</strong><br>总电荷 <span class="arithmatex">\(q = \sum q_j = V\sum C_j\)</span><br>$<span class="arithmatex">\(C_{\text{eq}} = \sum_{j=1}^n C_j\)</span>$</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>课堂经典模型（Example 7.2）：立方体十二电阻网络的体对角线等效电阻</summary>
+<p><strong>问题</strong>：一个正方体框架的 <span class="arithmatex">\(12\)</span> 条棱上各有一个阻值为 <span class="arithmatex">\(R\)</span> 的电阻。求正方体两个体对角顶点 <span class="arithmatex">\(P\)</span> 与 <span class="arithmatex">\(P'\)</span> 之间的等效电阻 <span class="arithmatex">\(R_{\text{eq}}\)</span>。</p>
+<p><strong>解（对称性电流分配法）</strong>：
+假设总电流 <span class="arithmatex">\(i\)</span> 从顶点 <span class="arithmatex">\(P\)</span> 流入，并从体对角顶点 <span class="arithmatex">\(P'\)</span> 流出。立方体绕体对角线 <span class="arithmatex">\(P\text{-}P'\)</span> 具有三重旋转对称性（Three-fold rotational symmetry）以及过体对角线的镜面反射对称性：</p>
+<ol>
+<li><strong>与起点 <span class="arithmatex">\(P\)</span> 相连的 3 条棱</strong>：由于地位完全等价，流入 <span class="arithmatex">\(P\)</span> 的总电流 <span class="arithmatex">\(i\)</span> 必然被这 <span class="arithmatex">\(3\)</span> 条棱均分，每条棱上的电流均为：
+   $$
+   i_1 = \frac{i}{3}
+   $$</li>
+<li><strong>中间层的 6 条棱</strong>：每条从 <span class="arithmatex">\(P\)</span> 出发的棱到达相邻顶点后，都会分叉进入两条地位完全等价的中间棱，因此流入该顶点的电流 <span class="arithmatex">\(\frac{i}{3}\)</span> 再次被平分，中间层 <span class="arithmatex">\(6\)</span> 条棱上的电流均为：
+   $$
+   i_2 = \frac{1}{2} \times \frac{i}{3} = \frac{i}{6}
+   $$</li>
+<li><strong>汇入终点 <span class="arithmatex">\(P'\)</span> 的 3 条棱</strong>：由出入口对称性，最后汇入 <span class="arithmatex">\(P'\)</span> 的 <span class="arithmatex">\(3\)</span> 条棱每条各承载电流：
+   $$
+   i_3 = \frac{i}{6} + \frac{i}{6} = \frac{i}{3}
+   $$</li>
+</ol>
+<p>任选一条从 <span class="arithmatex">\(P\)</span> 到 <span class="arithmatex">\(P'\)</span> 的三步最短路径，计算 <span class="arithmatex">\(P\)</span> 与 <span class="arithmatex">\(P'\)</span> 之间的总电势降：</p>
+<div class="arithmatex">\[
+V = i_1 R + i_2 R + i_3 R = \frac{i}{3}R + \frac{i}{6}R + \frac{i}{3}R = \frac{5}{6}iR \implies R_{\text{eq}} = \frac{V}{i} = \frac{5}{6}R
+\]</div>
+</details>
+<hr />
+<h2 id="3-energy-stored-in-a-capacitor-energy-density">3 电容器储能与电场能量密度 (Energy Stored in a Capacitor &amp; Energy Density)<a class="headerlink" href="#3-energy-stored-in-a-capacitor-energy-density" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 电容器的静电能公式<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>给电容器充电的过程，本质上是由外力（或电源）克服极板间已建立的电场力，将电子从正极板逐个搬运到负极板的过程。</p>
+<p>设在充电过程中的某一瞬时，两极板上已积累的电荷量为 <span class="arithmatex">\(q'\)</span>，此时两极板间的瞬时电势差为 <span class="arithmatex">\(V' = \frac{q'}{C}\)</span>。若继续搬运无穷小电荷微元 <span class="arithmatex">\(dq'\)</span>，外力所需做的元功为：</p>
+<div class="arithmatex">\[
+dW = V'\,dq' = \frac{q'}{C}\,dq'
+\]</div>
+<p>从初始未充电状态（<span class="arithmatex">\(q' = 0\)</span>）积分至最终带电量 <span class="arithmatex">\(q\)</span>，外力所做的总功全部转化为储存在电容器中的<strong>静电能</strong>（Electric Potential Energy Stored in a Capacitor）：</p>
+<div class="arithmatex">\[
+U = W = \int_0^q \frac{q'}{C}\,dq' = \frac{q^2}{2C} = \frac{1}{2}CV^2 = \frac{1}{2}qV
+\]</div>
+<p><em>注：当极板电荷量 <span class="arithmatex">\(q\)</span> 固定不变时，宜用 <span class="arithmatex">\(U = \frac{q^2}{2C}\)</span> 分析；当极板与恒压电源相连使电压 <span class="arithmatex">\(V\)</span> 固定不变时，宜用 <span class="arithmatex">\(U = \frac{1}{2}CV^2\)</span> 分析。</em></p>
+<h3 id="32-energy-density-of-the-electric-field">3.2 电场的能量密度 (Energy Density of the Electric Field)<a class="headerlink" href="#32-energy-density-of-the-electric-field" title="Permanent link">&para;</a></h3>
+<p>静电能究竟储存在哪里？考察忽略边缘效应的平行板电容器（面积 <span class="arithmatex">\(S\)</span>，间距 <span class="arithmatex">\(d\)</span>，电容 <span class="arithmatex">\(C = \frac{\epsilon_0 S}{d}\)</span>，板间匀强电场 <span class="arithmatex">\(E = \frac{V}{d}\)</span>）。将其储能公式改写为：</p>
+<div class="arithmatex">\[
+U = \frac{1}{2}CV^2 = \frac{1}{2}\left(\frac{\epsilon_0 S}{d}\right)(Ed)^2 = \frac{1}{2}\epsilon_0 E^2 (Sd)
+\]</div>
+<p>注意到 <span class="arithmatex">\(Sd\)</span> 正好是两极板之间存在电场的空间体积！因此，静电能可视为直接储存在空间电场本身之中。定义单位体积内储存的电场能量为<strong>电场能量密度</strong>（Electric Energy Density，记作 <span class="arithmatex">\(u_E\)</span> 或 <span class="arithmatex">\(u\)</span>，单位 <span class="arithmatex">\(\text{J/m}^3\)</span>）：</p>
+<div class="arithmatex">\[
+u_E = \frac{1}{2}\epsilon_0 E^2 \quad (\text{真空中}), \qquad u_E = \frac{1}{2}\epsilon E^2 = \frac{1}{2}\kappa\epsilon_0 E^2 = \frac{1}{2}\vec{E}\cdot\vec{D} \quad (\text{线性电介质中})
+\]</div>
+<p>虽然上式由平行板电容器导出，但它是<strong>对空间任意静电场均普适成立的基本定理</strong>。对于任意空间电场分布 <span class="arithmatex">\(\vec{E}(\vec{r})\)</span>，系统储存的总静电能等于能量密度在全空间的体积分：</p>
+<div class="arithmatex">\[
+U = \int_{\text{all space}} u_E\,d^3r = \int \frac{1}{2}\epsilon_0 E^2\,dV
+\]</div>
+<details>
+<summary>课堂双向验证（Examples 7.3 &amp; 7.4）：圆柱形与球形电容器的能量密度积分</summary>
+<p><strong>1. 圆柱形电容器的单位长度储能（Example 7.3）</strong></p>
+<p>设同轴圆柱形电容器内外半径为 <span class="arithmatex">\(a, b \ (b &gt; a)\)</span>，长为 <span class="arithmatex">\(L\)</span>，单位长度带电量为 <span class="arithmatex">\(\pm\lambda\)</span>（总电荷 <span class="arithmatex">\(q = \lambda L\)</span>）。</p>
+<ul>
+<li><strong>方法 1（直接用电容公式）</strong>：代入第六章结果 <span class="arithmatex">\(C = \frac{2\pi\epsilon_0 L}{\ln(b/a)}\)</span>：
+  $$
+  \frac{U}{L} = \frac{1}{L}\frac{q^2}{2C} = \frac{\lambda^2 L^2}{2L \cdot \frac{2\pi\epsilon_0 L}{\ln(b/a)}} = \frac{\lambda^2}{4\pi\epsilon_0}\ln\left(\frac{b}{a}\right)
+  $$</li>
+<li><strong>方法 2（空间能量密度积分）</strong>：在 <span class="arithmatex">\(a &lt; r &lt; b\)</span> 区域内，电场为 <span class="arithmatex">\(E(r) = \frac{\lambda}{2\pi\epsilon_0 r}\)</span>，能量密度为 <span class="arithmatex">\(u_E(r) = \frac{1}{2}\epsilon_0 E^2 = \frac{\lambda^2}{8\pi^2\epsilon_0 r^2}\)</span>。取半径为 <span class="arithmatex">\(r\)</span>、厚为 <span class="arithmatex">\(dr\)</span>、单位长度的薄圆筒体积元 <span class="arithmatex">\(dV/L = 2\pi r\,dr\)</span> 积分：
+  $$
+  \frac{U}{L} = \int_a^b u_E(r) \cdot 2\pi r\,dr = \frac{\lambda^2}{4\pi\epsilon_0}\int_a^b \frac{dr}{r} = \frac{\lambda^2}{4\pi\epsilon_0}\ln\left(\frac{b}{a}\right)
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 球形电容器的总储能（Example 7.4）</strong></p>
+<p>设同心球形电容器内外半径为 <span class="arithmatex">\(a, b \ (b &gt; a)\)</span>，带电量为 <span class="arithmatex">\(\pm q\)</span>。在 <span class="arithmatex">\(a &lt; r &lt; b\)</span> 内径向场为 <span class="arithmatex">\(E(r) = \frac{q}{4\pi\epsilon_0 r^2}\)</span>，电势差为 <span class="arithmatex">\(V = \int_a^b E\,dr = \frac{q(b-a)}{4\pi\epsilon_0 ab}\)</span>，故球形电容器电容为 <span class="arithmatex">\(C = \frac{q}{V} = 4\pi\epsilon_0\frac{ab}{b - a}\)</span>。</p>
+<ul>
+<li><strong>方法 1（直接用电容公式）</strong>：
+  $$
+  U = \frac{q^2}{2C} = \frac{q^2(b - a)}{8\pi\epsilon_0 ab}
+  $$</li>
+<li><strong>方法 2（空间能量密度积分）</strong>：能量密度为 <span class="arithmatex">\(u_E(r) = \frac{1}{2}\epsilon_0 E^2 = \frac{q^2}{32\pi^2\epsilon_0 r^4}\)</span>。取薄球壳体积元 <span class="arithmatex">\(dV = 4\pi r^2\,dr\)</span> 在 <span class="arithmatex">\([a, b]\)</span> 上积分：
+  $$
+  U = \int_a^b \left(\frac{q^2}{32\pi^2\epsilon_0 r^4}\right) 4\pi r^2\,dr = \frac{q^2}{8\pi\epsilon_0}\int_a^b \frac{dr}{r^2} = \frac{q^2}{8\pi\epsilon_0}\left(\frac{1}{a} - \frac{1}{b}\right) = \frac{q^2(b - a)}{8\pi\epsilon_0 ab}
+  $$
+  两种方法结果完全一致（当令 <span class="arithmatex">\(b \to \infty\)</span> 时，即退化为半径为 <span class="arithmatex">\(a\)</span> 的孤立导体球静电能 <span class="arithmatex">\(U = \frac{q^2}{8\pi\epsilon_0 a}\)</span>）。</li>
+</ul>
+</details>
+<hr />
+<h2 id="4-rc-rc-circuits-charging-and-discharging">4 RC 暂态电路 (RC Circuits: Charging and Discharging)<a class="headerlink" href="#4-rc-rc-circuits-charging-and-discharging" title="Permanent link">&para;</a></h2>
+<p>由电阻 <span class="arithmatex">\(R\)</span>、电容器 <span class="arithmatex">\(C\)</span> 与理想电源 <span class="arithmatex">\(\mathcal{E}\)</span> 组成的串联回路称为 <strong>RC 电路</strong>，其中电流 <span class="arithmatex">\(i(t)\)</span> 与极板电荷 <span class="arithmatex">\(q(t)\)</span> 随时间发生暂态指数变化。</p>
+<h3 id="41-tau-rc">4.1 容性时间常数 (<span class="arithmatex">\(\tau = RC\)</span>)<a class="headerlink" href="#41-tau-rc" title="Permanent link">&para;</a></h3>
+<p>无论充电还是放电，RC 电路的特征时间尺度均由<strong>容性时间常数</strong>（Capacitive Time Constant，记作 <span class="arithmatex">\(\tau\)</span>）决定。由量纲分析可知：</p>
+<div class="arithmatex">\[
+\tau = RC, \qquad [\tau] = [R][C] = \left(\frac{\text{V}}{\text{A}}\right)\left(\frac{\text{C}}{\text{V}}\right) = \frac{\text{C}}{\text{C/s}} = \text{s}
+\]</div>
+<h3 id="42">4.2 电容器的充电与放电过程对比<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p><strong>1. 充电过程（Charging a Capacitor，初始条件 <span class="arithmatex">\(q(0) = 0\)</span>）</strong></p>
+<p>合上开关接通电源 <span class="arithmatex">\(\mathcal{E}\)</span>，电源输出的功率 <span class="arithmatex">\(i\mathcal{E}\)</span> 一部分被电阻以热功率 <span class="arithmatex">\(i^2 R\)</span> 耗散，另一部分转化为电容器储能的增长率 <span class="arithmatex">\(\frac{d}{dt}\left(\frac{q^2}{2C}\right) = \frac{q}{C}\frac{dq}{dt} = i\frac{q}{C}\)</span>：</p>
+<div class="arithmatex">\[
+i\mathcal{E} = i^2 R + i\frac{q}{C} \iff R\frac{dq}{dt} + \frac{q}{C} = \mathcal{E} \iff \frac{dq}{dt} + \frac{q}{RC} = \frac{\mathcal{E}}{R}
+\]</div>
+<p>（该方程同样可由基尔霍夫回路定律 <span class="arithmatex">\(\mathcal{E} - iR - \frac{q}{C} = 0\)</span> 及 <span class="arithmatex">\(i = \frac{dq}{dt}\)</span> 直接写出）。结合初始条件 <span class="arithmatex">\(q(0) = 0\)</span> 积分求解，得到充电过程的电荷、电流与电容电压响应。</p>
+<p><strong>2. 放电过程（Discharging a Capacitor，初始条件 <span class="arithmatex">\(q(0) = q_0 = C V_0\)</span>）</strong></p>
+<p>将已充电至电荷量 <span class="arithmatex">\(q_0\)</span>（电压 <span class="arithmatex">\(V_0 = q_0/C\)</span>）的电容器断开电源，在 <span class="arithmatex">\(t = 0\)</span> 时刻直接通过电阻 <span class="arithmatex">\(R\)</span> 短路放电。此时电容器释放能量的速率等于电阻的热耗散功率：</p>
+<div class="arithmatex">\[
+\frac{d}{dt}\left(\frac{q^2}{2C}\right) + i^2 R = 0 \implies R\frac{dq}{dt} + \frac{q}{C} = 0 \iff \frac{dq}{dt} + \frac{q}{RC} = 0
+\]</div>
+<p>RC 电路充电与放电全套物理量的解析表达式及渐近特征汇总如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">暂态过程</th>
+<th style="text-align: left;">控制微分方程</th>
+<th style="text-align: left;">极板电荷量 <span class="arithmatex">\(q(t)\)</span></th>
+<th style="text-align: left;">回路电流 <span class="arithmatex">\(i(t) = \dfrac{dq}{dt}\)</span></th>
+<th style="text-align: left;">电容器端电压 <span class="arithmatex">\(V_C(t) = \dfrac{q(t)}{C}\)</span></th>
+<th style="text-align: left;"><span class="arithmatex">\(t = 0^+\)</span> 与 <span class="arithmatex">\(t \to \infty\)</span> 的等效特征</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RC 充电</strong><br>（<span class="arithmatex">\(q(0) = 0\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(R\dfrac{dq}{dt} + \dfrac{q}{C} = \mathcal{E}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(C\mathcal{E}\left(1 - e^{-t/\tau}\right)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(+\dfrac{\mathcal{E}}{R}e^{-t/\tau} = i_0 e^{-t/\tau}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathcal{E}\left(1 - e^{-t/\tau}\right)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=0^+\)</span> 时 <span class="arithmatex">\(V_C=0\)</span>（电容<strong>相当于短路导线</strong>，<span class="arithmatex">\(i_0 = \mathcal{E}/R\)</span>）；<br><span class="arithmatex">\(t\to\infty\)</span> 时 <span class="arithmatex">\(i=0\)</span>（电容<strong>相当于断路</strong>，<span class="arithmatex">\(q \to C\mathcal{E}\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RC 放电</strong><br>（<span class="arithmatex">\(q(0) = q_0\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(R\dfrac{dq}{dt} + \dfrac{q}{C} = 0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(q_0 e^{-t/\tau}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(-\dfrac{q_0}{RC}e^{-t/\tau} = -\dfrac{V_0}{R}e^{-t/\tau}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(V_0 e^{-t/\tau}\)</span></td>
+<td style="text-align: left;">负号表示放电电流方向与原充电电流方向相反；经过 <span class="arithmatex">\(t = \tau\)</span> 后，电荷与电流均衰减至初值的 <span class="arithmatex">\(e^{-1} \approx 36.8\%\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">能量守恒结论：为电容器充电时的 50% 焦耳热损耗铁律</p>
+<p>当用恒定电动势为 <span class="arithmatex">\(\mathcal{E}\)</span> 的理想电源通过任意电阻 <span class="arithmatex">\(R\)</span> 将原本未充电的电容器 <span class="arithmatex">\(C\)</span> 完全充满（<span class="arithmatex">\(t \to \infty\)</span>，最终电荷 <span class="arithmatex">\(q_f = C\mathcal{E}\)</span>）时：
+- 电源总共做的功为：<span class="arithmatex">\(W_{\text{battery}} = \int_0^\infty \mathcal{E} i\,dt = \mathcal{E} q_f = C\mathcal{E}^2\)</span>；
+- 最终储存在电容器中的静电能为：<span class="arithmatex">\(U_C = \frac{1}{2}C\mathcal{E}^2\)</span>；
+- 电阻上产生的总焦耳热为：<span class="arithmatex">\(H = \int_0^\infty i^2 R\,dt = \frac{\mathcal{E}^2}{R}\int_0^\infty e^{-2t/(RC)}\,dt = \frac{1}{2}C\mathcal{E}^2\)</span>。
+可以看到，<strong>无论串联电阻 <span class="arithmatex">\(R\)</span> 的阻值取多大，电源输出的总能量中恒有一半（<span class="arithmatex">\(50\%\)</span>）储存在电容器内，另一半（<span class="arithmatex">\(50\%\)</span>）在电阻上转化为焦耳热耗散掉</strong>！</p>
+</div>
+<hr />
+<h2 id="5-capacitors-with-dielectrics-atomic-view">5 电介质电容器与原子极化微观机制 (Capacitors with Dielectrics &amp; Atomic View)<a class="headerlink" href="#5-capacitors-with-dielectrics-atomic-view" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 介电常数、击穿场强与感应束缚电荷<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<p>法拉第发现，在电容器两极板间填满绝缘电介质（Dielectric）后，电容会增大为真空时的 <span class="arithmatex">\(\kappa\)</span> 倍（讲义中记为 <span class="arithmatex">\(\epsilon_r\)</span>，课件中记为 <span class="arithmatex">\(\kappa \ge 1\)</span>，称为<strong>介电常数</strong> Dielectric constant）：</p>
+<div class="arithmatex">\[
+C = \kappa C_{\text{vac}} \qquad (\text{在充满均匀电介质的区域，所有静电公式只需将 } \epsilon_0 \text{ 替换为 } \epsilon = \kappa\epsilon_0)
+\]</div>
+<ul>
+<li><strong>恒定电荷（孤立极板，<span class="arithmatex">\(q\)</span> 不变）</strong>：插入电介质后，<span class="arithmatex">\(C\)</span> 增大为 <span class="arithmatex">\(\kappa C_0\)</span>，极板间电场减弱为 <span class="arithmatex">\(E = \frac{E_0}{\kappa}\)</span>，电势差降为 <span class="arithmatex">\(V = \frac{V_0}{\kappa}\)</span>，储能降为 <span class="arithmatex">\(U = \frac{q^2}{2C} = \frac{U_0}{\kappa}\)</span>（减少的能量转化为电介质板被吸入极板间隙时电场力对介质板所做的机械功）。</li>
+<li><strong>恒定电压（接电源，<span class="arithmatex">\(V\)</span> 不变）</strong>：插入电介质后，<span class="arithmatex">\(V\)</span> 不变，<span class="arithmatex">\(E = V/d\)</span> 不变，但极板自由电荷增大为 <span class="arithmatex">\(q = \kappa q_0\)</span>，储能增大为 <span class="arithmatex">\(U = \frac{1}{2}CV^2 = \kappa U_0\)</span>。</li>
+<li><strong>介电强度（Dielectric Strength）</strong>：每种电介质所能承受而不被击穿的最大电场强度称为介电强度（单位 <span class="arithmatex">\(\text{kV/mm}\)</span>，如空气约为 <span class="arithmatex">\(3\text{ kV/mm}\)</span>）。一旦外加电场超过该阈值，电介质将发生<strong>电击穿</strong>（Breakdown），内部束缚电子被电离并形成导电通道。</li>
+</ul>
+<p><strong>极化束缚面电荷 <span class="arithmatex">\(q'\)</span> 与高斯定理（Lecture 7 Slides 31–32）</strong>：
+当极板带自由电荷 <span class="arithmatex">\(\pm q\)</span> 时，电介质上下表面感应出相反符号的束缚电荷 <span class="arithmatex">\(\mp q'\)</span>。在电介质内部，总电场是自由电荷产生的场 <span class="arithmatex">\(\vec{E}_0\)</span> 与极化电荷产生的反向退极化场 <span class="arithmatex">\(\vec{E}'\)</span> 的叠加，使总场强减弱为 <span class="arithmatex">\(E = \frac{E_0}{\kappa}\)</span>：</p>
+<div class="arithmatex">\[
+E = \frac{E_0}{\kappa} = \frac{q}{\kappa\epsilon_0 A} = \frac{q - q'}{\epsilon_0 A} \implies q - q' = \frac{q}{\kappa} \implies q' = q\left(1 - \frac{1}{\kappa}\right)
+\]</div>
+<p>对包围上极板自由电荷 <span class="arithmatex">\(+q\)</span> 与电介质上表面极化电荷 <span class="arithmatex">\(-q'\)</span> 的高斯面应用高斯定理，即可写出两种等价形式：</p>
+<div class="arithmatex">\[
+\epsilon_0 \oint_S \vec{E} \cdot d\vec{A} = q_{\text{net}} = q - q' = \frac{q}{\kappa} \iff \oint_S \vec{D} \cdot d\vec{A} = \epsilon_0 \oint_S \kappa\vec{E} \cdot d\vec{A} = q_{\text{free}}
+\]</div>
+<details>
+<summary>Appendix 7B: An Atomic View of Dielectrics（有极分子与无极分子电介质的微观极化机制）</summary>
+<p>从原子与分子层面看，电介质按分子结构可分为两大类：</p>
+<ol>
+<li><strong>有极分子电介质（Type I: Polar Dielectrics，如水 <span class="arithmatex">\(\text{H}_2\text{O}\)</span>）</strong>：
+   每个分子本身就具有永久电偶极矩（Permanent electric dipole moment）<span class="arithmatex">\(\vec{p}\)</span>。在无外电场时，由于热运动搅乱，各分子的偶极矩取向完全随机，宏观净极化为零；当施加外电场 <span class="arithmatex">\(\vec{E}_0\)</span> 后，偶极子受到力矩 <span class="arithmatex">\(\vec{\tau} = \vec{p}\times\vec{E}_0\)</span> 作用，倾向于顺着外电场方向排列（取向极化）。</li>
+<li><strong>无极分子电介质（Type II: Nonpolar Dielectrics，如稀有气体、<span class="arithmatex">\(\text{O}_2, \text{Si}\)</span> 等）</strong>：
+   在无外电场时，分子的正负电荷中心重合，无永久偶极矩；当置于外电场 <span class="arithmatex">\(\vec{E}_0\)</span> 中时，外电场使原子核与电子云发生相对位移畸变（位移极化），感应出顺着外电场方向的感生电偶极矩 <span class="arithmatex">\(\vec{p}\)</span>。</li>
+</ol>
+<p><strong>宏观退极化场效应</strong>：无论是取向极化还是位移极化，均匀电介质板内部相邻分子的正负端彼此中和（体束缚电荷 <span class="arithmatex">\(\rho_b = 0\)</span>），但在电介质靠近正极板的左表面会露出一层负束缚电荷（<span class="arithmatex">\(-q'\)</span>），在靠近负极板的右表面露出一层正束缚电荷（<span class="arithmatex">\(+q'\)</span>）。这两层表面束缚电荷在介质内部建立起一个<strong>与外加电场 <span class="arithmatex">\(\vec{E}_0\)</span> 方向相反的附加电场 <span class="arithmatex">\(\vec{E}'\)</span></strong>，从而削弱了介质内部的合电场 <span class="arithmatex">\(\vec{E} = \vec{E}_0 + \vec{E}'\)</span>（模长降为 <span class="arithmatex">\(E_0/\kappa\)</span>）。</p>
+</details>
+<hr />
+<h2 id="6-chapter-7-selected-exercises">6 Chapter 7 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#6-chapter-7-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 7.1, 7.2 &amp; 7.3: Coaxial Energy, Tunable Resistor Bridge &amp; Wheatstone Bridge（同轴圆柱储能、可调电桥最小电流与惠斯通电桥）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 7.1</strong>: A metallic cylinder (radius <span class="arithmatex">\(a\)</span>, length <span class="arithmatex">\(l\)</span>) and a coaxial metallic cylindrical shell (radius <span class="arithmatex">\(b\)</span>, length <span class="arithmatex">\(l\)</span>) have vacuum between <span class="arithmatex">\(a &lt; r &lt; b\)</span>. The inner cylinder carries <span class="arithmatex">\(+Q\)</span> and the outer shell <span class="arithmatex">\(-Q\)</span> (ignore boundary effects). (a) What is the energy density <span class="arithmatex">\(u_E\)</span> at radius <span class="arithmatex">\(r \ (a &lt; r &lt; b)\)</span>? (b) What is the total potential energy <span class="arithmatex">\(U\)</span> of the system? (c) What is the capacitance <span class="arithmatex">\(C\)</span> of the system?
+- <strong>Ex 7.2</strong>: Consider a DC circuit composed of 4 resistors and an ideal emf <span class="arithmatex">\(\mathcal{E}\)</span> (<code>Figure 7.6</code>: triangle <span class="arithmatex">\(ABC\)</span> with <span class="arithmatex">\(r_1\)</span> on <span class="arithmatex">\(AB\)</span>, <span class="arithmatex">\(r_3\)</span> on <span class="arithmatex">\(AC\)</span>, potentiometer <span class="arithmatex">\(r_4\)</span> on <span class="arithmatex">\(BC\)</span>; central branch from <span class="arithmatex">\(A\)</span> has <span class="arithmatex">\(\mathcal{E}\)</span> and <span class="arithmatex">\(r_2\)</span> connected to sliding contact <span class="arithmatex">\(D\)</span> on <span class="arithmatex">\(r_4\)</span>). Let <span class="arithmatex">\(x\)</span> be the resistance of the part of <span class="arithmatex">\(r_4\)</span> between <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(D\)</span>, and assume <span class="arithmatex">\(r_4 \ge |r_1 - r_3|\)</span>. Find the value of <span class="arithmatex">\(x\)</span> for which the current <span class="arithmatex">\(i\)</span> in the branch <span class="arithmatex">\(AD\)</span> is smallest, and that smallest current.
+- <strong>Ex 7.3</strong>: Consider the Wheatstone bridge (<code>Figure 7.7</code>: <span class="arithmatex">\(\mathcal{E}\)</span> and <span class="arithmatex">\(r_0\)</span> in main branch between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>; bridge arms <span class="arithmatex">\(AC=r_1, AD=r_2, CB=r_3, DB=r_4\)</span>, and central galvanometer resistor <span class="arithmatex">\(CD=r_g\)</span>). Take <span class="arithmatex">\(I\)</span> positive from <span class="arithmatex">\(C\)</span> to <span class="arithmatex">\(D\)</span>. (a) Compute the current <span class="arithmatex">\(I\)</span> going through <span class="arithmatex">\(r_g\)</span>. (b) What is the condition for <span class="arithmatex">\(I\)</span> to be zero?</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 同轴圆柱电容器的能量密度、总储能与电容（Exercise 7.1）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 由高斯定理，在 <span class="arithmatex">\(a &lt; r &lt; b\)</span> 处径向电场为 <span class="arithmatex">\(E(r) = \frac{Q}{2\pi\epsilon_0 l r}\)</span>，故电场能量密度为：
+  $$
+  u_E(r) = \frac{1}{2}\epsilon_0 E^2(r) = \frac{Q^2}{8\pi^2\epsilon_0 l^2 r^2}
+  $$</li>
+<li><strong>(b)</strong> 对 <span class="arithmatex">\(a &lt; r &lt; b\)</span> 的圆柱壳体积元 <span class="arithmatex">\(dV = 2\pi r l\,dr\)</span> 积分求总静电能：
+  $$
+  U = \int_a^b u_E(r) 2\pi r l\,dr = \frac{Q^2}{4\pi\epsilon_0 l}\int_a^b \frac{dr}{r} = \frac{Q^2}{4\pi\epsilon_0 l}\ln\left(\frac{b}{a}\right)
+  $$</li>
+<li><strong>(c)</strong> 由 <span class="arithmatex">\(U = \frac{Q^2}{2C}\)</span> 直接反解电容：
+  $$
+  C = \frac{Q^2}{2U} = \frac{2\pi\epsilon_0 l}{\ln(b/a)}
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 滑动变阻器分流网络的最小干路电流（Exercise 7.2）</strong>：
+触头 <span class="arithmatex">\(D\)</span> 将底边电阻 <span class="arithmatex">\(r_4\)</span> 分为左段 <span class="arithmatex">\(R_{BD} = x\)</span> 与右段 <span class="arithmatex">\(R_{DC} = r_4 - x\)</span>。观察拓扑结构可知，从节点 <span class="arithmatex">\(A\)</span> 到节点 <span class="arithmatex">\(D\)</span> 之间有两条并联外支路：
+- 左支路 <span class="arithmatex">\(A \to B \to D\)</span> 的总电阻为 <span class="arithmatex">\(R_L(x) = r_1 + x\)</span>；
+- 右支路 <span class="arithmatex">\(A \to C \to D\)</span> 的总电阻为 <span class="arithmatex">\(R_R(x) = r_3 + r_4 - x\)</span>。</p>
+<p>这两条支路并联后再与中间支路 <span class="arithmatex">\(AD\)</span>（含电源 <span class="arithmatex">\(\mathcal{E}\)</span> 与内阻 <span class="arithmatex">\(r_2\)</span>）串联闭合。因此，<span class="arithmatex">\(AD\)</span> 支路中的总电流为：</p>
+<div class="arithmatex">\[
+i(x) = \frac{\mathcal{E}}{r_2 + R_{\parallel}(x)}, \qquad \text{其中 } R_{\parallel}(x) = \frac{(r_1 + x)(r_3 + r_4 - x)}{(r_1 + x) + (r_3 + r_4 - x)} = \frac{(r_1 + x)(r_3 + r_4 - x)}{r_1 + r_3 + r_4}
+\]</div>
+<p>要使电流 <span class="arithmatex">\(i(x)\)</span> 最小，必须使并联等效电阻 <span class="arithmatex">\(R_{\parallel}(x)\)</span> 最大。由于分母 <span class="arithmatex">\((r_1 + x) + (r_3 + r_4 - x) = r_1 + r_3 + r_4\)</span> 为定值，根据均值不等式，当分子中的两个正因子相等时乘积取得最大值：</p>
+<div class="arithmatex">\[
+r_1 + x = r_3 + r_4 - x \implies x = \frac{r_3 + r_4 - r_1}{2}
+\]</div>
+<p>（由题设条件 <span class="arithmatex">\(r_4 \ge |r_1 - r_3|\)</span>，易验证 <span class="arithmatex">\(0 \le x \le r_4\)</span> 恒成立，触头 <span class="arithmatex">\(D\)</span> 落在 <span class="arithmatex">\(r_4\)</span> 范围内）。
+此时最大并联电阻为 <span class="arithmatex">\(R_{\parallel,\max} = \frac{(r_1 + r_3 + r_4)^2 / 4}{r_1 + r_3 + r_4} = \frac{r_1 + r_3 + r_4}{4}\)</span>，对应的最小干路电流为：</p>
+<div class="arithmatex">\[
+i_{\min} = \frac{\mathcal{E}}{r_2 + \dfrac{r_1 + r_3 + r_4}{4}} = \frac{4\mathcal{E}}{4r_2 + r_1 + r_3 + r_4}
+\]</div>
+<hr />
+<p><strong>3. 惠斯通电桥（Wheatstone Bridge）检流计电流与平衡条件（Exercise 7.3）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 设通过 <span class="arithmatex">\(r_1\)</span>（<span class="arithmatex">\(A\to C\)</span>）、<span class="arithmatex">\(r_2\)</span>（<span class="arithmatex">\(A\to D\)</span>）的电流分别为 <span class="arithmatex">\(i_1, i_2\)</span>，通过桥支路 <span class="arithmatex">\(r_g\)</span>（<span class="arithmatex">\(C\to D\)</span>）的电流为 <span class="arithmatex">\(I\)</span>。由节点定律知：通过 <span class="arithmatex">\(r_3\)</span>（<span class="arithmatex">\(C\to B\)</span>）的电流为 <span class="arithmatex">\(i_1 - I\)</span>，通过 <span class="arithmatex">\(r_4\)</span>（<span class="arithmatex">\(D\to B\)</span>）的电流为 <span class="arithmatex">\(i_2 + I\)</span>，通过电源干路（<span class="arithmatex">\(B\to A\)</span>）的总电流为 <span class="arithmatex">\(i_1 + i_2\)</span>。
+  对三个独立回路列出基尔霍夫回路方程（KVL）：</li>
+<li>左三角回路 <span class="arithmatex">\(A \to C \to D \to A\)</span>：<span class="arithmatex">\(-i_1 r_1 - I r_g + i_2 r_2 = 0 \implies i_2 r_2 - i_1 r_1 = I r_g\)</span></li>
+<li>右三角回路 <span class="arithmatex">\(C \to B \to D \to C\)</span>：<span class="arithmatex">\(-(i_1 - I)r_3 + (i_2 + I)r_4 + I r_g = 0 \implies -i_1 r_3 + i_2 r_4 + I(r_3 + r_4 + r_g) = 0\)</span></li>
+<li>外侧底回路 <span class="arithmatex">\(A \to D \to B \to A\)</span>：<span class="arithmatex">\(\mathcal{E} - (i_1 + i_2)r_0 - i_2 r_2 - (i_2 + I)r_4 = 0 \implies i_1 r_0 + i_2(r_0 + r_2 + r_4) + I r_4 = \mathcal{E}\)</span></li>
+</ul>
+<p>由式 (1)、(2) 将 <span class="arithmatex">\(i_1, i_2\)</span> 用 <span class="arithmatex">\(I\)</span> 表示并代入式 (3) 消元（或直接应用克莱姆法则 / 戴维南等效定理），解得流过检流计 <span class="arithmatex">\(r_g\)</span> 的电流精确通式为：
+  $$
+  I = \frac{\mathcal{E}(r_2 r_3 - r_1 r_4)}{r_0\left[(r_1 + r_3)(r_2 + r_4) + r_g(r_1 + r_2 + r_3 + r_4)\right] + r_g(r_1 + r_3)(r_2 + r_4) + r_1 r_3(r_2 + r_4) + r_2 r_4(r_1 + r_3)}
+  $$
+- <strong>(b) 电桥平衡条件（Condition for <span class="arithmatex">\(I = 0\)</span>）</strong>：
+  令分子为零，立得电桥平衡充要条件：
+  $$
+  r_2 r_3 - r_1 r_4 = 0 \iff r_1 r_4 = r_2 r_3 \iff \frac{r_1}{r_2} = \frac{r_3}{r_4}
+  $$
+  （物理意义：当上下两条支路的分压比相等时，<span class="arithmatex">\(C, D\)</span> 两点电势相等 <span class="arithmatex">\(V_C = V_D\)</span>，桥支路中无电流通过，且该平衡条件与电源内阻 <span class="arithmatex">\(r_0\)</span> 及检流计内阻 <span class="arithmatex">\(r_g\)</span> 完全无关）。</p>
+</details>
+<details>
+<summary>Exercise 7.4 &amp; 7.5: Single-Loop &amp; Multi-Branch RC Charging Transients（单回路与含分流支路的 RC 暂态充电演化）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 7.4</strong>: Consider the RC circuit in <code>Figure 7.8</code> (an ideal emf <span class="arithmatex">\(\mathcal{E}\)</span>, resistor <span class="arithmatex">\(r_1\)</span>, and capacitor <span class="arithmatex">\(C\)</span> in a single series loop with a switch). The capacitor was not charged before the switch was closed at <span class="arithmatex">\(t = 0\)</span>. Let <span class="arithmatex">\(Q\)</span> be the magnitude of the charge on either plate. What is the time dependence of <span class="arithmatex">\(Q\)</span> at time <span class="arithmatex">\(t &gt; 0\)</span>?
+- <strong>Ex 7.5</strong>: Consider the RC circuit shown in <code>Figure 7.9</code> (bottom branch has ideal emf <span class="arithmatex">\(\mathcal{E}\)</span> in series with <span class="arithmatex">\(r_1\)</span> and switch; middle branch has resistor <span class="arithmatex">\(r_2\)</span> in parallel; top branch has capacitor <span class="arithmatex">\(C\)</span> in series with resistor <span class="arithmatex">\(r_3\)</span>). The capacitor is uncharged when the switch is closed at <span class="arithmatex">\(t = 0\)</span>. Find the time dependence of <span class="arithmatex">\(Q\)</span> for <span class="arithmatex">\(t &gt; 0\)</span>, and its limit as <span class="arithmatex">\(t \to \infty\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 标准单回路 RC 充电过程（Exercise 7.4）</strong>：
+闭合开关后，由基尔霍夫回路定律得 <span class="arithmatex">\(\mathcal{E} - i r_1 - \frac{Q}{C} = 0\)</span>，将 <span class="arithmatex">\(i = \frac{dQ}{dt}\)</span> 代入得：</p>
+<div class="arithmatex">\[
+r_1 \frac{dQ}{dt} + \frac{Q}{C} = \mathcal{E}
+\]</div>
+<p>结合初始条件 <span class="arithmatex">\(Q(0) = 0\)</span>，解得极板电荷随时间的演化规律为：</p>
+<div class="arithmatex">\[
+Q(t) = C\mathcal{E}\left(1 - e^{-\frac{t}{r_1 C}}\right) \qquad (t &gt; 0)
+\]</div>
+<hr />
+<p><strong>2. 含并联分流电阻的多回路 RC 充电过程（Exercise 7.5，高频必考题型）</strong>：
+设流过电容支路（含 <span class="arithmatex">\(C\)</span> 和 <span class="arithmatex">\(r_3\)</span>）的充电电流为 <span class="arithmatex">\(i_3 = \frac{dQ}{dt}\)</span>，流过中间并联电阻 <span class="arithmatex">\(r_2\)</span> 的电流为 <span class="arithmatex">\(i_2\)</span>。由节点定律，流过底部电源支路（含 <span class="arithmatex">\(\mathcal{E}\)</span> 和 <span class="arithmatex">\(r_1\)</span>）的干路总电流为 <span class="arithmatex">\(i_1 = i_2 + i_3\)</span>。</p>
+<p>列出两个独立回路的基尔霍夫回路方程（KVL）：
+1. 下方回路（含 <span class="arithmatex">\(\mathcal{E}, r_1, r_2\)</span>）：
+   $$
+   \mathcal{E} - (i_2 + i_3)r_1 - i_2 r_2 = 0 \implies i_2 = \frac{\mathcal{E} - i_3 r_1}{r_1 + r_2}
+   $$
+2. 上方外圈回路（或由并联节点电压 <span class="arithmatex">\(V_{\text{node}} = i_2 r_2 = i_3 r_3 + \frac{Q}{C}\)</span>）：
+   $$
+   i_3 r_3 + \frac{Q}{C} = i_2 r_2 = \frac{r_2}{r_1 + r_2}(\mathcal{E} - i_3 r_1)
+   $$</p>
+<p>将含 <span class="arithmatex">\(i_3 = \frac{dQ}{dt}\)</span> 的项移至等式左侧合并：</p>
+<div class="arithmatex">\[
+\left(r_3 + \frac{r_1 r_2}{r_1 + r_2}\right)\frac{dQ}{dt} + \frac{Q}{C} = \frac{r_2}{r_1 + r_2}\mathcal{E}
+\]</div>
+<p>定义等效电阻 <span class="arithmatex">\(R_{\text{eq}}\)</span>、等效电动势 <span class="arithmatex">\(\mathcal{E}_{\text{eq}}\)</span> 与时间常数 <span class="arithmatex">\(\tau\)</span>：</p>
+<div class="arithmatex">\[
+R_{\text{eq}} = r_3 + \frac{r_1 r_2}{r_1 + r_2} = \frac{r_1 r_2 + r_1 r_3 + r_2 r_3}{r_1 + r_2}, \qquad \mathcal{E}_{\text{eq}} = \frac{r_2}{r_1 + r_2}\mathcal{E}, \qquad \tau = R_{\text{eq}} C
+\]</div>
+<p>代入初始条件 <span class="arithmatex">\(Q(0) = 0\)</span>，立即解得 <span class="arithmatex">\(Q(t)\)</span> 及其稳态极限（<span class="arithmatex">\(t \to \infty\)</span>）：</p>
+<div class="arithmatex">\[
+Q(t) = \frac{r_2}{r_1 + r_2}C\mathcal{E}\left[1 - \exp\left(-\frac{(r_1 + r_2)t}{(r_1 r_2 + r_1 r_3 + r_2 r_3)C}\right)\right], \qquad \lim_{t \to \infty} Q(t) = \frac{r_2}{r_1 + r_2}C\mathcal{E}
+\]</div>
+<p><em>（物理直观验证：当 <span class="arithmatex">\(t \to \infty\)</span> 时，电容器充满断路 <span class="arithmatex">\(i_3 = 0\)</span>，电路退化为 <span class="arithmatex">\(r_1\)</span> 与 <span class="arithmatex">\(r_2\)</span> 简单串联分压，电容器两端电压恰等于 <span class="arithmatex">\(r_2\)</span> 上的分压 <span class="arithmatex">\(V_2 = \frac{r_2}{r_1 + r_2}\mathcal{E}\)</span>）。</em></p>
+</details>
+<details>
+<summary>Exercise 7.6, 7.7 &amp; 7.8: Ammeter/Voltmeter Error Analysis, Grounding Shift &amp; Parallel Batteries（伏安法内外接误差分析、接地点平移与双电池并联充放电）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 7.6</strong>: An unknown resistor <span class="arithmatex">\(R\)</span> is measured with an ammeter (<span class="arithmatex">\(R_A\)</span>) and a voltmeter (<span class="arithmatex">\(R_V\)</span>), powered by a battery (<span class="arithmatex">\(\mathcal{E}, r\)</span>). The measured resistance is <span class="arithmatex">\(R_m = V/i\)</span>. In connection (i) the voltmeter is connected across <span class="arithmatex">\(R\)</span> only (ammeter outside). In connection (ii) the voltmeter is connected across both the ammeter and <span class="arithmatex">\(R\)</span> (ammeter inside).
+  (a) Find <span class="arithmatex">\(R_m\)</span> for each connection. Does it depend on <span class="arithmatex">\(\mathcal{E}\)</span> or <span class="arithmatex">\(r\)</span>?
+  (b) Find the relative error <span class="arithmatex">\((R_m - R)/R\)</span> for each connection, and the value <span class="arithmatex">\(R^*\)</span> of <span class="arithmatex">\(R\)</span> at which the two errors have equal magnitudes. Which connection gives the smaller error when <span class="arithmatex">\(R &gt; R^*\)</span>?
+- <strong>Ex 7.7</strong>: An ideal emf <span class="arithmatex">\(\mathcal{E} &gt; 0\)</span> is connected between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> (arrow from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span>). Branch 1 from <span class="arithmatex">\(B\)</span> to <span class="arithmatex">\(A\)</span> contains <span class="arithmatex">\(R_1\)</span>, node <span class="arithmatex">\(C\)</span>, and <span class="arithmatex">\(R_2\)</span>; Branch 2 contains <span class="arithmatex">\(R_3\)</span>.
+  (a) Find <span class="arithmatex">\(i_{12}\)</span>, <span class="arithmatex">\(i_3\)</span>, <span class="arithmatex">\(i\)</span>, and <span class="arithmatex">\(R_{\text{eq}} = \mathcal{E}/i\)</span>.
+  (b) Node <span class="arithmatex">\(A\)</span> is grounded; find <span class="arithmatex">\(V_A, V_B, V_C\)</span>. The ground is then moved from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(C\)</span>; find the three potentials again. Which quantities in (a) change?
+  (c) Show that the power supplied by <span class="arithmatex">\(\mathcal{E}\)</span> equals the total power dissipated in the three resistors.
+- <strong>Ex 7.8</strong>: Two batteries (<span class="arithmatex">\(\mathcal{E}_1, r_1\)</span>) and (<span class="arithmatex">\(\mathcal{E}_2, r_2\)</span>) are connected in parallel with their positive terminals joined to one end of a load resistor <span class="arithmatex">\(R &gt; 0\)</span>.
+  (a) Find the current <span class="arithmatex">\(i_R\)</span> through <span class="arithmatex">\(R\)</span>, and the current <span class="arithmatex">\(i_2\)</span> leaving battery 2.
+  (b) Find the condition on <span class="arithmatex">\(\mathcal{E}_2\)</span> under which battery 2 is being charged (<span class="arithmatex">\(i_2 &lt; 0\)</span>). What does the condition become when <span class="arithmatex">\(R \to \infty\)</span> and when <span class="arithmatex">\(\mathcal{E}_1 = \mathcal{E}_2\)</span>?</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 伏安法测电阻的电流表外接法 (i) 与内接法 (ii) 误差分析（Exercise 7.6）</strong>：</p>
+<ul>
+<li><strong>(a)</strong></li>
+<li><strong>接法 (i)（电流表外接法，电压表直接并联在 <span class="arithmatex">\(R\)</span> 两端）</strong>：电压表读数 <span class="arithmatex">\(V\)</span> 为 <span class="arithmatex">\(R\)</span> 两端真实电压，但电流表读数 <span class="arithmatex">\(i = i_R + i_V = \frac{V}{R} + \frac{V}{R_V}\)</span> 包含了电压表的分流。故测量值为：
+    $$
+    R_m^{(i)} = \frac{V}{i} = \frac{1}{\frac{1}{R} + \frac{1}{R_V}} = \frac{R R_V}{R + R_V}
+    $$</li>
+<li><strong>接法 (ii)（电流表内接法，电压表跨接在电流表和 <span class="arithmatex">\(R\)</span> 串联整体两端）</strong>：电流表读数 <span class="arithmatex">\(i\)</span> 为流过 <span class="arithmatex">\(R\)</span> 的真实电流，但电压表读数 <span class="arithmatex">\(V = i(R + R_A)\)</span> 包含了电流表的分压。故测量值为：
+    $$
+    R_m^{(ii)} = \frac{V}{i} = R + R_A
+    $$
+  两种接法下的 <span class="arithmatex">\(R_m\)</span> <strong>均与电源电动势 <span class="arithmatex">\(\mathcal{E}\)</span> 和电源内阻 <span class="arithmatex">\(r\)</span> 完全无关</strong>。</li>
+<li><strong>(b) 相对误差与临界电阻 <span class="arithmatex">\(R^*\)</span></strong>：</li>
+<li>接法 (i) 相对误差（测量值偏小）：<span class="arithmatex">\(\delta_{(i)} = \dfrac{R_m^{(i)} - R}{R} = -\dfrac{R}{R + R_V}\)</span>；</li>
+<li>接法 (ii) 相对误差（测量值偏大）：<span class="arithmatex">\(\delta_{(ii)} = \dfrac{R_m^{(ii)} - R}{R} = +\dfrac{R_A}{R}\)</span>。
+  令两者绝对值相等：
+  $$
+  \frac{R^<em>}{R^</em> + R_V} = \frac{R_A}{R^<em>} \implies (R^</em>)^2 - R_A R^* - R_A R_V = 0 \implies R^* = \frac{R_A + \sqrt{R_A^2 + 4R_A R_V}}{2} \quad (\approx \sqrt{R_A R_V})
+  $$
+  当待测电阻较大（<strong><span class="arithmatex">\(R &gt; R^*\)</span></strong>）时，<span class="arithmatex">\(\delta_{(ii)} = \frac{R_A}{R}\)</span> 随 <span class="arithmatex">\(R\)</span> 增大而减小，而 <span class="arithmatex">\(|\delta_{(i)}|\)</span> 随 <span class="arithmatex">\(R\)</span> 增大而增大，故<strong>接法 (ii)（电流表内接法）的误差更小</strong>（口诀：“大内偏大，小外偏小”）。</li>
+</ul>
+<hr />
+<p><strong>2. 双支路并联电路、接地点平移与功率平衡验证（Exercise 7.7）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(A, B\)</span> 间电势差为 <span class="arithmatex">\(\mathcal{E}\)</span>。支路 1 总电阻为 <span class="arithmatex">\(R_1 + R_2\)</span>，支路 2 电阻为 <span class="arithmatex">\(R_3\)</span>：
+  $$
+  i_{12} = \frac{\mathcal{E}}{R_1 + R_2}, \qquad i_3 = \frac{\mathcal{E}}{R_3}, \qquad i = i_{12} + i_3 = \mathcal{E}\left(\frac{1}{R_1 + R_2} + \frac{1}{R_3}\right), \qquad R_{\text{eq}} = \frac{(R_1 + R_2)R_3}{R_1 + R_2 + R_3}
+  $$</li>
+<li><strong>(b) 接地点平移</strong>：</li>
+<li>当节点 <span class="arithmatex">\(A\)</span> 接地时：<span class="arithmatex">\(V_A = 0\)</span>，<span class="arithmatex">\(V_B = \mathcal{E}\)</span>，<span class="arithmatex">\(V_C = V_A + i_{12} R_2 = \dfrac{R_2}{R_1 + R_2}\mathcal{E}\)</span>。</li>
+<li>当接地点移至节点 <span class="arithmatex">\(C\)</span> 时（所有节点电势整体平移 <span class="arithmatex">\(-\frac{R_2}{R_1 + R_2}\mathcal{E}\)</span>）：
+    $$
+    V_C' = 0, \qquad V_A' = -\frac{R_2}{R_1 + R_2}\mathcal{E}, \qquad V_B' = +\frac{R_1}{R_1 + R_2}\mathcal{E}
+    $$
+  <strong>(a) 中求出的所有电流（<span class="arithmatex">\(i_{12}, i_3, i\)</span>）以及等效电阻 <span class="arithmatex">\(R_{\text{eq}}\)</span> 均完全不变</strong>（因为电流只取决于电势差，与电势零点的选取无关）。</li>
+<li><strong>(c) 功率守恒验证</strong>：
+  三个电阻耗散的总热功率为：
+  $$
+  P_{\text{diss}} = i_{12}^2 R_1 + i_{12}^2 R_2 + i_3^2 R_3 = i_{12}^2(R_1 + R_2) + i_3^2 R_3 = \frac{\mathcal{E}^2}{R_1 + R_2} + \frac{\mathcal{E}^2}{R_3} = \mathcal{E}(i_{12} + i_3) = i\mathcal{E} = P_{\text{emf}}
+  $$</li>
+</ul>
+<hr />
+<p><strong>3. 双电池并联供电与电池反充条件（Exercise 7.8）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 设两电池正极汇合端与负极汇合端（即负载电阻 <span class="arithmatex">\(R\)</span> 两端）的电势差为 <span class="arithmatex">\(V = i_R R\)</span>。由回路定律知两电池支路的电流分别为 <span class="arithmatex">\(i_1 = \frac{\mathcal{E}_1 - i_R R}{r_1}\)</span> 和 <span class="arithmatex">\(i_2 = \frac{\mathcal{E}_2 - i_R R}{r_2}\)</span>。代入节点定律 <span class="arithmatex">\(i_R = i_1 + i_2\)</span>：
+  $$
+  i_R = \frac{\mathcal{E}_1}{r_1} + \frac{\mathcal{E}_2}{r_2} - i_R R\left(\frac{1}{r_1} + \frac{1}{r_2}\right) \implies i_R = \frac{\mathcal{E}_1 r_2 + \mathcal{E}_2 r_1}{r_1 r_2 + R(r_1 + r_2)}
+  $$
+  将 <span class="arithmatex">\(i_R\)</span> 代回 <span class="arithmatex">\(i_2 = \frac{\mathcal{E}_2 - i_R R}{r_2}\)</span> 通分化简，得流过电池 2 的电流：
+  $$
+  i_2 = \frac{\mathcal{E}_2(r_1 + R) - \mathcal{E}_1 R}{r_1 r_2 + R(r_1 + r_2)}
+  $$</li>
+<li><strong>(b) 电池 2 被充电的条件（<span class="arithmatex">\(i_2 &lt; 0\)</span>）</strong>：
+  由于分母恒正，令分子小于零即得：
+  $$
+  \mathcal{E}_2 &lt; \frac{R}{r_1 + R}\mathcal{E}_1
+  $$</li>
+<li>当移除外负载（<span class="arithmatex">\(R \to \infty\)</span>）时：<span class="arithmatex">\(\frac{R}{r_1 + R} \to 1\)</span>，条件简化为 <span class="arithmatex">\(\mathcal{E}_2 &lt; \mathcal{E}_1\)</span>（高电动势电池直接给低电动势电池充电）；</li>
+<li>当 <span class="arithmatex">\(\mathcal{E}_1 = \mathcal{E}_2\)</span> 时：由于 <span class="arithmatex">\(\frac{R}{r_1 + R} &lt; 1\)</span>，不等式 <span class="arithmatex">\(\mathcal{E}_2 &lt; \frac{R}{r_1 + R}\mathcal{E}_2\)</span> 绝无可能成立，即两个相同电动势的电池并联接负载时绝不会发生相互反充。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 7.9 &amp; 7.10: Capacitor Plate Force via Virtual Work &amp; Two-Capacitor Discharge（虚功原理求极板引力及双电容放电能量损耗）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 7.9</strong>: A parallel-plate capacitor in vacuum has plates of area <span class="arithmatex">\(S\)</span> separated by <span class="arithmatex">\(x\)</span>. The lower plate is fixed, and the upper plate is moved slowly by <span class="arithmatex">\(dx\)</span>. Let <span class="arithmatex">\(F\)</span> be the electric force on the upper plate (positive in the direction of increasing <span class="arithmatex">\(x\)</span>).
+  (a) The plates are isolated and carry charges <span class="arithmatex">\(\pm q\)</span>. Find <span class="arithmatex">\(U(x)\)</span>, and from the change of <span class="arithmatex">\(U\)</span> in <span class="arithmatex">\(dx\)</span>, find <span class="arithmatex">\(F\)</span>.
+  (b) The plates are instead connected to an ideal battery that keeps their potential difference at <span class="arithmatex">\(V\)</span>. Find <span class="arithmatex">\(U(x)\)</span>, and the work <span class="arithmatex">\(dW_b\)</span> done by the battery when <span class="arithmatex">\(x\)</span> increases by <span class="arithmatex">\(dx\)</span>. Explain why <span class="arithmatex">\(F = -dU/dx\)</span> now gives the wrong sign, find <span class="arithmatex">\(F\)</span> from energy conservation, and compare with (a).
+- <strong>Ex 7.10</strong>: Two ideal capacitors <span class="arithmatex">\(C_1, C_2\)</span> have their lower plates joined (<span class="arithmatex">\(V = 0\)</span>). Initially their upper plates are isolated at potentials <span class="arithmatex">\(V_1 &gt; V_2 \ge 0\)</span> (charges <span class="arithmatex">\(C_1 V_1\)</span> and <span class="arithmatex">\(C_2 V_2\)</span>). At <span class="arithmatex">\(t = 0\)</span> a switch joins the two upper plates through a resistor <span class="arithmatex">\(R &gt; 0\)</span>.
+  (a) Using charge conservation, find the final common potential <span class="arithmatex">\(V_f\)</span> and final charges <span class="arithmatex">\(q_1, q_2\)</span>.
+  (b) Find <span class="arithmatex">\(i(t)\)</span>, <span class="arithmatex">\(q_1(t)\)</span>, <span class="arithmatex">\(q_2(t)\)</span> for <span class="arithmatex">\(t \ge 0\)</span>, and the time constant <span class="arithmatex">\(\tau\)</span>.
+  (c) Find the initial energy <span class="arithmatex">\(U_i\)</span>, final energy <span class="arithmatex">\(U_f\)</span>, and heat <span class="arithmatex">\(H = \int_0^\infty i^2 R\,dt\)</span> produced in <span class="arithmatex">\(R\)</span>. Show that <span class="arithmatex">\(H = U_i - U_f\)</span>, and that <span class="arithmatex">\(H\)</span> does not depend on <span class="arithmatex">\(R\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 平行板电容器极板间引力的虚功原理分析：孤立恒流源 vs. 恒压源（Exercise 7.9，经典必考压轴题）</strong>：</p>
+<ul>
+<li><strong>(a) 极板孤立（电荷量 <span class="arithmatex">\(q\)</span> 恒定）</strong>：
+  电容为 <span class="arithmatex">\(C(x) = \frac{\epsilon_0 S}{x}\)</span>，故储存的静电能为：
+  $$
+  U(x) = \frac{q^2}{2C(x)} = \frac{q^2 x}{2\epsilon_0 S}
+  $$
+  由于系统与外界无电荷及电能交换，当上极板缓慢移动 <span class="arithmatex">\(dx\)</span> 时，电场力对上极板所做的功等于系统静电能的减少量 <span class="arithmatex">\(F\,dx = -dU\)</span>：
+  $$
+  F = -\frac{dU}{dx} = -\frac{q^2}{2\epsilon_0 S} \qquad (\text{负号表示上极板受到向下的吸引力})
+  $$
+  <em>（注：这与第五章 Exercise 5.7 由静电压强 <span class="arithmatex">\(P = \frac{\sigma^2}{2\epsilon_0}\)</span> 乘以面积 <span class="arithmatex">\(S\)</span> 得到的结果完全一致！）</em></li>
+<li><strong>(b) 极板接恒压电源（电压 <span class="arithmatex">\(V\)</span> 恒定）</strong>：
+  此时储存的静电能写为：
+  $$
+  U(x) = \frac{1}{2}C(x)V^2 = \frac{\epsilon_0 S V^2}{2x}
+  $$
+  当间距 <span class="arithmatex">\(x\)</span> 增大 <span class="arithmatex">\(dx\)</span> 时，电容减小 <span class="arithmatex">\(dC = -\frac{\epsilon_0 S}{x^2}dx\)</span>，极板上的电荷量变化为 <span class="arithmatex">\(dq = V\,dC = -\frac{\epsilon_0 S V}{x^2}dx &lt; 0\)</span>（即有电荷 <span class="arithmatex">\(|dq|\)</span> 退回电源，电源做负功）。电源在此过程中所做的功为：
+  $$
+  dW_b = V\,dq = -\frac{\epsilon_0 S V^2}{x^2}dx = 2\,dU
+  $$
+  <strong>为什么此时 <span class="arithmatex">\(F = -dU/dx\)</span> 会给出错误的正号？</strong>
+  因为公式 <span class="arithmatex">\(F = -dU/dx\)</span> 仅适用于<strong>孤立系统</strong>（无外界电源做功 <span class="arithmatex">\(dW_b = 0\)</span>）。当连接电源时，系统不再孤立！由完整的功能原理（外力做功 <span class="arithmatex">\(F_{\text{ext}}\,dx = -F\,dx\)</span> 加上电源做功 <span class="arithmatex">\(dW_b\)</span> 等于储能变化 <span class="arithmatex">\(dU\)</span>）：
+  $$
+  -F\,dx + dW_b = dU \implies F = \frac{dW_b - dU}{dx} = -\frac{\epsilon_0 S V^2}{2x^2} = -\frac{q^2}{2\epsilon_0 S}
+  $$
+  可以看到，计入电源做功 <span class="arithmatex">\(dW_b = 2\,dU\)</span> 后，实际的静电力 <span class="arithmatex">\(F\)</span> 与 (a) 中完全相同（因为瞬时静电力仅取决于当时的极板电荷状态，与极板是否连着导线无关）。</li>
+</ul>
+<hr />
+<p><strong>2. 双电容器通过电阻互连放电的暂态演化与能量耗散（Exercise 7.10）</strong>：</p>
+<ul>
+<li><strong>(a) 最终稳态电压 <span class="arithmatex">\(V_f\)</span> 与最终电荷</strong>：
+  由两上极板总电荷守恒，任意时刻均有 <span class="arithmatex">\(q_1(t) + q_2(t) = C_1 V_1 + C_2 V_2\)</span>。当 <span class="arithmatex">\(t \to \infty\)</span> 达到稳态时，电流降为零，两电容上极板达到共同电势 <span class="arithmatex">\(V_f\)</span>：
+  $$
+  (C_1 + C_2)V_f = C_1 V_1 + C_2 V_2 \implies V_f = \frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}
+  $$
+  最终电荷量分别为 <span class="arithmatex">\(q_1(\infty) = C_1 V_f = \dfrac{C_1(C_1 V_1 + C_2 V_2)}{C_1 + C_2}\)</span>，<span class="arithmatex">\(q_2(\infty) = C_2 V_f = \dfrac{C_2(C_1 V_1 + C_2 V_2)}{C_1 + C_2}\)</span>。</li>
+<li><strong>(b) 暂态电流 <span class="arithmatex">\(i(t)\)</span>、电荷 <span class="arithmatex">\(q_1(t), q_2(t)\)</span> 与时间常数 <span class="arithmatex">\(\tau\)</span></strong>：
+  由于电流 <span class="arithmatex">\(i(t)\)</span> 从 <span class="arithmatex">\(C_1\)</span> 上极板流向 <span class="arithmatex">\(C_2\)</span> 上极板，故有：
+  $$
+  i(t) = -\frac{dq_1}{dt} = +\frac{dq_2}{dt}
+  $$
+  对闭合回路应用基尔霍夫回路定律（KVL）：
+  $$
+  \frac{q_1(t)}{C_1} - i(t)R - \frac{q_2(t)}{C_2} = 0
+  $$
+  两边对时间 <span class="arithmatex">\(t\)</span> 求导，并将 <span class="arithmatex">\(\frac{dq_1}{dt} = -i, \ \frac{dq_2}{dt} = +i\)</span> 代入：
+  $$
+  R\frac{di}{dt} + \left(\frac{1}{C_1} + \frac{1}{C_2}\right)i = 0 \implies \frac{di}{dt} + \frac{i}{\tau} = 0, \qquad \text{其中等效时间常数 } \tau = \frac{C_1 C_2}{C_1 + C_2}R = C_{\text{series}}R
+  $$
+  结合初始电流 <span class="arithmatex">\(i(0) = \frac{V_1 - V_2}{R}\)</span>，立即解得：
+  $$
+  i(t) = \frac{V_1 - V_2}{R} e^{-t/\tau}
+  $$
+  对 <span class="arithmatex">\(i(t)\)</span> 积分可得两极板电荷量随时间的演化：
+  $$
+  \begin{aligned}
+  q_1(t) &amp;= C_1 V_1 - \int_0^t i(t')\,dt' = \frac{C_1(C_1 V_1 + C_2 V_2)}{C_1 + C_2} + \frac{C_1 C_2(V_1 - V_2)}{C_1 + C_2} e^{-t/\tau} \
+  q_2(t) &amp;= C_2 V_2 + \int_0^t i(t')\,dt' = \frac{C_2(C_1 V_1 + C_2 V_2)}{C_1 + C_2} - \frac{C_1 C_2(V_1 - V_2)}{C_1 + C_2} e^{-t/\tau}
+  \end{aligned}
+  $$</li>
+<li><strong>(c) 初始储能、终态储能与电阻焦耳热积分</strong>：</li>
+<li>初始总静电能：<span class="arithmatex">\(U_i = \frac{1}{2}C_1 V_1^2 + \frac{1}{2}C_2 V_2^2\)</span>；</li>
+<li>终态总静电能：<span class="arithmatex">\(U_f = \frac{1}{2}(C_1 + C_2)V_f^2 = \frac{(C_1 V_1 + C_2 V_2)^2}{2(C_1 + C_2)}\)</span>；</li>
+<li>直接积分计算电阻 <span class="arithmatex">\(R\)</span> 上产生的总焦耳热 <span class="arithmatex">\(H\)</span>：
+    $$
+    H = \int_0^\infty i^2(t) R\,dt = \frac{(V_1 - V_2)^2}{R} \int_0^\infty e^{-2t/\tau}\,dt = \frac{(V_1 - V_2)^2}{R} \cdot \frac{\tau}{2} = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2
+    $$
+  另一方面，计算初末静电能之差：
+  $$
+  U_i - U_f = \frac{1}{2}C_1 V_1^2 + \frac{1}{2}C_2 V_2^2 - \frac{(C_1 V_1 + C_2 V_2)^2}{2(C_1 + C_2)} = \frac{C_1 C_2(V_1^2 - 2V_1 V_2 + V_2^2)}{2(C_1 + C_2)} = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2 = H
+  $$
+  由此严格证得 <span class="arithmatex">\(H = U_i - U_f\)</span>，且总耗散热量 <span class="arithmatex">\(H\)</span> <strong>与连接电阻 <span class="arithmatex">\(R\)</span> 的阻值大小完全无关</strong>（<span class="arithmatex">\(R\)</span> 越小，放电峰值电流越大但持续时间 <span class="arithmatex">\(\tau\)</span> 越短，积分总热量恒定不变）。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

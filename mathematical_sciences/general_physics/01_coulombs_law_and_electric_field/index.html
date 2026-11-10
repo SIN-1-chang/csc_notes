@@ -1,0 +1,2426 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02_continuous_charge_and_gauss_law/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>01 库仑定律与电场 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-coulombs-law-and-the-electric-field" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 库仑定律与电场
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-charge-and-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电荷与材料分类 (Electric Charge and Materials)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电荷与材料分类 (Electric Charge and Materials)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-insulators-and-conductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 绝缘体与导体 (Insulators and Conductors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-fundamental-properties-of-electric-charge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电荷的三大基本性质 (Fundamental Properties of Electric Charge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-coulombs-law-and-principle-of-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 库仑定律与叠加原理 (Coulomb's Law and Principle of Superposition)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 库仑定律与叠加原理 (Coulomb&#39;s Law and Principle of Superposition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 库仑定律的矢量形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-principle-of-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 叠加原理 (Principle of Superposition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-electric-field-and-electric-field-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电场与电场线 (The Electric Field and Electric Field Lines)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电场与电场线 (The Electric Field and Electric Field Lines)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 场的物理概念与电场定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-electric-field-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电场线 (Electric Field Lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-electric-dipole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 电偶极子 (Electric Dipole)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 电偶极子 (Electric Dipole)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电偶极矩与轴线/一般位置电场推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dipole-in-an-external-electric-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 外电场中的电偶极子 (Dipole in an External Electric Field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-continuous-charge-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 连续电荷分布与积分计算 (Continuous Charge Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-1-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 1 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-charge-and-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 电荷与材料分类 (Electric Charge and Materials)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 电荷与材料分类 (Electric Charge and Materials)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-insulators-and-conductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 绝缘体与导体 (Insulators and Conductors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-fundamental-properties-of-electric-charge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 电荷的三大基本性质 (Fundamental Properties of Electric Charge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-coulombs-law-and-principle-of-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 库仑定律与叠加原理 (Coulomb's Law and Principle of Superposition)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 库仑定律与叠加原理 (Coulomb&#39;s Law and Principle of Superposition)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 库仑定律的矢量形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-principle-of-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 叠加原理 (Principle of Superposition)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-electric-field-and-electric-field-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 电场与电场线 (The Electric Field and Electric Field Lines)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 电场与电场线 (The Electric Field and Electric Field Lines)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 场的物理概念与电场定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-electric-field-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 电场线 (Electric Field Lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-electric-dipole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 电偶极子 (Electric Dipole)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 电偶极子 (Electric Dipole)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 电偶极矩与轴线/一般位置电场推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dipole-in-an-external-electric-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 外电场中的电偶极子 (Dipole in an External Electric Field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-continuous-charge-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 连续电荷分布与积分计算 (Continuous Charge Distribution)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chapter-1-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Chapter 1 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-1-coulombs-law-and-the-electric-field">Chapter 1: Coulomb's Law and the Electric Field（库仑定律与电场）<a class="headerlink" href="#chapter-1-coulombs-law-and-the-electric-field" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第一章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 1: <em>Coulomb's Law and the Electric Field</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 1 &amp; Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapters 25 &amp; 26</li>
+</ul>
+</div>
+<h2 id="1-electric-charge-and-materials">1 电荷与材料分类 (Electric Charge and Materials)<a class="headerlink" href="#1-electric-charge-and-materials" title="Permanent link">&para;</a></h2>
+<h3 id="11-insulators-and-conductors">1.1 绝缘体与导体 (Insulators and Conductors)<a class="headerlink" href="#11-insulators-and-conductors" title="Permanent link">&para;</a></h3>
+<p>所有物质均由原子（Atoms）构成，每个原子由带正电的原子核（Nucleus，含质子 Protons）和周围带负电的电子（Electrons）组成。根据电荷在材料内部能否自由移动，可将材料分为四类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">材料类型（中英对照）</th>
+<th style="text-align: left;">物理特征说明</th>
+<th style="text-align: left;">典型代表材料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>绝缘体（Insulators）</strong></td>
+<td style="text-align: left;">电荷无法在其中自由移动</td>
+<td style="text-align: left;">橡胶、塑料、玻璃、化学纯水（Chemically pure water）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>导体（Conductors）</strong></td>
+<td style="text-align: left;">电荷可以在其中相当自由地移动</td>
+<td style="text-align: left;">金属（<span class="arithmatex">\(\text{Cu}, \text{Al}\)</span> 等）、人体、自来水（Tap water）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>半导体（Semiconductors）</strong></td>
+<td style="text-align: left;">导电性能介于导体与绝缘体之间</td>
+<td style="text-align: left;">硅（<span class="arithmatex">\(\text{Si}\)</span>）、砷化镓（<span class="arithmatex">\(\text{GaAs}\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>超导体（Superconductors）</strong></td>
+<td style="text-align: left;">理想导体（Perfect conductors），电荷移动不受任何阻碍</td>
+<td style="text-align: left;">低温超导材料</td>
+</tr>
+</tbody>
+</table>
+<p><strong>导体导电的微观机制</strong>：当铜等金属原子结合形成固体时，部分外层电子脱离原子核束缚，可以在固体内部自由游走，称为<strong>传导电子</strong>（Conduction Electrons），而留在原处的原子则成为带正电的<strong>正离子</strong>（Positive Ions）。</p>
+<h3 id="12-fundamental-properties-of-electric-charge">1.2 电荷的三大基本性质 (Fundamental Properties of Electric Charge)<a class="headerlink" href="#12-fundamental-properties-of-electric-charge" title="Permanent link">&para;</a></h3>
+<p>自然界只存在两种电荷，由本杰明·富兰克林（Benjamin Franklin）命名为<strong>正电荷</strong>（Positive Charge）和<strong>负电荷</strong>（Negative Charge）。同号电荷相互排斥（Repel），异号电荷相互吸引（Attract）。物体内部所有正负电荷的代数和称为<strong>净电荷</strong>（Net Charge）；若净电荷为零，则称该物体是<strong>电中性的</strong>（Charge Neutral / Electrically Neutral）。</p>
+<p>电荷具有以下三个至关重要的基本物理性质：</p>
+<ol>
+<li><strong>电荷量子化（Quantization of Electric Charge）</strong>：
+   电荷只能取分立的离散值，任何正负电荷量 <span class="arithmatex">\(q\)</span> 都必然是某个基本常数的整数倍：
+   $<span class="arithmatex">\(q = ne \qquad (n \in \mathbb{Z})\)</span>$
+   其中 <span class="arithmatex">\(e = 1.602 \times 10^{-19}\text{ C}\)</span> 称为<strong>元电荷</strong>（Elementary Charge）。一个质子携带 <span class="arithmatex">\(+e\)</span> 电荷，一个电子携带 <span class="arithmatex">\(-e\)</span> 电荷（注：夸克 Quarks 携带 <span class="arithmatex">\(\pm e/3\)</span> 和 <span class="arithmatex">\(\pm 2e/3\)</span> 分数电荷，但从不单独自由存在）。</li>
+<li><strong>电荷守恒定律（Conservation of Charge）</strong>：
+   电荷可以从一个物体转移到另一个物体，也可以被产生（Created）或湮灭（Annihilated），但正负电荷必须<strong>等量同时产生或同时湮灭</strong>，孤立系统的净电荷总量保持不变（例如电子-正电子对 <span class="arithmatex">\(\text{e}^-\text{e}^+\)</span> 湮灭为两个不带电的 <span class="arithmatex">\(\gamma\)</span> 射线光子）。</li>
+<li><strong>洛伦兹不变性（Lorentz Invariance）</strong>：
+   物体的电荷量不随物体运动速度或参考系的改变而变化（这与狭义相对论中随速度变化的相对论质量 Relativistic Mass 形成鲜明对比）。</li>
+</ol>
+<details>
+<summary>拓展阅读：密立根油滴实验（Millikan's Oil-Drop Experiment）与费曼“草包族科学”</summary>
+<ul>
+<li><strong>实验原理</strong>：1897 年 J. J. Thomson 发现了电子并测出了电子的<strong>荷质比</strong>（Charge-to-mass ratio）。随后 R. A. Millikan 与其学生 H. Fletcher 通过著名的<strong>油滴实验</strong>（Oil-drop experiment，获 1923 年诺贝尔物理学奖）首次精确测定了元电荷 <span class="arithmatex">\(e\)</span>。实验中，带不同电荷量 <span class="arithmatex">\(q\)</span> 的微小油滴进入平行板匀强电场区域，同时受到重力（Gravitational force）、空气浮力（Buoyancy force）、空气粘滞阻力（Drag force）与电场力（Electric force）的作用，通过显微镜观测其平衡或匀速运动速度即可反推 <span class="arithmatex">\(q\)</span>。</li>
+<li><strong>科学史启示（Cargo Cult Science）</strong>：费曼（R. Feynman）在加州理工学院毕业演讲中指出，密立根当年测得的 <span class="arithmatex">\(e = 1.592 \times 10^{-19}\text{ C}\)</span> 略低于真实值（<span class="arithmatex">\(1.602 \times 10^{-19}\text{ C}\)</span>），原因是他使用了错误的空气粘滞系数（Viscosity of air）。有趣的是，此后数十年间后人测得的数值随年份缓慢爬升而非一步到位，因为实验者一旦测出比密立根大得多的数值就会怀疑自己出错并寻找借口剔除数据。费曼借此告诫科学研究者：<em>“第一原则是你绝不能欺骗自己，而你自己正是最容易被欺骗的人。”</em></li>
+</ul>
+</details>
+<hr />
+<h2 id="2-coulombs-law-and-principle-of-superposition">2 库仑定律与叠加原理 (Coulomb's Law and Principle of Superposition)<a class="headerlink" href="#2-coulombs-law-and-principle-of-superposition" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 库仑定律的矢量形式<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>对于两个静止的<strong>点电荷</strong>（Point Charges，即物理尺寸远小于考察距离的理想化带电体），电荷 <span class="arithmatex">\(1\)</span> 对电荷 <span class="arithmatex">\(2\)</span> 施加的<strong>静电力 / 库仑力</strong>（Electrostatic Force / Coulomb Force）的完整矢量形式为：</p>
+<div class="arithmatex">\[\vec{F}_{12} = k \frac{q_1 q_2}{r_{12}^2} \hat{r}_{12} = \frac{1}{4\pi\epsilon_0} \frac{q_1 q_2}{r_{12}^2} \hat{r}_{12}\]</div>
+<p>公式中各物理量的严格定义如下：</p>
+<ul>
+<li><span class="arithmatex">\(\vec{F}_{12}\)</span>：施力者为颗粒 <span class="arithmatex">\(1\)</span>、受力者为颗粒 <span class="arithmatex">\(2\)</span> 的库仑力矢量；</li>
+<li><span class="arithmatex">\(r_{12} = \vert{}\vec{r}_2 - \vec{r}_1\vert{}\)</span>：颗粒 <span class="arithmatex">\(1\)</span> 与颗粒 <span class="arithmatex">\(2\)</span> 之间的距离；</li>
+<li><span class="arithmatex">\(\hat{r}_{12} = \dfrac{\vec{r}_{12}}{r_{12}} = \dfrac{\vec{r}_2 - \vec{r}_1}{\vert{}\vec{r}_2 - \vec{r}_1\vert{}}\)</span>：<strong>由颗粒 <span class="arithmatex">\(1\)</span> 指向颗粒 <span class="arithmatex">\(2\)</span> 的单位矢量</strong>（Unit Vector）；</li>
+<li><span class="arithmatex">\(k = \dfrac{1}{4\pi\epsilon_0} \approx 8.99 \times 10^9\text{ N}\cdot\text{m}^2/\text{C}^2\)</span>：<strong>静电力常量</strong>（Electrostatic Constant）；</li>
+<li><span class="arithmatex">\(\epsilon_0 \approx 8.85 \times 10^{-12}\text{ C}^2/(\text{N}\cdot\text{m}^2)\)</span>：<strong>真空介电常数</strong>（Permittivity Constant，引入 <span class="arithmatex">\(4\pi\epsilon_0\)</span> 是为了简化后续的麦克斯韦方程组）。</li>
+</ul>
+<h3 id="22-principle-of-superposition">2.2 叠加原理 (Principle of Superposition)<a class="headerlink" href="#22-principle-of-superposition" title="Permanent link">&para;</a></h3>
+<p>当空间存在 <span class="arithmatex">\(N\)</span> 个静止点电荷时，任意两电荷间的相互作用力不受其他电荷存在的影响。因此，第 <span class="arithmatex">\(i\)</span> 个点电荷 <span class="arithmatex">\(q_i\)</span> 所受的总静电力 <span class="arithmatex">\(\vec{F}_i\)</span> 等于其余所有点电荷对它单独作用的库仑力的<strong>矢量和</strong>（Vector Sum）：</p>
+<div class="arithmatex">\[\vec{F}_i = \sum_{j \neq i} \vec{F}_{ji} = \frac{1}{4\pi\epsilon_0} \sum_{j \neq i} \frac{q_j q_i}{r_{ji}^2} \hat{r}_{ji}\]</div>
+<hr />
+<h2 id="3-the-electric-field-and-electric-field-lines">3 电场与电场线 (The Electric Field and Electric Field Lines)<a class="headerlink" href="#3-the-electric-field-and-electric-field-lines" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 场的物理概念与电场定义<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>为了克服经典的<strong>超距作用</strong>（Action at a Distance）困难，法拉第与麦克斯韦引入了<strong>场</strong>（Field）的概念：场是空间位置与时间的函数，用于描述某种物理量的空间分布（如温度场、压强场等<strong>标量场 Scalar Fields</strong>，以及流速场、力场等<strong>矢量场 Vector Fields</strong>）。电荷 <span class="arithmatex">\(1\)</span> 在周围时空中建立起<strong>电场</strong>（Electric Field），当电荷 <span class="arithmatex">\(2\)</span> 置于某点时，便受到该点电场的局域作用力（且电场的变化在空间传播需要时间）。</p>
+<p><strong>电场的数学定义</strong>：将一微小的正<strong>检验电荷</strong>（Test Charge）<span class="arithmatex">\(q_0\)</span> 置于空间位置 <span class="arithmatex">\(\vec{r}\)</span> 处，若它受到的静电力为 <span class="arithmatex">\(\vec{F}\)</span>，则该点的电场强度 <span class="arithmatex">\(\vec{E}(\vec{r})\)</span> 定义为：</p>
+<div class="arithmatex">\[\vec{E}(\vec{r}) = \frac{\vec{F}}{q_0}\]</div>
+<div class="admonition note">
+<p class="admonition-title">思考题解析：为什么要求检验电荷 <span class="arithmatex">\(q_0\)</span> 足够“小”（Small）？</p>
+<p>这里的“小”包含两层物理含义：</p>
+<ol>
+<li><strong>空间尺寸足够小（Small physical size）</strong>：使其可以被视为理想点电荷，从而精确探测空间某单一几何点 <span class="arithmatex">\(\vec{r}\)</span> 处的局域场强；</li>
+<li><strong>所带电荷量足够小（Small amount of charge）</strong>：防止检验电荷自身的电场对原本的源电荷（Source charges）分布产生反作用（极化或位移），确保测得的是未受扰动的原电场。</li>
+</ol>
+</div>
+<p>由库仑定律与叠加原理，位于原点的单个点电荷 <span class="arithmatex">\(q\)</span> 以及位于 <span class="arithmatex">\(\vec{r}_1, \dots, \vec{r}_N\)</span> 的点电荷系在位置 <span class="arithmatex">\(\vec{r}\)</span> 处产生的电场分别为：</p>
+<div class="arithmatex">\[\vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{q}{r^2} \hat{r}, \qquad \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \sum_{i=1}^N \frac{q_i}{\vert{}\vec{r} - \vec{r}_i\vert{}^3} (\vec{r} - \vec{r}_i)\]</div>
+<p>当一个带电粒子 <span class="arithmatex">\(q\)</span>（含正负号）置于外电场（External Field）<span class="arithmatex">\(\vec{E}\)</span> 中时，所受静电力为 <span class="arithmatex">\(\vec{F} = q\vec{E}\)</span>（正电荷受力与 <span class="arithmatex">\(\vec{E}\)</span> 同向，负电荷受力与 <span class="arithmatex">\(\vec{E}\)</span> 反向）。</p>
+<h3 id="32-electric-field-lines">3.2 电场线 (Electric Field Lines)<a class="headerlink" href="#32-electric-field-lines" title="Permanent link">&para;</a></h3>
+<p>法拉第引入<strong>电场线</strong>（Electric Field Lines）来直观可视化电场，其性质类似于理想不可压缩流体中的<strong>流线</strong>（Streamlines，满足连续性方程 Equation of Continuity）。绘制与理解电场线需遵循三条基本规则：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">规则编号</th>
+<th style="text-align: left;">核心物理准则</th>
+<th style="text-align: left;">推论与几何意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>规则 1（起止点）</strong></td>
+<td style="text-align: left;">电场线总是从<strong>正电荷</strong>（或无穷远处）出发（Originate），终止（Terminate）于<strong>负电荷</strong>（或无穷远处）</td>
+<td style="text-align: left;">正电荷相当于流体的“源”（Source），负电荷相当于“汇”（Drain）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>规则 2（切线方向）</strong></td>
+<td style="text-align: left;">空间任意一点处电场线的<strong>切线方向</strong>（Tangent direction）即为该点电场矢量 <span class="arithmatex">\(\vec{E}\)</span> 的方向</td>
+<td style="text-align: left;">在无电荷的单点处电场方向唯一，因此<strong>两条电场线绝不会相交（Never cross）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>规则 3（疏密程度）</strong></td>
+<td style="text-align: left;">在垂直于电场线的截面上，电场线的<strong>相对数密度</strong>（Density of lines）正比于该处电场强度的大小 <span class="arithmatex">\(\vert{}\vec{E}\vert{}\)</span></td>
+<td style="text-align: left;">电场线越密集处场强越大，越稀疏处场强越小</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-electric-dipole">4 电偶极子 (Electric Dipole)<a class="headerlink" href="#4-electric-dipole" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 电偶极矩与轴线/一般位置电场推导<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p><strong>电偶极子</strong>（Electric Dipole）是由两个电量相等（均为 <span class="arithmatex">\(q&gt;0\)</span>）、符号相反（<span class="arithmatex">\(\pm q\)</span>）、相距微小距离 <span class="arithmatex">\(d\)</span> 的点电荷组成的特殊系统。定义位移矢量 <span class="arithmatex">\(\vec{d}\)</span> 的方向为<strong>从负电荷 <span class="arithmatex">\(-q\)</span> 指向正电荷 <span class="arithmatex">\(+q\)</span></strong>，则系统的<strong>电偶极矩</strong>（Electric Dipole Moment）定义为：</p>
+<div class="arithmatex">\[\vec{p} = q\vec{d}\]</div>
+<p>理想的电偶极子（Ideal Dipole）是指在保持电偶极矩 <span class="arithmatex">\(\vec{p} = q\vec{d}\)</span> 不变的条件下，令间距 <span class="arithmatex">\(d \to 0\)</span> 的极限系统。</p>
+<p><strong>1. 偶极子轴线上的远场（On-Axis Field，<span class="arithmatex">\(z \gg d\)</span>）</strong></p>
+<p>设偶极子中心位于原点，沿 <span class="arithmatex">\(z\)</span> 轴放置，在距离中心为 <span class="arithmatex">\(z \ (z \gg d)\)</span> 的轴线点 <span class="arithmatex">\(P\)</span> 处，利用泰勒展开 <span class="arithmatex">\((1 \mp \frac{d}{2z})^{-2} \approx 1 \pm \frac{d}{z}\)</span> 可得：</p>
+<div class="arithmatex">\[E_z = \frac{q}{4\pi\epsilon_0\left(z - \frac{1}{2}d\right)^2} - \frac{q}{4\pi\epsilon_0\left(z + \frac{1}{2}d\right)^2} = \frac{q}{4\pi\epsilon_0 z^2}\left[\left(1 - \frac{d}{2z}\right)^{-2} - \left(1 + \frac{d}{2z}\right)^{-2}\right] \approx \frac{1}{2\pi\epsilon_0} \frac{p}{z^3}\]</div>
+<p><strong>2. 空间任意点的一般矢量公式（General Vector Formula，<span class="arithmatex">\(r \gg d\)</span>）</strong></p>
+<p>设 <span class="arithmatex">\(+q\)</span> 位于 <span class="arithmatex">\(+\vec{d}/2\)</span>，<span class="arithmatex">\(-q\)</span> 位于 <span class="arithmatex">\(-\vec{d}/2\)</span>，空间观测点位于 <span class="arithmatex">\(\vec{r} \ (r \gg d)\)</span>。由叠加原理：</p>
+<div class="arithmatex">\[\vec{E}(\vec{r}) = \frac{q}{4\pi\epsilon_0} \left( \frac{\vec{r} - \frac{\vec{d}}{2}}{\left\vert{}\vec{r} - \frac{\vec{d}}{2}\right\vert{}^3} - \frac{\vec{r} + \frac{\vec{d}}{2}}{\left\vert{}\vec{r} + \frac{\vec{d}}{2}\right\vert{}^3} \right)\]</div>
+<p>当 <span class="arithmatex">\(d \ll r\)</span> 时，忽略 <span class="arithmatex">\(d^2/4\)</span> 二阶小量并利用广义二项式展开 <span class="arithmatex">\((1 + x)^{-3/2} \approx 1 - \frac{3}{2}x\)</span>：</p>
+<div class="arithmatex">\[\left\vert{}\vec{r} \mp \frac{\vec{d}}{2}\right\vert{}^{-3} = \left(r^2 \mp \vec{r}\cdot\vec{d} + \frac{d^2}{4}\right)^{-3/2} = r^{-3}\left(1 \mp \frac{\vec{r}\cdot\vec{d}}{r^2}\right)^{-3/2} \approx r^{-3}\left(1 \pm \frac{3}{2}\frac{\vec{r}\cdot\vec{d}}{r^2}\right)\]</div>
+<p>代入原式并保留关于 <span class="arithmatex">\(\vec{d}\)</span> 的一阶主项（注意到 <span class="arithmatex">\(q\vec{d} = \vec{p}\)</span> 且 <span class="arithmatex">\(\hat{r} = \vec{r}/r\)</span>），即得<strong>电偶极子在空间任意远点处的电场矢量通式</strong>：</p>
+<div class="arithmatex">\[\vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{1}{r^3} \left[ 3(\vec{p}\cdot\hat{r})\hat{r} - \vec{p} \right]\]</div>
+<div class="admonition tip">
+<p class="admonition-title">物理图像：为什么电偶极子的电场按 <span class="arithmatex">\(1/r^3\)</span> 衰减？</p>
+<p>单个点电荷的电场按 <span class="arithmatex">\(1/r^2\)</span> 衰减；但从远处（<span class="arithmatex">\(r \gg d\)</span>）观察电偶极子时，正负电荷 <span class="arithmatex">\(+q\)</span> 与 <span class="arithmatex">\(-q\)</span> 几乎重合，它们产生的 <span class="arithmatex">\(1/r^2\)</span> 领头阶（Leading order）电场相互抵消，剩余的净电场由间距 <span class="arithmatex">\(d\)</span> 引起的一阶修正项主导，因此随距离按 <span class="arithmatex">\(1/r^3\)</span> 快速衰减。</p>
+</div>
+<h3 id="42-dipole-in-an-external-electric-field">4.2 外电场中的电偶极子 (Dipole in an External Electric Field)<a class="headerlink" href="#42-dipole-in-an-external-electric-field" title="Permanent link">&para;</a></h3>
+<p>将电偶极子 <span class="arithmatex">\(\vec{p} = q\vec{d}\)</span> 置于<strong>匀强外电场</strong>（Uniform Electric Field）<span class="arithmatex">\(\vec{E}\)</span> 中：</p>
+<ol>
+<li><strong>净平动力为零</strong>：正负电荷所受电场力分别为 <span class="arithmatex">\(\vec{F}_+ = +q\vec{E}\)</span> 与 <span class="arithmatex">\(\vec{F}_- = -q\vec{E}\)</span>，合力 <span class="arithmatex">\(\vec{F}_{\text{net}} = 0\)</span>，因此偶极子的质心（Center of mass）不会发生平动。</li>
+<li><strong>合力矩（Net Torque）</strong>：设 <span class="arithmatex">\(\vec{p}\)</span> 与 <span class="arithmatex">\(\vec{E}\)</span> 夹角为 <span class="arithmatex">\(\theta\)</span>，一对等大反向的力对质心产生恢复力矩 <span class="arithmatex">\(\tau = -Fd\sin\theta = -pE\sin\theta\)</span>，写成矢量叉乘形式为：
+   $<span class="arithmatex">\(\vec{\tau} = \vec{p} \times \vec{E}\)</span>$
+   该力矩总是试图将电偶极矩 <span class="arithmatex">\(\vec{p}\)</span> 旋转到与外电场 <span class="arithmatex">\(\vec{E}\)</span> 一致的方向（即减小夹角 <span class="arithmatex">\(\theta\)</span>）。若置于非匀强电场中，偶极子除受力矩外还会受到净平动力 <span class="arithmatex">\(\vec{F} = (\vec{p}\cdot\nabla)\vec{E}\)</span>。</li>
+</ol>
+<hr />
+<h2 id="5-continuous-charge-distribution">5 连续电荷分布与积分计算 (Continuous Charge Distribution)<a class="headerlink" href="#5-continuous-charge-distribution" title="Permanent link">&para;</a></h2>
+<p>在宏观尺度下，包含海量元电荷的带电体可视为<strong>连续电荷分布</strong>（Continuous Charge Distribution）。采用微元法（Slicing into infinitesimal charge elements <span class="arithmatex">\(dq\)</span>），点电荷 <span class="arithmatex">\(q_0\)</span> 所受库仑力与空间位置 <span class="arithmatex">\(\vec{r}\)</span> 处的电场强度转化为积分形式：</p>
+<div class="arithmatex">\[\vec{F}_0 = \frac{1}{4\pi\epsilon_0} \int_q \frac{q_0\,dq}{r_q^2} \hat{r}_q, \qquad \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int_q \frac{dq}{r_q^2} \hat{r}_q\]</div>
+<p>其中 <span class="arithmatex">\(r_q\)</span> 为电荷微元 <span class="arithmatex">\(dq\)</span> 到场点 <span class="arithmatex">\(\vec{r}\)</span> 的距离，<span class="arithmatex">\(\hat{r}_q\)</span> 为从 <span class="arithmatex">\(dq\)</span> 指向场点的单位矢量。根据带电体的维度，电荷微元 <span class="arithmatex">\(dq\)</span> 可分别表示为线电荷密度 <span class="arithmatex">\(\lambda\,dl\)</span>、面电荷密度 <span class="arithmatex">\(\sigma\,dS\)</span> 或体电荷密度 <span class="arithmatex">\(\rho\,dV\)</span>。</p>
+<p><strong>经典模型（Example 1.1）：均匀带电圆盘轴线上的电场（Uniformly Charged Disk）</strong></p>
+<p>设半径为 <span class="arithmatex">\(R\)</span> 的圆盘均匀携带总电荷 <span class="arithmatex">\(Q&gt;0\)</span>，面电荷密度（Surface charge density）为 <span class="arithmatex">\(\sigma = \frac{Q}{\pi R^2}\)</span>。求圆盘中心轴线上距盘心为 <span class="arithmatex">\(z \ (z &gt; 0)\)</span> 的点 <span class="arithmatex">\(P\)</span> 处的电场：</p>
+<ol>
+<li><strong>取微元</strong>：在极坐标 <span class="arithmatex">\((r, \phi)\)</span> 下，取半径 <span class="arithmatex">\(r \to r+dr\)</span>、方位角 <span class="arithmatex">\(\phi \to \phi+d\phi\)</span> 的面元 <span class="arithmatex">\(dS = r\,dr\,d\phi\)</span>，电荷微元为 <span class="arithmatex">\(dq = \sigma r\,dr\,d\phi\)</span>，到点 <span class="arithmatex">\(P\)</span> 的距离为 <span class="arithmatex">\(r_q = \sqrt{z^2 + r^2}\)</span>。</li>
+<li><strong>对称性简化</strong>：由轴对称性（Axial symmetry），垂直于 <span class="arithmatex">\(z\)</span> 轴的径向分量两两抵消，只需积分沿 <span class="arithmatex">\(z\)</span> 轴的分量 <span class="arithmatex">\(dE_z = \frac{1}{4\pi\epsilon_0}\frac{dq}{r_q^2}\cos\theta = \frac{1}{4\pi\epsilon_0}\frac{\sigma z r\,dr\,d\phi}{(z^2+r^2)^{3/2}}\)</span>。</li>
+<li><strong>二重积分求解</strong>：
+   $<span class="arithmatex">\(E_z = \frac{\sigma z}{4\pi\epsilon_0} \int_0^R dr \int_0^{2\pi} d\phi \frac{r}{(z^2 + r^2)^{3/2}} = \frac{\sigma z}{2\epsilon_0} \int_0^R \frac{r\,dr}{(z^2 + r^2)^{3/2}} = \frac{\sigma}{2\epsilon_0}\left(1 - \frac{z}{\sqrt{z^2 + R^2}}\right)\)</span>$
+   （当 <span class="arithmatex">\(R \to \infty\)</span> 时，<span class="arithmatex">\(E_z \to \frac{\sigma}{2\epsilon_0}\)</span>，即退化为无限大均匀带电平板的匀强电场）。</li>
+</ol>
+<details>
+<summary>数学附录：物理学中的泰勒多项式展开与矢量代数（Appendix 1B &amp; 1C）</summary>
+<p><strong>1. 常用麦克劳林级数展开（Maclaurin Series，适用于 <span class="arithmatex">\(\vert{}x\vert{} \ll 1\)</span>）</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">函数形式</th>
+<th style="text-align: left;">多项式近似展开式（保留至领头修正项）</th>
+<th style="text-align: left;">远场大参数展开示例（当 <span class="arithmatex">\(z \gg a\)</span> 时，提取 <span class="arithmatex">\(1/z\)</span>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\((1 + x)^n\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1 + nx + \dfrac{n(n-1)}{2}x^2 + \cdots\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{(z+a)^2} = \dfrac{1}{z^2(1 + a/z)^2} \approx \dfrac{1}{z^2}\left(1 - \dfrac{2a}{z}\right) = \dfrac{1}{z^2} - \dfrac{2a}{z^3}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{1 + x}\)</span> 及 <span class="arithmatex">\(\sqrt{1 + x}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1 - x + x^2 - \cdots\)</span> 及 <span class="arithmatex">\(1 + \dfrac{x}{2} - \dfrac{x^2}{8} + \cdots\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\dfrac{1}{\sqrt{z^2 + a^2}} = \dfrac{1}{z}\left(1 + \dfrac{a^2}{z^2}\right)^{-1/2} \approx \dfrac{1}{z}\left(1 - \dfrac{a^2}{2z^2}\right)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(e^x\)</span> 及 <span class="arithmatex">\(\ln(1+x)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(1 + x + \dfrac{x^2}{2} + \cdots\)</span> 及 <span class="arithmatex">\(x - \dfrac{x^2}{2} + \cdots\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sin x = x - \dfrac{x^3}{6} + \cdots, \quad \cos x = 1 - \dfrac{x^2}{2} + \cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 矢量点乘与叉乘（Dot Product &amp; Cross Product）</strong></p>
+<ul>
+<li><strong>点乘（标量积）</strong>：<span class="arithmatex">\(\vec{A}\cdot\vec{B} \equiv AB\cos\theta\)</span>。满足交换律 <span class="arithmatex">\(\vec{A}\cdot\vec{B} = \vec{B}\cdot\vec{A}\)</span> 与分配律；若 <span class="arithmatex">\(\vec{A} \perp \vec{B}\)</span>，则 <span class="arithmatex">\(\vec{A}\cdot\vec{B} = 0\)</span>；特别地 <span class="arithmatex">\(\vec{A}\cdot\vec{A} = A^2\)</span>。</li>
+<li><strong>叉乘（矢量积）</strong>：<span class="arithmatex">\(\vec{A}\times\vec{B} \equiv AB\sin\theta\,\hat{n}\)</span>（方向由右手定则 Right-hand rule 确定）。满足<strong>反交换律</strong>（Anti-commutative）<span class="arithmatex">\(\vec{A}\times\vec{B} = -\vec{B}\times\vec{A}\)</span>；模长 <span class="arithmatex">\(\vert{}\vec{A}\times\vec{B}\vert{}\)</span> 等于以 <span class="arithmatex">\(\vec{A}, \vec{B}\)</span> 为邻边的平行四边形面积；特别地 <span class="arithmatex">\(\vec{A}\times\vec{A} = \vec{0}\)</span>。</li>
+</ul>
+</details>
+<hr />
+<h2 id="6-chapter-1-selected-exercises">6 Chapter 1 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#6-chapter-1-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 1.1: Electric Quadrupole（电四极子的远场展开）</summary>
+<p><strong>Problem Statement:</strong>
+An electric quadrupole can be viewed as 4 point charges at 4 corners of a square of side <span class="arithmatex">\(a\)</span>, a pair of <span class="arithmatex">\(+q\)</span> located at one of the diagonals, and a pair of <span class="arithmatex">\(-q\)</span> located at the other. Suppose <span class="arithmatex">\(a\)</span> is small but <span class="arithmatex">\(\Omega = qa^2\)</span> is finite. Use <span class="arithmatex">\(\Omega\)</span> to express the electric field generated by this quadrupole at <span class="arithmatex">\(P\)</span>:
+(a) <span class="arithmatex">\(P\)</span> is located along the diagonal of <span class="arithmatex">\(-q\)</span>'s, and at distance <span class="arithmatex">\(x\)</span> away from the center of the square.
+(b) <span class="arithmatex">\(P\)</span> is located along the axis perpendicular to one of the edges and through the center, and at distance <span class="arithmatex">\(x\)</span> away from the center of the square.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>(a) 点 <span class="arithmatex">\(P\)</span> 位于两个 <span class="arithmatex">\(-q\)</span> 所在的对角线延长线上（距中心 <span class="arithmatex">\(x \gg a\)</span>）</strong>：
+以正方形中心为原点，令两个 <span class="arithmatex">\(-q\)</span> 所在的对角线为 <span class="arithmatex">\(x\)</span> 轴，另一个对角线（两个 <span class="arithmatex">\(+q\)</span>）为 <span class="arithmatex">\(y\)</span> 轴。记半对角线长为 <span class="arithmatex">\(d = \frac{a}{\sqrt{2}}\)</span>，则 <span class="arithmatex">\(d^2 = \frac{a^2}{2}\)</span>，且四极矩参数满足 <span class="arithmatex">\(\Omega = qa^2 = 2qd^2\)</span>。
+四个电荷的坐标分别为：<span class="arithmatex">\(-q\)</span> 位于 <span class="arithmatex">\((\pm d, 0)\)</span>，<span class="arithmatex">\(+q\)</span> 位于 <span class="arithmatex">\((0, \pm d)\)</span>。由对称性，点 <span class="arithmatex">\(P(x, 0)\)</span> 处的电场只有 <span class="arithmatex">\(x\)</span> 分量：</p>
+<div class="arithmatex">\[
+E_x = \frac{q}{4\pi\epsilon_0} \left[ -\frac{1}{(x - d)^2} - \frac{1}{(x + d)^2} + \frac{2x}{(x^2 + d^2)^{3/2}} \right]
+\]</div>
+<p>当 <span class="arithmatex">\(x \gg d\)</span> 时，将每一项对小量 <span class="arithmatex">\(\frac{d}{x}\)</span> 展开至二阶项 <span class="arithmatex">\((d/x)^2\)</span>：</p>
+<div class="arithmatex">\[
+(x - d)^{-2} + (x + d)^{-2} = x^{-2}\left[\left(1 - \frac{d}{x}\right)^{-2} + \left(1 + \frac{d}{x}\right)^{-2}\right] \approx x^{-2}\left[2 + 6\frac{d^2}{x^2}\right]
+\]</div>
+<div class="arithmatex">\[
+2x(x^2 + d^2)^{-3/2} = 2x^{-2}\left(1 + \frac{d^2}{x^2}\right)^{-3/2} \approx x^{-2}\left[2 - 3\frac{d^2}{x^2}\right]
+\]</div>
+<p>代入相减，常数项 <span class="arithmatex">\(2\)</span> 完全抵消，得到：</p>
+<div class="arithmatex">\[
+E_x \approx \frac{q}{4\pi\epsilon_0 x^2}\left(-9\frac{d^2}{x^2}\right) = -\frac{9qd^2}{4\pi\epsilon_0 x^4} = -\frac{9\Omega}{8\pi\epsilon_0 x^4}
+\]</div>
+<p>方向沿对角线指向正方形中心，大小为 <span class="arithmatex">\(E = \dfrac{9\Omega}{8\pi\epsilon_0 x^4}\)</span>。</p>
+<p><strong>(b) 点 <span class="arithmatex">\(P\)</span> 位于过中心且垂直于正方形某条边的轴线上（距中心 <span class="arithmatex">\(x \gg a\)</span>）</strong>：
+重新建立坐标系，使正方形四边平行于 <span class="arithmatex">\(x, y\)</span> 轴，点 <span class="arithmatex">\(P\)</span> 位于 <span class="arithmatex">\((x, 0)\)</span>。此时右半边 <span class="arithmatex">\(x' = +a/2\)</span> 处有一对异号电荷：<span class="arithmatex">\((a/2, a/2)\)</span> 处为 <span class="arithmatex">\(+q\)</span>，<span class="arithmatex">\((a/2, -a/2)\)</span> 处为 <span class="arithmatex">\(-q\)</span>，构成一个电偶极矩为 <span class="arithmatex">\(\vec{p}_1 = qa\hat{y}\)</span> 的竖直电偶极子；左半边 <span class="arithmatex">\(x' = -a/2\)</span> 处则相反，构成一个电偶极矩为 <span class="arithmatex">\(\vec{p}_2 = -qa\hat{y}\)</span> 的反向竖直电偶极子。
+由对称性，点 <span class="arithmatex">\(P(x, 0)\)</span> 处的 <span class="arithmatex">\(x\)</span> 方向场强完全抵消（<span class="arithmatex">\(E_x = 0\)</span>），只有沿 <span class="arithmatex">\(y\)</span> 方向的分量：</p>
+<div class="arithmatex">\[E_y = \frac{q}{4\pi\epsilon_0} \left[ -\frac{2(a/2)}{\left[(x - a/2)^2 + (a/2)^2\right]^{3/2}} + \frac{2(a/2)}{\left[(x + a/2)^2 + (a/2)^2\right]^{3/2}} \right]\]</div>
+<p>利用 <span class="arithmatex">\(\left[(x \mp a/2)^2 + a^2/4\right]^{-3/2} = x^{-3}\left(1 \mp \frac{a}{x} + \frac{a^2}{2x^2}\right)^{-3/2} \approx x^{-3}\left(1 \pm \frac{3a}{2x}\right)\)</span> 代入化简，得：</p>
+<div class="arithmatex">\[E_y \approx \frac{qa}{4\pi\epsilon_0 x^3}\left(-\frac{3a}{x}\right) = -\frac{3qa^2}{4\pi\epsilon_0 x^4} = -\frac{3\Omega}{4\pi\epsilon_0 x^4}\]</div>
+<p>电场方向平行于被穿过的那条边（垂直于轴线），大小为 <span class="arithmatex">\(E = \dfrac{3\Omega}{4\pi\epsilon_0 x^4}\)</span>。可以看到电四极子的远场均按 <span class="arithmatex">\(1/x^4\)</span> 衰减。</p>
+</details>
+<details>
+<summary>Exercise 1.2 &amp; 1.4: Spherical Shell and Solid Sphere by Direct Integration（直接积分求球壳与实心球电场）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 1.2</strong>: Explicitly use <span class="arithmatex">\(\vec{E} = \frac{1}{4\pi\epsilon_0} \int_q \frac{dq}{r_q^2}\hat{r}_q\)</span> to calculate the electric field generated by a uniformly charged spherical shell of radius <span class="arithmatex">\(R\)</span> carrying total charge <span class="arithmatex">\(Q\)</span>, both inside (<span class="arithmatex">\(r &lt; R\)</span>) and outside (<span class="arithmatex">\(r &gt; R\)</span>). The thickness of the shell can be ignored.
+- <strong>Ex 1.4</strong>: Explicitly use <span class="arithmatex">\(\vec{E} = \frac{1}{4\pi\epsilon_0} \int_q \frac{dq}{r_q^2}\hat{r}_q\)</span> to calculate the electric field generated by a uniformly charged solid sphere of radius <span class="arithmatex">\(R\)</span> carrying total charge <span class="arithmatex">\(Q\)</span>, both inside (<span class="arithmatex">\(r &lt; R\)</span>) and outside (<span class="arithmatex">\(r &gt; R\)</span>).</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 均匀带电薄球壳的直接积分（Exercise 1.2）</strong>：
+设球壳半径为 <span class="arithmatex">\(R\)</span>，面电荷密度 <span class="arithmatex">\(\sigma = \frac{Q}{4\pi R^2}\)</span>，场点 <span class="arithmatex">\(P\)</span> 位于 <span class="arithmatex">\(z\)</span> 轴上 <span class="arithmatex">\((0, 0, r)\)</span>。
+将球壳按极角 <span class="arithmatex">\(\theta \in [0, \pi]\)</span> 切分为细圆环，环半径为 <span class="arithmatex">\(R\sin\theta\)</span>，环宽为 <span class="arithmatex">\(R\,d\theta\)</span>，环上电荷微元为 <span class="arithmatex">\(dq = \sigma (2\pi R\sin\theta)(R\,d\theta) = \frac{Q}{2}\sin\theta\,d\theta\)</span>。
+环上各点到 <span class="arithmatex">\(P\)</span> 的距离为 <span class="arithmatex">\(s = \sqrt{r^2 + R^2 - 2rR\cos\theta}\)</span>，且夹角余弦为 <span class="arithmatex">\(\cos\alpha = \frac{r - R\cos\theta}{s}\)</span>。因此：</p>
+<div class="arithmatex">\[
+E_z(r) = \frac{1}{4\pi\epsilon_0} \int_0^\pi \frac{Q\sin\theta\,d\theta}{2s^2} \frac{r - R\cos\theta}{s} = \frac{Q}{8\pi\epsilon_0} \int_0^\pi \frac{(r - R\cos\theta)\sin\theta}{(r^2 + R^2 - 2rR\cos\theta)^{3/2}}\,d\theta
+\]</div>
+<p>作换元 <span class="arithmatex">\(s = \sqrt{r^2 + R^2 - 2rR\cos\theta}\)</span>，两边微分得 <span class="arithmatex">\(s\,ds = rR\sin\theta\,d\theta \implies \sin\theta\,d\theta = \frac{s\,ds}{rR}\)</span>，且 <span class="arithmatex">\(r - R\cos\theta = \frac{s^2 + r^2 - R^2}{2r}\)</span>。积分上下限变为 <span class="arithmatex">\(s_{\min} = |r - R|\)</span> 到 <span class="arithmatex">\(s_{\max} = r + R\)</span>：</p>
+<div class="arithmatex">\[
+E_z(r) = \frac{Q}{16\pi\epsilon_0 r^2 R} \int_{|r - R|}^{r + R} \left(1 + \frac{r^2 - R^2}{s^2}\right) ds = \frac{Q}{16\pi\epsilon_0 r^2 R} \left[ s - \frac{r^2 - R^2}{s} \right]_{|r - R|}^{r + R}
+\]</div>
+<ul>
+<li><strong>当 <span class="arithmatex">\(r &gt; R\)</span>（球壳外部）</strong>：<span class="arithmatex">\(|r - R| = r - R\)</span>，方括号计算结果为 <span class="arithmatex">\([(r+R) - (r-R)] - [(r-R) - (r+R)] = 4R\)</span>，故：
+  $$
+  \vec{E}(\vec{r}) = \frac{Q}{4\pi\epsilon_0 r^2}\hat{r} \quad (r &gt; R)
+  $$</li>
+<li><strong>当 <span class="arithmatex">\(r &lt; R\)</span>（球壳内部）</strong>：<span class="arithmatex">\(|r - R| = R - r\)</span>，方括号计算结果为 <span class="arithmatex">\([(r+R) - (r-R)] - [(R-r) - (R+r)] = 2r - 2r = 0\)</span>，故：
+  $$
+  \vec{E}(\vec{r}) = \vec{0} \quad (r &lt; R)
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 均匀带电实心球的直接积分（Exercise 1.4）</strong>：
+将半径为 <span class="arithmatex">\(R\)</span>、体电荷密度为 <span class="arithmatex">\(\rho = \frac{Q}{\frac{4}{3}\pi R^3}\)</span> 的实心球视为无数层半径为 <span class="arithmatex">\(r' \in [0, R]\)</span>、厚度为 <span class="arithmatex">\(dr'\)</span> 的同心薄球壳的叠加，每层球壳带电量为 <span class="arithmatex">\(dq(r') = 4\pi r'^2 \rho\,dr' = \frac{3Q}{R^3}r'^2\,dr'\)</span>：</p>
+<ul>
+<li><strong>当 <span class="arithmatex">\(r &gt; R\)</span>（球外）</strong>：场点位于所有薄球壳外部，每层球壳均等效于中心点电荷，积分得：
+  $$
+  \vec{E}(\vec{r}) = \frac{\hat{r}}{4\pi\epsilon_0 r^2} \int_0^R dq(r') = \frac{Q}{4\pi\epsilon_0 r^2}\hat{r}
+  $$</li>
+<li><strong>当 <span class="arithmatex">\(r &lt; R\)</span>（球内）</strong>：半径 <span class="arithmatex">\(r' &gt; r\)</span> 的外层球壳对场点贡献为零，仅有 <span class="arithmatex">\(0 \le r' \le r\)</span> 的内层球壳产生贡献：
+  $$
+  \vec{E}(\vec{r}) = \frac{\hat{r}}{4\pi\epsilon_0 r^2} \int_0^r \frac{3Q}{R^3}r'^2\,dr' = \frac{Qr}{4\pi\epsilon_0 R^3}\hat{r}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 1.3 &amp; 1.9: Dipole-Dipole Force &amp; Rigid Dipole Dynamics（偶极子间作用力与偶极子简谐振动）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 1.3</strong>: An electric dipole <span class="arithmatex">\(\vec{p}_2\)</span> is located at position <span class="arithmatex">\(\vec{r}\)</span> relative to a second dipole <span class="arithmatex">\(\vec{p}_1\)</span>, with <span class="arithmatex">\(r\)</span> much larger than the size of either dipole. Find the force exerted on <span class="arithmatex">\(\vec{p}_2\)</span> by <span class="arithmatex">\(\vec{p}_1\)</span>, expressed in terms of <span class="arithmatex">\(\vec{p}_1\)</span>, <span class="arithmatex">\(\vec{p}_2\)</span> and <span class="arithmatex">\(\vec{r}\)</span>.
+- <strong>Ex 1.9</strong>: A rigid electric dipole is made of two point charges <span class="arithmatex">\(+q\)</span> and <span class="arithmatex">\(-q\)</span>, each of mass <span class="arithmatex">\(m\)</span>, fixed at the two ends of a massless rod of length <span class="arithmatex">\(d\)</span>, so that its dipole moment has magnitude <span class="arithmatex">\(p = qd\)</span>.
+  (a) The dipole is placed in a uniform electric field <span class="arithmatex">\(\vec{E}\)</span> and released from rest at a small angle <span class="arithmatex">\(\theta_0\)</span> from the direction of <span class="arithmatex">\(\vec{E}\)</span>. Show that it rotates about its center and oscillates harmonically about the direction of <span class="arithmatex">\(\vec{E}\)</span>, and find the angular frequency of the oscillation.
+  (b) The uniform field is now replaced by the field of a point charge <span class="arithmatex">\(Q &gt; 0\)</span> fixed at the origin. The dipole sits on the <span class="arithmatex">\(z\)</span> axis at <span class="arithmatex">\(z = r \gg d\)</span>, with <span class="arithmatex">\(\vec{p} = p\hat{z}\)</span>, that is, pointing away from <span class="arithmatex">\(Q\)</span>. Find the net force on the dipole to leading order in <span class="arithmatex">\(d/r\)</span>, and verify that it is equal and opposite to the force that the dipole exerts on <span class="arithmatex">\(Q\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 两个电偶极子之间的相互作用力（Exercise 1.3）</strong>：
+将 <span class="arithmatex">\(\vec{p}_2 = q_2 \vec{d}_2\)</span> 写为位于 <span class="arithmatex">\(\vec{r} + \vec{d}_2/2\)</span> 的 <span class="arithmatex">\(+q_2\)</span> 与位于 <span class="arithmatex">\(\vec{r} - \vec{d}_2/2\)</span> 的 <span class="arithmatex">\(-q_2\)</span>。置于 <span class="arithmatex">\(\vec{p}_1\)</span> 产生的电场 <span class="arithmatex">\(\vec{E}_1(\vec{r}) = \frac{1}{4\pi\epsilon_0 r^3}[3(\vec{p}_1\cdot\hat{r})\hat{r} - \vec{p}_1]\)</span> 中，对 <span class="arithmatex">\(\vec{d}_2\)</span> 展开至一阶：</p>
+<div class="arithmatex">\[
+\vec{F}_{12} = q_2\left[\vec{E}_1\left(\vec{r} + \frac{\vec{d}_2}{2}\right) - \vec{E}_1\left(\vec{r} - \frac{\vec{d}_2}{2}\right)\right] \approx q_2(\vec{d}_2 \cdot \nabla)\vec{E}_1(\vec{r}) = (\vec{p}_2 \cdot \nabla)\vec{E}_1(\vec{r})
+\]</div>
+<p>利用矢量梯度恒等式 <span class="arithmatex">\((\vec{p}_2\cdot\nabla)\vec{r} = \vec{p}_2\)</span> 以及 <span class="arithmatex">\((\vec{p}_2\cdot\nabla)r^{-n} = -n r^{-(n+2)}(\vec{p}_2\cdot\vec{r})\)</span> 对 <span class="arithmatex">\(\vec{E}_1(\vec{r}) = \frac{1}{4\pi\epsilon_0}\left[\frac{3(\vec{p}_1\cdot\vec{r})\vec{r}}{r^5} - \frac{\vec{p}_1}{r^3}\right]\)</span> 求方向导数，整理得：</p>
+<div class="arithmatex">\[
+\vec{F}_{12} = \frac{3}{4\pi\epsilon_0 r^4}\left[ (\vec{p}_1\cdot\hat{r})\vec{p}_2 + (\vec{p}_2\cdot\hat{r})\vec{p}_1 + (\vec{p}_1\cdot\vec{p}_2)\hat{r} - 5(\vec{p}_1\cdot\hat{r})(\vec{p}_2\cdot\hat{r})\hat{r} \right]
+\]</div>
+<hr />
+<p><strong>2. 刚性电偶极子在匀强场中的微幅简谐振动与点电荷场中的受力（Exercise 1.9）</strong>：</p>
+<ul>
+<li>
+<p><strong>(a) 转动与简谐振动角频率</strong>：
+  匀强电场中合力为零，故质心静止，偶极子绕中心旋转。两个质量为 <span class="arithmatex">\(m\)</span> 的粒子距中心均为 <span class="arithmatex">\(d/2\)</span>，系统的转动惯量（Moment of inertia）为：
+  $$
+  I = 2 \times m\left(\frac{d}{2}\right)^2 = \frac{1}{2}md^2
+  $$
+  在小角度近似 <span class="arithmatex">\(\sin\theta \approx \theta\)</span> 下，转动定律 <span class="arithmatex">\(I\ddot{\theta} = \tau = -pE\sin\theta\)</span> 化为标准简谐振动方程：
+  $$
+  \frac{1}{2}md^2 \frac{d^2\theta}{dt^2} + pE\theta = 0 \implies \frac{d^2\theta}{dt^2} + \frac{2pE}{md^2}\theta = 0
+  $$
+  因此偶极子作简谐振动，其角频率为 <span class="arithmatex">\(\omega = \sqrt{\dfrac{2pE}{md^2}} = \sqrt{\dfrac{2qE}{md}}\)</span>。</p>
+</li>
+<li>
+<p><strong>(b) 点电荷场中的净力与牛顿第三定律验证</strong>：
+  原点处点电荷 <span class="arithmatex">\(Q\)</span> 在 <span class="arithmatex">\(z\)</span> 轴上产生的电场为 <span class="arithmatex">\(E_z(z) = \frac{Q}{4\pi\epsilon_0 z^2}\)</span>。偶极子所受净力为：
+  $$
+  F_z = q E_z\left(r + \frac{d}{2}\right) - q E_z\left(r - \frac{d}{2}\right) \approx qd \left.\frac{dE_z}{dz}\right|_{z=r} = p \left(-\frac{2Q}{4\pi\epsilon_0 r^3}\right) = -\frac{Qp}{2\pi\epsilon_0 r^3}
+  $$
+  即偶极子受到的净力为 <span class="arithmatex">\(\vec{F}_{\text{on dipole}} = -\dfrac{Qp}{2\pi\epsilon_0 r^3}\hat{z}\)</span>（指向原点 <span class="arithmatex">\(Q\)</span>）。
+  反之，位于 <span class="arithmatex">\(z=r\)</span> 处的偶极子 <span class="arithmatex">\(\vec{p} = p\hat{z}\)</span> 在原点（处于其轴线上距离 <span class="arithmatex">\(r\)</span> 处）产生的电场为 <span class="arithmatex">\(\vec{E}_{\text{dipole}}(0) = +\frac{p}{2\pi\epsilon_0 r^3}\hat{z}\)</span>，故偶极子对点电荷 <span class="arithmatex">\(Q\)</span> 施加的力为 <span class="arithmatex">\(\vec{F}_{\text{on } Q} = Q\vec{E}_{\text{dipole}}(0) = +\dfrac{Qp}{2\pi\epsilon_0 r^3}\hat{z}\)</span>，两者严格等大反向，满足牛顿第三定律。</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 1.6, 1.7 &amp; 1.8: Square Equilibrium, Semi-Infinite Rod &amp; Charged Rings（正方形平衡、半无限长杆与带电圆弧/圆环）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 1.6</strong>: Four identical point charges <span class="arithmatex">\(q &gt; 0\)</span> are held at the four corners of a square of side <span class="arithmatex">\(a\)</span>. (a) Find the magnitude and direction of the net electrostatic force on any one of them. (b) A fifth point charge <span class="arithmatex">\(Q\)</span> is placed at the center. Find <span class="arithmatex">\(Q\)</span> for which all five charges are in equilibrium.
+- <strong>Ex 1.7</strong>: A thin rod occupies the half-line <span class="arithmatex">\(z \ge 0\)</span> with uniform linear charge density <span class="arithmatex">\(\lambda &gt; 0\)</span>. Point <span class="arithmatex">\(P\)</span> lies in the plane <span class="arithmatex">\(z = 0\)</span> at perpendicular distance <span class="arithmatex">\(d\)</span> from the end. (a) Calculate <span class="arithmatex">\(E_\perp\)</span> and <span class="arithmatex">\(E_\parallel\)</span> at <span class="arithmatex">\(P\)</span>, and show <span class="arithmatex">\(\vec{E}\)</span> makes a <span class="arithmatex">\(45^\circ\)</span> angle with the rod regardless of <span class="arithmatex">\(d\)</span>. (b) Without new integration, obtain <span class="arithmatex">\(\vec{E}\)</span> for an infinitely long rod.
+- <strong>Ex 1.8</strong>: Calculate <span class="arithmatex">\(\vec{E}\)</span> at the center of curvature for: (a) A thin circular arc of radius <span class="arithmatex">\(R\)</span>, total charge <span class="arithmatex">\(Q &gt; 0\)</span>, subtending angle <span class="arithmatex">\(2\alpha\)</span>. (b) A full circular ring of radius <span class="arithmatex">\(R\)</span> in the <span class="arithmatex">\(xy\)</span> plane with <span class="arithmatex">\(\lambda(\phi) = \lambda_0\cos\phi\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 正方形四角电荷受力与五电荷平衡（Exercise 1.6）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 考察位于右上角 <span class="arithmatex">\((a, a)\)</span> 的电荷 <span class="arithmatex">\(q\)</span>。两个相邻顶点 <span class="arithmatex">\((a, 0)\)</span> 和 <span class="arithmatex">\((0, a)\)</span> 距离为 <span class="arithmatex">\(a\)</span>，合力沿对角线向外，大小为 <span class="arithmatex">\(\sqrt{2}\frac{q^2}{4\pi\epsilon_0 a^2}\)</span>；对角顶点 <span class="arithmatex">\((0, 0)\)</span> 距离为 <span class="arithmatex">\(\sqrt{2}a\)</span>，斥力沿对角线向外，大小为 <span class="arithmatex">\(\frac{q^2}{4\pi\epsilon_0 (2a^2)}\)</span>。故总静电力方向<strong>沿对角线背离中心向外</strong>，大小为：
+  $$
+  F = \frac{q^2}{4\pi\epsilon_0 a^2}\left(\sqrt{2} + \frac{1}{2}\right) = \frac{(2\sqrt{2} + 1)q^2}{8\pi\epsilon_0 a^2}
+  $$</li>
+<li><strong>(b)</strong> 中心电荷 <span class="arithmatex">\(Q\)</span> 由对称性自动处于受力平衡。要使四角电荷也平衡，<span class="arithmatex">\(Q\)</span> 对角上电荷的引力（距离 <span class="arithmatex">\(r = a/\sqrt{2}\)</span>）必须抵消 <span class="arithmatex">\(F\)</span>：
+  $$
+  \frac{-Qq}{4\pi\epsilon_0 (a/\sqrt{2})^2} = \frac{(2\sqrt{2} + 1)q^2}{8\pi\epsilon_0 a^2} \implies Q = -\frac{2\sqrt{2} + 1}{4}q
+  $$</li>
+</ul>
+<hr />
+<p><strong>2. 半无限长细杆的 <span class="arithmatex">\(45^\circ\)</span> 恒定倾角与无限长直导线（Exercise 1.7）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 设细杆沿 <span class="arithmatex">\(z \ge 0\)</span> 放置，点 <span class="arithmatex">\(P\)</span> 距端点距离为 <span class="arithmatex">\(d\)</span>。取微元 <span class="arithmatex">\(dq = \lambda\,dz\)</span>，距离 <span class="arithmatex">\(r_q = \sqrt{z^2 + d^2}\)</span>：
+  $$
+  E_\perp = \frac{\lambda}{4\pi\epsilon_0} \int_0^\infty \frac{d\,dz}{(z^2 + d^2)^{3/2}} = \frac{\lambda d}{4\pi\epsilon_0} \left[\frac{z}{d^2\sqrt{z^2 + d^2}}\right]<em>0^\infty = \frac{\lambda}{4\pi\epsilon_0 d}
+  $$
+  $$
+  E</em>\parallel = E_z = -\frac{\lambda}{4\pi\epsilon_0} \int_0^\infty \frac{z\,dz}{(z^2 + d^2)^{3/2}} = -\frac{\lambda}{4\pi\epsilon_0} \left[-\frac{1}{\sqrt{z^2 + d^2}}\right]_0^\infty = -\frac{\lambda}{4\pi\epsilon_0 d}
+  $$
+  由于 <span class="arithmatex">\(|E_\perp| = |E_\parallel| = \frac{\lambda}{4\pi\epsilon_0 d}\)</span>，合场强必与细杆轴线成 <span class="arithmatex">\(45^\circ\)</span> 夹角（指向斜下方 <span class="arithmatex">\(-\hat{z}\)</span> 与远离细杆的合成方向），且该角度与距离 <span class="arithmatex">\(d\)</span> 完全无关。</li>
+<li><strong>(b)</strong> 无限长带电细杆可视为 <span class="arithmatex">\(z \ge 0\)</span> 与 <span class="arithmatex">\(z \le 0\)</span> 两根半无限长细杆的拼接：两者的平行分量 <span class="arithmatex">\(E_\parallel\)</span> 等大反向相互抵消，垂直分量 <span class="arithmatex">\(E_\perp\)</span> 同向叠加翻倍，立即得到无限长直导线场强：
+  $$
+  E = 2 E_\perp = \frac{\lambda}{2\pi\epsilon_0 d}
+  $$</li>
+</ul>
+<hr />
+<p><strong>3. 均匀带电圆弧与非均匀余弦带电圆环（Exercise 1.8）</strong>：</p>
+<ul>
+<li><strong>(a) 张角为 <span class="arithmatex">\(2\alpha\)</span> 的均匀带电圆弧</strong>：线电荷密度 <span class="arithmatex">\(\lambda = \frac{Q}{2\alpha R}\)</span>。以圆弧对称轴为 <span class="arithmatex">\(x\)</span> 轴（<span class="arithmatex">\(\theta \in [-\alpha, \alpha]\)</span>），圆心处 <span class="arithmatex">\(y\)</span> 分量抵消，沿对称轴背离圆弧方向的场强为：
+  $$
+  E = \int_{-\alpha}^\alpha \frac{\lambda R\,d\theta}{4\pi\epsilon_0 R^2}\cos\theta = \frac{Q}{8\pi\epsilon_0 \alpha R^2} \cdot 2\sin\alpha = \frac{Q}{4\pi\epsilon_0 R^2}\frac{\sin\alpha}{\alpha}
+  $$
+  极限检验：当 <span class="arithmatex">\(\alpha \to 0\)</span> 时，<span class="arithmatex">\(\frac{\sin\alpha}{\alpha} \to 1\)</span>，<span class="arithmatex">\(E \to \frac{Q}{4\pi\epsilon_0 R^2}\)</span>（退化为点电荷）；当 <span class="arithmatex">\(\alpha = \pi\)</span>（闭合整圆环）时，<span class="arithmatex">\(\sin\pi = 0 \implies E = 0\)</span>。</li>
+<li><strong>(b) 余弦分布圆环 <span class="arithmatex">\(\lambda(\phi) = \lambda_0\cos\phi\)</span></strong>：
+  总电荷量 <span class="arithmatex">\(Q_{\text{tot}} = \int_0^{2\pi} \lambda_0\cos\phi \, R\,d\phi = 0\)</span>。
+  在圆心处，微元 <span class="arithmatex">\(dq = \lambda_0\cos\phi R\,d\phi\)</span> 产生的场强指向 <span class="arithmatex">\(-\hat{r} = -(\cos\phi\hat{x} + \sin\phi\hat{y})\)</span>。由于 <span class="arithmatex">\(\int_0^{2\pi} \cos\phi\sin\phi\,d\phi = 0\)</span>，<span class="arithmatex">\(y\)</span> 分量抵消，仅剩 <span class="arithmatex">\(x\)</span> 分量：
+  $$
+  \vec{E} = -\hat{x} \int_0^{2\pi} \frac{\lambda_0\cos\phi R\,d\phi}{4\pi\epsilon_0 R^2}\cos\phi = -\frac{\lambda_0}{4\pi\epsilon_0 R}\left(\int_0^{2\pi} \cos^2\phi\,d\phi\right)\hat{x} = -\frac{\lambda_0}{4\epsilon_0 R}\hat{x}
+  $$</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

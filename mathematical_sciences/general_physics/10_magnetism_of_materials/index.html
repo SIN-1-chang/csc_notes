@@ -1,0 +1,2468 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/10_magnetism_of_materials/">
+      
+      
+        <link rel="prev" href="../09_magnetic_field_of_current/">
+      
+      
+        <link rel="next" href="../11_faraday_law_of_induction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>10 物质的磁性 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-10-magnetic-properties-of-materials" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10 物质的磁性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-magnetic-dipole-and-its-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 磁偶极子及其磁场 (The Magnetic Dipole and Its Field)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 磁偶极子及其磁场 (The Magnetic Dipole and Its Field)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 磁偶极矩、力矩与取向势能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 载流圆弧与磁偶极子的磁场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 磁偶极子与电偶极子的对称类比总表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-classification-of-magnetic-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 磁性材料的分类与物理机制 (Classification of Magnetic Materials)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 磁性材料的分类与物理机制 (Classification of Magnetic Materials)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-paramagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 顺磁性 (Paramagnetism) 与居里定律
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-diamagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 抗磁性 (Diamagnetism) 的经典电子轨道推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferromagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 铁磁性 (Ferromagnetism)、磁滞回线与居里温度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vech-magnetic-field-strength-vech-and-bound-currents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 磁场强度 \(\vec{H}\) 与束缚电流 (Magnetic Field Strength \(\vec{H}\) and Bound Currents)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 磁场强度 \(\vec{H}\) 与束缚电流 (Magnetic Field Strength \(\vec{H}\) and Bound Currents)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vech-chi-mu_r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 磁场强度 \(\vec{H}\)、磁化率 \(\chi\) 与相对磁导率 \(\mu_r\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 磁介质中的安培环路定理与束缚电流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 静磁学中的磁介质与静电学中的电介质完整对偶表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-10-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 10 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-magnetic-dipole-and-its-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 磁偶极子及其磁场 (The Magnetic Dipole and Its Field)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 磁偶极子及其磁场 (The Magnetic Dipole and Its Field)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 磁偶极矩、力矩与取向势能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 载流圆弧与磁偶极子的磁场
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 磁偶极子与电偶极子的对称类比总表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-classification-of-magnetic-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 磁性材料的分类与物理机制 (Classification of Magnetic Materials)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 磁性材料的分类与物理机制 (Classification of Magnetic Materials)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-paramagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 顺磁性 (Paramagnetism) 与居里定律
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-diamagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 抗磁性 (Diamagnetism) 的经典电子轨道推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ferromagnetism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 铁磁性 (Ferromagnetism)、磁滞回线与居里温度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vech-magnetic-field-strength-vech-and-bound-currents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 磁场强度 \(\vec{H}\) 与束缚电流 (Magnetic Field Strength \(\vec{H}\) and Bound Currents)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 磁场强度 \(\vec{H}\) 与束缚电流 (Magnetic Field Strength \(\vec{H}\) and Bound Currents)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-vech-chi-mu_r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 磁场强度 \(\vec{H}\)、磁化率 \(\chi\) 与相对磁导率 \(\mu_r\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 磁介质中的安培环路定理与束缚电流
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 静磁学中的磁介质与静电学中的电介质完整对偶表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-10-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 10 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-10-magnetic-properties-of-materials">Chapter 10: Magnetic Properties of Materials（物质的磁性）<a class="headerlink" href="#chapter-10-magnetic-properties-of-materials" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第十章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 10: <em>Magnetic Properties of Materials</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 10: <em>Magnetic Properties of Materials</em></li>
+<li>Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 35</li>
+</ul>
+</div>
+<h2 id="1-the-magnetic-dipole-and-its-field">1 磁偶极子及其磁场 (The Magnetic Dipole and Its Field)<a class="headerlink" href="#1-the-magnetic-dipole-and-its-field" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 磁偶极矩、力矩与取向势能<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>由于自然界中不存在磁单极子（<span class="arithmatex">\(\nabla\cdot\vec{B} = 0\)</span>），<strong>磁偶极子</strong>（Magnetic Dipole）是磁学中最基本的结构单元。磁偶极子可以来源于以下四类物理系统：</p>
+<ol>
+<li><strong>载流线圈或闭合回路</strong>（Current-carrying coil or loop）；</li>
+<li><strong>永磁体</strong>（Permanent magnet，如条形磁铁 Bar magnet）；</li>
+<li><strong>旋转的带电球体</strong>（Rotating sphere of charge，如地球磁场）；</li>
+<li><strong>亚原子基本粒子</strong>（Subatomic particles，如电子、质子等具有内禀自旋磁矩的粒子）。</li>
+</ol>
+<p>对于一个有 <span class="arithmatex">\(N\)</span> 匝、每匝通有电流 <span class="arithmatex">\(i\)</span>、面积矢量为 <span class="arithmatex">\(\vec{A} = A\hat{n}\)</span>（方向由右手螺旋定则确定）的平面载流线圈，其<strong>磁偶极矩</strong>（Magnetic Dipole Moment）定义为：</p>
+<div class="arithmatex">\[
+\vec{\mu} = Ni\vec{A} \qquad (\text{SI 单位：}\text{A}\cdot\text{m}^2 \text{ 或 } \text{J/T})
+\]</div>
+<p>当磁偶极子置于外磁场 <span class="arithmatex">\(\vec{B}\)</span> 中（设 <span class="arithmatex">\(\vec{\mu}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> 夹角为 <span class="arithmatex">\(\theta\)</span>），且假定线圈电流 <span class="arithmatex">\(i\)</span> 恒定（即 <span class="arithmatex">\(|\vec{\mu}|\)</span> 保持不变）时：</p>
+<ul>
+<li><strong>磁力矩（Magnetic Torque）</strong>：外磁场对偶极子施加恢复力矩 <span class="arithmatex">\(\vec{\tau} = \vec{\mu} \times \vec{B}\)</span>，标量形式（以增大 <span class="arithmatex">\(\theta\)</span> 为正方向）为 <span class="arithmatex">\(\tau = -\mu B\sin\theta = -\frac{\partial}{\partial\theta}(-\mu B\cos\theta)\)</span>，总是试图将 <span class="arithmatex">\(\vec{\mu}\)</span> 转向与 <span class="arithmatex">\(\vec{B}\)</span> 同向；</li>
+<li><strong>磁偶极子的取向势能（Magnetic Potential Energy）</strong>：类比于力与势能的关系 <span class="arithmatex">\(F_x = -\frac{\partial U}{\partial x}\)</span>，由外力克服磁力矩做功 <span class="arithmatex">\(U_B = -\int_{\pi/2}^\theta \tau\,d\theta'\)</span>（选定 <span class="arithmatex">\(\theta = 90^\circ\)</span> 即 <span class="arithmatex">\(\vec{\mu} \perp \vec{B}\)</span> 时为势能零点），定义磁偶极子在外磁场中的取向势能为：
+  $$
+  U_B = -\vec{\mu} \cdot \vec{B} = -\mu B \cos\theta
+  $$</li>
+<li><strong>最低能量态（稳定平衡）</strong>：当 <span class="arithmatex">\(\vec{\mu}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> <strong>同向平行</strong>（<span class="arithmatex">\(\theta = 0^\circ\)</span>）时，<span class="arithmatex">\(U_B = -\mu B\)</span> 最小；</li>
+<li><strong>最高能量态（不稳定平衡）</strong>：当 <span class="arithmatex">\(\vec{\mu}\)</span> 与 <span class="arithmatex">\(\vec{B}\)</span> <strong>反向平行</strong>（<span class="arithmatex">\(\theta = 180^\circ\)</span>）时，<span class="arithmatex">\(U_B = +\mu B\)</span> 最大。</li>
+</ul>
+<h3 id="12">1.2 载流圆弧与磁偶极子的磁场<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p><strong>1. 载流圆弧在曲率中心处的磁场（Magnetic Field of a Circular Arc，Lecture 10 Slides 9–10）</strong></p>
+<p>设半径为 <span class="arithmatex">\(R\)</span>、圆心角为 <span class="arithmatex">\(\phi\)</span>（弧度制）的圆弧形导线通有电流 <span class="arithmatex">\(i\)</span>。在圆弧曲率中心 <span class="arithmatex">\(C\)</span> 处，弧长微元 <span class="arithmatex">\(ds = R\,d\phi\)</span> 与径向单位矢量 <span class="arithmatex">\(\hat{r}\)</span> 处处垂直（<span class="arithmatex">\(|d\vec{s}\times\hat{r}| = ds\)</span>），且各微元产生的磁场方向相同（由右手螺旋定则判定垂直于纸面）。由毕奥-萨伐尔定律积分得：</p>
+<div class="arithmatex">\[
+B = \int dB = \int_0^\phi \frac{\mu_0}{4\pi}\frac{i(R\,d\phi')}{R^2} = \frac{\mu_0 i \phi}{4\pi R}
+\]</div>
+<p>特别地，对于一整圈闭合圆环（<span class="arithmatex">\(\phi = 2\pi\)</span>），环心处的磁感应强度为（代入 <span class="arithmatex">\(\mu = i\pi R^2\)</span>）：</p>
+<div class="arithmatex">\[
+B_{\text{center}} = \frac{\mu_0 i}{2R} = \frac{\mu_0}{2\pi}\frac{\mu}{R^3}
+\]</div>
+<p><strong>2. 载流圆环（磁偶极子）轴线上的磁场与远场公式</strong></p>
+<p>对于半径为 <span class="arithmatex">\(R\)</span>、通有电流 <span class="arithmatex">\(i\)</span> 的单匝圆环，在中心轴线上距环心为 <span class="arithmatex">\(z\)</span> 的点 <span class="arithmatex">\(P\)</span> 处，由第九章毕奥-萨伐尔定律积分（径向分量抵消，轴向分量 <span class="arithmatex">\(\cos\alpha = \frac{R}{\sqrt{R^2 + z^2}}\)</span> 叠加）并代入磁矩 <span class="arithmatex">\(\vec{\mu} = i\pi R^2\hat{z}\)</span>，可得精确轴线磁场及远场（<span class="arithmatex">\(|z| \gg R\)</span>）近似公式：</p>
+<div class="arithmatex">\[
+\vec{B}(z) = \frac{\mu_0 i R^2}{2(R^2 + z^2)^{3/2}}\hat{z} = \frac{\mu_0}{2\pi}\frac{\vec{\mu}}{(R^2 + z^2)^{3/2}} \xrightarrow{|z| \gg R} \vec{B}_{\text{far}}(z) = \frac{\mu_0}{2\pi}\frac{\vec{\mu}}{|z|^3}
+\]</div>
+<p>（注：分母取绝对值 <span class="arithmatex">\(|z|^3\)</span> 是因为无论在环平面上方 <span class="arithmatex">\(z &gt; 0\)</span> 还是下方 <span class="arithmatex">\(z &lt; 0\)</span>，轴线上的磁场方向始终与磁偶极矩 <span class="arithmatex">\(\vec{\mu}\)</span> 的方向相同，是关于 <span class="arithmatex">\(z\)</span> 的偶函数）。</p>
+<h3 id="13">1.3 磁偶极子与电偶极子的对称类比总表<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">物理属性</th>
+<th style="text-align: left;">磁偶极子（Magnetic Dipole）</th>
+<th style="text-align: left;">电偶极子（Electric Dipole）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>偶极矩定义</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{\mu} = Ni\vec{A}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{p} = q\vec{d}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>外场中的力矩</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{\tau}_B = \vec{\mu} \times \vec{B}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{\tau}_E = \vec{p} \times \vec{E}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>外场中的取向势能</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(U_B = -\vec{\mu} \cdot \vec{B}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(U_E = -\vec{p} \cdot \vec{E}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>轴线远场公式</strong>（<span class="arithmatex">\(z \gg R, d\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{B}(z) = \dfrac{\mu_0}{2\pi}\dfrac{\vec{\mu}}{\|z\|^3}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E}(z) = \dfrac{1}{2\pi\epsilon_0}\dfrac{\vec{p}}{\|z\|^3}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>空间任意点远场通式</strong>（<span class="arithmatex">\(r \gg R, d\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{B}(\vec{r}) = \dfrac{\mu_0}{4\pi r^3}\left[3(\vec{\mu}\cdot\hat{r})\hat{r} - \vec{\mu}\right]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E}(\vec{r}) = \dfrac{1}{4\pi\epsilon_0 r^3}\left[3(\vec{p}\cdot\hat{r})\hat{r} - \vec{p}\right]\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>核心拓扑差异（近场内部）</strong></td>
+<td style="text-align: left;">磁感线无头无尾，<strong>永远形成闭合回路</strong>（无磁单极子，<span class="arithmatex">\(\nabla\cdot\vec{B}=0\)</span>）</td>
+<td style="text-align: left;">电场线起自 <span class="arithmatex">\(+q\)</span>、终止于 <span class="arithmatex">\(-q\)</span>，在偶极子内部方向与外部相反</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-classification-of-magnetic-materials">2 磁性材料的分类与物理机制 (Classification of Magnetic Materials)<a class="headerlink" href="#2-classification-of-magnetic-materials" title="Permanent link">&para;</a></h2>
+<p>宏观磁性材料包含海量的原子或分子级微观磁偶极矩（源于电子轨道运动与电子内禀自旋）。根据原子是否具有永久磁偶极矩以及相邻原子磁矩之间的相互作用性质，材料的磁性主要分为<strong>顺磁性</strong>（Paramagnetism）、<strong>抗磁性</strong>（Diamagnetism）与<strong>铁磁性</strong>（Ferromagnetism）三大类。</p>
+<details>
+<summary>前沿拓展：自旋玻璃与阻挫（Spin Glasses and Frustration — 2021 诺贝尔物理学奖）</summary>
+<p><strong>自旋玻璃（Spin Glass）</strong>是一类无序磁性合金系统，例如将少量磁性原子（如铁 <span class="arithmatex">\(\text{Fe}\)</span> 或锰 <span class="arithmatex">\(\text{Mn}\)</span>）随机掺杂混合到非磁性金属基质（如铜 <span class="arithmatex">\(\text{Cu}\)</span>）晶格中。
+每个磁性原子表现为一个微小磁偶极子（自旋 Spin），通过基质传导电子传递的偶极子间相互作用随间距增大而正负交替变化。由于磁性原子位置随机，导致某些自旋同时受到相互冲突的排列要求（例如正三角形三个顶点上的反铁磁自旋：若第一个朝上 <span class="arithmatex">\(\uparrow\)</span>、第二个朝下 <span class="arithmatex">\(\downarrow\)</span>，则第三个自旋无论朝上还是朝下都无法同时满足与前两者反向的要求）。这种无法同时满足所有相互作用能量最小化的现象称为<strong>阻挫</strong>（Frustration）。
+意大利物理学家乔治·帕里西（Giorgio Parisi）因对自旋玻璃及无序复杂系统理论的开创性贡献荣获 <strong>2021 年诺贝尔物理学奖</strong>，其数学方法深刻影响了数学、生物学、神经科学以及机器学习（优化算法）等众多领域。</p>
+</details>
+<h3 id="21-paramagnetism">2.1 顺磁性 (Paramagnetism) 与居里定律<a class="headerlink" href="#21-paramagnetism" title="Permanent link">&para;</a></h3>
+<p><strong>顺磁性</strong>（Paramagnetism）出现在原子本身具有<strong>永久磁偶极矩</strong>（Permanent atomic magnetic dipole moments）<span class="arithmatex">\(\vec{\mu}\)</span>、但相邻原子磁矩之间几乎无相互作用的材料中（如 <span class="arithmatex">\(\text{Al}, \text{Na}, \text{O}_2\)</span> 等）。</p>
+<ul>
+<li><strong>无外场时</strong>：由于热运动（Thermal agitation）的随机搅乱，各原子磁矩取向完全无序，宏观净磁矩为零。</li>
+<li><strong>加外磁场 <span class="arithmatex">\(\vec{B}_{\text{ext}}\)</span> 时</strong>：原子磁矩倾向于顺着外磁场方向排列（受强烈磁场吸引）。定义单位体积内的净磁偶极矩矢量为材料的<strong>磁化强度</strong>（Magnetization，记作 <span class="arithmatex">\(\vec{M}\)</span>，SI 单位为 <span class="arithmatex">\(\text{A/m}\)</span>）：
+  $$
+  \vec{M} = \frac{\sum \vec{\mu}_i}{\text{Volume } V}
+  $$</li>
+</ul>
+<p><strong>1. 居里定律（Curie's Law, 1895）与饱和磁化强度</strong></p>
+<p>实验与统计力学表明，在弱场或较高温度下（即 <span class="arithmatex">\(\mu B_{\text{ext}} \ll k_B T\)</span> 时），顺磁体的磁化强度 <span class="arithmatex">\(M\)</span> 与外磁场 <span class="arithmatex">\(B_{\text{ext}}\)</span> 成正比，与绝对温度 <span class="arithmatex">\(T\)</span> 成反比：</p>
+<div class="arithmatex">\[
+M = C \frac{B_{\text{ext}}}{T} \qquad (\text{居里定律 Curie's Law，其中 } C \text{ 为居里常数 Curie constant})
+\]</div>
+<p>而当外磁场极强或温度极低（<span class="arithmatex">\(\mu B_{\text{ext}} \gg k_B T\)</span>）时，所有原子的磁矩全部顺着外场方向完全对齐，磁化强度达到最大值——<strong>饱和磁化强度</strong>（Saturation magnetization）：</p>
+<div class="arithmatex">\[
+M_{\max} = \frac{N\mu}{V} = n\mu \qquad (n = N/V \text{ 为单位体积内的原子数})
+\]</div>
+<p><strong>2. 二能级玻尔兹曼统计模型（Two-State Boltzmann Model，Section 10.3 &amp; Exercise 10.3）</strong></p>
+<p>设顺磁固体单位体积有 <span class="arithmatex">\(n\)</span> 个互不作用的原子，每个原子磁矩大小为 <span class="arithmatex">\(\mu\)</span>，且在外场 <span class="arithmatex">\(\vec{B} = B\hat{z}\)</span> 中只能取平行（<span class="arithmatex">\(\theta = 0\)</span>，能量 <span class="arithmatex">\(U_+ = -\mu B\)</span>）或反平行（<span class="arithmatex">\(\theta = \pi\)</span>，能量 <span class="arithmatex">\(U_- = +\mu B\)</span>）两个量子态。由统计力学玻尔兹曼分布，处于两态的原子数占比分别正比于 <span class="arithmatex">\(e^{-U_+/k_B T} = e^{+\mu B/k_B T}\)</span> 与 <span class="arithmatex">\(e^{-U_-/k_B T} = e^{-\mu B/k_B T}\)</span>。因此净磁化强度为：</p>
+<div class="arithmatex">\[
+M = n\mu \left( \frac{e^{\mu B/k_B T} - e^{-\mu B/k_B T}}{e^{\mu B/k_B T} + e^{-\mu B/k_B T}} \right) = M_{\max} \tanh\left(\frac{\mu B}{k_B T}\right)
+\]</div>
+<p>当 <span class="arithmatex">\(\frac{\mu B}{k_B T} \ll 1\)</span> 时，利用泰勒展开 <span class="arithmatex">\(\tanh x \approx x\)</span>，上式立即退化为居里定律 <span class="arithmatex">\(M \approx \left(\frac{n\mu^2}{k_B}\right)\frac{B}{T}\)</span>，从而给出居里常数的微观表达式 <strong><span class="arithmatex">\(C = \dfrac{n\mu^2}{k_B}\)</span></strong>！</p>
+<h3 id="22-diamagnetism">2.2 抗磁性 (Diamagnetism) 的经典电子轨道推导<a class="headerlink" href="#22-diamagnetism" title="Permanent link">&para;</a></h3>
+<p><strong>抗磁性</strong>（Diamagnetism）是<strong>所有物质普遍具有的本征属性</strong>（但在具有永久磁矩的材料中被更强的顺磁性或铁磁性所掩盖，仅在原子净永久磁矩为零的材料如 <span class="arithmatex">\(\text{He}, \text{Cu}, \text{Ag}, \text{Au}, \text{Bi}, \text{H}_2\text{O}\)</span> 中显现）。抗磁体会被强磁铁微弱地<strong>排斥</strong>（Repelled from strong magnetic fields）。</p>
+<p><strong>微观经典解释（Section 10.4 &amp; Exercise 10.4）</strong>：
+将无净磁矩的原子模拟为成对的、以相同半径 <span class="arithmatex">\(r\)</span> 和相同初始角速率 <span class="arithmatex">\(\omega_0\)</span> 分别作逆时针和顺时针圆周运动的电子（电荷 <span class="arithmatex">\(-e\)</span>，质量 <span class="arithmatex">\(m\)</span>）。</p>
+<ol>
+<li><strong>无外磁场时</strong>：库仑引力提供向心力 <span class="arithmatex">\(F_C = m\omega_0^2 r\)</span>。两个反向运动的电子轨道磁矩大小均为 <span class="arithmatex">\(\mu_0^{\text{orb}} = iA = \left(\frac{e\omega_0}{2\pi}\right)(\pi r^2) = \frac{1}{2}er^2\omega_0\)</span>，方向相反（记带符号的 <span class="arithmatex">\(\mu = -\frac{e}{2}r^2\omega\)</span>），净磁矩抵消为零。</li>
+<li><strong>施加垂直于轨道平面的外磁场 <span class="arithmatex">\(\vec{B}\)</span> 时</strong>：电子额外受到径向洛伦兹力 <span class="arithmatex">\(\pm e\omega r B\)</span>（向心或离心取决于绕行方向）。保持轨道半径 <span class="arithmatex">\(r\)</span> 不变，径向牛顿第二定律写为（将绕行方向正负号归入角速度 <span class="arithmatex">\(\omega\)</span> 的符号中）：
+   $$
+   m\omega^2 r = m\omega_0^2 r + e\omega r B \implies \omega^2 - \omega_0^2 = (\omega - \omega_0)(\omega + \omega_0) = \frac{eB}{m}\omega
+   $$</li>
+<li><strong>一阶近似求解拉莫尔频移 <span class="arithmatex">\(\Delta\omega\)</span> 与感生磁矩 <span class="arithmatex">\(\Delta\mu\)</span></strong>：
+   由于原子内部库仑力远大于外磁场洛伦兹力（<span class="arithmatex">\(|\Delta\omega| \ll |\omega_0|\)</span>），取 <span class="arithmatex">\(\omega + \omega_0 \approx 2\omega_0 \approx 2\omega\)</span>，保留至 <span class="arithmatex">\(B\)</span> 的一阶项，消去 <span class="arithmatex">\(\omega_0\)</span> 得：
+   $$
+   \Delta\omega = \omega - \omega_0 \approx \frac{eB}{2m} \qquad (\text{对正反两种绕行方向，角速度偏移量 }\Delta\omega\text{ 符号完全相同！})
+   $$
+   这意味着原本磁矩与 <span class="arithmatex">\(\vec{B}\)</span> 同向的电子被减速（<span class="arithmatex">\(|\omega|\)</span> 减小），而原本磁矩与 <span class="arithmatex">\(\vec{B}\)</span> 反向的电子被加速（<span class="arithmatex">\(|\omega|\)</span> 增大）。因此，无论电子原本沿哪个方向绕行，单个电子产生的<strong>感生磁偶极矩变化量</strong>（Induced magnetic moment）恒为：
+   $$
+   \Delta\vec{\mu} = -\frac{e}{2}r^2 \Delta\vec{\omega} = -\frac{e^2 r^2}{4m}\vec{B}
+   $$
+   负号表明<strong>抗磁体感生出的磁偶极矩永远与外加磁场 <span class="arithmatex">\(\vec{B}\)</span> 方向相反</strong>，因此抗磁体的磁化率恒为负值（<span class="arithmatex">\(\chi &lt; 0\)</span>），且与温度无关。</li>
+</ol>
+<h3 id="23-ferromagnetism">2.3 铁磁性 (Ferromagnetism)、磁滞回线与居里温度<a class="headerlink" href="#23-ferromagnetism" title="Permanent link">&para;</a></h3>
+<p><strong>铁磁性</strong>（Ferromagnetism，典型元素包括铁 <span class="arithmatex">\(\text{Fe}\)</span>、钴 <span class="arithmatex">\(\text{Co}\)</span>、镍 <span class="arithmatex">\(\text{Ni}\)</span>、钆 <span class="arithmatex">\(\text{Gd}\)</span>、镝 <span class="arithmatex">\(\text{Dy}\)</span> 及其合金）表现出极强的永久磁性。</p>
+<ol>
+<li><strong>交换相互作用（Exchange Interaction）</strong>：
+   铁磁体与顺磁体的本质区别在于：铁磁体相邻原子的永久磁偶极矩之间存在强烈的量子力学<strong>交换相互作用</strong>，系统的总能量可由海森堡模型表示为：
+   $$
+   U = -J \sum_{\langle ij \rangle} \vec{\mu}_i \cdot \vec{\mu}_j - \sum_i \vec{\mu}_i \cdot \vec{B}
+   $$
+   其中 <span class="arithmatex">\(\langle ij \rangle\)</span> 表示对最近邻原子对求和。当交换耦合常数 <strong><span class="arithmatex">\(J &gt; 0\)</span></strong> 时，相邻原子磁矩平行排列可大幅降低系统能量，从而在无外磁场（<span class="arithmatex">\(\vec{B} = \vec{0}\)</span>）时也能维持自发平行排列（Spontaneous alignment）。（若 <span class="arithmatex">\(J &lt; 0\)</span>，相邻磁矩倾向于反平行排列，则称为<strong>反铁磁性 Antiferromagnetism</strong>，如铬 <span class="arithmatex">\(\text{Cr}\)</span>、锰 <span class="arithmatex">\(\text{Mn}\)</span>）。</li>
+<li><strong>磁畴（Magnetic Domains）</strong>：
+   为什么一块普通的铁块在自然状态下并不表现为强磁铁？因为宏观铁磁体内部自发分裂为许多微小的区域，称为<strong>磁畴</strong>（Magnetic domains，见 Figure 10.3）。每个磁畴内部的所有原子磁矩均高度平行排列（已达饱和），但不同磁畴之间的磁矩取向彼此闭合抵消，使宏观净磁矩为零。施加外磁场 <span class="arithmatex">\(\vec{B}_{\text{ext}}\)</span> 时，磁矩顺着外场方向的磁畴通过畴壁移动而不断扩大（Domain growth），且畴内磁矩转向外场方向，从而使整块样品获得极强的宏观磁化。</li>
+<li><strong>磁滞回线（Hysteresis Loop）</strong>：
+   铁磁体的磁化曲线具有<strong>不可逆性</strong>，称为<strong>磁滞</strong>（Hysteresis，见 Figure 10.2）：</li>
+<li>从未磁化状态 <span class="arithmatex">\(a\)</span> 出发，随外场 <span class="arithmatex">\(H\)</span> 增大沿初始磁化曲线到达<strong>饱和磁化强度</strong> <span class="arithmatex">\(M_s\)</span>（点 <span class="arithmatex">\(b\)</span>）；</li>
+<li>当外场降回 <span class="arithmatex">\(H = 0\)</span> 时，磁畴无法完全恢复原状，样品保留了非零的<strong>剩余磁化强度 / 剩磁</strong>（Remanent magnetization，点 <span class="arithmatex">\(c\)</span>），这就形成了永磁体（Permanent magnet）；</li>
+<li>必须施加反向磁场至<strong>矫顽力</strong>（Coercive field, <span class="arithmatex">\(-H_c\)</span>），才能使宏观磁化强度降为零；继续反向加场至负向饱和点 <span class="arithmatex">\(d\)</span> 再正向加场经过反向剩磁点 <span class="arithmatex">\(e\)</span> 回到 <span class="arithmatex">\(b\)</span>，形成闭合的<strong>磁滞回线</strong>（Hysteresis loop <span class="arithmatex">\(b\text{-}c\text{-}d\text{-}e\text{-}b\)</span>）。这种磁记忆效应是硬盘等磁信息存储（Magnetic storage）的物理基础。</li>
+<li><strong>居里温度（Curie Temperature, <span class="arithmatex">\(T_C\)</span>）与相变</strong>：
+   交换相互作用（特征能量 <span class="arithmatex">\(\sim J\mu^2\)</span>，倾向于有序排列）与热运动（特征能量 <span class="arithmatex">\(\sim k_B T\)</span>，倾向于无序搅乱）相互竞争。当温度升高到临界温度——<strong>居里温度</strong> <span class="arithmatex">\(T_C\)</span>（对铁约为 <span class="arithmatex">\(1043\text{ K}\)</span>）以上时，热运动战胜交换作用，自发磁化消失（铁磁体发生相变转化为<strong>顺磁体</strong>，其磁化率遵循居里-外斯定律 <span class="arithmatex">\(\chi \propto \frac{1}{T - T_C}\)</span>）。</li>
+<li><strong>反常霍尔效应（Anomalous Hall Effect, 1880）</strong>：
+   在铁磁材料中，由于材料自身的自发磁化强度 <span class="arithmatex">\(\vec{M}\)</span>，即使外加磁场 <span class="arithmatex">\(B = 0\)</span>，霍尔电阻率 <span class="arithmatex">\(R_H\)</span> 依然非零（且随 <span class="arithmatex">\(B\)</span> 呈现出与磁滞回线一致的回滞环）。在特定拓扑磁性材料中，甚至可以在零外磁场下观测到霍尔电导量子化的<strong>量子反常霍尔效应</strong>（Quantum Anomalous Hall Effect，薛其坤团队于 2013 年首次实验发现）。</li>
+</ol>
+<hr />
+<h2 id="3-vech-magnetic-field-strength-vech-and-bound-currents">3 磁场强度 <span class="arithmatex">\(\vec{H}\)</span> 与束缚电流 (Magnetic Field Strength <span class="arithmatex">\(\vec{H}\)</span> and Bound Currents)<a class="headerlink" href="#3-vech-magnetic-field-strength-vech-and-bound-currents" title="Permanent link">&para;</a></h2>
+<h3 id="31-vech-chi-mu_r">3.1 磁场强度 <span class="arithmatex">\(\vec{H}\)</span>、磁化率 <span class="arithmatex">\(\chi\)</span> 与相对磁导率 <span class="arithmatex">\(\mu_r\)</span><a class="headerlink" href="#31-vech-chi-mu_r" title="Permanent link">&para;</a></h3>
+<p>当空间存在磁性材料时，空间总磁感应强度 <span class="arithmatex">\(\vec{B}\)</span> 由我们可控的宏观<strong>自由电流</strong>（Free currents, <span class="arithmatex">\(i_{\text{free}}\)</span>）和磁化材料自身的原子磁矩共同产生。为了剥离磁化响应并简化计算，定义辅助矢量——<strong>磁场强度</strong>（Magnetic Field Strength，记作 <span class="arithmatex">\(\vec{H}\)</span>）为：</p>
+<div class="arithmatex">\[
+\vec{H} \equiv \frac{\vec{B}}{\mu_0} - \vec{M} \iff \vec{B} = \mu_0(\vec{H} + \vec{M})
+\]</div>
+<p>需要注意：<strong><span class="arithmatex">\(\vec{H}\)</span> 与磁化强度 <span class="arithmatex">\(\vec{M}\)</span> 具有完全相同的量纲和单位，均为安培每米（<span class="arithmatex">\(\text{A/m}\)</span>）</strong>，只有磁感应强度 <span class="arithmatex">\(\vec{B}\)</span> 的单位才是特斯拉（<span class="arithmatex">\(\text{T}\)</span>）。</p>
+<p>对于顺磁体（在 <span class="arithmatex">\(\mu B \ll k_B T\)</span> 线性区）和抗磁体，磁化强度 <span class="arithmatex">\(\vec{M}\)</span> 与磁场强度 <span class="arithmatex">\(\vec{H}\)</span> 成正比：</p>
+<div class="arithmatex">\[
+\vec{M} = \chi \vec{H}
+\]</div>
+<p>其中无量纲比例常数 <span class="arithmatex">\(\chi\)</span> 称为<strong>磁化率</strong>（Magnetic susceptibility）。将其代入 <span class="arithmatex">\(\vec{B} = \mu_0(\vec{H} + \vec{M})\)</span>，可得线性磁介质中的本构关系：</p>
+<div class="arithmatex">\[
+\vec{B} = \mu_0(1 + \chi)\vec{H} = \mu_r \mu_0 \vec{H} = \mu \vec{H}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mu_r \equiv 1 + \chi\)</span> 称为材料的<strong>相对磁导率</strong>（Relative permeability），<span class="arithmatex">\(\mu \equiv \mu_r\mu_0\)</span> 称为材料的<strong>磁导率</strong>（Permeability，注意勿与磁偶极矩 <span class="arithmatex">\(\vec{\mu}\)</span> 混淆）。</p>
+<p>三大磁性材料的特征参数对比如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">材料类型</th>
+<th style="text-align: left;">微观原子磁矩特征</th>
+<th style="text-align: left;">磁化率 <span class="arithmatex">\(\chi\)</span> 与相对磁导率 <span class="arithmatex">\(\mu_r = 1+\chi\)</span></th>
+<th style="text-align: left;">外磁场中的宏观受力与记忆特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>抗磁体（Diamagnet）</strong></td>
+<td style="text-align: left;">无永久磁矩（<span class="arithmatex">\(\vec{\mu}_0 = \vec{0}\)</span>），外场诱导反向轨道磁矩</td>
+<td style="text-align: left;"><span class="arithmatex">\(\chi &lt; 0\)</span>（极小，约 <span class="arithmatex">\(-10^{-5} \sim -10^{-9}\)</span>）<br><span class="arithmatex">\(\mu_r \lesssim 1\)</span>（与温度无关）</td>
+<td style="text-align: left;">被强磁场微弱排斥；无磁滞</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>顺磁体（Paramagnet）</strong></td>
+<td style="text-align: left;">有永久磁矩（<span class="arithmatex">\(\vec{\mu}_0 \neq \vec{0}\)</span>），相邻磁矩无相互作用</td>
+<td style="text-align: left;"><span class="arithmatex">\(\chi &gt; 0\)</span>（较小，约 <span class="arithmatex">\(10^{-5} \sim 10^{-3}\)</span>）<br><span class="arithmatex">\(\mu_r \gtrsim 1\)</span>（随温度按 <span class="arithmatex">\(\chi \propto 1/T\)</span> 减小）</td>
+<td style="text-align: left;">被强磁场微弱吸引；无磁滞</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>铁磁体（Ferromagnet）</strong></td>
+<td style="text-align: left;">有永久磁矩，且存在强交换耦合 <span class="arithmatex">\(J &gt; 0\)</span>（形成磁畴）</td>
+<td style="text-align: left;">非线性（<span class="arithmatex">\(\vec{M}\)</span> 与 <span class="arithmatex">\(\vec{H}\)</span> 不成正比）<br>初始等效 <span class="arithmatex">\(\mu_r\)</span> 可达 <span class="arithmatex">\(10^3 \sim 10^5\)</span></td>
+<td style="text-align: left;">被磁场强烈吸引；具有<strong>磁滞回线</strong>与剩磁（<span class="arithmatex">\(T &gt; T_C\)</span> 时转变为顺磁体）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32">3.2 磁介质中的安培环路定理与束缚电流<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>引入 <span class="arithmatex">\(\vec{H}\)</span> 的最大优势在于，<strong>关于 <span class="arithmatex">\(\vec{H}\)</span> 的安培环路定理（积分形式与微分形式）右侧仅包含自由电流（Free current）</strong>：</p>
+<div class="arithmatex">\[
+\oint_C \vec{H} \cdot d\vec{l} = i_{\text{free}}, \qquad \nabla \times \vec{H} = \vec{j}_{\text{free}}
+\]</div>
+<p>从等效电流的角度看，非均匀或有界磁化材料内部和表面未抵消的微观原子环形电流，在宏观上等效为<strong>束缚体电流密度</strong>（Bound volume current density, <span class="arithmatex">\(\vec{j}_b\)</span>）与<strong>束缚面电流密度</strong>（Bound surface current density, <span class="arithmatex">\(\vec{K}_b\)</span>）：</p>
+<div class="arithmatex">\[
+\vec{j}_b = \nabla \times \vec{M}, \qquad \vec{K}_b = \vec{M} \times \hat{n} \qquad (\hat{n} \text{ 为材料表面的外法向单位矢量})
+\]</div>
+<p>空间总电流密度为 <span class="arithmatex">\(\vec{j}_{\text{tot}} = \vec{j}_{\text{free}} + \vec{j}_b\)</span>。将 <span class="arithmatex">\(\nabla\times\vec{B} = \mu_0(\vec{j}_{\text{free}} + \nabla\times\vec{M})\)</span> 移项组合为 <span class="arithmatex">\(\nabla\times\left(\frac{\vec{B}}{\mu_0} - \vec{M}\right) = \vec{j}_{\text{free}}\)</span>，立即验证了 <span class="arithmatex">\(\nabla\times\vec{H} = \vec{j}_{\text{free}}\)</span> 的自洽性。</p>
+<h3 id="33">3.3 静磁学中的磁介质与静电学中的电介质完整对偶表<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>讲义（Section 10.6 Page 94）特别总结了电介质与磁介质方程体系的对应关系（注意本构定义中的正负号差异以及束缚源中的负号差异）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">物理量与基本定律维度</th>
+<th style="text-align: left;">静电学中的电介质（Dielectrics, §6.4）</th>
+<th style="text-align: left;">静磁学中的磁介质（Magnetic Materials, §10.6）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>基本总场强（Total Field）</strong></td>
+<td style="text-align: left;">电场强度 <span class="arithmatex">\(\vec{E}\)</span></td>
+<td style="text-align: left;">磁感应强度 <span class="arithmatex">\(\vec{B}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>介质宏观响应（Dipole Density）</strong></td>
+<td style="text-align: left;">电极化强度 <span class="arithmatex">\(\vec{P}\)</span>（单位体积电偶极矩）</td>
+<td style="text-align: left;">磁化强度 <span class="arithmatex">\(\vec{M}\)</span>（单位体积磁偶极矩）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>辅助场矢量定义（Auxiliary Field）</strong></td>
+<td style="text-align: left;">电位移矢量 <span class="arithmatex">\(\vec{D} = \epsilon_0\vec{E} + \vec{P}\)</span></td>
+<td style="text-align: left;">磁场强度 <span class="arithmatex">\(\vec{H} = \dfrac{\vec{B}}{\mu_0} - \vec{M}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>仅含自由源的积分定理</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\oint_S \vec{D} \cdot d\vec{S} = q_{\text{free}}\)</span>（高斯定理）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\oint_C \vec{H} \cdot d\vec{l} = i_{\text{free}}\)</span>（安培环路定理）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>仅含自由源的微分定理</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\nabla \cdot \vec{D} = \rho_{\text{free}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\nabla \times \vec{H} = \vec{j}_{\text{free}}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>线性各向同性介质本构关系</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{D} = \epsilon\vec{E}, \quad \epsilon = \epsilon_r\epsilon_0 = (1 + \chi_e)\epsilon_0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{B} = \mu\vec{H}, \quad \mu = \mu_r\mu_0 = (1 + \chi)\mu_0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>等效束缚源（体密度与面密度）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\rho_b = -\nabla \cdot \vec{P}, \qquad \sigma_b = \vec{P} \cdot \hat{n}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{j}_b = \nabla \times \vec{M}, \qquad \vec{K}_b = \vec{M} \times \hat{n}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-chapter-10-selected-exercises">4 Chapter 10 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-10-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 10.1: Far-Field Magnetic Field of a Current Ring at Arbitrary Angle（载流圆环在空间任意远点处的磁偶极子场严格推导）</summary>
+<p><strong>Problem Statement:</strong>
+Consider a circular ring of radius <span class="arithmatex">\(R\)</span> placed in the <span class="arithmatex">\(xy\)</span>-plane and its center located at the origin. The ring carries a current <span class="arithmatex">\(I\)</span>, flowing counterclockwise when viewed from the positive <span class="arithmatex">\(z\)</span> axis.
+(a) For a point <span class="arithmatex">\(\vec{r} = (r\sin\theta, 0, r\cos\theta)\)</span> located in the <span class="arithmatex">\(xz\)</span>-plane, show that for <span class="arithmatex">\(r \gg R\)</span> the magnetic field has the following form:
+$<span class="arithmatex">\(\vec{B} = -\frac{\mu_0 \vec{\mu}}{4\pi r^3} + \frac{3\mu_0(\vec{\mu}\cdot\vec{r})\vec{r}}{4\pi r^5}\)</span>$
+where the magnetic dipole moment is <span class="arithmatex">\(\vec{\mu} = I\pi R^2\hat{z}\)</span>.
+(b) What is the potential energy of a magnetic dipole <span class="arithmatex">\(\vec{\mu}'\)</span> if it is placed at <span class="arithmatex">\(\vec{r} \ (r \gg R)\)</span>?</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>(a) 载流圆环远场磁偶极子通式的微元积分展开推导</strong>：
+设圆环上方位角为 <span class="arithmatex">\(\phi \in [0, 2\pi)\)</span> 的源点位置矢量为 <span class="arithmatex">\(\vec{r}' = R(\cos\phi\,\hat{x} + \sin\phi\,\hat{y})\)</span>，逆时针电流元线矢量为：</p>
+<div class="arithmatex">\[
+d\vec{l} = R\,d\phi\,(-\sin\phi\,\hat{x} + \cos\phi\,\hat{y})
+\]</div>
+<p>场点位于 <span class="arithmatex">\(xz\)</span> 平面内 <span class="arithmatex">\(\vec{r} = r\sin\theta\,\hat{x} + r\cos\theta\,\hat{z}\)</span>（模长为 <span class="arithmatex">\(|\vec{r}| = r\)</span>）。从源点指向场点的位移矢量为：</p>
+<div class="arithmatex">\[
+\vec{R}_{\text{rel}} = \vec{r} - \vec{r}' = (r\sin\theta - R\cos\phi)\hat{x} - R\sin\phi\,\hat{y} + r\cos\theta\,\hat{z}
+\]</div>
+<p>当 <span class="arithmatex">\(r \gg R\)</span> 时，将距离分母 <span class="arithmatex">\(|\vec{r} - \vec{r}'|^{-3}\)</span> 对小量 <span class="arithmatex">\(R/r\)</span> 展开至一阶项（保留至 <span class="arithmatex">\(\mathcal{O}(R/r)\)</span>）：</p>
+<div class="arithmatex">\[
+|\vec{r} - \vec{r}'|^{-3} = \left(r^2 - 2\vec{r}\cdot\vec{r}' + R^2\right)^{-3/2} = r^{-3}\left(1 - \frac{2R\sin\theta\cos\phi}{r} + \frac{R^2}{r^2}\right)^{-3/2} \approx \frac{1}{r^3}\left(1 + \frac{3R\sin\theta\cos\phi}{r}\right)
+\]</div>
+<p>计算分子中的叉乘 <span class="arithmatex">\(d\vec{l} \times (\vec{r} - \vec{r}')\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+d\vec{l} \times (\vec{r} - \vec{r}') &amp;= R\,d\phi \begin{vmatrix} \hat{x} &amp; \hat{y} &amp; \hat{z} \\ -\sin\phi &amp; \cos\phi &amp; 0 \\ r\sin\theta - R\cos\phi &amp; -R\sin\phi &amp; r\cos\theta \end{vmatrix} \\
+&amp;= R\,d\phi \left[ (r\cos\theta\cos\phi)\hat{x} + (r\cos\theta\sin\phi)\hat{y} + (R - r\sin\theta\cos\phi)\hat{z} \right]
+\end{aligned}
+\]</div>
+<p>将分子与分母展开式相乘代入毕奥-萨伐尔定律 <span class="arithmatex">\(\vec{B}(\vec{r}) = \frac{\mu_0 I}{4\pi}\int_0^{2\pi} \frac{d\vec{l}\times(\vec{r}-\vec{r}')}{|\vec{r}-\vec{r}'|^3}\)</span>。
+注意到在 <span class="arithmatex">\([0, 2\pi]\)</span> 上积分时，凡是含单次 <span class="arithmatex">\(\cos\phi\)</span> 或 <span class="arithmatex">\(\sin\phi\)</span> 的项积分均为 <span class="arithmatex">\(0\)</span>（<span class="arithmatex">\(\int_0^{2\pi}\cos\phi\,d\phi = \int_0^{2\pi}\sin\phi\,d\phi = \int_0^{2\pi}\sin\phi\cos\phi\,d\phi = 0\)</span>），只有常数项（积分为 <span class="arithmatex">\(2\pi\)</span>）和含 <span class="arithmatex">\(\cos^2\phi\)</span> 的项（<span class="arithmatex">\(\int_0^{2\pi}\cos^2\phi\,d\phi = \pi\)</span>）非零！保留至领头阶 <span class="arithmatex">\(\mathcal{O}(R^2/r^3)\)</span>：</p>
+<ul>
+<li><strong><span class="arithmatex">\(x\)</span> 分量</strong>：来自 <span class="arithmatex">\((r\cos\theta\cos\phi)\)</span> 与修正项 <span class="arithmatex">\(\left(\frac{3R\sin\theta\cos\phi}{r}\right)\)</span> 的乘积：
+  $$
+  B_x = \frac{\mu_0 I R}{4\pi r^3} \int_0^{2\pi} \frac{3R\sin\theta\cos\theta\cos^2\phi}{r} r\,d\phi = \frac{\mu_0 (I\pi R^2)}{4\pi r^3} (3\sin\theta\cos\theta) = \frac{3\mu_0 \mu \sin\theta\cos\theta}{4\pi r^3}
+  $$</li>
+<li><strong><span class="arithmatex">\(y\)</span> 分量</strong>：因被积函数含 <span class="arithmatex">\(\sin\phi\)</span> 或 <span class="arithmatex">\(\sin\phi\cos\phi\)</span>，积分精确为零：<span class="arithmatex">\(B_y = 0\)</span>；</li>
+<li><strong><span class="arithmatex">\(z\)</span> 分量</strong>：来自常数项 <span class="arithmatex">\(R\)</span>（乘以 <span class="arithmatex">\(1\)</span>）与 <span class="arithmatex">\((-r\sin\theta\cos\phi)\)</span> 乘以修正项 <span class="arithmatex">\(\left(\frac{3R\sin\theta\cos\phi}{r}\right)\)</span> 的组合：
+  $$
+  B_z = \frac{\mu_0 I R}{4\pi r^3} \int_0^{2\pi} \left(R - 3R\sin^2\theta\cos^2\phi\right) d\phi = \frac{\mu_0 (I\pi R^2)}{4\pi r^3}\left(2 - 3\sin^2\theta\right) = \frac{\mu_0 \mu}{4\pi r^3}\left(3\cos^2\theta - 1\right)
+  $$</li>
+</ul>
+<p>另一方面，注意到 <span class="arithmatex">\(\vec{\mu} = \mu\hat{z}\)</span>，<span class="arithmatex">\(\vec{r} = r(\sin\theta\,\hat{x} + \cos\theta\,\hat{z})\)</span>，故 <span class="arithmatex">\(\vec{\mu}\cdot\vec{r} = \mu r\cos\theta\)</span>。将上面求出的分量合并为矢量形式：</p>
+<div class="arithmatex">\[
+\vec{B} = B_x\hat{x} + B_z\hat{z} = \frac{\mu_0 \mu}{4\pi r^3}\left[ 3\cos\theta(\sin\theta\,\hat{x} + \cos\theta\,\hat{z}) - \hat{z} \right] = -\frac{\mu_0\vec{\mu}}{4\pi r^3} + \frac{3\mu_0(\vec{\mu}\cdot\vec{r})\vec{r}}{4\pi r^5}
+\]</div>
+<p>由于圆环绕 <span class="arithmatex">\(z\)</span> 轴具有旋转对称性，该矢量表达式对三维空间任意远点 <span class="arithmatex">\(\vec{r}\)</span> 均普遍成立，证毕。</p>
+<hr />
+<p><strong>(b) 第二个磁偶极子 <span class="arithmatex">\(\vec{\mu}'\)</span> 置于 <span class="arithmatex">\(\vec{r}\)</span> 处的相互作用势能</strong>：
+直接应用磁偶极子在外场中的势能公式 <span class="arithmatex">\(U_B = -\vec{\mu}' \cdot \vec{B}(\vec{r})\)</span>：</p>
+<div class="arithmatex">\[
+U_B = -\vec{\mu}' \cdot \vec{B}(\vec{r}) = \frac{\mu_0}{4\pi r^3}\left[ \vec{\mu}\cdot\vec{\mu}' - \frac{3(\vec{\mu}\cdot\vec{r})(\vec{\mu}'\cdot\vec{r})}{r^2} \right] = \frac{\mu_0}{4\pi r^3}\left[ \vec{\mu}\cdot\vec{\mu}' - 3(\vec{\mu}\cdot\hat{r})(\vec{\mu}'\cdot\hat{r}) \right]
+\]</div>
+</details>
+<details>
+<summary>Exercise 10.2: Long Solenoid Filled with Magnetic Material（填充磁介质的长直螺线管内场与束缚面电流）</summary>
+<p><strong>Problem Statement:</strong>
+A long solenoid with <span class="arithmatex">\(n\)</span> turns per unit length carries a free current <span class="arithmatex">\(i\)</span>, and its interior is completely filled with a material of relative permeability <span class="arithmatex">\(\mu_r\)</span>. Find the magnetic field strength <span class="arithmatex">\(\vec{H}\)</span>, the magnetic field <span class="arithmatex">\(\vec{B}\)</span>, the magnetization <span class="arithmatex">\(\vec{M}\)</span>, and the bound surface current <span class="arithmatex">\(\vec{K}_b\)</span> on the surface of the material.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p>设螺线管轴线沿 <span class="arithmatex">\(+z\)</span> 方向（按右手螺旋定则，自由电流 <span class="arithmatex">\(i\)</span> 沿 <span class="arithmatex">\(+\hat{\phi}\)</span> 方向环绕，内部场沿 <span class="arithmatex">\(+\hat{z}\)</span> 方向）：</p>
+<ol>
+<li><strong>求磁场强度 <span class="arithmatex">\(\vec{H}\)</span></strong>：
+   在无限长螺线管外部，<span class="arithmatex">\(\vec{H} = \vec{0}\)</span>。跨接螺线管管壁作矩形安培环路（管内平行于轴线的边长为 <span class="arithmatex">\(l\)</span>），直接应用关于 <span class="arithmatex">\(\vec{H}\)</span> 的安培环路定理 <span class="arithmatex">\(\oint_C \vec{H}\cdot d\vec{l} = i_{\text{free, enc}}\)</span>：
+   $$
+   Hl = (nl)i \implies \vec{H} = ni\,\hat{z} \qquad (\text{大小为 } H = ni)
+   $$</li>
+<li><strong>求磁感应强度 <span class="arithmatex">\(\vec{B}\)</span></strong>：
+   由线性磁介质本构关系 <span class="arithmatex">\(\vec{B} = \mu\vec{H} = \mu_r\mu_0\vec{H}\)</span>：
+   $$
+   \vec{B} = \mu_r \mu_0 n i\,\hat{z} \qquad (\text{大小为 } B = \mu_r \mu_0 n i)
+   $$</li>
+<li><strong>求磁化强度 <span class="arithmatex">\(\vec{M}\)</span></strong>：
+   由 <span class="arithmatex">\(\vec{M} = \chi\vec{H} = (\mu_r - 1)\vec{H}\)</span>（或 <span class="arithmatex">\(\vec{M} = \frac{\vec{B}}{\mu_0} - \vec{H}\)</span>）：
+   $$
+   \vec{M} = (\mu_r - 1)n i\,\hat{z} \qquad (\text{大小为 } M = (\mu_r - 1)n i)
+   $$</li>
+<li><strong>求磁介质圆柱外表面的束缚面电流密度 <span class="arithmatex">\(\vec{K}_b\)</span></strong>：
+   在圆柱形磁介质外表面上，外法向单位矢量为径向 <span class="arithmatex">\(\hat{n} = \hat{r}\)</span>。由束缚面电流公式 <span class="arithmatex">\(\vec{K}_b = \vec{M} \times \hat{n}\)</span> 及柱坐标基矢叉乘关系 <span class="arithmatex">\(\hat{z}\times\hat{r} = \hat{\phi}\)</span>：
+   $$
+   \vec{K}_b = \vec{M} \times \hat{r} = (\mu_r - 1)n i\,(\hat{z} \times \hat{r}) = (\mu_r - 1)n i\,\hat{\phi} \qquad (\text{大小为 } K_b = (\mu_r - 1)n i)
+   $$
+   （物理意义：当 <span class="arithmatex">\(\mu_r &gt; 1\)</span> 时，磁介质表面的束缚面电流 <span class="arithmatex">\(K_b\)</span> 与螺线管自由面电流 <span class="arithmatex">\(ni\)</span> 的环绕方向相同，两者叠加的总面电流密度恰好为 <span class="arithmatex">\(J_{s,\text{tot}} = ni + (\mu_r - 1)ni = \mu_r ni\)</span>，从而将管内磁场放大为 <span class="arithmatex">\(\mu_r\mu_0 ni\)</span>！）。</li>
+</ol>
+</details>
+<details>
+<summary>Exercise 10.3: Two-Level Statistical Model of a Paramagnetic Solid（二能级顺磁固体的磁化曲线与居里常数推导）</summary>
+<p><strong>Problem Statement:</strong>
+A paramagnetic solid contains <span class="arithmatex">\(n\)</span> identical atoms per unit volume, each carrying a permanent magnetic dipole moment of magnitude <span class="arithmatex">\(\mu\)</span>. The solid is held at absolute temperature <span class="arithmatex">\(T\)</span> in a uniform external magnetic field <span class="arithmatex">\(\vec{B} = B\hat{z}\)</span> with <span class="arithmatex">\(B &gt; 0\)</span>, and the dipoles do not interact with one another. Assume, as in Section 10.3, that each moment can point only parallel or antiparallel to <span class="arithmatex">\(\vec{B}\)</span>, and that the fractions of atoms in the two states are proportional to <span class="arithmatex">\(e^{\mu B/k_B T}\)</span> and <span class="arithmatex">\(e^{-\mu B/k_B T}\)</span> respectively, where <span class="arithmatex">\(k_B\)</span> is Boltzmann's constant.
+(a) Find the magnetization <span class="arithmatex">\(M\)</span> of the solid. Show that for <span class="arithmatex">\(\mu B \ll k_B T\)</span> it reduces to Curie's law <span class="arithmatex">\(M = CB/T\)</span>, and give both the Curie constant <span class="arithmatex">\(C\)</span> and the saturation magnetization <span class="arithmatex">\(M_{\max}\)</span> in terms of <span class="arithmatex">\(n, \mu\)</span> and <span class="arithmatex">\(k_B\)</span>.
+(b) Find the value of <span class="arithmatex">\(B/T\)</span> at which the magnetization reaches half of <span class="arithmatex">\(M_{\max}\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>(a) 磁化强度精确解、饱和磁化强度与高温弱场居里定律极限</strong>：
+设单位体积内磁矩平行于 <span class="arithmatex">\(\vec{B}\)</span>（<span class="arithmatex">\(\mu_z = +\mu\)</span>）和反平行于 <span class="arithmatex">\(\vec{B}\)</span>（<span class="arithmatex">\(\mu_z = -\mu\)</span>）的原子数分别为 <span class="arithmatex">\(n_+\)</span> 和 <span class="arithmatex">\(n_-\)</span>（满足 <span class="arithmatex">\(n_+ + n_- = n\)</span>）。
+由题意知两态占据概率之比为 <span class="arithmatex">\(\frac{n_+}{n_-} = \frac{e^{\mu B/k_B T}}{e^{-\mu B/k_B T}}\)</span>，归一化后两态各自的原子数密度为：</p>
+<div class="arithmatex">\[
+n_+ = n \frac{e^{\mu B/k_B T}}{e^{\mu B/k_B T} + e^{-\mu B/k_B T}}, \qquad n_- = n \frac{e^{-\mu B/k_B T}}{e^{\mu B/k_B T} + e^{-\mu B/k_B T}}
+\]</div>
+<p>因此，单位体积内的净磁偶极矩（即磁化强度 <span class="arithmatex">\(M\)</span>）为：</p>
+<div class="arithmatex">\[
+M = \mu n_+ - \mu n_- = n\mu \left( \frac{e^{\mu B/k_B T} - e^{-\mu B/k_B T}}{e^{\mu B/k_B T} + e^{-\mu B/k_B T}} \right) = n\mu \tanh\left(\frac{\mu B}{k_B T}\right)
+\]</div>
+<ul>
+<li><strong>饱和磁化强度 <span class="arithmatex">\(M_{\max}\)</span></strong>：当 <span class="arithmatex">\(\frac{\mu B}{k_B T} \to \infty\)</span> 时，<span class="arithmatex">\(\tanh\left(\frac{\mu B}{k_B T}\right) \to 1\)</span>，所有偶极子完全对齐，故：
+  $$
+  M_{\max} = n\mu
+  $$</li>
+<li><strong>弱场高温极限（<span class="arithmatex">\(\mu B \ll k_B T\)</span>）与居里常数 <span class="arithmatex">\(C\)</span></strong>：
+  当无量纲小量 <span class="arithmatex">\(x = \frac{\mu B}{k_B T} \ll 1\)</span> 时，利用一阶泰勒展开 <span class="arithmatex">\(e^{\pm x} \approx 1 \pm x\)</span>（故 <span class="arithmatex">\(\tanh x = \frac{(1+x)-(1-x)}{(1+x)+(1-x)} \approx x\)</span>）：
+  $$
+  M \approx n\mu \left(\frac{\mu B}{k_B T}\right) = \left(\frac{n\mu^2}{k_B}\right)\frac{B}{T} = C\frac{B}{T}
+  $$
+  这正是居里定律，其中居里常数为 <strong><span class="arithmatex">\(C = \dfrac{n\mu^2}{k_B}\)</span></strong>。</li>
+</ul>
+<hr />
+<p><strong>(b) 磁化强度达到饱和值一半（<span class="arithmatex">\(M = \frac{1}{2}M_{\max}\)</span>）时的 <span class="arithmatex">\(B/T\)</span> 值</strong>：
+令 <span class="arithmatex">\(\frac{M}{M_{\max}} = \tanh\left(\frac{\mu B}{k_B T}\right) = \frac{1}{2}\)</span>，即：</p>
+<div class="arithmatex">\[
+\frac{e^x - e^{-x}}{e^x + e^{-x}} = \frac{1}{2} \implies 2(e^{2x} - 1) = e^{2x} + 1 \implies e^{2x} = 3 \implies x = \frac{1}{2}\ln 3
+\]</div>
+<p>将 <span class="arithmatex">\(x = \frac{\mu B}{k_B T}\)</span> 代回，解得：</p>
+<div class="arithmatex">\[
+\frac{B}{T} = \frac{k_B \ln 3}{2\mu} = \frac{k_B}{\mu}\operatorname{artanh}\left(\frac{1}{2}\right) \approx 0.549\,\frac{k_B}{\mu}
+\]</div>
+</details>
+<details>
+<summary>Exercise 10.4: Classical Orbital Model of Diamagnetism（抗磁性的经典电子轨道模型严格推导）</summary>
+<p><strong>Problem Statement:</strong>
+In a classical model of diamagnetism, an electron of charge <span class="arithmatex">\(-e\)</span> (with <span class="arithmatex">\(e &gt; 0\)</span>) and mass <span class="arithmatex">\(m\)</span> moves in a circle of radius <span class="arithmatex">\(r\)</span> about a fixed nucleus, the electrostatic attraction supplying the centripetal force, with angular speed <span class="arithmatex">\(\omega_0\)</span>. A uniform magnetic field <span class="arithmatex">\(\vec{B} = B\hat{n}\)</span> with <span class="arithmatex">\(B &gt; 0\)</span> is then applied along the normal <span class="arithmatex">\(\hat{n}\)</span> to the plane of the orbit, slowly enough that the electron stays on a circular orbit, of the same radius <span class="arithmatex">\(r\)</span>, at every stage. Work to first order in <span class="arithmatex">\(B\)</span>.
+(a) Find the new angular speed, for each of the two senses in which the electron may circulate about <span class="arithmatex">\(\hat{n}\)</span>.
+(b) Find the change <span class="arithmatex">\(\Delta\vec{\mu}\)</span> in the orbital magnetic dipole moment in each case, and show that <span class="arithmatex">\(\Delta\vec{\mu}\)</span> opposes <span class="arithmatex">\(\vec{B}\)</span> whichever way the electron circulates.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>(a) 两种绕行方向下的新角速率 <span class="arithmatex">\(\omega\)</span></strong>：
+在未加磁场时，原子核对电子的静电库仑引力提供向心力：<span class="arithmatex">\(F_E = m\omega_0^2 r\)</span>（这里规定 <span class="arithmatex">\(\omega_0 &gt; 0\)</span> 为角速率大小）。
+当沿轨道平面法向 <span class="arithmatex">\(\hat{n}\)</span> 施加外磁场 <span class="arithmatex">\(\vec{B} = B\hat{n}\)</span> 后，分两种绕行方向考察电子所受洛伦兹力 <span class="arithmatex">\(\vec{F}_B = -e\vec{v}\times\vec{B}\)</span> 的方向（保持轨道半径 <span class="arithmatex">\(r\)</span> 不变，故 <span class="arithmatex">\(F_E = m\omega_0^2 r\)</span> 不变）：</p>
+<ol>
+<li><strong>情形 I：电子沿右手螺旋正方向（绕 <span class="arithmatex">\(\hat{n}\)</span> 逆时针 Counterclockwise）运动</strong>：
+   此时速度方向为 <span class="arithmatex">\(+\hat{\phi}\)</span>，<span class="arithmatex">\(\vec{v}\times\vec{B} = (\omega r\hat{\phi})\times(B\hat{n}) = +\omega r B\,\hat{r}\)</span>（指向圆外），由于电子带负电（<span class="arithmatex">\(-e\)</span>），洛伦兹力 <span class="arithmatex">\(\vec{F}_B = -e\omega r B\,\hat{r}\)</span> <strong>指向圆心</strong>（与库仑引力同向，共同提供向心力）：
+   $$
+   m\omega^2 r = F_E + e\omega r B = m\omega_0^2 r + e\omega r B \implies \omega^2 - \omega_0^2 = \frac{eB}{m}\omega
+   $$
+   设 <span class="arithmatex">\(\omega = \omega_0 + \Delta\omega_1\)</span>，保留至 <span class="arithmatex">\(B\)</span> 的一阶小量（<span class="arithmatex">\(\omega^2 - \omega_0^2 \approx 2\omega_0 \Delta\omega_1\)</span>，右侧 <span class="arithmatex">\(\omega \approx \omega_0\)</span>）：
+   $$
+   2\omega_0 \Delta\omega_1 \approx \frac{eB}{m}\omega_0 \implies \Delta\omega_1 = +\frac{eB}{2m}, \qquad \omega_{\text{CCW}} = \omega_0 + \frac{eB}{2m}
+   $$</li>
+<li><strong>情形 II：电子沿右手螺旋反方向（绕 <span class="arithmatex">\(\hat{n}\)</span> 顺时针 Clockwise）运动</strong>：
+   此时速度方向为 <span class="arithmatex">\(-\hat{\phi}\)</span>，洛伦兹力 <span class="arithmatex">\(\vec{F}_B = +e\omega r B\,\hat{r}\)</span> <strong>背离圆心向外</strong>（抵消一部分库仑向心力）：
+   $$
+   m\omega^2 r = F_E - e\omega r B = m\omega_0^2 r - e\omega r B \implies \omega^2 - \omega_0^2 = -\frac{eB}{m}\omega
+   $$
+   设 <span class="arithmatex">\(\omega = \omega_0 + \Delta\omega_2\)</span>，同样保留至 <span class="arithmatex">\(B\)</span> 的一阶项：
+   $$
+   2\omega_0 \Delta\omega_2 \approx -\frac{eB}{m}\omega_0 \implies \Delta\omega_2 = -\frac{eB}{2m}, \qquad \omega_{\text{CW}} = \omega_0 - \frac{eB}{2m}
+   $$</li>
+</ol>
+<hr />
+<p><strong>(b) 两种绕行方向下轨道磁偶极矩的变化量 <span class="arithmatex">\(\Delta\vec{\mu}\)</span></strong>：
+电子圆周运动形成的等效环形电流大小为 <span class="arithmatex">\(i = \frac{e\omega}{2\pi}\)</span>，轨道面积为 <span class="arithmatex">\(A = \pi r^2\)</span>，故磁矩大小为 <span class="arithmatex">\(\mu = iA = \frac{1}{2}er^2\omega\)</span>。注意电子带负电，电流方向与电子运动方向相反：</p>
+<ol>
+<li><strong>情形 I（电子逆时针运动）</strong>：
+   电流顺时针流动，由右手定则知初始磁矩方向沿 <strong><span class="arithmatex">\(-\hat{n}\)</span></strong>（与 <span class="arithmatex">\(\vec{B}\)</span> 反向）：<span class="arithmatex">\(\vec{\mu}_{\text{CCW}} = -\frac{1}{2}er^2\omega_{\text{CCW}}\,\hat{n}\)</span>。
+   由于 <span class="arithmatex">\(\Delta\omega_1 = +\frac{eB}{2m} &gt; 0\)</span>（角速率增大，反向磁矩的模长变大），磁矩矢量的变化量为：
+   $$
+   \Delta\vec{\mu}_{\text{CCW}} = -\frac{1}{2}er^2 \Delta\omega_1\,\hat{n} = -\frac{e^2 r^2}{4m}B\hat{n} = -\frac{e^2 r^2}{4m}\vec{B}
+   $$</li>
+<li><strong>情形 II（电子顺时针运动）</strong>：
+   电流逆时针流动，由右手定则知初始磁矩方向沿 <strong><span class="arithmatex">\(+\hat{n}\)</span></strong>（与 <span class="arithmatex">\(\vec{B}\)</span> 同向）：<span class="arithmatex">\(\vec{\mu}_{\text{CW}} = +\frac{1}{2}er^2\omega_{\text{CW}}\,\hat{n}\)</span>。
+   由于 <span class="arithmatex">\(\Delta\omega_2 = -\frac{eB}{2m} &lt; 0\)</span>（角速率减小，同向磁矩的模长变小），磁矩矢量的变化量为：
+   $$
+   \Delta\vec{\mu}_{\text{CW}} = +\frac{1}{2}er^2 \Delta\omega_2\,\hat{n} = -\frac{e^2 r^2}{4m}B\hat{n} = -\frac{e^2 r^2}{4m}\vec{B}
+   $$</li>
+</ol>
+<p><strong>结论</strong>：无论电子原本沿哪个方向绕核旋转，外磁场诱导出的轨道磁偶极矩变化量恒为 <strong><span class="arithmatex">\(\Delta\vec{\mu} = -\dfrac{e^2 r^2}{4m}\vec{B}\)</span></strong>，永远与外加磁场 <span class="arithmatex">\(\vec{B}\)</span> 方向相反！</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2331 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/05_electrical_properties_of_conductors/">
+      
+      
+        <link rel="prev" href="../04_electrostatics_triangle/">
+      
+      
+        <link rel="next" href="../06_resistance_and_capacitance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>05 导体的电学性质 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-5-conductors-in-electrostatic-field" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05 导体的电学性质
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electrostatic-properties-of-conductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 导体的静电平衡性质 (Electrostatic Properties of Conductors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 导体的静电平衡性质 (Electrostatic Properties of Conductors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 导体的微观图像与静电平衡概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 静电平衡导体的四大基本性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conductors-with-cavities-and-electrostatic-shielding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 空腔导体与静电屏蔽 (Conductors with Cavities and Electrostatic Shielding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空腔导体与静电屏蔽 (Conductors with Cavities and Electrostatic Shielding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-empty-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 空腔内无电荷的情形 (Empty Cavity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cavity-with-charge-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 空腔内有电荷与接地屏蔽 (Cavity with Charge &amp; Grounding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-uniqueness-theorem-and-method-of-image-charges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 唯一性定理与镜像法 (Uniqueness Theorem and Method of Image Charges)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 唯一性定理与镜像法 (Uniqueness Theorem and Method of Image Charges)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 理论基础与镜像法三条基本准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-point-charge-above-a-grounded-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 模型一：无限大接地导体平面上方的点电荷 (Point Charge Above a Grounded Plane)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-point-charge-outside-a-grounded-sphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型二：接地导体球壳外的点电荷 (Point Charge Outside a Grounded Sphere)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-5-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 5 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electrostatic-properties-of-conductors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 导体的静电平衡性质 (Electrostatic Properties of Conductors)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 导体的静电平衡性质 (Electrostatic Properties of Conductors)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 导体的微观图像与静电平衡概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 静电平衡导体的四大基本性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conductors-with-cavities-and-electrostatic-shielding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 空腔导体与静电屏蔽 (Conductors with Cavities and Electrostatic Shielding)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空腔导体与静电屏蔽 (Conductors with Cavities and Electrostatic Shielding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-empty-cavity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 空腔内无电荷的情形 (Empty Cavity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-cavity-with-charge-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 空腔内有电荷与接地屏蔽 (Cavity with Charge &amp; Grounding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-uniqueness-theorem-and-method-of-image-charges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 唯一性定理与镜像法 (Uniqueness Theorem and Method of Image Charges)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 唯一性定理与镜像法 (Uniqueness Theorem and Method of Image Charges)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 理论基础与镜像法三条基本准则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-point-charge-above-a-grounded-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 模型一：无限大接地导体平面上方的点电荷 (Point Charge Above a Grounded Plane)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-point-charge-outside-a-grounded-sphere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 模型二：接地导体球壳外的点电荷 (Point Charge Outside a Grounded Sphere)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-5-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 5 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-5-conductors-in-electrostatic-field">Chapter 5: Conductors in Electrostatic Field（静电场中的导体）<a class="headerlink" href="#chapter-5-conductors-in-electrostatic-field" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第五章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 5: <em>The Electrical Properties of Conductors</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 5: <em>Conductors in Electrostatic Field</em> &amp; Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapter 29</li>
+</ul>
+</div>
+<h2 id="1-electrostatic-properties-of-conductors">1 导体的静电平衡性质 (Electrostatic Properties of Conductors)<a class="headerlink" href="#1-electrostatic-properties-of-conductors" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 导体的微观图像与静电平衡概念<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>金属导体（Metals）与绝缘体（Insulators）在电学性质上的巨大差异，类似于液体与固体在力学性质上的差异，二者皆取决于微观粒子的迁移率（Mobility）。在金属固体中，束缚的金属正离子（Bound metal cations）构成晶格骨架（Lattice），而部分外层电子脱离原子束缚形成可以在整个晶格间自由游走的<strong>自由电子海</strong>（Sea of conduction electrons），充当<strong>载流子</strong>（Charge carriers）。值得注意的是，导电性不仅取决于元素种类，还取决于原子的成键排列方式（例如同样由纯碳原子构成的石墨 Graphite 是良导体，而金刚石 Diamond 则是绝缘体）。</p>
+<p>当将一个孤立导体（Isolated conductor）置于外静电场 <span class="arithmatex">\(\vec{E}_0\)</span> 中时，自由电子立即受到电场力作用并逆着电场线向高电势一侧移动，在原处留下净正电荷。经过极短的暂态过程后，导体表面重新分布的感应电荷（Induced charges）所产生的附加电场完全抵消了导体内部的外电场，导体内不再有宏观电荷的定向移动（无电流）。这种电荷分布稳定且不随时间变化的状态称为<strong>静电平衡状态</strong>（Electrostatic Equilibrium）。</p>
+<h3 id="12">1.2 静电平衡导体的四大基本性质<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>处于静电平衡状态下的任何导体，必然严格满足以下四条基本物理规律：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">性质维度</th>
+<th style="text-align: left;">数学表达式</th>
+<th style="text-align: left;">物理证明与推论说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 内部场强与电势</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E}_{\text{inside}} = \vec{0}\)</span><br><span class="arithmatex">\(V = \text{const}\)</span></td>
+<td style="text-align: left;">导体内部（金属实体内部）电场处处为零；否則自由电子将受力产生持续电流，违背静电平衡。由 <span class="arithmatex">\(\vec{E} = -\nabla V = \vec{0}\)</span> 知<strong>整个导体（含表面与内部）是一个等势体（Equipotential body）</strong>，导体表面是等势面</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 内部与表面电荷</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\rho_{\text{inside}} = 0\)</span><br><span class="arithmatex">\(q_{\text{excess}} \subset \text{Surface}\)</span></td>
+<td style="text-align: left;">在导体内部任取高斯面（或由微分形式 <span class="arithmatex">\(\rho = \epsilon_0\nabla\cdot\vec{E} = 0\)</span>），可知导体内部处处电中性（无净电荷），<strong>所有净剩电荷（Excess charge）只能分布在导体的外表面或内腔表面上</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 表面外侧场强方向</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E}_{\text{surface}} \perp \text{Surface}\)</span></td>
+<td style="text-align: left;">紧贴导体表面外侧的电场矢量必须<strong>处处垂直于导体表面</strong>；否则切向电场分量会驱动表面电荷移动形成表面电流</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. 表面外侧场强大小</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E}_{\text{just outside}} = \dfrac{\sigma}{\epsilon_0}\hat{n}\)</span></td>
+<td style="text-align: left;">跨接导体表面作微小圆柱形高斯药盒（Pillbox，底面积 <span class="arithmatex">\(A\)</span>，内底面在金属内 <span class="arithmatex">\(\vec{E}=\vec{0}\)</span>，外底面在金属外，侧面无通量）：由高斯定理 <span class="arithmatex">\(\epsilon_0 EA = \sigma A\)</span> 得 <span class="arithmatex">\(E_\perp = \dfrac{\sigma}{\epsilon_0}\)</span>（<span class="arithmatex">\(\hat{n}\)</span> 为表面外法向单位矢量）</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">核心辨析：导体表面场强 <span class="arithmatex">\(\frac{\sigma}{\epsilon_0}\)</span> vs. 绝缘薄板场强 <span class="arithmatex">\(\frac{\sigma}{2\epsilon_0}\)</span></p>
+<ul>
+<li><strong>无限大均匀带电绝缘薄板（Nonconducting sheet）</strong>：两侧均有电场穿出，圆柱药盒两个底面平分通量 <span class="arithmatex">\(\epsilon_0(2EA) = \sigma A \implies E = \frac{\sigma}{2\epsilon_0}\)</span>。</li>
+<li><strong>孤立带电导体平板（Conducting plate）</strong>：在无外场时，净电荷均匀分布在左右<strong>两个表面</strong>上，每个表面的面电荷密度为 <span class="arithmatex">\(\sigma_1\)</span>。在导体外侧，两个表面各自产生 <span class="arithmatex">\(\frac{\sigma_1}{2\epsilon_0}\)</span> 的同向电场，叠加后恰为 <span class="arithmatex">\(E = \frac{\sigma_1}{2\epsilon_0} + \frac{\sigma_1}{2\epsilon_0} = \frac{\sigma_1}{\epsilon_0}\)</span>；而在导体内部，两表面产生的电场等大反向，叠加为 <span class="arithmatex">\(E = 0\)</span>！当把两块带等量异号电荷的平行金属板靠近时，异号电荷相互吸引，全部净电荷迁移至相对的<strong>内表面</strong>（面密度变为 <span class="arithmatex">\(2\sigma_1\)</span>），外表面电荷为零，两板之间场强为 <span class="arithmatex">\(E = \frac{2\sigma_1}{\epsilon_0}\)</span>，两板外侧场强均为 <span class="arithmatex">\(0\)</span>。</li>
+</ul>
+</div>
+<p><strong>表面电荷分布与曲率的关系（尖端效应）</strong>：
+对于远离其他电荷的孤立导体球，由球对称性知净电荷均匀分布（球外电场等效于球心点电荷，即壳层定理 Shell theorem）。但对于非球形的一般导体，面电荷密度 <span class="arithmatex">\(\sigma\)</span> 随表面位置变化：在向外凸出的<strong>尖端与棱角处</strong>（Sharp outward points and edges，曲率半径小），面电荷密度 <span class="arithmatex">\(|\sigma|\)</span> 及紧贴表面外侧的场强 <span class="arithmatex">\(|\vec{E}|\)</span> <strong>极大</strong>；而在平坦处较小，向内凹陷的拐角处（Inward corners）极小。</p>
+<hr />
+<h2 id="2-conductors-with-cavities-and-electrostatic-shielding">2 空腔导体与静电屏蔽 (Conductors with Cavities and Electrostatic Shielding)<a class="headerlink" href="#2-conductors-with-cavities-and-electrostatic-shielding" title="Permanent link">&para;</a></h2>
+<h3 id="21-empty-cavity">2.1 空腔内无电荷的情形 (Empty Cavity)<a class="headerlink" href="#21-empty-cavity" title="Permanent link">&para;</a></h3>
+<p>考察内部含有一个空腔（Empty cavity）的孤立带电导体（Example 5.1）：</p>
+<ol>
+<li><strong>内表面总净电荷为零</strong>：在金属实体内部紧贴空腔内壁作一个完全包围空腔的高斯面 <span class="arithmatex">\(\Sigma\)</span>。由于金属内部处处 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>，穿过 <span class="arithmatex">\(\Sigma\)</span> 的电通量 <span class="arithmatex">\(\oint_\Sigma \vec{E}\cdot d\vec{A} = 0\)</span>，由高斯定理知 <span class="arithmatex">\(Q_{\text{enc}} = 0\)</span>，故空腔内壁上的总净电荷必为零。</li>
+<li><strong>内表面处处无电荷（<span class="arithmatex">\(\sigma_{\text{inner}} = 0\)</span>）且空腔内处处无电场（<span class="arithmatex">\(\vec{E}_{\text{cavity}} = \vec{0}\)</span>）</strong>：
+   空腔内部无体积电荷（<span class="arithmatex">\(\rho = 0\)</span>），电势满足拉普拉斯方程 <span class="arithmatex">\(\nabla^2 V = 0\)</span>；同时空腔内壁属于同一个等势体导体，电势恒为常数 <span class="arithmatex">\(V = V_0\)</span>。根据<strong>唯一性定理</strong>（Uniqueness Theorem），空腔内部唯一满足边界条件的解就是常函数 <span class="arithmatex">\(V(\vec{r}) \equiv V_0\)</span>。因此空腔内部处处 <span class="arithmatex">\(\vec{E} = -\nabla V = \vec{0}\)</span>，进而跨接内壁作微小高斯药盒可知内壁每一点的面电荷密度均为 <span class="arithmatex">\(\sigma = 0\)</span>！所有净电荷完全分布在导体的<strong>最外表面</strong>上。
+   <em>思维实验（Lecture 5 Slide 7）</em>：若将空腔不断扩大直至吞噬整个金属壳（仅保留原本外表面上的电荷分布），空间各处的电场丝毫不变，这说明内部零电场是由外表面电荷自身精妙排布抵消的结果。</li>
+</ol>
+<p><strong>对外部电场的屏蔽（法拉第笼 Faraday Cage）</strong>：上述结论表明，无论导体外部存在多么强的静电场（如雷暴天气 Thunderstorm），空腔内部（只要内部无源电荷）的电场恒严格为零（因此雷雨天待在全金属车身的轿车内是安全的，但不适用于敞篷车或塑料/乐高车）。</p>
+<h3 id="22-cavity-with-charge-grounding">2.2 空腔内有电荷与接地屏蔽 (Cavity with Charge &amp; Grounding)<a class="headerlink" href="#22-cavity-with-charge-grounding" title="Permanent link">&para;</a></h3>
+<p>设孤立导体原本带有总净电荷 <span class="arithmatex">\(Q_c\)</span>（若原本中性则 <span class="arithmatex">\(Q_c = 0\)</span>），现将一个电荷量为 <span class="arithmatex">\(+Q\)</span> 的点电荷放入其空腔内部（Example 5.2）：</p>
+<ol>
+<li><strong>内外表面感应电荷定量关系</strong>：
+   仍取完全位于金属实体内部、包围空腔的高斯面 <span class="arithmatex">\(\Sigma\)</span>。因金属内 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>，必有 <span class="arithmatex">\(Q_{\text{enc}} = Q + q_{\text{inner}} = 0\)</span>，因此<strong>空腔内壁必然感应出总量为 <span class="arithmatex">\(q_{\text{inner}} = -Q\)</span> 的异号电荷</strong>！
+   再由导体整体电荷守恒（<span class="arithmatex">\(q_{\text{inner}} + q_{\text{outer}} = Q_c\)</span>），<strong>导体外表面必然带有总量为 <span class="arithmatex">\(q_{\text{outer}} = Q_c + Q\)</span> 的电荷</strong>（若导体原本电中性，则内壁为 <span class="arithmatex">\(-Q\)</span>，外壁为 <span class="arithmatex">\(+Q\)</span>）。</li>
+<li><strong>偏心放置时的对称性解耦（Lecture 5 Slides 17–19 重点辨析）</strong>：
+   若球形金属壳空腔内的点电荷偏离球心（Off-center，例如位于距球心 <span class="arithmatex">\(R/2\)</span> 处），则：</li>
+<li><strong>空腔内壁（Inner wall）</strong>：感应电荷虽然总量恒为 <span class="arithmatex">\(-Q\)</span>，但因点电荷偏心吸引，<strong>分布是不均匀的</strong>（靠近点电荷一侧更密集）；内壁感应电荷的作用是与腔内点电荷共同在金属壳实体及外部空间产生完全相消的零电场。</li>
+<li><strong>导体外壁（Outer wall）</strong>：由于金属实体内部 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span> 彻底阻断了空腔内部与外部的电力联系，在外部无其他电荷时，外壁上的电荷 <span class="arithmatex">\(Q_c + Q\)</span> 完全不受腔内点电荷位置的影响，依然保持<strong>球对称均匀分布</strong>！</li>
+<li><strong>接地屏蔽（Grounding）</strong>：
+   将导体与大地相连称为<strong>接地</strong>（Grounding）。地球是一个巨大的导体库，其电势固定为无穷远参考零电势 <span class="arithmatex">\(V = 0\)</span>。当包裹着腔内电荷 <span class="arithmatex">\(+Q\)</span> 的导体壳接地且外部无其他电荷时，导体壳电势变为 <span class="arithmatex">\(V = 0\)</span>（与无穷远处相同），故壳外空间处处 <span class="arithmatex">\(V = 0, \ \vec{E} = \vec{0}\)</span>，外表面上的电荷 <span class="arithmatex">\(+Q\)</span> 全部流入大地（<span class="arithmatex">\(q_{\text{outer}} = 0\)</span>），从而将空腔内部电荷的电场完全屏蔽在空腔之内。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">空腔导体状态（设导体原本中性，腔内偏心放置 <span class="arithmatex">\(+q\)</span>）</th>
+<th style="text-align: left;">空腔内壁电荷 <span class="arithmatex">\(q_{\text{inner}}\)</span></th>
+<th style="text-align: left;">球壳外壁电荷 <span class="arithmatex">\(q_{\text{outer}}\)</span></th>
+<th style="text-align: left;">球壳外部空间电场 <span class="arithmatex">\(\vec{E}(r &gt; b)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>孤立不接地（Isolated, ungrounded）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(-q\)</span>（<strong>非均匀分布</strong>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(+q\)</span>（<strong>均匀分布</strong>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E} = \dfrac{q}{4\pi\epsilon_0 r^2}\hat{r}\)</span>（等效于球心点电荷）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>外壳接地（Grounded，<span class="arithmatex">\(V_{\text{shell}} = 0\)</span>）</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(-q\)</span>（<strong>非均匀分布，腔内场不变</strong>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(0\)</span>（流入大地）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\vec{E} = \vec{0}\)</span>（对腔内电荷实现向外屏蔽）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-uniqueness-theorem-and-method-of-image-charges">3 唯一性定理与镜像法 (Uniqueness Theorem and Method of Image Charges)<a class="headerlink" href="#3-uniqueness-theorem-and-method-of-image-charges" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 理论基础与镜像法三条基本准则<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>在导体外部的无电荷空间区域内，电势满足拉普拉斯方程 <span class="arithmatex">\(\nabla^2 V = 0\)</span>。该方程具有两个核心数学性质：</p>
+<ol>
+<li><strong>唯一性（Uniqueness Theorem）</strong>：在给定电荷分布的区域内，如果某个电势函数满足拉普拉斯/泊松方程，并且满足全部<strong>边界条件</strong>（Boundary conditions：给定各边界面及无穷远处的电势值，或给定各孤立导体的等势条件及所围总电荷量），则该电势就是空间<strong>唯一真实</strong>的物理电势。</li>
+<li><strong>线性叠加性（Linearity）</strong>：多个解的线性组合依然满足方程，因此可以通过逐个边界添加虚拟电荷来叠加构造解。</li>
+</ol>
+<p><strong>镜像法（Method of Image Charges）</strong>正是利用唯一性定理，在所求解区域<strong>外部</strong>（通常在导体内部）放置一个或几个虚拟的<strong>镜像电荷</strong>（Image charges），用以替代导体表面未知的感应电荷分布。使用镜像法必须严格遵守以下<strong>三条基本准则</strong>（Rules of Image Charges）：</p>
+<ol>
+<li><strong>准则 1（禁入研究区域）</strong>：镜像电荷<strong>绝不能放置在待求解场分布的物理区域内部</strong>（否则会改变该区域内的源电荷密度 <span class="arithmatex">\(\rho\)</span>，使泊松方程本身发生改变）。</li>
+<li><strong>准则 2（复现边界条件）</strong>：镜像系统与原物理系统在待求解区域的所有边界上必须具有完全相同的边界条件（例如使接地导体表面所在位置满足等势条件 <span class="arithmatex">\(V = 0\)</span>；若导体孤立且给定总电荷，则需使该表面为等势面，且闭合面内包围的镜像电荷与真实电荷之和等于原系统的总电荷）。</li>
+<li><strong>准则 3（多镜像叠加）</strong>：当存在多个导电边界或孤立带电导体时，可利用线性叠加原理同时引入多个镜像电荷。</li>
+</ol>
+<h3 id="32-point-charge-above-a-grounded-plane">3.2 模型一：无限大接地导体平面上方的点电荷 (Point Charge Above a Grounded Plane)<a class="headerlink" href="#32-point-charge-above-a-grounded-plane" title="Permanent link">&para;</a></h3>
+<p>设无限大接地导体平面位于 <span class="arithmatex">\(z = 0\)</span>（边界条件 <span class="arithmatex">\(V(x, y, 0) = 0\)</span>，且下半空间 <span class="arithmatex">\(z &lt; 0\)</span> 在导体内恒有 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>），点电荷 <span class="arithmatex">\(+q\)</span> 位于上方 <span class="arithmatex">\((0, 0, d)\)</span> 处（Example 5.3）：</p>
+<ol>
+<li><strong>镜像系统构造与上半空间电势</strong>：
+   去掉导体平面，在下半空间对称位置 <span class="arithmatex">\((0, 0, -d)\)</span> 放置一个镜像电荷 <strong><span class="arithmatex">\(-q\)</span></strong>。该辅助系统在上半空间 <span class="arithmatex">\((z &gt; 0)\)</span> 的电荷分布与原系统完全相同，且在 <span class="arithmatex">\(z = 0\)</span> 平面及无穷远处均满足 <span class="arithmatex">\(V = 0\)</span>。由唯一性定理，上半空间的电势与电场唯一确定为：
+   $$
+   V(x, y, z &gt; 0) = \frac{q}{4\pi\epsilon_0}\left[ \frac{1}{\sqrt{x^2 + y^2 + (z - d)^2}} - \frac{1}{\sqrt{x^2 + y^2 + (z + d)^2}} \right]
+   $$</li>
+<li><strong>导体表面外侧电场与感应面电荷密度 <span class="arithmatex">\(\sigma(x, y)\)</span></strong>：
+   在紧贴导体平面上方 <span class="arithmatex">\(z = 0^+\)</span> 处，电场垂直于平面（只有 <span class="arithmatex">\(z\)</span> 分量）：
+   $$
+   \vec{E}(x, y, z = 0^+) = -\hat{z}\left.\frac{\partial V}{\partial z}\right|_{z=0} = -\hat{z}\frac{qd}{2\pi\epsilon_0(x^2 + y^2 + d^2)^{3/2}}
+   $$
+   由导体表面边界关系 <span class="arithmatex">\(\sigma = \epsilon_0 \hat{n}\cdot\vec{E}(z=0^+) = \epsilon_0 E_z(x, y, 0^+)\)</span>，立即得到导体平面上的<strong>感应面电荷密度</strong>：
+   $$
+   \sigma(x, y) = -\frac{qd}{2\pi(x^2 + y^2 + d^2)^{3/2}}
+   $$
+   在极坐标 <span class="arithmatex">\((r, \phi)\)</span> 下对整个平面积分：<span class="arithmatex">\(\int_0^\infty \sigma(r) 2\pi r\,dr = -qd\int_0^\infty (r^2+d^2)^{-3/2}r\,dr = -q\)</span>，即导体平面上感应出的总电荷恰好等于镜像电荷 <span class="arithmatex">\(-q\)</span>。</li>
+<li><strong>相互作用力与静电能减半机制（Lecture 5 Slide 25 &amp; Exercise 5.9）</strong>：</li>
+<li>点电荷 <span class="arithmatex">\(+q\)</span> 受到导体平面的吸引力等于位于 <span class="arithmatex">\((0, 0, -d)\)</span> 处的镜像电荷 <span class="arithmatex">\(-q\)</span> 对它的库仑引力（间距为 <span class="arithmatex">\(2d\)</span>）：
+     $$
+     \vec{F} = -\frac{1}{4\pi\epsilon_0}\frac{q^2}{(2d)^2}\hat{z} = -\frac{q^2}{16\pi\epsilon_0 d^2}\hat{z}
+     $$</li>
+<li>将 <span class="arithmatex">\(+q\)</span> 从无穷远移至 <span class="arithmatex">\(z = d\)</span> 处，系统的静电势能为：
+     $$
+     U = -\int_\infty^d F_z(z')\,dz' = \int_\infty^d \frac{q^2}{16\pi\epsilon_0 z'^2}\,dz' = -\frac{1}{4\pi\epsilon_0}\frac{q^2}{4d} = \frac{1}{2}\left(-\frac{1}{4\pi\epsilon_0}\frac{q^2}{2d}\right)
+     $$
+     该能量<strong>恰好是没有导体时将 <span class="arithmatex">\(+q\)</span> 与 <span class="arithmatex">\(-q\)</span> 移至相距 <span class="arithmatex">\(2d\)</span> 所需能量的一半</strong>！物理原因在于：双点电荷系统中上下整个全空间都存在电场；而在接地导体板系统中，电场仅存在于上半空间（<span class="arithmatex">\(z &gt; 0\)</span>），下半空间（<span class="arithmatex">\(z &lt; 0\)</span>）内部 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span> 不储存任何电场能（从做功角度看，只移动了真实电荷 <span class="arithmatex">\(+q\)</span>，而导体上的感应电荷是在 <span class="arithmatex">\(V = 0\)</span> 的等势面上移动的，不做功）。</li>
+</ol>
+<h3 id="33-point-charge-outside-a-grounded-sphere">3.3 模型二：接地导体球壳外的点电荷 (Point Charge Outside a Grounded Sphere)<a class="headerlink" href="#33-point-charge-outside-a-grounded-sphere" title="Permanent link">&para;</a></h3>
+<p>设半径为 <span class="arithmatex">\(R\)</span> 的接地导体球壳中心位于原点（球面边界条件 <span class="arithmatex">\(V(r = R) = 0\)</span>），点电荷 <span class="arithmatex">\(+Q\)</span> 位于球外 <span class="arithmatex">\((d, 0, 0)\)</span> 处，其中 <span class="arithmatex">\(d &gt; R\)</span>（Example 5.4）：</p>
+<ol>
+<li><strong>镜像电荷参数推导</strong>：
+   在球壳内部 <span class="arithmatex">\(x\)</span> 轴上 <span class="arithmatex">\((d', 0, 0) \ (d' &lt; R)\)</span> 放置一个镜像电荷 <span class="arithmatex">\(-q\)</span>。令球面 <span class="arithmatex">\(x^2 + y^2 + z^2 = R^2\)</span> 上处处满足 <span class="arithmatex">\(V = 0\)</span>：
+   $$
+   \frac{Q}{\sqrt{(x - d)^2 + y^2 + z^2}} - \frac{q}{\sqrt{(x - d')^2 + y^2 + z^2}} = 0
+   $$
+   两边平方移项并展开：
+   $$
+   (Q^2 - q^2)(x^2 + y^2 + z^2) + 2(q^2 d - Q^2 d')x = q^2 d^2 - Q^2 d'^2
+   $$
+   要使该方程与球面方程 <span class="arithmatex">\(x^2 + y^2 + z^2 = R^2\)</span>（不含 <span class="arithmatex">\(x\)</span> 一次项）完全重合，必须令 <span class="arithmatex">\(x\)</span> 的系数为零且常数项之比等于 <span class="arithmatex">\(R^2\)</span>：
+   $$
+   \begin{cases}
+   q^2 d - Q^2 d' = 0 \implies d' = \dfrac{q^2}{Q^2}d \
+   R^2(Q^2 - q^2) = q^2 d^2 - Q^2 d'^2
+   \end{cases}
+   $$
+   消去 <span class="arithmatex">\(d'\)</span> 并排除平凡解 <span class="arithmatex">\(q=Q, d'=d\)</span>（违背准则 1），解得<strong>球面镜像电荷的唯一参数</strong>：
+   $$
+   q = \frac{R}{d}Q \quad (\text{即镜像电荷为 } q' = -\frac{R}{d}Q), \qquad d' = \frac{R^2}{d} &lt; R
+   $$</li>
+<li><strong>推广：孤立不接地且带总电荷 <span class="arithmatex">\(Q_0\)</span> 的导体球（Exercise 5.3）</strong>：
+   若导体球不接地，而是孤立且携带总电荷 <span class="arithmatex">\(Q_0\)</span>，则由叠加原理（准则 2 与准则 3），需在球内放置<strong>两个镜像电荷</strong>：</li>
+<li>第一个镜像电荷 <span class="arithmatex">\(q_1' = -\frac{R}{d}Q\)</span> 位于 <span class="arithmatex">\((d', 0, 0) = \left(\frac{R^2}{d}, 0, 0\right)\)</span>，使球面保持为 <span class="arithmatex">\(V = 0\)</span> 的等势面；</li>
+<li>第二个镜像电荷 <span class="arithmatex">\(q_2' = Q_0 - q_1' = Q_0 + \frac{R}{d}Q\)</span> 放置在<strong>球心 <span class="arithmatex">\((0, 0, 0)\)</span></strong> 处：由于它到球面各点距离均为 <span class="arithmatex">\(R\)</span>，它在球面上产生常电势（不破坏球面的等势性），且使高斯球面内包围的总镜像电荷 <span class="arithmatex">\(q_1' + q_2' = Q_0\)</span> 恰好等于原导体球的总电荷！</li>
+</ol>
+<hr />
+<h2 id="4-chapter-5-selected-exercises">4 Chapter 5 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-5-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 5.1 &amp; 5.2: Concentric Conducting Shells &amp; Two Parallel Metal Plates（同心导体球壳与双平行金属板四表面电荷分配）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 5.1</strong>: A conducting spherical ball of radius <span class="arithmatex">\(R_1\)</span> is placed concentrically inside a conducting spherical shell with inner radius <span class="arithmatex">\(R_2\)</span> and outer radius <span class="arithmatex">\(R_3 \ (R_1 &lt; R_2 &lt; R_3)\)</span>. The inner ball carries charge <span class="arithmatex">\(Q_1\)</span> and the outer shell carries total charge <span class="arithmatex">\(Q_2\)</span>. Find the electric field in all regions (<span class="arithmatex">\(r &lt; R_1\)</span>, <span class="arithmatex">\(R_1 &lt; r &lt; R_2\)</span>, <span class="arithmatex">\(R_2 &lt; r &lt; R_3\)</span>, <span class="arithmatex">\(r &gt; R_3\)</span>) and the surface charge density on each surface.
+- <strong>Ex 5.2</strong>: Two isolated parallel metal plates of the same area <span class="arithmatex">\(A\)</span> carry charges <span class="arithmatex">\(Q_1\)</span> and <span class="arithmatex">\(Q_2\)</span>. There are no other charges and no external field. Assume that the plates are large enough that edge effects can be neglected. (a) Prove that the charge surface densities on the two facing surfaces are equal in magnitude but opposite in sign, and the charge surface densities on the two outward-facing surfaces are equal in magnitude and same in sign. (b) Calculate the total charge of each surface.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 同心导体球与导体球壳的电荷及场强分布（Exercise 5.1）</strong>：
+由静电平衡条件与球对称性：
+- 内球 <span class="arithmatex">\(r = R_1\)</span> 表面带有电荷 <span class="arithmatex">\(q_1 = Q_1\)</span>；
+- 在外球壳实体内部 <span class="arithmatex">\(R_2 &lt; r &lt; R_3\)</span> 取同心球形高斯面，因导体内 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>，故外球壳内表面 <span class="arithmatex">\(r = R_2\)</span> 必感应出 <span class="arithmatex">\(q_2 = -Q_1\)</span>；
+- 由外球壳电荷守恒，外球壳外表面 <span class="arithmatex">\(r = R_3\)</span> 带有电荷 <span class="arithmatex">\(q_3 = Q_1 + Q_2\)</span>。</p>
+<p>因此三个表面的面电荷密度分别为：</p>
+<div class="arithmatex">\[
+\sigma_1 = \frac{Q_1}{4\pi R_1^2}, \qquad \sigma_2 = -\frac{Q_1}{4\pi R_2^2}, \qquad \sigma_3 = \frac{Q_1 + Q_2}{4\pi R_3^2}
+\]</div>
+<p>四个区域内的径向电场强度 <span class="arithmatex">\(\vec{E}(r)\)</span> 分别为：</p>
+<div class="arithmatex">\[
+\vec{E}(\vec{r}) = \begin{cases}
+\vec{0}, &amp; r &lt; R_1 \text{ 或 } R_2 &lt; r &lt; R_3, \\
+\dfrac{Q_1}{4\pi\epsilon_0 r^2}\hat{r}, &amp; R_1 &lt; r &lt; R_2, \\
+\dfrac{Q_1 + Q_2}{4\pi\epsilon_0 r^2}\hat{r}, &amp; r &gt; R_3.
+\end{cases}
+\]</div>
+<hr />
+<p><strong>2. 两块孤立平行带电金属板的四表面电荷分配定律（Exercise 5.2，高频必考模型）</strong>：
+设左板（带电 <span class="arithmatex">\(Q_1\)</span>）的左、右表面面电荷密度分别为 <span class="arithmatex">\(\sigma_L, \sigma_1\)</span>，右板（带电 <span class="arithmatex">\(Q_2\)</span>）的左、右表面面电荷密度分别为 <span class="arithmatex">\(\sigma_2, \sigma_R\)</span>（即 <span class="arithmatex">\(\sigma_1, \sigma_2\)</span> 为相对的内表面，<span class="arithmatex">\(\sigma_L, \sigma_R\)</span> 为朝外的外表面）。</p>
+<ul>
+<li><strong>(a) 证明内表面等大异号、外表面等大同号</strong>：</li>
+<li>作一个圆柱形高斯药盒，使其左右两个底面分别位于左金属板实体内部和右金属板实体内部（包围两个相对的内表面 <span class="arithmatex">\(\sigma_1\)</span> 与 <span class="arithmatex">\(\sigma_2\)</span>）。由于两金属板内部均有 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>，穿过该高斯面的总通量为零，故高斯面内净电荷为零：
+     $$
+     (\sigma_1 + \sigma_2)A = 0 \implies \sigma_2 = -\sigma_1
+     $$
+     即两个相对内表面的面电荷密度必等大异号！</li>
+<li>考察左金属板内部任意一点的合电场（由四个无限大均匀带电平面共同叠加产生，每个平面在两侧产生 <span class="arithmatex">\(\frac{\sigma_i}{2\epsilon_0}\)</span> 的场）。以向右为正方向，左板内部点位于 <span class="arithmatex">\(\sigma_L\)</span> 右侧、<span class="arithmatex">\(\sigma_1, \sigma_2, \sigma_R\)</span> 左侧，故合场强为：
+     $$
+     E_{\text{in, 1}} = \frac{\sigma_L}{2\epsilon_0} - \frac{\sigma_1}{2\epsilon_0} - \frac{\sigma_2}{2\epsilon_0} - \frac{\sigma_R}{2\epsilon_0} = 0
+     $$
+     将 <span class="arithmatex">\(\sigma_2 = -\sigma_1\)</span> 代入上式，中间两项抵消，立即得到：
+     $$
+     \sigma_L - \sigma_R = 0 \implies \sigma_L = \sigma_R
+     $$
+     即两个朝外的外表面的面电荷密度必等大同号！</li>
+<li><strong>(b) 计算四个表面的具体电荷量</strong>：
+  由两板各自的电荷守恒：<span class="arithmatex">\(q_L + q_1 = Q_1\)</span>，<span class="arithmatex">\(q_2 + q_R = Q_2\)</span>。结合 <span class="arithmatex">\(q_1 + q_2 = 0\)</span> 与 <span class="arithmatex">\(q_L = q_R\)</span>，将两式相加得 <span class="arithmatex">\(2q_L = Q_1 + Q_2\)</span>，故四个表面的总电荷分别为：
+  $$
+  q_L = q_R = \frac{Q_1 + Q_2}{2}, \qquad q_1 = -q_2 = \frac{Q_1 - Q_2}{2}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 5.3 &amp; 5.4: Isolated Sphere Image Method &amp; 90-Degree Corner Wall Images（孤立带电球双镜像法与直角导体墙三镜像法）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 5.3</strong>: Consider again the example of a point charge <span class="arithmatex">\(Q\)</span> located outside a thin spherical conducting shell of radius <span class="arithmatex">\(R\)</span> at distance <span class="arithmatex">\(d\)</span> from the center. This time, the spherical shell is not grounded, and instead it has a total charge of <span class="arithmatex">\(Q_0\)</span>. Calculate the force exerted on the point charge by the shell.
+- <strong>Ex 5.4</strong>: A point charge <span class="arithmatex">\(Q\)</span> is located at <span class="arithmatex">\((a, a, 0)\)</span>, where <span class="arithmatex">\(a &gt; 0\)</span>. A grounded conductor fills the whole region where <span class="arithmatex">\(x &lt; 0\)</span> or <span class="arithmatex">\(y &lt; 0\)</span> (or both), so that the charge lies in the empty region <span class="arithmatex">\(x &gt; 0, y &gt; 0\)</span>. Calculate the force exerted on the point charge by the conductor.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 孤立带电导体球壳对外部点电荷的作用力（Exercise 5.3）</strong>：
+如 §3.3 所述，为同时满足球面 <span class="arithmatex">\(r = R\)</span> 为等势面且球壳总电荷为 <span class="arithmatex">\(Q_0\)</span> 的边界条件，需在球内设置两个镜像电荷：
+1. 在 <span class="arithmatex">\((d', 0, 0) = \left(\frac{R^2}{d}, 0, 0\right)\)</span> 处放置 <span class="arithmatex">\(q_1' = -\frac{R}{d}Q\)</span>（该电荷与真实电荷 <span class="arithmatex">\(Q\)</span> 共同使 <span class="arithmatex">\(r = R\)</span> 球面电势处处为 <span class="arithmatex">\(0\)</span>）；
+2. 在球心 <span class="arithmatex">\((0, 0, 0)\)</span> 处放置 <span class="arithmatex">\(q_2' = Q_0 - q_1' = Q_0 + \frac{R}{d}Q\)</span>（使球面电势整体抬升至常数 <span class="arithmatex">\(V_0 = \frac{Q_0 + RQ/d}{4\pi\epsilon_0 R}\)</span>，且保证高斯球面内总电荷为 <span class="arithmatex">\(Q_0\)</span>）。</p>
+<p>根据库仑定律，球壳对位于 <span class="arithmatex">\((d, 0, 0)\)</span> 处的点电荷 <span class="arithmatex">\(Q\)</span> 施加的静电力等于两个镜像电荷对 <span class="arithmatex">\(Q\)</span> 作用力的叠加（沿径向 <span class="arithmatex">\(\hat{r}\)</span> 向外为正）：</p>
+<div class="arithmatex">\[
+\vec{F} = \frac{Q}{4\pi\epsilon_0}\left[ \frac{q_2'}{d^2} + \frac{q_1'}{(d - d')^2} \right]\hat{r} = \frac{Q}{4\pi\epsilon_0}\left[ \frac{Q_0 + \frac{R}{d}Q}{d^2} - \frac{\frac{R}{d}Q}{\left(d - \frac{R^2}{d}\right)^2} \right]\hat{r} = \frac{Q}{4\pi\epsilon_0 d^2}\left[ Q_0 - \frac{QdR^3(2d^2 - R^2)}{(d^2 - R^2)^2} \right]\hat{r}
+\]</div>
+<hr />
+<p><strong>2. 直角相交接地导体墙（第一象限角域）的三镜像电荷法（Exercise 5.4）</strong>：
+真实电荷 <span class="arithmatex">\(+Q\)</span> 位于 <span class="arithmatex">\((a, a, 0)\)</span>。为了使半平面 <span class="arithmatex">\(x = 0 \ (y \ge 0)\)</span> 和 <span class="arithmatex">\(y = 0 \ (x \ge 0)\)</span> 上同时满足 <span class="arithmatex">\(V = 0\)</span>，仅靠两个镜像电荷是不够的（因为针对 <span class="arithmatex">\(x=0\)</span> 的镜像会破坏 <span class="arithmatex">\(y=0\)</span> 的零电势），必须按棋盘格对称放置在其余三个象限中设置<strong>三个镜像电荷</strong>：
+- 在第二象限 <span class="arithmatex">\((-a, a, 0)\)</span> 放置 <strong><span class="arithmatex">\(-Q\)</span></strong>（距离为 <span class="arithmatex">\(2a\)</span>，方向沿 <span class="arithmatex">\(-\hat{x}\)</span>）；
+- 在第四象限 <span class="arithmatex">\((a, -a, 0)\)</span> 放置 <strong><span class="arithmatex">\(-Q\)</span></strong>（距离为 <span class="arithmatex">\(2a\)</span>，方向沿 <span class="arithmatex">\(-\hat{y}\)</span>）；
+- 在第三象限 <span class="arithmatex">\((-a, -a, 0)\)</span> 放置 <strong><span class="arithmatex">\(+Q\)</span></strong>（对角距离为 <span class="arithmatex">\(2\sqrt{2}a\)</span>，斥力方向沿 <span class="arithmatex">\(\frac{\hat{x} + \hat{y}}{\sqrt{2}}\)</span>）。</p>
+<p>对位于 <span class="arithmatex">\((a, a, 0)\)</span> 的 <span class="arithmatex">\(+Q\)</span> 进行矢量力合成：
+- 两个 <span class="arithmatex">\(-Q\)</span> 的吸引力合力为：<span class="arithmatex">\(\vec{F}_{12} = -\frac{Q^2}{4\pi\epsilon_0 (2a)^2}(\hat{x} + \hat{y}) = -\frac{Q^2}{16\pi\epsilon_0 a^2}(\hat{x} + \hat{y})\)</span>；
+- 对角 <span class="arithmatex">\(+Q\)</span> 的排斥力为：<span class="arithmatex">\(\vec{F}_3 = +\frac{Q^2}{4\pi\epsilon_0 (2\sqrt{2}a)^2}\left(\frac{\hat{x} + \hat{y}}{\sqrt{2}}\right) = +\frac{Q^2}{32\sqrt{2}\pi\epsilon_0 a^2}(\hat{x} + \hat{y})\)</span>。</p>
+<p>相加即得导体对点电荷 <span class="arithmatex">\(Q\)</span> 的总静电力：</p>
+<div class="arithmatex">\[
+\vec{F} = -\frac{(4 - \sqrt{2})Q^2}{64\pi\epsilon_0 a^2}(\hat{x} + \hat{y})
+\]</div>
+</details>
+<details>
+<summary>Exercise 5.5 &amp; 5.6: Off-Center Cavity Charge &amp; Grounded Sphere Inside Charged Shell（偏心空腔电荷与带电绝缘球壳内的接地导体球）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 5.5</strong>: A neutral conducting spherical shell, centered at the origin, has inner radius <span class="arithmatex">\(a\)</span> and outer radius <span class="arithmatex">\(b\)</span> (<span class="arithmatex">\(0 &lt; a &lt; b\)</span>). A point charge <span class="arithmatex">\(q &gt; 0\)</span> is fixed inside the cavity at a distance <span class="arithmatex">\(s\)</span> from the center (<span class="arithmatex">\(0 &lt; s &lt; a\)</span>). (a) Find the total charge on the inner surface and on the outer surface of the shell. Is either of these charges spread uniformly over its surface? Find <span class="arithmatex">\(\vec{E}\)</span> for <span class="arithmatex">\(r &gt; b\)</span>. (b) The shell is now connected to the ground. Find the charge on the outer surface and <span class="arithmatex">\(\vec{E}\)</span> for <span class="arithmatex">\(r &gt; b\)</span>. Does the electric field inside the cavity change?
+- <strong>Ex 5.6</strong>: A conducting ball of radius <span class="arithmatex">\(a\)</span> is centered at the origin and connected to the ground (<span class="arithmatex">\(V = 0\)</span>). It is surrounded by a thin nonconducting spherical shell of radius <span class="arithmatex">\(b &gt; a\)</span>, also centered at the origin, which carries a fixed total charge <span class="arithmatex">\(Q &gt; 0\)</span> spread uniformly over its surface. (a) Find the total charge <span class="arithmatex">\(q_g\)</span> that flows onto the ball from the ground, and the surface charge density <span class="arithmatex">\(\sigma_g\)</span> on the ball. (b) Find the electric field <span class="arithmatex">\(\vec{E}\)</span> in the three regions <span class="arithmatex">\(r &lt; a\)</span>, <span class="arithmatex">\(a &lt; r &lt; b\)</span> and <span class="arithmatex">\(r &gt; b\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 偏心空腔点电荷在球壳接地前后的对比（Exercise 5.5）</strong>：</p>
+<ul>
+<li><strong>(a) 球壳孤立中性时</strong>：
+  内表面总电荷为 <span class="arithmatex">\(q_{\text{inner}} = -q\)</span>（因点电荷偏离球心 <span class="arithmatex">\(s &gt; 0\)</span>，内表面电荷分布<strong>不均匀</strong>）；
+  外表面总电荷为 <span class="arithmatex">\(q_{\text{outer}} = +q\)</span>（因金属壳内部 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span> 屏蔽了内部非对称性，外表面电荷呈<strong>球对称均匀分布</strong>）。
+  故在球壳外部 <span class="arithmatex">\(r &gt; b\)</span> 处，电场等效于中心点电荷：<span class="arithmatex">\(\vec{E}(\vec{r}) = \dfrac{q}{4\pi\epsilon_0 r^2}\hat{r}\)</span>。</li>
+<li><strong>(b) 球壳接地后</strong>：
+  外表面电势变为 <span class="arithmatex">\(V = 0\)</span>，外表面电荷全部流入大地，故 <span class="arithmatex">\(q_{\text{outer}} = 0\)</span>，且球壳外部 <span class="arithmatex">\(r &gt; b\)</span> 处电场变为 <span class="arithmatex">\(\vec{E} = \vec{0}\)</span>。
+  <strong>空腔内部的电场完全不会改变</strong>！因为无论球壳是否接地，空腔内壁始终是同一个等势面（电势常数值的平移不影响 <span class="arithmatex">\(-\nabla V\)</span>），内壁感应电荷分布保持原样。</li>
+</ul>
+<hr />
+<p><strong>2. 均匀带电绝缘球壳内部包裹接地导体球（Exercise 5.6，经典等势叠加法）</strong>：</p>
+<ul>
+<li><strong>(a) 求从大地流入导体球的电荷 <span class="arithmatex">\(q_g\)</span></strong>：
+  由球对称性，流入导体球的电荷 <span class="arithmatex">\(q_g\)</span> 均匀分布在半径为 <span class="arithmatex">\(a\)</span> 的球面上。利用球壳电势叠加公式（以无穷远为电势零点），中心导体球（半径 <span class="arithmatex">\(a\)</span>）的电势等于其自身电荷 <span class="arithmatex">\(q_g\)</span> 产生的表面电势 <span class="arithmatex">\(\frac{q_g}{4\pi\epsilon_0 a}\)</span> 与外部半径为 <span class="arithmatex">\(b\)</span> 的带电球壳 <span class="arithmatex">\(Q\)</span> 在其内部产生的常电势 <span class="arithmatex">\(\frac{Q}{4\pi\epsilon_0 b}\)</span> 之和。由于导体球接地（<span class="arithmatex">\(V(a) = 0\)</span>），必有：
+  $$
+  V(a) = \frac{1}{4\pi\epsilon_0}\left(\frac{q_g}{a} + \frac{Q}{b}\right) = 0 \implies q_g = -\frac{a}{b}Q
+  $$
+  导体球表面的面电荷密度为 <span class="arithmatex">\(\sigma_g = \dfrac{q_g}{4\pi a^2} = -\dfrac{Q}{4\pi a b}\)</span>。</li>
+<li><strong>(b) 三个区域的电场分布 <span class="arithmatex">\(\vec{E}\)</span></strong>：
+  由同心球形高斯面及高斯定理，直接写出各区域场强：
+  $$
+  \vec{E}(\vec{r}) = \begin{cases}
+  \vec{0}, &amp; r &lt; a \quad (\text{导体球内部}), \
+  -\dfrac{aQ}{4\pi\epsilon_0 b r^2}\hat{r}, &amp; a &lt; r &lt; b \quad (\text{仅包围 } q_g = -\frac{a}{b}Q), \
+  \dfrac{Q(1 - a/b)}{4\pi\epsilon_0 r^2}\hat{r}, &amp; r &gt; b \quad (\text{包围总电荷 } Q + q_g).
+  \end{cases}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 5.7, 5.8 &amp; 5.9: Electrostatic Pressure, Connected Spheres &amp; Grounded Plane Energy（静电压强、双球相连尖端效应与接地平面能量分析）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 5.7</strong>: Just outside a conductor in equilibrium the electric field is <span class="arithmatex">\((\sigma/\epsilon_0)\hat{n}\)</span>; inside it is zero. (a) Treat a small patch of the surface, of area <span class="arithmatex">\(\Delta A\)</span>, as a flat, uniformly charged sheet. Find the field that all the <em>other</em> charges produce at the patch, and show that the electric force on the patch's charge is <span class="arithmatex">\(\sigma^2\Delta A/(2\epsilon_0)\hat{n}\)</span> whatever the sign of <span class="arithmatex">\(\sigma\)</span>. (b) An isolated conducting sphere of radius <span class="arithmatex">\(R\)</span> carries total charge <span class="arithmatex">\(Q\)</span>. Find the electric force on the charge of its upper half (<span class="arithmatex">\(z &gt; 0\)</span>).
+- <strong>Ex 5.8</strong>: Two conducting spheres of radii <span class="arithmatex">\(R_1 &gt; R_2\)</span>, far apart, are joined by a long thin conducting wire and carry total charge <span class="arithmatex">\(Q &gt; 0\)</span>. (a) Find the charges <span class="arithmatex">\(Q_1\)</span> and <span class="arithmatex">\(Q_2\)</span> on the two spheres. (b) Find the ratios <span class="arithmatex">\(\sigma_1/\sigma_2\)</span> and <span class="arithmatex">\(E_1/E_2\)</span>. On which sphere is the field stronger? What does this suggest about the field near a sharp point?
+- <strong>Ex 5.9</strong>: A point charge <span class="arithmatex">\(q &gt; 0\)</span> is held at <span class="arithmatex">\((0, 0, d)\)</span> above an infinite grounded conducting plane <span class="arithmatex">\(z = 0\)</span>. (a) Find <span class="arithmatex">\(\sigma(x, y)\)</span>, show the total induced charge is <span class="arithmatex">\(-q\)</span>, and find the radius <span class="arithmatex">\(r_0\)</span> of the circle <span class="arithmatex">\(x^2 + y^2 = r_0^2\)</span> that contains half of it. (b) Find the work an external agent must do to move the charge slowly from <span class="arithmatex">\(z = d\)</span> to infinity, compare with separating <span class="arithmatex">\(q\)</span> and <span class="arithmatex">\(-q\)</span> from <span class="arithmatex">\(2d\)</span> to infinity, and explain why they differ.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 导体表面的静电压强（Electrostatic Pressure）与半球张力（Exercise 5.7，必考重点）</strong>：</p>
+<ul>
+<li><strong>(a) 为什么要扣除面元自身的电场？</strong>
+  面元 <span class="arithmatex">\(\Delta A\)</span> 上的电荷不能对自己施力，作用于面元电荷 <span class="arithmatex">\(\Delta q = \sigma\Delta A\)</span> 上的电场只是<strong>除该面元以外的其余所有电荷</strong>产生的电场 <span class="arithmatex">\(\vec{E}_{\text{other}}\)</span>。
+  将无穷小面元视为无限大均匀带电薄板，它自身在紧贴外侧产生 <span class="arithmatex">\(+\frac{\sigma}{2\epsilon_0}\hat{n}\)</span> 的场，在紧贴内侧产生 <span class="arithmatex">\(-\frac{\sigma}{2\epsilon_0}\hat{n}\)</span> 的场。由叠加原理：
+  $$
+  \begin{cases}
+  \vec{E}<em _text_other="\text{other">{\text{out}} = \vec{E}</em> \
+  \vec{E}}} + \dfrac{\sigma}{2\epsilon_0}\hat{n} = \dfrac{\sigma}{\epsilon_0}\hat{n<em _text_other="\text{other">{\text{in}} = \vec{E}</em>
+  \end{cases} \implies \vec{E}}} - \dfrac{\sigma}{2\epsilon_0}\hat{n} = \vec{0<em _text_other="\text{other">{\text{other}} = \frac{\sigma}{2\epsilon_0}\hat{n}
+  $$
+  因此，面元所受的向外静电力（及单位面积所受的<strong>静电压强</strong> <span class="arithmatex">\(P = \Delta F/\Delta A\)</span>）为：
+  $$
+  \Delta\vec{F} = (\sigma\Delta A)\vec{E}</em>\epsilon_0 E^2
+  $$
+  由于 }} = \frac{\sigma^2}{2\epsilon_0}\Delta A\,\hat{n} \implies P = \frac{\sigma^2}{2\epsilon_0} = \frac{1}{2<span class="arithmatex">\(\sigma^2 &gt; 0\)</span>，无论表面带正电还是带负电，导体表面所受静电力<strong>永远沿外法线 <span class="arithmatex">\(\hat{n}\)</span> 向外拉伸表面</strong>！</li>
+<li><strong>(b) 带电导体球下半球对上半球的排斥力</strong>：
+  球面面电荷密度为 <span class="arithmatex">\(\sigma = \frac{Q}{4\pi R^2}\)</span>。由轴对称性，上半球（<span class="arithmatex">\(0 \le \theta \le \pi/2\)</span>）所受合力沿 <span class="arithmatex">\(+z\)</span> 方向。利用 <span class="arithmatex">\(\hat{n}\cdot\hat{z} = \cos\theta\)</span> 及球面面元 <span class="arithmatex">\(dA = 2\pi R^2\sin\theta\,d\theta\)</span> 积分：
+  $$
+  F_z = \int_{\text{upper}} \frac{\sigma^2}{2\epsilon_0}\cos\theta\,dA = \frac{\sigma^2}{2\epsilon_0}(2\pi R^2) \int_0^{\pi/2} \sin\theta\cos\theta\,d\theta = \frac{\pi R^2 \sigma^2}{2\epsilon_0} = \frac{Q^2}{32\pi\epsilon_0 R^2}
+  $$
+  因为上半球电荷内部之间的相互作用力内力之和为零，这一净力完全是由下半球的电荷对上半球施加的排斥力。</li>
+</ul>
+<hr />
+<p><strong>2. 细导线连接的两个远距导体球与尖端效应模型（Exercise 5.8）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 两球通过导线相连构成同一个等势体，且相距极远互不影响，故两球表面电势相等：
+  $$
+  V_1 = V_2 \implies \frac{Q_1}{4\pi\epsilon_0 R_1} = \frac{Q_2}{4\pi\epsilon_0 R_2} \implies \frac{Q_1}{Q_2} = \frac{R_1}{R_2}
+  $$
+  结合总电荷守恒 <span class="arithmatex">\(Q_1 + Q_2 = Q\)</span>，解得：
+  $$
+  Q_1 = \frac{R_1}{R_1 + R_2}Q, \qquad Q_2 = \frac{R_2}{R_1 + R_2}Q
+  $$</li>
+<li><strong>(b)</strong> 计算面电荷密度之比与表面电场强度之比：
+  $$
+  \frac{\sigma_1}{\sigma_2} = \frac{Q_1 / (4\pi R_1^2)}{Q_2 / (4\pi R_2^2)} = \frac{R_1}{R_2} \cdot \frac{R_2^2}{R_1^2} = \frac{R_2}{R_1}, \qquad \frac{E_1}{E_2} = \frac{\sigma_1 / \epsilon_0}{\sigma_2 / \epsilon_0} = \frac{R_2}{R_1}
+  $$
+  由于 <span class="arithmatex">\(R_1 &gt; R_2\)</span>，故 <strong><span class="arithmatex">\(\sigma_2 &gt; \sigma_1\)</span> 且 <span class="arithmatex">\(E_2 &gt; E_1\)</span></strong>，即<strong>半径较小的小球表面电场更强</strong>！将不规则导体的尖端视为曲率半径 <span class="arithmatex">\(R_2\)</span> 极小的球面，这直观解释了为什么导体尖端处的面电荷密度和局部电场强度会变得极高（尖端放电原理）。</li>
+</ul>
+<hr />
+<p><strong>3. 接地平面感应电荷半径与移走点电荷的外力功（Exercise 5.9）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 由 §3.2 知 <span class="arithmatex">\(\sigma(r) = -\frac{qd}{2\pi(r^2 + d^2)^{3/2}}\)</span>（其中 <span class="arithmatex">\(r = \sqrt{x^2 + y^2}\)</span>）。在半径为 <span class="arithmatex">\(r_0\)</span> 的圆盘内包含的感应电荷量为：
+  $$
+  q(r_0) = \int_0^{r_0} \sigma(r) 2\pi r\,dr = -qd \int_0^{r_0} \frac{r\,dr}{(r^2 + d^2)^{3/2}} = -qd\left[-\frac{1}{\sqrt{r^2 + d^2}}\right]_0^{r_0} = -q\left(1 - \frac{d}{\sqrt{r_0^2 + d^2}}\right)
+  $$
+  当 <span class="arithmatex">\(r_0 \to \infty\)</span> 时，<span class="arithmatex">\(q(\infty) = -q\)</span>。令 <span class="arithmatex">\(q(r_0) = -\frac{1}{2}q\)</span>，解得包含一半感应电荷的圆半径为：
+  $$
+  1 - \frac{d}{\sqrt{r_0^2 + d^2}} = \frac{1}{2} \implies \sqrt{r_0^2 + d^2} = 2d \implies r_0 = \sqrt{3}\,d
+  $$</li>
+<li><strong>(b)</strong> 当真实电荷位于 <span class="arithmatex">\((0, 0, z)\)</span> 时，其镜像电荷位于 <span class="arithmatex">\((0, 0, -z)\)</span>，两者间距为 <span class="arithmatex">\(2z\)</span>（随 <span class="arithmatex">\(z\)</span> 动态同步变化），真实电荷所受向下的吸引力为 <span class="arithmatex">\(F_{\text{elec}} = -\frac{q^2}{4\pi\epsilon_0(2z)^2} = -\frac{q^2}{16\pi\epsilon_0 z^2}\)</span>。因此外力将其从 <span class="arithmatex">\(z = d\)</span> 缓慢移至 <span class="arithmatex">\(\infty\)</span> 所需做的功为：
+  $$
+  W_{\text{ext}} = \int_d^\infty \frac{q^2}{16\pi\epsilon_0 z^2}\,dz = \frac{q^2}{16\pi\epsilon_0 d} = \frac{1}{4\pi\epsilon_0}\frac{q^2}{4d}
+  $$
+  而在无导体情况下将相距 <span class="arithmatex">\(2d\)</span> 的 <span class="arithmatex">\(+q\)</span> 与 <span class="arithmatex">\(-q\)</span> 拉开至无穷远所需的外力功为 <span class="arithmatex">\(W_{\text{two charges}} = \frac{1}{4\pi\epsilon_0}\frac{q^2}{2d} = 2W_{\text{ext}}\)</span>。两者相差一倍的原因在于：在双点电荷问题中，需要将 <span class="arithmatex">\(+q\)</span>（向上移 <span class="arithmatex">\(d \to \infty\)</span>）和 <span class="arithmatex">\(-q\)</span>（向下移 <span class="arithmatex">\(-d \to -\infty\)</span>）两个真实电荷都拉开做功（或者说全空间上下两半均储有电场能）；而在接地导体板问题中，只有上半空间 <span class="arithmatex">\(z &gt; 0\)</span> 存在真实电荷与电场，外力只需对上方的 <span class="arithmatex">\(+q\)</span> 做功，下方导体内的镜像电荷只是数学虚构。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2385 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/">
+      
+      
+        <link rel="prev" href="../01_coulombs_law_and_electric_field/">
+      
+      
+        <link rel="next" href="../03_electric_potential/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>02 连续电荷与高斯定理 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-continuous-charge-and-gauss-law" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              02 连续电荷与高斯定理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../computer_science/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../computer_science/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-field-due-to-a-continuous-charge-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 连续电荷分布的电场 (Electric Field due to a Continuous Charge Distribution)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 连续电荷分布的电场 (Electric Field due to a Continuous Charge Distribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 微元积分法与对称性简化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 均匀带电细圆环与圆盘轴线上的电场
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-electric-flux-and-gauss-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电通量与高斯定理 (Electric Flux and Gauss' Law)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电通量与高斯定理 (Electric Flux and Gauss&#39; Law)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电通量的定义与符号约定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-gauss-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 高斯定理 (Gauss' Law) 及其与库仑定律的等价性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-applications-to-charged-insulators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 高斯定理在对称绝缘带电体中的应用 (Applications to Charged Insulators)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 高斯定理在对称绝缘带电体中的应用 (Applications to Charged Insulators)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-spherical-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 球对称体系 (Spherical Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-planar-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 平面对称体系 (Planar Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cylindrical-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 柱对称体系 (Cylindrical Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-appendices-2a-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 数学工具附录：球坐标系与曲面积分 (Appendices 2A &amp; 2B)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-2-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 2 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-electric-field-due-to-a-continuous-charge-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 连续电荷分布的电场 (Electric Field due to a Continuous Charge Distribution)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 连续电荷分布的电场 (Electric Field due to a Continuous Charge Distribution)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 微元积分法与对称性简化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 均匀带电细圆环与圆盘轴线上的电场
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-electric-flux-and-gauss-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 电通量与高斯定理 (Electric Flux and Gauss' Law)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 电通量与高斯定理 (Electric Flux and Gauss&#39; Law)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 电通量的定义与符号约定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-gauss-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 高斯定理 (Gauss' Law) 及其与库仑定律的等价性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-applications-to-charged-insulators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 高斯定理在对称绝缘带电体中的应用 (Applications to Charged Insulators)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 高斯定理在对称绝缘带电体中的应用 (Applications to Charged Insulators)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-spherical-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 球对称体系 (Spherical Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-planar-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 平面对称体系 (Planar Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-cylindrical-symmetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 柱对称体系 (Cylindrical Symmetry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-appendices-2a-2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 数学工具附录：球坐标系与曲面积分 (Appendices 2A &amp; 2B)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-2-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 2 核心课后习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    数理基础
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    普通物理
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-2-continuous-charge-and-gauss-law">Chapter 2: Continuous Charge and Gauss' Law（连续电荷分布与高斯定理）<a class="headerlink" href="#chapter-2-continuous-charge-and-gauss-law" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>General Physics II (Electromagnetism) | 第二章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Lecture 2: <em>Continuous Charge and Gauss' Law</em> (Xin Lu / Gentaro Watanabe, ZJU)</li>
+<li>Course Handout Chapter 2: <em>Gauss' Law</em> &amp; Halliday, Resnick &amp; Krane, <em>Physics</em>, Chapters 25 &amp; 27</li>
+</ul>
+</div>
+<h2 id="1-electric-field-due-to-a-continuous-charge-distribution">1 连续电荷分布的电场 (Electric Field due to a Continuous Charge Distribution)<a class="headerlink" href="#1-electric-field-due-to-a-continuous-charge-distribution" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 微元积分法与对称性简化<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>当带电体尺度和观测距离相当时，需要将连续带电体分割为无穷多个微小的电荷元（Differential elements of charge）<span class="arithmatex">\(dq\)</span>，每个电荷元可视为点电荷并在场点 <span class="arithmatex">\(P\)</span> 产生微元电场 <span class="arithmatex">\(d\vec{E}\)</span>：</p>
+<div class="arithmatex">\[
+d\vec{E} = \frac{1}{4\pi\epsilon_0} \frac{dq}{r^2} \hat{r} \implies \vec{E} = \int d\vec{E}
+\]</div>
+<p>在直接积分前，通常先将矢量 <span class="arithmatex">\(d\vec{E}\)</span> 分解为正交分量（Decompose into components），并利用系统的几何对称性（Symmetry）判断哪些分量相互抵消（Cancel out），仅对相互叠加的分量进行积分。</p>
+<h3 id="12">1.2 均匀带电细圆环与圆盘轴线上的电场<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p><strong>1. 均匀带电细圆环（A Ring of Charge）</strong></p>
+<p>设半径为 <span class="arithmatex">\(R\)</span> 的细圆环均匀带有总电荷 <span class="arithmatex">\(q &gt; 0\)</span>，其<strong>线电荷密度</strong>（Linear charge density，单位长度电荷量）为 <span class="arithmatex">\(\lambda = \frac{q}{2\pi R}\)</span>。考察圆环中心轴线上距环心为 <span class="arithmatex">\(z\)</span> 的点 <span class="arithmatex">\(P\)</span>：</p>
+<ul>
+<li><strong>微元与对称性分析</strong>：取弧长微元 <span class="arithmatex">\(ds\)</span>，其电荷量为 <span class="arithmatex">\(dq = \lambda\,ds\)</span>，到点 <span class="arithmatex">\(P\)</span> 的距离为 <span class="arithmatex">\(r = \sqrt{z^2 + R^2}\)</span>。由于圆环关于中心轴旋转对称，<span class="arithmatex">\(d\vec{E}\)</span> 垂直于 <span class="arithmatex">\(z\)</span> 轴的分量成对抵消，仅剩沿 <span class="arithmatex">\(z\)</span> 轴的分量 <span class="arithmatex">\(dE_z = dE\cos\theta\)</span>，其中 <span class="arithmatex">\(\cos\theta = \frac{z}{r} = \frac{z}{(z^2 + R^2)^{1/2}}\)</span>。</li>
+<li><strong>积分求解</strong>：由于环上各微元到点 <span class="arithmatex">\(P\)</span> 的距离 <span class="arithmatex">\(r\)</span> 与倾角 <span class="arithmatex">\(\theta\)</span> 均相同，沿整圈周长 <span class="arithmatex">\(\int ds = 2\pi R\)</span> 积分得：
+  $$
+  E_z = \int dE_z = \frac{z\lambda}{4\pi\epsilon_0(z^2 + R^2)^{3/2}} \int_0^{2\pi R} ds = \frac{qz}{4\pi\epsilon_0(z^2 + R^2)^{3/2}}
+  $$</li>
+<li><strong>极限情况检验（Checking Limiting Cases）</strong>：</li>
+<li><strong>远场极限（<span class="arithmatex">\(z \gg R\)</span>）</strong>：忽略分母中的 <span class="arithmatex">\(R^2\)</span>，得 <span class="arithmatex">\(E \approx \frac{1}{4\pi\epsilon_0}\frac{q}{z^2}\)</span>，即从极远处观察时，圆环退化为一个点电荷；</li>
+<li><strong>环心极限（<span class="arithmatex">\(z = 0\)</span>）</strong>：代入得 <span class="arithmatex">\(E_z = 0\)</span>，符合关于 <span class="arithmatex">\(z = 0\)</span> 平面的镜像对称性（Mirror symmetry）。</li>
+</ul>
+<p><strong>2. 均匀带电圆盘（A Charged Disk）</strong></p>
+<p>设半径为 <span class="arithmatex">\(R\)</span> 的绝缘圆盘表面均匀带有正电荷，其<strong>面电荷密度</strong>（Surface charge density，单位面积电荷量）为 <span class="arithmatex">\(\sigma = \frac{Q}{\pi R^2}\)</span>。求中心轴线上 <span class="arithmatex">\(z &gt; 0\)</span> 处的电场：</p>
+<ul>
+<li><strong>复用细圆环结论（Recycling the Ring Result）</strong>：将圆盘分割为半径为 <span class="arithmatex">\(r\)</span>、径向宽度为 <span class="arithmatex">\(dr\)</span> 的同心细圆环（Concentric thin rings），微元面积为 <span class="arithmatex">\(dA = 2\pi r\,dr\)</span>，所带电荷为 <span class="arithmatex">\(dq = \sigma\,dA = \sigma(2\pi r\,dr)\)</span>。</li>
+<li><strong>直接套用圆环公式积分</strong>：将圆环公式中的 <span class="arithmatex">\(R\)</span> 替换为 <span class="arithmatex">\(r\)</span>、<span class="arithmatex">\(q\)</span> 替换为 <span class="arithmatex">\(dq\)</span>，从盘心 <span class="arithmatex">\(r = 0\)</span> 积分至边缘 <span class="arithmatex">\(r = R\)</span>：
+  $$
+  E_z = \int_0^R \frac{z\sigma(2\pi r\,dr)}{4\pi\epsilon_0(z^2 + r^2)^{3/2}} = \frac{\sigma z}{4\epsilon_0} \int_0^R (z^2 + r^2)^{-3/2}\,d(r^2) = \frac{\sigma}{2\epsilon_0}\left[1 - \frac{z}{\sqrt{z^2 + R^2}}\right]
+  $$
+  （若采用极坐标二重积分 <span class="arithmatex">\(dS = r\,dr\,d\phi\)</span>，结果完全一致；对于 <span class="arithmatex">\(z &lt; 0\)</span> 的一侧，由镜像对称性知电场方向相反，合并可写为含 <span class="arithmatex">\(\operatorname{sgn}(z)\)</span> 的形式）。</li>
+</ul>
+<hr />
+<h2 id="2-electric-flux-and-gauss-law">2 电通量与高斯定理 (Electric Flux and Gauss' Law)<a class="headerlink" href="#2-electric-flux-and-gauss-law" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 电通量的定义与符号约定<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>为了克服直接微元积分的繁琐计算，我们借助对称性与<strong>电通量</strong>（Electric Flux，定量描述穿过某个曲面的电场线数量）来建立电荷与电场的全局关系。</p>
+<ol>
+<li><strong>匀强场与平面微元</strong>：对于面积为 <span class="arithmatex">\(\Delta A\)</span> 的微小平面块（Small patch），定义垂直于表面且模长等于面积的<strong>面积矢量</strong>（Area Vector）<span class="arithmatex">\(\Delta\vec{A} = \Delta A\,\hat{n}\)</span>。当匀强电场 <span class="arithmatex">\(\vec{E}\)</span> 与法线夹角为 <span class="arithmatex">\(\theta\)</span> 时，穿过该面元的电通量为：
+   $$
+   \Delta\Phi = (E\cos\theta)\Delta A = \vec{E} \cdot \Delta\vec{A}
+   $$</li>
+<li><strong>一般曲面上的电通量</strong>：对弯曲曲面或非均匀电场，将曲面细分为无穷小面元 <span class="arithmatex">\(d\vec{A} = \hat{n}\,dA\)</span>（讲义中亦记作 <span class="arithmatex">\(d\vec{S}\)</span>）并积分：
+   $$
+   \Phi = \int_S \vec{E} \cdot d\vec{A}
+   $$
+   电通量 <span class="arithmatex">\(\Phi\)</span> 是<strong>标量</strong>（Scalar），其国际单位制（SI unit）为 <span class="arithmatex">\(\text{N}\cdot\text{m}^2/\text{C}\)</span>。</li>
+<li><strong>闭合高斯面（Closed Gaussian Surface）的法向约定</strong>：
+   对于任意假想闭合曲面（高斯面），规定面积矢量 <span class="arithmatex">\(d\vec{A}\)</span> 的方向永远<strong>由内向外</strong>（Pointing outward from the interior）。由此得到三种穿透情形的通量符号：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">电场线与高斯面的几何关系</th>
+<th style="text-align: center;">夹角 <span class="arithmatex">\(\theta\)</span> 范围</th>
+<th style="text-align: left;">局部电通量 <span class="arithmatex">\(\Delta\Phi\)</span> 符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>向外穿出（Pierce outward）</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\theta &lt; 90^\circ\)</span></td>
+<td style="text-align: left;"><strong>正通量（Positive flux，<span class="arithmatex">\(\Delta\Phi &gt; 0\)</span>）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>掠过表面（Skim the surface）</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\theta = 90^\circ\)</span></td>
+<td style="text-align: left;"><strong>零通量（Zero flux，<span class="arithmatex">\(\Delta\Phi = 0\)</span>）</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>向内穿入（Pierce inward）</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(\theta &gt; 90^\circ\)</span></td>
+<td style="text-align: left;"><strong>负通量（Negative flux，<span class="arithmatex">\(\Delta\Phi &lt; 0\)</span>）</strong></td>
+</tr>
+</tbody>
+</table>
+<p>穿过整个闭合高斯面的<strong>净电通量</strong>（Net Flux）记为环路曲面积分 <span class="arithmatex">\(\Phi = \oint_S \vec{E} \cdot d\vec{A}\)</span>。</p>
+<details>
+<summary>课堂例题（Example 2.1）：匀强电场中穿过半球面的电通量</summary>
+<p>设半径为 <span class="arithmatex">\(R\)</span> 的半球面（Hemisphere）轴线沿 <span class="arithmatex">\(+z\)</span> 方向，外法线沿径向 <span class="arithmatex">\(\hat{r}\)</span>。匀强电场 <span class="arithmatex">\(\vec{E}\)</span> 位于 <span class="arithmatex">\(xz\)</span> 平面内且与 <span class="arithmatex">\(+z\)</span> 轴夹角为 <span class="arithmatex">\(\alpha\)</span>，即 <span class="arithmatex">\(\vec{E} = E(-\hat{x}\sin\alpha + \hat{z}\cos\alpha)\)</span>。</p>
+<p>在球坐标系 <span class="arithmatex">\((R, \theta, \phi)\)</span> 下，球面微元为 <span class="arithmatex">\(d\vec{S} = R^2\sin\theta\,d\theta\,d\phi\,\hat{r}\)</span>，其中 <span class="arithmatex">\(\hat{r} = \hat{x}\sin\theta\cos\phi + \hat{y}\sin\theta\sin\phi + \hat{z}\cos\theta\)</span>。计算积分：</p>
+<div class="arithmatex">\[
+\Phi = \int_S \vec{E}\cdot d\vec{S} = ER^2 \int_0^{\pi/2} \sin\theta\,d\theta \int_0^{2\pi} d\phi (-\sin\alpha\sin\theta\cos\phi + \cos\alpha\cos\theta)
+\]</div>
+<p>由于 <span class="arithmatex">\(\int_0^{2\pi} \cos\phi\,d\phi = 0\)</span>，第一项积分为零，仅剩第二项：</p>
+<div class="arithmatex">\[
+\Phi = ER^2 \cdot 2\pi\cos\alpha \int_0^{\pi/2} \sin\theta\cos\theta\,d\theta = E\pi R^2\cos\alpha
+\]</div>
+</details>
+<h3 id="22-gauss-law">2.2 高斯定理 (Gauss' Law) 及其与库仑定律的等价性<a class="headerlink" href="#22-gauss-law" title="Permanent link">&para;</a></h3>
+<p><strong>高斯定理（Gauss' Law）</strong>：在真空中，穿过任意闭合高斯面 <span class="arithmatex">\(S\)</span> 的净电通量 <span class="arithmatex">\(\Phi\)</span> 与该曲面所包围的<strong>净电荷量</strong>（Net Enclosed Charge）<span class="arithmatex">\(q_{\text{enc}}\)</span> 满足：</p>
+<div class="arithmatex">\[
+\epsilon_0 \Phi = q_{\text{enc}} \iff \epsilon_0 \oint_S \vec{E} \cdot d\vec{A} = q_{\text{enc}} = \int_V \rho\,dV
+\]</div>
+<ul>
+<li>当 <span class="arithmatex">\(q_{\text{enc}} &gt; 0\)</span> 时，净电通量向外（<span class="arithmatex">\(\Phi &gt; 0\)</span>，内部存在净正电荷“源” Source）；</li>
+<li>当 <span class="arithmatex">\(q_{\text{enc}} &lt; 0\)</span> 时，净电通量向内（<span class="arithmatex">\(\Phi &lt; 0\)</span>，内部存在净负电荷“汇” Drain）；</li>
+<li>当 <span class="arithmatex">\(q_{\text{enc}} = 0\)</span> 时（内部无电荷，或所含正负电荷代数和为零），净电通量恒为零（<span class="arithmatex">\(\Phi = 0\)</span>）。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">高斯定理的四点核心物理理解</p>
+<ol>
+<li><strong>公式中 <span class="arithmatex">\(\vec{E}\)</span> 与 <span class="arithmatex">\(q_{\text{enc}}\)</span> 的关系</strong>：积分号内的 <span class="arithmatex">\(\vec{E}\)</span> 是<strong>空间所有电荷（既包含高斯面内部电荷，也包含外部电荷）</strong>在高斯面上产生的总合电场；但<strong>高斯面外部的电荷对闭合面净电通量的贡献恒为零</strong>（因为外部电荷发出的电场线一旦穿入高斯面，必定从另一侧穿出，进出条数严格相等）。</li>
+<li><strong>与库仑定律的等价性及三维空间几何因子 <span class="arithmatex">\(4\pi\)</span></strong>：以点电荷 <span class="arithmatex">\(q\)</span> 为中心作半径为 <span class="arithmatex">\(r\)</span> 的球形高斯面，由球对称性得 <span class="arithmatex">\(\epsilon_0 E(4\pi r^2) = q \implies E = \frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\)</span>。这表明常数中的 <span class="arithmatex">\(4\pi\)</span> 本质上源于三维空间球面面积 <span class="arithmatex">\(4\pi r^2\)</span>（或全空间立体角 <span class="arithmatex">\(\oint d\Omega = 4\pi\)</span>）的<strong>几何因子</strong>（Geometric factor），而高斯定理成立意味着静电力必然严格遵循<strong>平方反比律</strong>（Inverse-square law，<span class="arithmatex">\(1/r^2\)</span>）。</li>
+<li><strong>普适性</strong>：高斯定理是麦克斯韦方程组（Maxwell's equations）的四大方程之一，不仅适用于静电场，对运动电荷和随时间变化的动态场依然严格成立。</li>
+<li><strong>远场渐近特征（Revisit Quiz 1-1）</strong>：对于包含多个点电荷的复杂系统（例如两个 <span class="arithmatex">\(+Q\)</span> 与一个 <span class="arithmatex">\(-Q\)</span>），只要系统的总净电荷 <span class="arithmatex">\(q_{\text{net}} = Q \neq 0\)</span>，在远离电荷分布区的远场尺度下，其电场线分布就趋近于单个点电荷 <span class="arithmatex">\(Q\)</span> 的径向辐射场。</li>
+</ol>
+</div>
+<hr />
+<h2 id="3-applications-to-charged-insulators">3 高斯定理在对称绝缘带电体中的应用 (Applications to Charged Insulators)<a class="headerlink" href="#3-applications-to-charged-insulators" title="Permanent link">&para;</a></h2>
+<p>当电荷分布具有<strong>球对称</strong>（Spherical symmetry）、<strong>平面对称</strong>（Planar symmetry）或<strong>柱对称</strong>（Cylindrical symmetry）时，通过构造与对称性匹配的高斯面，可将场强模长 <span class="arithmatex">\(E\)</span> 移出积分号，仅用几行代数即可求出电场分布。</p>
+<h3 id="31-spherical-symmetry">3.1 球对称体系 (Spherical Symmetry)<a class="headerlink" href="#31-spherical-symmetry" title="Permanent link">&para;</a></h3>
+<p>球对称是指电荷体密度 <span class="arithmatex">\(\rho(r)\)</span> 仅依赖于距球心的径向距离 <span class="arithmatex">\(r\)</span>，而与角度 <span class="arithmatex">\((\theta, \phi)\)</span> 无关。统一选取<strong>半径为 <span class="arithmatex">\(r\)</span> 的同心球面</strong>作为高斯面（面积为 <span class="arithmatex">\(4\pi r^2\)</span>）。</p>
+<p><strong>1. 均匀带电薄球壳（Uniformly Charged Spherical Shell，半径 <span class="arithmatex">\(R\)</span>，总电荷 <span class="arithmatex">\(Q\)</span>）</strong></p>
+<ul>
+<li><strong>球壳外部（<span class="arithmatex">\(r &gt; R\)</span>）</strong>：高斯面包含全部电荷 <span class="arithmatex">\(q_{\text{enc}} = Q\)</span>，故 <span class="arithmatex">\(4\pi r^2 E = \frac{Q}{\epsilon_0} \implies \vec{E} = \frac{Q}{4\pi\epsilon_0 r^2}\hat{r}\)</span>（等效于全部电荷集中在球心的点电荷）。</li>
+<li><strong>球壳内部（<span class="arithmatex">\(r &lt; R\)</span>）</strong>：高斯面内部不包围任何电荷 <span class="arithmatex">\(q_{\text{enc}} = 0\)</span>，故 <span class="arithmatex">\(4\pi r^2 E = 0 \implies \vec{E} = \vec{0}\)</span>（球壳对内部空间不产生电场）。</li>
+</ul>
+<p><strong>2. 均匀带电实心绝缘球（Uniformly Charged Solid Sphere，半径 <span class="arithmatex">\(R\)</span>，总电荷 <span class="arithmatex">\(q\)</span>）</strong></p>
+<p>将实心球视为一层层同心薄球壳的叠加（Shell-by-shell theorem）：在半径 <span class="arithmatex">\(r &lt; R\)</span> 处，位于 <span class="arithmatex">\(r\)</span> 外部的球壳对该点不产生电场，只有半径小于 <span class="arithmatex">\(r\)</span> 的内部球体产生贡献：</p>
+<ul>
+<li><strong>球体外部（<span class="arithmatex">\(r \ge R\)</span>）</strong>：<span class="arithmatex">\(q_{\text{enc}} = q \implies \vec{E} = \dfrac{q}{4\pi\epsilon_0 r^2}\hat{r}\)</span>。</li>
+<li><strong>球体内部（<span class="arithmatex">\(r \le R\)</span>）</strong>：高斯球面包围的电荷量按体积比缩放为 <span class="arithmatex">\(q' = q_{\text{enc}} = q\left(\frac{r}{R}\right)^3\)</span>。代入高斯定理 <span class="arithmatex">\((4\pi r^2)E = \frac{q'}{\epsilon_0}\)</span>：
+  $$
+  E = \frac{q}{4\pi\epsilon_0 R^3} r \implies \vec{E}(\vec{r}) = \left(\frac{q}{4\pi\epsilon_0 R^3}\right)\vec{r} = \frac{\rho}{3\epsilon_0}\vec{r} \qquad (r \le R)
+  $$
+  即均匀带电球体内部的电场强度与到球心的距离 <span class="arithmatex">\(r\)</span> 成正比。</li>
+</ul>
+<h3 id="32-planar-symmetry">3.2 平面对称体系 (Planar Symmetry)<a class="headerlink" href="#32-planar-symmetry" title="Permanent link">&para;</a></h3>
+<p>平面对称是指电荷密度 <span class="arithmatex">\(\rho(z)\)</span> 仅依赖于直角坐标 <span class="arithmatex">\(z\)</span>。统一选取跨接带电平面的<strong>圆柱形高斯“药盒”</strong>（Cylindrical Pillbox，两底面平行于带电平面，底面积均为 <span class="arithmatex">\(A\)</span>）。</p>
+<p><strong>无限大均匀带电绝缘薄板（Infinite Nonconducting Sheet，面电荷密度 <span class="arithmatex">\(\sigma\)</span>）</strong>：
+由平面对称性与镜像反射不变性，电场 <span class="arithmatex">\(\vec{E}\)</span> 必垂直于薄板向外（<span class="arithmatex">\(\sigma &gt; 0\)</span>）或向内（<span class="arithmatex">\(\sigma &lt; 0\)</span>），且在薄板两侧等距处大小相等：<span class="arithmatex">\(E_z(-z) = -E_z(z)\)</span>。因此圆柱药盒的侧面（Curved side）无电通量穿过，只有两个底面（End caps）各有通量 <span class="arithmatex">\(EA\)</span>：</p>
+<div class="arithmatex">\[
+\epsilon_0(EA + EA) = q_{\text{enc}} = \sigma A \implies E = \frac{\sigma}{2\epsilon_0}, \qquad \vec{E}(z) = \frac{\sigma}{2\epsilon_0}\operatorname{sgn}(z)\hat{z}
+\]</div>
+<p>这一结果与前文带电圆盘在 <span class="arithmatex">\(R \to \infty\)</span>（或 <span class="arithmatex">\(z \ll R\)</span>）时的极限完全吻合。</p>
+<h3 id="33-cylindrical-symmetry">3.3 柱对称体系 (Cylindrical Symmetry)<a class="headerlink" href="#33-cylindrical-symmetry" title="Permanent link">&para;</a></h3>
+<p>柱对称是指电荷密度仅依赖于柱坐标系下距中心轴的垂直距离 <span class="arithmatex">\(r\)</span>。统一选取与带电体同轴的<strong>半径为 <span class="arithmatex">\(r\)</span>、高为 <span class="arithmatex">\(h\)</span> 的闭合圆柱面</strong>作为高斯面。</p>
+<p><strong>无限长均匀带电直导线 / 细杆（Infinite Line / Rod of Charge，线电荷密度 <span class="arithmatex">\(\lambda\)</span>）</strong>：
+由柱对称性，电场 <span class="arithmatex">\(\vec{E}\)</span> 必沿径向垂直于轴线向外（<span class="arithmatex">\(\lambda &gt; 0\)</span>）或向内（<span class="arithmatex">\(\lambda &lt; 0\)</span>）。闭合圆柱面的上下两个平底面与 <span class="arithmatex">\(\vec{E}\)</span> 平行（无通量），电通量仅穿过面积为 <span class="arithmatex">\(2\pi r h\)</span> 的圆柱侧面（Curved surface）：</p>
+<div class="arithmatex">\[
+\Phi = E(2\pi r h), \quad \epsilon_0 \Phi = q_{\text{enc}} = \lambda h \implies E = \frac{\lambda}{2\pi\epsilon_0 r}
+\]</div>
+<p>四大经典对称模型的场强公式汇总对比如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">带电体几何模型</th>
+<th style="text-align: left;">选用的高斯面</th>
+<th style="text-align: left;">高斯定理核心方程</th>
+<th style="text-align: left;">电场强度分布公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>均匀带电薄球壳</strong>（半径 <span class="arithmatex">\(R\)</span>，电量 <span class="arithmatex">\(Q\)</span>）</td>
+<td style="text-align: left;">同心球面（半径 <span class="arithmatex">\(r\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\epsilon_0(4\pi r^2 E) = q_{\text{enc}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \begin{cases} 0, &amp; r &lt; R \\ \dfrac{Q}{4\pi\epsilon_0 r^2}, &amp; r &gt; R \end{cases}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>均匀带电实心球</strong>（半径 <span class="arithmatex">\(R\)</span>，电量 <span class="arithmatex">\(q\)</span>，体密度 <span class="arithmatex">\(\rho\)</span>）</td>
+<td style="text-align: left;">同心球面（半径 <span class="arithmatex">\(r\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\epsilon_0(4\pi r^2 E) = q\left(\dfrac{r}{R}\right)^3\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \begin{cases} \dfrac{qr}{4\pi\epsilon_0 R^3} = \dfrac{\rho r}{3\epsilon_0}, &amp; r \le R \\ \dfrac{q}{4\pi\epsilon_0 r^2}, &amp; r &gt; R \end{cases}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>无限大均匀带电绝缘薄板</strong>（面密度 <span class="arithmatex">\(\sigma\)</span>）</td>
+<td style="text-align: left;">跨接薄板的圆柱药盒（底面积 <span class="arithmatex">\(A\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\epsilon_0(2EA) = \sigma A\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \dfrac{\sigma}{2\epsilon_0}\)</span>（处处恒定，与距离无关）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>无限长均匀带电细直杆</strong>（线密度 <span class="arithmatex">\(\lambda\)</span>）</td>
+<td style="text-align: left;">同轴圆柱面（半径 <span class="arithmatex">\(r\)</span>，高 <span class="arithmatex">\(h\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\epsilon_0(2\pi r h E) = \lambda h\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(E = \dfrac{\lambda}{2\pi\epsilon_0 r}\)</span>（反比于轴距 <span class="arithmatex">\(r\)</span>）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-appendices-2a-2b">4 数学工具附录：球坐标系与曲面积分 (Appendices 2A &amp; 2B)<a class="headerlink" href="#4-appendices-2a-2b" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Appendix 2A: Spherical Coordinates（球坐标系的正交基矢、线元与体积元）</summary>
+<p>空间一点 <span class="arithmatex">\(P\)</span> 的<strong>球坐标</strong>（Spherical coordinates）记为 <span class="arithmatex">\((r, \theta, \phi)\)</span>，其中 <span class="arithmatex">\(r \ge 0\)</span> 为到原点的径向距离（Radial distance），<span class="arithmatex">\(\theta \in [0, \pi]\)</span> 为与 <span class="arithmatex">\(+z\)</span> 轴的夹角——<strong>极角</strong>（Polar angle），<span class="arithmatex">\(\phi \in [0, 2\pi)\)</span> 为在 <span class="arithmatex">\(xy\)</span> 平面投影与 <span class="arithmatex">\(+x\)</span> 轴的夹角——<strong>方位角</strong>（Azimuthal angle）。</p>
+<p><strong>1. 与直角坐标 <span class="arithmatex">\((x, y, z)\)</span> 的变换关系</strong>：</p>
+<div class="arithmatex">\[
+x = r\sin\theta\cos\phi, \qquad y = r\sin\theta\sin\phi, \qquad z = r\cos\theta
+\]</div>
+<p><strong>2. 正交单位基矢 <span class="arithmatex">\((\hat{r}, \hat{\theta}, \hat{\phi})\)</span> 的分解表示</strong>：
+任意矢量可分解为 <span class="arithmatex">\(\vec{A} = A_r\hat{r} + A_\theta\hat{\theta} + A_\phi\hat{\phi}\)</span>，其中三个正交单位基矢随点 <span class="arithmatex">\(P\)</span> 的角度变化而变化：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{r} &amp;= \sin\theta\cos\phi\,\hat{x} + \sin\theta\sin\phi\,\hat{y} + \cos\theta\,\hat{z} \\
+\hat{\theta} &amp;= \cos\theta\cos\phi\,\hat{x} + \cos\theta\sin\phi\,\hat{y} - \sin\theta\,\hat{z} \\
+\hat{\phi} &amp;= -\sin\phi\,\hat{x} + \cos\phi\,\hat{y}
+\end{aligned}
+\]</div>
+<p><strong>3. 线元（Infinitesimal displacement）与体积元（Volume element）</strong>：
+在三个正交方向上的无穷小位移分量分别为 <span class="arithmatex">\(dr\)</span>、<span class="arithmatex">\(r\,d\theta\)</span>、<span class="arithmatex">\(r\sin\theta\,d\phi\)</span>，因此位移线元、球面面元（固定 <span class="arithmatex">\(r=R\)</span>）与空间体积元分别为：</p>
+<div class="arithmatex">\[
+d\vec{s} = dr\,\hat{r} + r\,d\theta\,\hat{\theta} + r\sin\theta\,d\phi\,\hat{\phi}
+\]</div>
+<div class="arithmatex">\[
+d\vec{A}_{\text{sphere}} = R^2\sin\theta\,d\theta\,d\phi\,\hat{r} = R^2\,d\Omega\,\hat{r}, \qquad dV = (dr)(r\,d\theta)(r\sin\theta\,d\phi) = r^2\sin\theta\,dr\,d\theta\,d\phi
+\]</div>
+</details>
+<details>
+<summary>Appendix 2B: Surface Integral（一般曲面 z = f(x,y) 的法向量构造与投影曲面积分）</summary>
+<p>物理学中常遇到两类曲面积分：第一类是对标量函数（如电荷面密度 <span class="arithmatex">\(\sigma\)</span>）的曲面积分 <span class="arithmatex">\(\iint_S \sigma(x, y, z)\,dA\)</span>；第二类是对矢量场法向分量（如电通量）的曲面积分 <span class="arithmatex">\(\iint_S \vec{F}\cdot d\vec{A} = \iint_S \vec{F}\cdot\hat{n}\,dA\)</span>。</p>
+<p><strong>1. 显式曲面 <span class="arithmatex">\(z = f(x, y)\)</span> 的单位法向量 <span class="arithmatex">\(\hat{n}\)</span> 推导</strong>：
+在曲面 <span class="arithmatex">\(z = f(x, y)\)</span> 上的点 <span class="arithmatex">\(P\)</span> 处，分别平行于 <span class="arithmatex">\(xz\)</span> 平面和 <span class="arithmatex">\(yz\)</span> 平面构造两个不共线的切向量（Tangent vectors）：</p>
+<div class="arithmatex">\[
+\vec{u} = u_x\hat{x} + \frac{\partial f}{\partial x}u_x\hat{z}, \qquad \vec{v} = v_y\hat{y} + \frac{\partial f}{\partial y}v_y\hat{z}
+\]</div>
+<p>将两切向量叉乘即可得到垂直于曲面的法向量 <span class="arithmatex">\(\vec{N} = \vec{u}\times\vec{v} = \left(-\frac{\partial f}{\partial x}\hat{x} - \frac{\partial f}{\partial y}\hat{y} + \hat{z}\right)u_x v_y\)</span>。将其归一化，即得指向 <span class="arithmatex">\(+z\)</span> 一侧的<strong>单位法向量</strong>：</p>
+<div class="arithmatex">\[
+\hat{n} = \frac{\vec{u}\times\vec{v}}{|\vec{u}\times\vec{v}|} = \frac{-\dfrac{\partial f}{\partial x}\hat{x} - \dfrac{\partial f}{\partial y}\hat{y} + \hat{z}}{\sqrt{1 + \left(\dfrac{\partial f}{\partial x}\right)^2 + \left(\dfrac{\partial f}{\partial y}\right)^2}}, \qquad \hat{n}\cdot\hat{z} = \frac{1}{\sqrt{1 + \left(\dfrac{\partial f}{\partial x}\right)^2 + \left(\dfrac{\partial f}{\partial y}\right)^2}}
+\]</div>
+<p><strong>2. 投影到 <span class="arithmatex">\(xy\)</span> 平面计算曲面积分（Projection Method）</strong>：
+曲面微元 <span class="arithmatex">\(dA\)</span> 在 <span class="arithmatex">\(xy\)</span> 平面上的投影矩形面积为 <span class="arithmatex">\(dR = dx\,dy = (\hat{n}\cdot\hat{z})\,dA\)</span>，因此面积微元换元关系为 <span class="arithmatex">\(dA = \sqrt{1 + (\partial_x f)^2 + (\partial_y f)^2}\,dx\,dy\)</span>。代入两类曲面积分即化为平面区域 <span class="arithmatex">\(R\)</span> 上的二重积分：</p>
+<div class="arithmatex">\[
+\iint_S \sigma(x, y, z)\,dA = \iint_R \sigma\big(x, y, f(x, y)\big)\sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\,dx\,dy
+\]</div>
+<div class="arithmatex">\[
+\iint_S \vec{F}\cdot d\vec{A} = \iint_R (\vec{F}\cdot\hat{n})\sqrt{1 + \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2}\,dx\,dy = \iint_R \left[-\frac{\partial f}{\partial x}F_x - \frac{\partial f}{\partial y}F_y + F_z\right] dx\,dy
+\]</div>
+</details>
+<hr />
+<h2 id="5-chapter-2-selected-exercises">5 Chapter 2 核心课后习题精解 (Selected Exercises)<a class="headerlink" href="#5-chapter-2-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 2.1, 2.2 &amp; 2.3: Local Flux, Radial Field Density &amp; Infinite Cylinder（局域通量密度、恒定径向场反推电荷密度与无限长圆柱）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 2.1</strong>: An electric field is given by <span class="arithmatex">\(\vec{E} = y^2\hat{i} + (y - x^2)\hat{j} + \frac{xy}{z}\hat{k}\)</span>. At a point <span class="arithmatex">\(\vec{r} = (3, 2, 1)\)</span>, please calculate the local flux per area if the local area vector is: (a) <span class="arithmatex">\(\hat{i}\,dS\)</span>; (b) <span class="arithmatex">\(\hat{j}\,dS\)</span>; (c) <span class="arithmatex">\(\frac{1}{\sqrt{3}}(\hat{i} + \hat{j} + \hat{k})\,dS\)</span>.
+- <strong>Ex 2.2</strong>: A spherically symmetric charge density <span class="arithmatex">\(\rho(r)\)</span> produces an electric field that points radially outward and has the same magnitude <span class="arithmatex">\(E\)</span> at every <span class="arithmatex">\(r &gt; 0\)</span>. Please give the expression of <span class="arithmatex">\(\rho(r)\)</span>.
+- <strong>Ex 2.3</strong>: Consider an infinitely long cylinder of radius <span class="arithmatex">\(R\)</span> and a uniform charge density <span class="arithmatex">\(\rho_0 &gt; 0\)</span>. Use Gauss' law to determine the magnitude of the electric field at a distance <span class="arithmatex">\(r\)</span> from the central axis of the cylinder. You should give the expressions of <span class="arithmatex">\(E\)</span> for both <span class="arithmatex">\(r \le R\)</span> and <span class="arithmatex">\(r &gt; R\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 局域面积通量密度计算（Exercise 2.1）</strong>：
+将坐标 <span class="arithmatex">\((x, y, z) = (3, 2, 1)\)</span> 代入电场表达式，得该点处的电场矢量：</p>
+<div class="arithmatex">\[
+\vec{E}(3, 2, 1) = 2^2\hat{i} + (2 - 3^2)\hat{j} + \frac{3 \times 2}{1}\hat{k} = 4\hat{i} - 7\hat{j} + 6\hat{k}
+\]</div>
+<p>单位面积的局域电通量即为 <span class="arithmatex">\(\frac{d\Phi}{dS} = \vec{E} \cdot \hat{n}\)</span>：
+- <strong>(a)</strong> <span class="arithmatex">\(\hat{n} = \hat{i}\)</span>：<span class="arithmatex">\(\vec{E}\cdot\hat{i} = 4\)</span>；
+- <strong>(b)</strong> <span class="arithmatex">\(\hat{n} = \hat{j}\)</span>：<span class="arithmatex">\(\vec{E}\cdot\hat{j} = -7\)</span>；
+- <strong>(c)</strong> <span class="arithmatex">\(\hat{n} = \frac{1}{\sqrt{3}}(\hat{i} + \hat{j} + \hat{k})\)</span>：<span class="arithmatex">\(\vec{E}\cdot\hat{n} = \frac{4 - 7 + 6}{\sqrt{3}} = \sqrt{3}\)</span>。</p>
+<hr />
+<p><strong>2. 模长恒定的径向电场反推体电荷密度 <span class="arithmatex">\(\rho(r)\)</span>（Exercise 2.2）</strong>：
+取半径为 <span class="arithmatex">\(r\)</span> 的同心球面作为高斯面，由球对称性及高斯定理：</p>
+<div class="arithmatex">\[
+\epsilon_0 \oint_S \vec{E}\cdot d\vec{S} = q_{\text{enc}}(r) \implies \epsilon_0 (4\pi r^2 E) = \int_0^r \rho(r') 4\pi r'^2\,dr'
+\]</div>
+<p>由于场强大小 <span class="arithmatex">\(E\)</span> 为与 <span class="arithmatex">\(r\)</span> 无关的常数，将上式两边关于 <span class="arithmatex">\(r\)</span> 求导，利用微积分基本定理得：</p>
+<div class="arithmatex">\[
+\epsilon_0 E \cdot 8\pi r = 4\pi r^2 \rho(r) \implies \rho(r) = \frac{2\epsilon_0 E}{r} \qquad (r &gt; 0)
+\]</div>
+<hr />
+<p><strong>3. 无限长均匀带电圆柱体的电场分布（Exercise 2.3）</strong>：
+取半径为 <span class="arithmatex">\(r\)</span>、长度为 <span class="arithmatex">\(L\)</span> 的同轴圆柱面作为高斯面。由柱对称性，电场沿径向向外且在侧面上大小处处相等，两端平底面法线与 <span class="arithmatex">\(\vec{E}\)</span> 垂直故无通量，因此总电通量为 <span class="arithmatex">\(\Phi = 2\pi r L E(r)\)</span>：</p>
+<ul>
+<li><strong>当 <span class="arithmatex">\(r \le R\)</span>（圆柱内部）</strong>：高斯面内包围的电荷量为 <span class="arithmatex">\(q_{\text{enc}} = \rho_0 (\pi r^2 L)\)</span>。由高斯定理：
+  $$
+  \epsilon_0 (2\pi r L E) = \rho_0 \pi r^2 L \implies E(r) = \frac{\rho_0 r}{2\epsilon_0} \qquad (r \le R)
+  $$</li>
+<li><strong>当 <span class="arithmatex">\(r &gt; R\)</span>（圆柱外部）</strong>：高斯面内包围的电荷量为整个圆柱段的总电荷 <span class="arithmatex">\(q_{\text{enc}} = \rho_0 (\pi R^2 L)\)</span>。由高斯定理：
+  $$
+  \epsilon_0 (2\pi r L E) = \rho_0 \pi R^2 L \implies E(r) = \frac{\rho_0 R^2}{2\epsilon_0 r} \qquad (r &gt; R)
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 2.4 &amp; 2.5: Concentric Spherical Shells &amp; Overlapping Charged Spheres（同心球壳屏蔽与两重叠带电球体交叠区匀强场）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 2.4</strong>: Two uniformly charged spherical shells are both centered at the origin, whose radii are <span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2 \ (R_1 &lt; R_2)\)</span>. Given that the surface charge density is <span class="arithmatex">\(+\sigma \ (\sigma &gt; 0)\)</span> for the outer shell, and that the electric field is zero for any point located outside the outer shell, please calculate: (a) The surface charge density of the inner shell; (b) The magnitude of the electric field for <span class="arithmatex">\(R_1 &lt; r &lt; R_2\)</span>; (c) The magnitude of the electric field inside the inner shell (<span class="arithmatex">\(r &lt; R_1\)</span>).
+- <strong>Ex 2.5</strong>: Two uniformly charged balls, of radii <span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2\)</span> and charge densities <span class="arithmatex">\(-\rho\)</span> and <span class="arithmatex">\(+\rho\)</span> with <span class="arithmatex">\(\rho &gt; 0\)</span>, overlap: their centers are a distance <span class="arithmatex">\(d &lt; R_1 + R_2\)</span> apart, and in the overlap region the two charge densities add. Let <span class="arithmatex">\(\vec{d}\)</span>, with <span class="arithmatex">\(|\vec{d}| = d\)</span>, be the vector from the center of the <span class="arithmatex">\(-\rho\)</span> ball to the center of the <span class="arithmatex">\(+\rho\)</span> ball. Please calculate both the magnitude and the direction of the electric field in the overlap region, in terms of <span class="arithmatex">\(\rho\)</span> and <span class="arithmatex">\(\vec{d}\)</span>.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 外部零电场的双同心球壳（Exercise 2.4）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 在外球壳外部 <span class="arithmatex">\(r &gt; R_2\)</span> 区域取同心球面高斯面，因 <span class="arithmatex">\(E = 0\)</span>，高斯面内包围的总净电荷必为零：
+  $$
+  q_{\text{enc}} = 4\pi R_1^2 \sigma_1 + 4\pi R_2^2 \sigma = 0 \implies \sigma_1 = -\frac{R_2^2}{R_1^2}\sigma
+  $$</li>
+<li><strong>(b)</strong> 当 <span class="arithmatex">\(R_1 &lt; r &lt; R_2\)</span> 时，高斯面仅包围内球壳电荷 <span class="arithmatex">\(q_{\text{enc}} = 4\pi R_1^2 \sigma_1 = -4\pi R_2^2 \sigma\)</span>，由高斯定理 <span class="arithmatex">\(4\pi r^2 E = \frac{|q_{\text{enc}}|}{\epsilon_0}\)</span> 得场强大小为：
+  $$
+  E(r) = \frac{\sigma R_2^2}{\epsilon_0 r^2} \qquad (\text{方向指向球心})
+  $$</li>
+<li><strong>(c)</strong> 当 <span class="arithmatex">\(r &lt; R_1\)</span> 时，高斯面内不包围任何电荷（<span class="arithmatex">\(q_{\text{enc}} = 0\)</span>），故 <span class="arithmatex">\(E(r) = 0\)</span>。</li>
+</ul>
+<hr />
+<p><strong>2. 两个异号均匀带电球体交叠区（或偏心球腔）内的匀强电场（Exercise 2.5，高频必考模型）</strong>：
+由 §3.1 结论可知，体电荷密度为 <span class="arithmatex">\(+\rho\)</span> 的均匀带电实心球，在其内部任意一点（相对球心位置矢量为 <span class="arithmatex">\(\vec{r}\)</span>）产生的电场矢量恒为：</p>
+<div class="arithmatex">\[
+\vec{E}_{\text{inside}}(\vec{r}) = \frac{\rho}{3\epsilon_0}\vec{r}
+\]</div>
+<p>设 <span class="arithmatex">\(-\rho\)</span> 球的球心位于 <span class="arithmatex">\(O_-\)</span>，<span class="arithmatex">\(+\rho\)</span> 球的球心位于 <span class="arithmatex">\(O_+\)</span>，由题意知位移矢量 <span class="arithmatex">\(\vec{d} = \overrightarrow{O_- O_+}\)</span>。
+对于交叠区域（Overlap region）内的任意一点 <span class="arithmatex">\(P\)</span>，记其相对于 <span class="arithmatex">\(O_-\)</span> 的位置矢量为 <span class="arithmatex">\(\vec{r}_- = \overrightarrow{O_- P}\)</span>，相对于 <span class="arithmatex">\(O_+\)</span> 的位置矢量为 <span class="arithmatex">\(\vec{r}_+ = \overrightarrow{O_+ P}\)</span>。由矢量三角形法则显然有：</p>
+<div class="arithmatex">\[
+\vec{r}_- - \vec{r}_+ = \overrightarrow{O_- P} - \overrightarrow{O_+ P} = \overrightarrow{O_- O_+} = \vec{d}
+\]</div>
+<p>根据电场叠加原理，交叠区内任意点 <span class="arithmatex">\(P\)</span> 处的合电场等于两球各自在该点产生的内部电场的矢量和：</p>
+<div class="arithmatex">\[
+\vec{E} = \vec{E}_+ + \vec{E}_- = \frac{+\rho}{3\epsilon_0}\vec{r}_+ + \frac{-\rho}{3\epsilon_0}\vec{r}_- = \frac{\rho}{3\epsilon_0}(\vec{r}_+ - \vec{r}_-) = -\frac{\rho}{3\epsilon_0}\vec{d}
+\]</div>
+<p><strong>结论</strong>：交叠区域内是一个<strong>处处均匀的匀强电场</strong>！其大小为 <span class="arithmatex">\(E = \dfrac{\rho d}{3\epsilon_0}\)</span>，方向为 <span class="arithmatex">\(-\hat{d}\)</span>（即平行于两球心连线，由 <span class="arithmatex">\(+\rho\)</span> 球心指向 <span class="arithmatex">\(-\rho\)</span> 球心）。</p>
+</details>
+<details>
+<summary>Exercise 2.6 &amp; 2.7: Flux Through a Cube and a Circular Disk（立方体中心/顶点通量与圆盘/圆柱侧面通量）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 2.6</strong>: A point charge <span class="arithmatex">\(q &gt; 0\)</span> and an imaginary cube of side <span class="arithmatex">\(a\)</span> are given. The normal of every face of the cube points out of the cube. (a) The charge sits at the center of the cube. Find the electric flux through each face. (b) The charge now sits at one corner of the cube. Find the electric flux through each of the six faces. (Hint: consider the eight identical cubes that share this corner.)
+- <strong>Ex 2.7</strong>: A point charge <span class="arithmatex">\(q &gt; 0\)</span> lies on the axis of a flat disk of radius <span class="arithmatex">\(R\)</span>, at a distance <span class="arithmatex">\(d &gt; 0\)</span> from the center of the disk. The normal of the disk points away from <span class="arithmatex">\(q\)</span>. (a) The sphere of radius <span class="arithmatex">\(\sqrt{d^2 + R^2}\)</span> centered on <span class="arithmatex">\(q\)</span> passes through the rim of the disk. The disk and the part of this sphere on the far side of the disk from <span class="arithmatex">\(q\)</span> together enclose a region that contains no charge. Use Gauss' law for this closed surface to show that the flux through the disk equals the flux through that part of the sphere, and hence find the flux through the disk. Check your answer when <span class="arithmatex">\(R \gg d\)</span> and when <span class="arithmatex">\(R \ll d\)</span>. (b) The charge is now at the center of a closed cylinder of radius <span class="arithmatex">\(R\)</span> and length <span class="arithmatex">\(2d\)</span> whose axis passes through <span class="arithmatex">\(q\)</span>. Without evaluating any new integral, find the flux through the curved side of the cylinder.</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 立方体六个面的电通量巧解（Exercise 2.6）</strong>：</p>
+<ul>
+<li><strong>(a) 电荷位于立方体中心</strong>：由高斯定理，穿过整个立方体的总通量为 <span class="arithmatex">\(\frac{q}{\epsilon_0}\)</span>。因六个面关于中心完全对称，每个面的电通量相等：
+  $$
+  \Phi_{\text{face}} = \frac{q}{6\epsilon_0}
+  $$</li>
+<li><strong>(b) 电荷位于立方体的一个顶点（Corner）</strong>：</li>
+<li>对于<strong>相交于该顶点的 3 个相邻面</strong>：点电荷发出的电场线始终平行于（掠过）这 3 个面（<span class="arithmatex">\(\vec{E} \perp \hat{n}\)</span>），因此穿过这 3 个面的电通量均为 <span class="arithmatex">\(\Phi_{\text{near}} = 0\)</span>。</li>
+<li>对于<strong>不经过该顶点的另外 3 个远端面</strong>：以该顶点为中心，用 <span class="arithmatex">\(8\)</span> 个完全相同的小立方体拼成一个边长为 <span class="arithmatex">\(2a\)</span> 的大立方体，使点电荷 <span class="arithmatex">\(q\)</span> 恰好位于大立方体的正中心。大立方体的总通量 <span class="arithmatex">\(\frac{q}{\epsilon_0}\)</span> 被其表面包含的 <span class="arithmatex">\(8 \times 3 = 24\)</span> 个等效小正方形面均分，因此穿过每个远端面的电通量为：
+    $$
+    \Phi_{\text{far}} = \frac{q}{24\epsilon_0}
+    $$</li>
+</ul>
+<hr />
+<p><strong>2. 圆盘电通量与闭合圆柱侧面电通量（Exercise 2.7）</strong>：</p>
+<ul>
+<li><strong>(a) 穿过半径为 <span class="arithmatex">\(R\)</span> 的圆盘的电通量</strong>：
+  圆盘与以 <span class="arithmatex">\(q\)</span> 为球心、半径为 <span class="arithmatex">\(r_0 = \sqrt{d^2 + R^2}\)</span> 的远端球冠（Spherical cap）共同围成一个不含电荷的闭合空间。由高斯定理，从圆盘穿入该区域的通量必等于从球冠穿出的通量，故 <span class="arithmatex">\(\Phi_{\text{disk}} = \Phi_{\text{cap}}\)</span>。
+  在球冠上，电场处处沿径向且大小恒为 <span class="arithmatex">\(E = \frac{q}{4\pi\epsilon_0 r_0^2}\)</span>。设圆盘边缘对 <span class="arithmatex">\(q\)</span> 的半张角为 <span class="arithmatex">\(\theta_0\)</span>（满足 <span class="arithmatex">\(\cos\theta_0 = \frac{d}{\sqrt{d^2 + R^2}}\)</span>），则球冠面积为 <span class="arithmatex">\(\int_0^{\theta_0} 2\pi r_0^2\sin\theta\,d\theta = 2\pi r_0^2(1 - \cos\theta_0)\)</span>。因此：
+  $$
+  \Phi_{\text{disk}} = E \cdot S_{\text{cap}} = \frac{q}{2\epsilon_0}(1 - \cos\theta_0) = \frac{q}{2\epsilon_0}\left(1 - \frac{d}{\sqrt{d^2 + R^2}}\right)
+  $$
+  极限检验：当 <span class="arithmatex">\(R \gg d\)</span> 时，<span class="arithmatex">\(\Phi_{\text{disk}} \to \frac{q}{2\epsilon_0}\)</span>（无限大平面截取点电荷一半的电场线）；当 <span class="arithmatex">\(R \ll d\)</span> 时，<span class="arithmatex">\((1 + R^2/d^2)^{-1/2} \approx 1 - \frac{R^2}{2d^2}\)</span>，故 <span class="arithmatex">\(\Phi_{\text{disk}} \approx \frac{q}{4\pi\epsilon_0 d^2}\cdot (\pi R^2)\)</span>（远场小圆盘近似为轴线场强乘以圆盘面积）。</li>
+<li><strong>(b) 闭合圆柱体侧面的电通量</strong>：
+  点电荷 <span class="arithmatex">\(q\)</span> 位于高为 <span class="arithmatex">\(2d\)</span>、半径为 <span class="arithmatex">\(R\)</span> 的闭合圆柱体正中心，总通量为 <span class="arithmatex">\(\frac{q}{\epsilon_0}\)</span>，减去上下两个底面圆盘的通量 <span class="arithmatex">\(2\Phi_{\text{disk}}\)</span> 即得侧面（Curved side）通量：
+  $$
+  \Phi_{\text{side}} = \frac{q}{\epsilon_0} - 2\Phi_{\text{disk}} = \frac{q}{\epsilon_0}\frac{d}{\sqrt{d^2 + R^2}}
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 2.8, 2.9 &amp; 2.10: Non-Symmetric Sphere, p-n Junction Slab &amp; Modified Coulomb Law（非对称场平均、p-n结空间电荷区与库仑平方反比律检验）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 2.8</strong>: Two point charges, each <span class="arithmatex">\(q &gt; 0\)</span>, are fixed at <span class="arithmatex">\((0, 0, a)\)</span> and <span class="arithmatex">\((0, 0, -a)\)</span>, where <span class="arithmatex">\(a &gt; 0\)</span>. Let <span class="arithmatex">\(S\)</span> be the sphere of radius <span class="arithmatex">\(R &gt; a\)</span> centered at the origin, with its normal pointing outward. (a) Find the net electric flux through <span class="arithmatex">\(S\)</span>. (b) Calculate the electric field at <span class="arithmatex">\((R, 0, 0)\)</span> and <span class="arithmatex">\((0, 0, R)\)</span> of <span class="arithmatex">\(S\)</span>. (c) From (a), find the average outward component of the field over <span class="arithmatex">\(S\)</span>, <span class="arithmatex">\(\langle E_n \rangle = \frac{1}{4\pi R^2}\oint_S \vec{E}\cdot d\vec{S}\)</span>, and compare it with (b). Can Gauss' law alone give the electric field at every point of <span class="arithmatex">\(S\)</span>? Why could it give the field of a uniformly charged spherical shell?
+- <strong>Ex 2.9</strong>: In a simple model of a <span class="arithmatex">\(p\text{-}n\)</span> junction, the charge density depends only on <span class="arithmatex">\(z\)</span>: <span class="arithmatex">\(\rho(z) = -\rho_0\)</span> for <span class="arithmatex">\(-a &lt; z &lt; 0\)</span>, <span class="arithmatex">\(\rho(z) = +\rho_0\)</span> for <span class="arithmatex">\(0 &lt; z &lt; a\)</span>, and <span class="arithmatex">\(\rho(z) = 0\)</span> for <span class="arithmatex">\(|z| &gt; a\)</span>, where <span class="arithmatex">\(\rho_0 &gt; 0\)</span>. (a) Treat the charge as a stack of thin charged plates to show that <span class="arithmatex">\(E = 0\)</span> for <span class="arithmatex">\(|z| &gt; a\)</span>. Explain why a pillbox placed symmetrically about <span class="arithmatex">\(z = 0\)</span> gives no information here. (b) Using a pillbox with one end in <span class="arithmatex">\(z &lt; -a\)</span>, find <span class="arithmatex">\(E(z)\)</span> for <span class="arithmatex">\(-a &lt; z &lt; a\)</span>. Where is the magnitude of the field largest, and what is its value there?
+- <strong>Ex 2.10</strong>: Suppose Coulomb's law were slightly different, so that a point charge <span class="arithmatex">\(q &gt; 0\)</span> at the origin produced <span class="arithmatex">\(\vec{E} = \frac{1}{4\pi\epsilon_0}\frac{q}{r^2}\left(\frac{r_0}{r}\right)^\delta \hat{r}\)</span> (<span class="arithmatex">\(\delta &gt; 0\)</span>). (a) Calculate the flux of this field through a sphere of radius <span class="arithmatex">\(R\)</span> centered on <span class="arithmatex">\(q\)</span>. Is the result consistent with Gauss' law? (b) Two concentric spheres of radii <span class="arithmatex">\(R_1 &lt; R_2\)</span> centered on <span class="arithmatex">\(q\)</span> enclose a region with no charge. Calculate the net flux through this closed surface. Which property of the flux fails? What does this tell you about the exponent in Coulomb's law?</p>
+<hr />
+<p><strong>中文解析：</strong></p>
+<p><strong>1. 非球对称电荷分布下的高斯面平均值辨析（Exercise 2.8）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 球面 <span class="arithmatex">\(S \ (R &gt; a)\)</span> 包围了两个 <span class="arithmatex">\(+q\)</span> 电荷，由高斯定理得净通量 <span class="arithmatex">\(\Phi = \dfrac{2q}{\epsilon_0}\)</span>。</li>
+<li><strong>(b)</strong> 由库仑定律直接叠加：
+  在赤道点 <span class="arithmatex">\((R, 0, 0)\)</span>：<span class="arithmatex">\(\vec{E}(R, 0, 0) = \dfrac{2qR}{4\pi\epsilon_0(R^2 + a^2)^{3/2}}\hat{x}\)</span>；
+  在极点 <span class="arithmatex">\((0, 0, R)\)</span>：<span class="arithmatex">\(\vec{E}(0, 0, R) = \frac{q}{4\pi\epsilon_0}\left[\frac{1}{(R-a)^2} + \frac{1}{(R+a)^2}\right]\hat{z} = \dfrac{q(R^2 + a^2)}{2\pi\epsilon_0(R^2 - a^2)^2}\hat{z}\)</span>。</li>
+<li><strong>(c)</strong> 球面上的平均法向场强为 <span class="arithmatex">\(\langle E_n \rangle = \frac{\Phi}{4\pi R^2} = \dfrac{2q}{4\pi\epsilon_0 R^2}\)</span>，恰好介于赤道较弱场强与极点较强场强之间。这说明当缺乏球对称性时，球面上各点 <span class="arithmatex">\(E_n\)</span> 并不相等，<strong>单靠高斯定理只能给出球面上的积分平均值，而无法求出逐点场强</strong>（均匀带电球壳之所以能用高斯定理求出逐点场强，是因为球对称性保证了球面上各点场强大小严格相等且方向均沿径向）。</li>
+</ul>
+<hr />
+<p><strong>2. 半导体 <span class="arithmatex">\(p\text{-}n\)</span> 结空间电荷区的电场分布（Exercise 2.9）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 将 <span class="arithmatex">\(-a &lt; z &lt; 0\)</span> 与 <span class="arithmatex">\(0 &lt; z &lt; a\)</span> 视为无数层无限大带电薄板的堆叠，两侧总面电荷密度分别为 <span class="arithmatex">\(-\rho_0 a\)</span> 与 <span class="arithmatex">\(+\rho_0 a\)</span>，在 <span class="arithmatex">\(|z| &gt; a\)</span> 的外部区域两层产生的匀强电场等大反向，故 <strong><span class="arithmatex">\(E(z) = 0 \ (|z| &gt; a)\)</span></strong>。由于 <span class="arithmatex">\(\rho(-z) = -\rho(z)\)</span> 是关于 <span class="arithmatex">\(z\)</span> 的奇函数，导致电场满足偶对称 <span class="arithmatex">\(E_z(-z) = +E_z(z)\)</span>（同向穿过对称药盒的两个底面，左进右出相互抵消），且对称药盒内包围的总净电荷恒为零，因此关于 <span class="arithmatex">\(z=0\)</span> 对称放置的药盒仅给出恒等式 <span class="arithmatex">\(0 = 0\)</span>，无法解出 <span class="arithmatex">\(E(z)\)</span>。</li>
+<li><strong>(b)</strong> 取圆柱形高斯药盒，使其左底面固定在无场区 <span class="arithmatex">\(z_1 &lt; -a\)</span>（该底面 <span class="arithmatex">\(E = 0\)</span>，无通量），右底面位于耗尽层内部 <span class="arithmatex">\(z \in (-a, a)\)</span>：</li>
+<li>当 <span class="arithmatex">\(-a &lt; z \le 0\)</span> 时：<span class="arithmatex">\(q_{\text{enc}} = S \int_{-a}^z (-\rho_0)\,dz' = -\rho_0(z + a)S\)</span>，由 <span class="arithmatex">\(\epsilon_0 E_z(z) S = q_{\text{enc}}\)</span> 得 <span class="arithmatex">\(E_z(z) = -\dfrac{\rho_0}{\epsilon_0}(a + z)\)</span>；</li>
+<li>当 <span class="arithmatex">\(0 &lt; z &lt; a\)</span> 时：<span class="arithmatex">\(q_{\text{enc}} = S\left[-\rho_0 a + \int_0^z \rho_0\,dz'\right] = -\rho_0(a - z)S\)</span>，得 <span class="arithmatex">\(E_z(z) = -\dfrac{\rho_0}{\epsilon_0}(a - z)\)</span>。
+  合并写为 <span class="arithmatex">\(\vec{E}(z) = -\dfrac{\rho_0}{\epsilon_0}(a - |z|)\hat{z} \ (|z| &lt; a)\)</span>。在交界面 <strong><span class="arithmatex">\(z = 0\)</span> 处电场强度达到最大值</strong>，最大模长为 <span class="arithmatex">\(E_{\max} = \dfrac{\rho_0 a}{\epsilon_0}\)</span>。</li>
+</ul>
+<hr />
+<p><strong>3. 库仑定律幂次修正对高斯定理的破坏（Exercise 2.10）</strong>：</p>
+<ul>
+<li><strong>(a)</strong> 穿过半径为 <span class="arithmatex">\(R\)</span> 的同心球面的通量为：
+  $$
+  \Phi(R) = 4\pi R^2 E(R) = \frac{q}{\epsilon_0}\left(\frac{r_0}{R}\right)^\delta
+  $$
+  当 <span class="arithmatex">\(\delta \neq 0\)</span> 时，通量依赖于高斯面半径 <span class="arithmatex">\(R\)</span>，与高斯定理矛盾。</li>
+<li><strong>(b)</strong> 对于无电荷的球壳区域 <span class="arithmatex">\(R_1 &lt; r &lt; R_2\)</span>，穿过内外表面的净向外通量为：
+  $$
+  \Phi_{\text{net}} = \Phi(R_2) - \Phi(R_1) = \frac{q}{\epsilon_0}\left[\left(\frac{r_0}{R_2}\right)^\delta - \left(\frac{r_0}{R_1}\right)^\delta\right] &lt; 0
+  $$
+  这意味着电场线在无电荷的真空区域内凭空消失（通量守恒性失效）！由此可见，<strong>高斯定理的成立严格依赖于库仑定律中 <span class="arithmatex">\(1/r^2\)</span> 的精确平方反比幂次（<span class="arithmatex">\(\delta \equiv 0\)</span>）</strong>。</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
