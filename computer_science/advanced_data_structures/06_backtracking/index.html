@@ -1,0 +1,2682 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/06_backtracking/">
+      
+      
+        <link rel="prev" href="../05_binomial_queue/">
+      
+      
+        <link rel="next" href="../../../mathematical_sciences/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>06 回溯法 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-backtracking" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              06 回溯法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../mathematical_sciences/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_avl_splay_trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 AVL树和Splay树,摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_inverted_file_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 倒排索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_leftist_skew_heaps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 左势堆与斜堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_binomial_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 二项队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 回溯法
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 回溯法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-rationale-and-general-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 回溯法的基本原理与通用框架 (Rationale and General Template)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 回溯法的基本原理与通用框架 (Rationale and General Template)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-brute-force-vs-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从暴力枚举到回溯剪枝 (Brute Force vs. Pruning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 回溯法通用模板与搜索顺序优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-n-eight-queens-n-queens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 经典问题一：八皇后与 \(N\) 皇后问题 (Eight Queens / \(N\)-Queens)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 经典问题一：八皇后与 \(N\) 皇后问题 (Eight Queens / \(N\)-Queens)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 问题建模与解空间缩减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 递归算法实现、非递归栈式实现与复杂度分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-turnpike-reconstruction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 经典问题二：收费公路重建问题 (The Turnpike Reconstruction Problem)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 经典问题二：收费公路重建问题 (The Turnpike Reconstruction Problem)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 问题描述与最大剩余距离端点性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 课堂 6 点实例完整回溯追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 算法代码实现、复杂度分析与多项式生成函数视角
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alphatext-beta-games-and-alphatext-beta-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 博弈树、极小化极大策略与 \(\alpha\text{-}\beta\) 剪枝 (Games and \(\alpha\text{-}\beta\) Pruning)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 博弈树、极小化极大策略与 \(\alpha\text{-}\beta\) 剪枝 (Games and \(\alpha\text{-}\beta\) Pruning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tic-tac-toe-minimax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 井字棋 (Tic-tac-toe)、估值函数与 Minimax 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-alphatext-beta-alphatext-beta-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 \(\alpha\text{-}\beta\) 剪枝 (\(\alpha\text{-}\beta\) Pruning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-6-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 6 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/general_physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-rationale-and-general-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 回溯法的基本原理与通用框架 (Rationale and General Template)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 回溯法的基本原理与通用框架 (Rationale and General Template)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-brute-force-vs-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从暴力枚举到回溯剪枝 (Brute Force vs. Pruning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 回溯法通用模板与搜索顺序优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-n-eight-queens-n-queens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 经典问题一：八皇后与 \(N\) 皇后问题 (Eight Queens / \(N\)-Queens)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 经典问题一：八皇后与 \(N\) 皇后问题 (Eight Queens / \(N\)-Queens)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 问题建模与解空间缩减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 递归算法实现、非递归栈式实现与复杂度分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-turnpike-reconstruction-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 经典问题二：收费公路重建问题 (The Turnpike Reconstruction Problem)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 经典问题二：收费公路重建问题 (The Turnpike Reconstruction Problem)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 问题描述与最大剩余距离端点性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 课堂 6 点实例完整回溯追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 算法代码实现、复杂度分析与多项式生成函数视角
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-alphatext-beta-games-and-alphatext-beta-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 博弈树、极小化极大策略与 \(\alpha\text{-}\beta\) 剪枝 (Games and \(\alpha\text{-}\beta\) Pruning)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 博弈树、极小化极大策略与 \(\alpha\text{-}\beta\) 剪枝 (Games and \(\alpha\text{-}\beta\) Pruning)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tic-tac-toe-minimax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 井字棋 (Tic-tac-toe)、估值函数与 Minimax 策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-alphatext-beta-alphatext-beta-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 \(\alpha\text{-}\beta\) 剪枝 (\(\alpha\text{-}\beta\) Pruning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-6-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 6 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机科学
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    高级数据结构
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-6-backtracking">Chapter 6: Backtracking（回溯算法）<a class="headerlink" href="#chapter-6-backtracking" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Advanced Data Structures and Algorithm Analysis (ADS) | 第六章课堂、板书与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Course Slides Lecture 6: <em>Backtracking</em> (Student &amp; Teacher Versions)</li>
+<li>课堂手写板书 (<code>ADS26W5.pdf</code>) &amp; 课程讲义 Lecture 6:《回溯法》</li>
+<li>M. A. Weiss, <em>Data Structures and Algorithm Analysis in C</em> (2nd Ed.), Ch. 10.5</li>
+</ul>
+</div>
+<h2 id="1-rationale-and-general-template">1 回溯法的基本原理与通用框架 (Rationale and General Template)<a class="headerlink" href="#1-rationale-and-general-template" title="Permanent link">&para;</a></h2>
+<h3 id="11-brute-force-vs-pruning">1.1 从暴力枚举到回溯剪枝 (Brute Force vs. Pruning)<a class="headerlink" href="#11-brute-force-vs-pruning" title="Permanent link">&para;</a></h3>
+<p>在算法设计中，我们始终围绕两个核心诉求：<strong>有效性（Effectiveness，保证找到正确解或近似/高概率解）</strong>与<strong>高效率（Efficiency，保证运行时间尽可能短）</strong>。</p>
+<p>当求解一个组合搜索或约束满足问题时，最稳妥的方法是<strong>暴力搜索 / 蛮力法</strong>（Exhaustive Search / Brute Force）：生成所有候选解（Candidate answers）的列表并逐一检验。只要候选集有限，蛮力法必然有效，但候选解空间（Solution space）往往随问题规模呈指数级或阶乘级爆炸，效率极低。</p>
+<p><strong>回溯法（Backtracking）的核心思想</strong>：
+我们将待求的解表示为向量 <span class="arithmatex">\((x_1, x_2, \dots, x_n)\)</span>，其中每个分量 <span class="arithmatex">\(x_k \in S_k \ (1 \le k \le n)\)</span>。回溯法采用逐步构造<strong>部分解</strong>（Partial solution）<span class="arithmatex">\((x_1, \dots, x_i)\)</span> 的方式：
+1. 在第 <span class="arithmatex">\(i+1\)</span> 步，尝试从候选集 <span class="arithmatex">\(S_{i+1}\)</span> 中取出一个元素 <span class="arithmatex">\(x_{i+1}\)</span> 加入部分解，形成 <span class="arithmatex">\((x_1, \dots, x_i, x_{i+1})\)</span>；
+2. <strong>剪枝检测（Pruning）</strong>：立即检查 <span class="arithmatex">\((x_1, \dots, x_i, x_{i+1})\)</span> 是否满足问题的约束条件 <span class="arithmatex">\(R\)</span>：
+   - 若满足（"Yes"），则继续向下递归扩展下一个分量 <span class="arithmatex">\(x_{i+2}\)</span>；
+   - 若不满足（"No"），说明以 <span class="arithmatex">\((x_1, \dots, x_{i+1})\)</span> 为前缀的<strong>整棵子树下的所有候选解均不可能合法</strong>，直接将其全部跳过（即<strong>剪枝 Pruning</strong>），删去 <span class="arithmatex">\(x_{i+1}\)</span> 并尝试 <span class="arithmatex">\(S_{i+1}\)</span> 中的下一个候选值；
+   - 若 <span class="arithmatex">\(S_{i+1}\)</span> 中的所有候选值均已尝试失败，则撤销 <span class="arithmatex">\(x_i\)</span>，<strong>回溯（Backtrack）</strong>到上一层部分解 <span class="arithmatex">\((x_1, \dots, x_{i-1})\)</span>。</p>
+<div class="arithmatex">\[\text{Backtracking} = \text{DFS（深度优先后序遍历）} + \text{Pruning（约束剪枝）}\]</div>
+<ul>
+<li><strong>抽象状态树与空间优势（板书 <code>W5</code> Page 1 &amp; PPT Slide 6）</strong>：
+  回溯过程在逻辑上等价于对一棵抽象状态树（Game tree / Search tree）执行<strong>深度优先搜索（DFS / Post-order traversal）</strong>。注意：<strong>在内存中并不需要真正建立这棵树</strong>，只需维护当前从根到叶子的单一路径状态，因此空间复杂度仅为树高 <span class="arithmatex">\(O(h)\)</span>（而如果改用广度优先搜索 BFS，空间复杂度将高达指数级的 <span class="arithmatex">\(O(n_{\text{nodes}})\)</span>）。</li>
+</ul>
+<h3 id="12">1.2 回溯法通用模板与搜索顺序优化<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>在老师手写板书（<code>W5</code> Pages 1–2）中，将回溯搜索归纳为四类常见目标：① 判断是否存在合法路径（<code>Is there a good path?</code>）；② 找出一条合法路径（<code>Find a good path</code>）；③ 统计合法路径总数（<code># good paths</code>）；④ 找出所有合法路径（<code>Find all good paths</code>）。</p>
+<p>课程组 PPT（Slide 10）给出的<strong>寻找单解的标准回溯算法通用模板</strong>如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">Backtracking</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="cm">/* solved with (x_1, ..., x_N) */</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">each</span><span class="w"> </span><span class="n">x_i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">S_i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="cm">/* check if partial solution satisfies the restriction R */</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">OK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Check</span><span class="p">((</span><span class="n">x_1</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">x_i</span><span class="p">),</span><span class="w"> </span><span class="n">R</span><span class="p">);</span><span class="w"> </span><span class="cm">/* pruning! */</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="n">Count</span><span class="w"> </span><span class="n">x_i</span><span class="w"> </span><span class="n">in</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 更新状态，记录当前选择 x_i */</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">            </span><span class="n">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Backtracking</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Found</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">                </span><span class="n">Undo</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">                </span><span class="cm">/* 回溯：撤销本次修改，恢复到 (x_1, ..., x_{i-1}) */</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Found</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 若只需找一解，找到后立即跳出循环逐层返回 */</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Found</span><span class="p">;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>搜索顺序优化原则：小候选集优先（"Smaller <span class="arithmatex">\(S_i\)</span> first"，PPT Slide 11 &amp; 讲义 §6.4）</strong>
+当不同决策变量 <span class="arithmatex">\(x_i\)</span> 的候选集合大小 <span class="arithmatex">\(\vert{}S_i\vert{}\)</span> 不同时，<strong>应当优先确定候选集合 <span class="arithmatex">\(\vert{}S_i\vert{}\)</span> 较小的变量</strong>！</p>
+<ul>
+<li><strong>定量对比实例</strong>：设三个变量分别取自 <span class="arithmatex">\(\vert{}S_a\vert{} = 2, \ \vert{}S_b\vert{} = 3, \ \vert{}S_c\vert{} = 4\)</span>（叶子总数恒为 <span class="arithmatex">\(2 \times 3 \times 4 = 24\)</span>）：</li>
+<li><strong>策略 A（从小到大先选 <span class="arithmatex">\(a\)</span>，再选 <span class="arithmatex">\(b\)</span>，最后选 <span class="arithmatex">\(c\)</span>）</strong>：各层节点数依次为 <span class="arithmatex">\(1 \to 2 \to 6 \to 24\)</span>，整棵搜索树共有 <span class="arithmatex">\(1 + 2 + 6 + 24 = \mathbf{33}\)</span> 个节点（内部节点仅 <span class="arithmatex">\(9\)</span> 个）；</li>
+<li><strong>策略 B（从大到小先选 <span class="arithmatex">\(c\)</span>，再选 <span class="arithmatex">\(b\)</span>，最后选 <span class="arithmatex">\(a\)</span>）</strong>：各层节点数依次为 <span class="arithmatex">\(1 \to 4 \to 12 \to 24\)</span>，整棵搜索树共有 <span class="arithmatex">\(1 + 4 + 12 + 24 = \mathbf{41}\)</span> 个节点（内部节点达 <span class="arithmatex">\(17\)</span> 个）。</li>
+<li><strong>物理直观</strong>：越早固定分支因子小的变量，上层内部节点的基数就越小；一旦在浅层发生剪枝，被一刀剪掉的下层子树规模反而越大，从而显著减少状态树中被实际访问的节点总数。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">回溯算法常见时间复杂度的渐近阶比较（讲义 §6.2）</p>
+<p>对于任意固定常数 <span class="arithmatex">\(a &gt; 1, \ b &gt; 0\)</span>，当 <span class="arithmatex">\(n \to \infty\)</span> 时，多项式、指数、阶乘与 <span class="arithmatex">\(n^n\)</span> 满足严格的渐近大小关系（可通过比值判别法与斯特林公式 <span class="arithmatex">\(n! \sim \sqrt{2\pi n}\left(\frac{n}{e}\right)^n\)</span> 证明）：
+$<span class="arithmatex">\(\lim_{n \to \infty} \frac{n^b}{a^n} = \lim_{n \to \infty} \frac{a^n}{n!} = \lim_{n \to \infty} \frac{n!}{n^n} = 0 \implies O(n^b) \ll O(a^n) \ll O(n!) \ll O(n^n)\)</span>$</p>
+</div>
+<hr />
+<h2 id="2-n-eight-queens-n-queens">2 经典问题一：八皇后与 <span class="arithmatex">\(N\)</span> 皇后问题 (Eight Queens / <span class="arithmatex">\(N\)</span>-Queens)<a class="headerlink" href="#2-n-eight-queens-n-queens" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 问题建模与解空间缩减<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><strong>问题描述</strong>：在 <span class="arithmatex">\(8 \times 8\)</span>（或一般地 <span class="arithmatex">\(n \times n\)</span>）国际象棋棋盘上放置 <span class="arithmatex">\(8\)</span>（或 <span class="arithmatex">\(n\)</span>）个皇后，使得任意两个皇后都不能相互攻击（即<strong>任意两个皇后不能处于同一行、同一列、同一条主对角线或同一条副对角线上</strong>）。</p>
+<p><strong>数学建模與约束提取（PPT Slide 4）</strong>：
+由于每一行必须且只能放置一个皇后，令 <span class="arithmatex">\(Q_i\)</span> 表示第 <span class="arithmatex">\(i\)</span> 行的皇后，用决策变量 <span class="arithmatex">\(x_i\)</span> 表示<strong>第 <span class="arithmatex">\(i\)</span> 行皇后所在的列号</strong>（<span class="arithmatex">\(1 \le i \le n\)</span>）。由此得到三条约束条件：</p>
+<ol>
+<li><strong>行与边界约束</strong>：每个 <span class="arithmatex">\(x_i \in S_i = \{1, 2, \dots, n\}\)</span>（仅利用此条件，初始解空间大小为 <span class="arithmatex">\(n^n\)</span>，对 <span class="arithmatex">\(8\)</span> 皇后为 <span class="arithmatex">\(8^8 = 16,777,216\)</span>）；</li>
+<li><strong>不同列约束</strong>：当 <span class="arithmatex">\(i \neq j\)</span> 时，必须满足 <strong><span class="arithmatex">\(x_i \neq x_j\)</span></strong>。这意味着合法解 <span class="arithmatex">\((x_1, x_2, \dots, x_n)\)</span> <strong>必然是 <span class="arithmatex">\(1, 2, \dots, n\)</span> 的一个全排列（Permutation）</strong>！仅此一条约束就将候选解空间从 <span class="arithmatex">\(n^n\)</span> 大幅缩减至 <strong><span class="arithmatex">\(n!\)</span></strong>（对 <span class="arithmatex">\(8\)</span> 皇后降为 <span class="arithmatex">\(8! = 40,320\)</span>，对 <span class="arithmatex">\(4\)</span> 皇后仅为 <span class="arithmatex">\(4! = 24\)</span>）；</li>
+<li><strong>不同对角线约束（剪枝条件）</strong>：任意两个皇后 <span class="arithmatex">\((i, x_i)\)</span> 与 <span class="arithmatex">\((j, x_j)\)</span> 不能位于同一条 <span class="arithmatex">\(45^\circ\)</span> 或 <span class="arithmatex">\(135^\circ\)</span> 对角线上，等价于它们相隔的行数不能等于相隔的列数：
+   $<span class="arithmatex">\(\frac{x_i - x_j}{i - j} \neq \pm 1 \iff \vert{}x_i - x_j\vert{} \neq \vert{}i - j\vert{} \iff \begin{cases} i - x_i \neq j - x_j &amp; (\text{主对角线 }\backslash\text{ 方向}) \\ i + x_i \neq j + x_j &amp; (\text{副对角线 }/\text{ 方向}) \end{cases}\)</span>$</li>
+</ol>
+<p><strong>四皇后问题（4-Queens）搜索树追踪（PPT Slides 5–6）</strong>：
+- 若选择第一行放在第 1 列（<span class="arithmatex">\(x_1 = 1\)</span>）：
+  - 试 <span class="arithmatex">\(x_2 = 2\)</span>：<span class="arithmatex">\(\vert{}2-1\vert{} = \vert{}2-1\vert{}\)</span>，主对角线冲突，立即<strong>剪枝</strong>；
+  - 试 <span class="arithmatex">\(x_2 = 3\)</span>：下一层剩 <span class="arithmatex">\(\{2, 4\}\)</span>，试 <span class="arithmatex">\(x_3 = 2\)</span>（与 <span class="arithmatex">\(x_2=3\)</span> 副对角线冲突剪枝），试 <span class="arithmatex">\(x_3 = 4\)</span>（与 <span class="arithmatex">\(x_2=3\)</span> 主对角线冲突剪枝），回溯；
+  - 试 <span class="arithmatex">\(x_2 = 4\)</span>：下一层试 <span class="arithmatex">\(x_3 = 2\)</span> 合法，但到第四行唯一剩余的 <span class="arithmatex">\(x_4 = 3\)</span> 与 <span class="arithmatex">\(x_3 = 2\)</span> 冲突剪枝。至此 <span class="arithmatex">\(x_1 = 1\)</span> 分支全部失败！
+- 回溯改选 <span class="arithmatex">\(x_1 = 2 \to x_2 = 4 \to x_3 = 1 \to x_4 = 3\)</span>，成功找到第一个合法解 <strong><code>(2, 4, 1, 3)</code></strong>；同理在 <span class="arithmatex">\(x_1 = 3\)</span> 分支下可找到镜像对称的第二个合法解 <strong><code>(3, 1, 4, 2)</code></strong>。</p>
+<h3 id="22">2.2 递归算法实现、非递归栈式实现与复杂度分析<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p><strong>1. 递归版实现（利用三个布尔标记数组实现 <span class="arithmatex">\(O(1)\)</span> 冲突检测，讲义算法 6.1）</strong></p>
+<p>为了在 <span class="arithmatex">\(O(1)\)</span> 时间内判断格子 <span class="arithmatex">\((r, c)\)</span> 的列、主对角线（左上到右下，<span class="arithmatex">\(r - c\)</span> 为常数，加偏移量 <span class="arithmatex">\(n\)</span> 映射为下标 <span class="arithmatex">\(a = r - c + n \in [1, 2n-1]\)</span>）和副对角线（右上到左下，<span class="arithmatex">\(b = r + c \in [2, 2n]\)</span>）是否已被占用，维护三个全局布尔数组 <code>col</code>、<code>diag1</code> 和 <code>diag2</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* 全局状态数组：x[1..n] 存各行皇后的列号；col, diag1, diag2 初始全为 false */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Queens</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">PrintSolution</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 前 n 行均已合法放好，输出当前解 x[1..n] */</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 主对角线编号 (1 .. 2n-1) */</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w">       </span><span class="cm">/* 副对角线编号 (2 .. 2n) */</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">col</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">diag1</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">diag2</span><span class="p">[</span><span class="n">b</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* O(1) 剪枝检查 */</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">x</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">col</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diag1</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diag2</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="n">Queens</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 递归放置下一行 */</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="cm">/* Undo: 回溯恢复现场 */</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="n">x</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="n">col</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diag1</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diag2</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>2. 老师手写板书版：非递归（迭代式）回溯算法 <code>NQ(n)</code>（<code>ADS26W5.pdf</code> Pages 2–3）</strong></p>
+<p>在课堂板书中，老师给出了不依赖系统调用栈的纯 <code>while</code> 循环迭代回溯写法：用 <code>P[i]</code> 记录第 <span class="arithmatex">\(i \ (0 \le i &lt; n)\)</span> 行当前放置的列号（初始全为 <code>-1</code>）。每次在当前行 <span class="arithmatex">\(i\)</span> 从 <code>P[i] + 1</code> 开始向右寻找下一个不与前 <span class="arithmatex">\(i-1\)</span> 行冲突的列号 <span class="arithmatex">\(j\)</span>；若找到则前进到下一行 <code>i = i + 1</code>，若找不到则将 <code>P[i]</code> 重置为 <code>-1</code> 并回退到上一行 <code>i = i - 1</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* 老师板书 N-Queens 非递归迭代回溯实现 (0-indexed: 行/列范围 0 .. n-1) */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">NQ</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">find_feasible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="cm">/* 检查 (i, j) 是否与前面已放好的 P[0 ... i-1] 发生列或对角线冲突 */</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CannotAttack</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">                </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">                </span><span class="n">find_feasible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">find_feasible</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">       </span><span class="cm">/* 当前行成功放置，推进到下一行 */</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w">       </span><span class="cm">/* 当前行已无合法列可选，重置当前行 */</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">       </span><span class="cm">/* Backtrack: 回退到上一行尝试下一个候选列 */</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="cm">/* no feasible solution */</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">               </span><span class="cm">/* i == n: 成功返回一组可行解 P[0..n-1] */</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>3. 节点总数与时间复杂度上界证明</strong>：
+若仅考虑不同列约束，第 <span class="arithmatex">\(r\)</span> 层至多有 <span class="arithmatex">\(n(n-1)\cdots(n-r+1) = \frac{n!}{(n-r)!}\)</span> 个节点。因此搜索树中实际访问的节点总数 <span class="arithmatex">\(N_{\text{visited}}\)</span> 严格满足：</p>
+<div class="arithmatex">\[N_{\text{visited}} \le \sum_{r=0}^n \frac{n!}{(n - r)!} = n! \sum_{j=0}^n \frac{1}{j!} &lt; e \cdot n! &lt; 3n! = O(n!)\]</div>
+<p>在每个节点处尝试 <span class="arithmatex">\(n\)</span> 列（每次 <span class="arithmatex">\(O(1)\)</span> 检查），故包含输出所有解在内的最坏总时间上界为 <strong><span class="arithmatex">\(O(n \cdot n!)\)</span></strong>。</p>
+<hr />
+<h2 id="3-the-turnpike-reconstruction-problem">3 经典问题二：收费公路重建问题 (The Turnpike Reconstruction Problem)<a class="headerlink" href="#3-the-turnpike-reconstruction-problem" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 问题描述与最大剩余距离端点性质<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><strong>问题描述（PPT Slide 7 &amp; 板书 <code>W5</code> Page 4）</strong>：
+设 <span class="arithmatex">\(x\)</span> 轴上有 <span class="arithmatex">\(N\)</span> 个点（公路出口），其坐标按递增顺序排列为 <span class="arithmatex">\(x_1 &lt; x_2 &lt; \dots &lt; x_N\)</span>。由于整体平移不改变点对之间的距离，不妨固定最左端点为原点 <strong><span class="arithmatex">\(x_1 = 0\)</span></strong>。
+这 <span class="arithmatex">\(N\)</span> 个点两两之间共形成 <span class="arithmatex">\(\dfrac{N(N - 1)}{2}\)</span> 个正距离，将它们从小到大存放在<strong>距离多重集（Multiset）<span class="arithmatex">\(D\)</span></strong> 中。我们的任务是：<strong>仅根据给定的距离多重集 <span class="arithmatex">\(D\)</span>，反推重建出所有点的坐标集合 <span class="arithmatex">\(X = (x_1, x_2, \dots, x_N)\)</span></strong>。</p>
+<p><strong>核心突破口（Key Observation，板书 <code>W5</code> Page 5）</strong>：
+1. <strong>确定点数 <span class="arithmatex">\(N\)</span> 与两端点 <span class="arithmatex">\(x_1, x_N\)</span></strong>：
+   由 <span class="arithmatex">\(\vert{}D\vert{} = \frac{N(N-1)}{2}\)</span> 可直接算出点数 <span class="arithmatex">\(N\)</span>。全集 <span class="arithmatex">\(D\)</span> 中最大的那个距离 <span class="arithmatex">\(W = \max(D)\)</span> 必然是<strong>最左端点 <span class="arithmatex">\(x_1\)</span> 与最右端点 <span class="arithmatex">\(x_N\)</span> 之间的距离</strong>！因此可直接固定 <span class="arithmatex">\(x_1 = 0, \ x_N = W\)</span>，并将 <span class="arithmatex">\(W\)</span> 从 <span class="arithmatex">\(D\)</span> 中删去一份。
+2. <strong>中间任意时刻的最大剩余距离 <span class="arithmatex">\(d_{\max} = \max(D)\)</span></strong>：
+   在后续放置过程中，假设我们已经从左右两端向中间确定了左侧前缀 <span class="arithmatex">\(x_1, \dots, x_{\text{left}-1}\)</span> 和右侧后缀 <span class="arithmatex">\(x_{\text{right}+1}, \dots, x_N\)</span>（它们两两之间的距离均已从 <span class="arithmatex">\(D\)</span> 中扣除）。
+   此时，剩余多重集 <span class="arithmatex">\(D\)</span> 中的<strong>最大距离 <span class="arithmatex">\(d_{\max} = \max(D)\)</span></strong>，必然产生于<strong>某个尚未放置的点 <span class="arithmatex">\(a^*\)</span> 与最左端点 <span class="arithmatex">\(x_1 = 0\)</span> 或最右端点 <span class="arithmatex">\(x_N\)</span> 之间</strong>！（因为任何未放点都在区间 <span class="arithmatex">\((0, x_N)\)</span> 内部，它到其它点的距离绝不可能超过它到两端点 <span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(x_N\)</span> 的距离）。
+   因此，当前每一步<strong>至多只有两个候选位置（Branching factor <span class="arithmatex">\(\le 2\)</span>）</strong>：
+   - <strong>Option 1（距左端点 <span class="arithmatex">\(x_1 = 0\)</span> 为 <span class="arithmatex">\(d_{\max}\)</span>）</strong>：尝试将该点放在右侧空位 <strong><span class="arithmatex">\(x_{\text{right}} = d_{\max}\)</span></strong>；
+   - <strong>Option 2（距右端点 <span class="arithmatex">\(x_N\)</span> 为 <span class="arithmatex">\(d_{\max}\)</span>）</strong>：尝试将该点放在左侧空位 <strong><span class="arithmatex">\(x_{\text{left}} = x_N - d_{\max}\)</span></strong>。</p>
+<h3 id="32-6">3.2 课堂 6 点实例完整回溯追踪<a class="headerlink" href="#32-6" title="Permanent link">&para;</a></h3>
+<p><strong>例题（PPT Slide 7）</strong>：给定距离多重集 <span class="arithmatex">\(D = \{1, 2, 2, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7, 8, 10\}\)</span>（共 <span class="arithmatex">\(15\)</span> 个距离），重建点集。</p>
+<ol>
+<li><strong>Step 1（确定 <span class="arithmatex">\(N\)</span>）</strong>：由 <span class="arithmatex">\(\frac{N(N-1)}{2} = 15 \implies N = 6\)</span>。</li>
+<li><strong>Step 2（固定两端点）</strong>：最大距离为 <span class="arithmatex">\(10\)</span>，故置 <strong><span class="arithmatex">\(x_1 = 0, \ x_6 = 10\)</span></strong>，从 <span class="arithmatex">\(D\)</span> 中删去 <span class="arithmatex">\(10\)</span>。当前待填区间为 <code>left = 2, right = 5</code>。</li>
+<li><strong>Step 3（逐层选最大剩余距离并回溯检验）</strong>：</li>
+<li><strong>第 1 层（<span class="arithmatex">\(\max(D) = 8\)</span>，候选为 <span class="arithmatex">\(x_5 = 8\)</span> 或 <span class="arithmatex">\(x_2 = 10 - 8 = 2\)</span>，对称选 <span class="arithmatex">\(x_5 = 8\)</span>）</strong>：
+     检查 <span class="arithmatex">\(x_5 = 8\)</span> 到已放点 <span class="arithmatex">\(\{0, 10\}\)</span> 的距离：<span class="arithmatex">\(\vert{}8 - 0\vert{} = 8, \ \vert{}8 - 10\vert{} = 2\)</span>，均在 <span class="arithmatex">\(D\)</span> 中。扣除 <span class="arithmatex">\(\{2, 8\}\)</span>，剩余 <span class="arithmatex">\(D = \{1, 2, 2, 3, 3, 3, 4, 5, 5, 5, 6, 7\}\)</span>，已放点为 <span class="arithmatex">\(\{0, 8, 10\}\)</span>（<code>left = 2, right = 4</code>）。</li>
+<li><strong>第 2 层（<span class="arithmatex">\(\max(D) = 7\)</span>，候选为 Option 1: <span class="arithmatex">\(x_4 = 7\)</span> 或 Option 2: <span class="arithmatex">\(x_2 = 10 - 7 = 3\)</span>）</strong>：<ul>
+<li><strong>先试左分支 Option 1（<span class="arithmatex">\(x_4 = 7\)</span>）</strong>：到 <span class="arithmatex">\(\{0, 8, 10\}\)</span> 的距离为 <span class="arithmatex">\(\{7, 1, 3\}\)</span>，均在 <span class="arithmatex">\(D\)</span> 中！扣除后剩余 <span class="arithmatex">\(D = \{2, 2, 3, 3, 4, 5, 5, 5, 6\}\)</span>，已放点为 <span class="arithmatex">\(\{0, 7, 8, 10\}\)</span>（<code>left = 2, right = 3</code>）。</li>
+<li><strong>进入第 3 层（<span class="arithmatex">\(\max(D) = 6\)</span>，候选为 <span class="arithmatex">\(x_3 = 6\)</span> 或 <span class="arithmatex">\(x_2 = 10 - 6 = 4\)</span>）</strong>：<ul>
+<li>若试 <span class="arithmatex">\(x_3 = 6\)</span>：需要距离 <span class="arithmatex">\(\vert{}6 - 7\vert{} = 1\)</span>，但此时 <span class="arithmatex">\(D\)</span> 中唯一的 <span class="arithmatex">\(1\)</span> 刚才已被 <span class="arithmatex">\(x_4 = 7\)</span> 用掉了（<span class="arithmatex">\(1 \notin D\)</span>），<strong>剪枝失败</strong>！</li>
+<li>若试 <span class="arithmatex">\(x_2 = 4\)</span>：需要距离 <span class="arithmatex">\(\vert{}4 - 0\vert{} = 4\)</span> 和 <span class="arithmatex">\(\vert{}4 - 8\vert{} = 4\)</span>（共需<strong>两份 <span class="arithmatex">\(4\)</span></strong>），但 <span class="arithmatex">\(D\)</span> 中只有一份 <span class="arithmatex">\(4\)</span>，<strong>剪枝失败</strong>！</li>
+</ul>
+</li>
+<li>两个分支均失败，说明 <strong><span class="arithmatex">\(x_4 = 7\)</span> 是死胡同！执行 Undo 回溯</strong>，将 <span class="arithmatex">\(x_4 = 7\)</span> 撤除，并把 <span class="arithmatex">\(\{7, 1, 3\}\)</span> 重新插回 <span class="arithmatex">\(D\)</span>！</li>
+<li><strong>改试右分支 Option 2（<span class="arithmatex">\(x_2 = 3\)</span>）</strong>：到 <span class="arithmatex">\(\{0, 8, 10\}\)</span> 的距离为 <span class="arithmatex">\(\{3, 5, 7\}\)</span>，均在 <span class="arithmatex">\(D\)</span> 中。扣除后剩余 <span class="arithmatex">\(D = \{1, 2, 2, 3, 3, 4, 5, 5, 6\}\)</span>，已放点为 <span class="arithmatex">\(\{0, 3, 8, 10\}\)</span>（<code>left = 3, right = 4</code>）。</li>
+</ul>
+</li>
+<li><strong>第 3 层（在 <span class="arithmatex">\(x_2 = 3\)</span> 下，<span class="arithmatex">\(\max(D) = 6\)</span>，候选为 <span class="arithmatex">\(x_3 = 10 - 6 = 4\)</span> 或 <span class="arithmatex">\(x_4 = 6\)</span>）</strong>：<ul>
+<li>若试 <span class="arithmatex">\(x_3 = 4\)</span>：需要 <span class="arithmatex">\(\vert{}4 - 3\vert{} = 1\)</span> 和 <span class="arithmatex">\(\vert{}4 - 8\vert{} = 4, \ \vert{}4 - 10\vert{} = 6, \ \vert{}4 - 0\vert{} = 4\)</span>（需要两份 <span class="arithmatex">\(4\)</span>，不足），剪枝失败；</li>
+<li><strong>改试 <span class="arithmatex">\(x_4 = 6\)</span></strong>：到 <span class="arithmatex">\(\{0, 3, 8, 10\}\)</span> 的距离为 <span class="arithmatex">\(\{6, 3, 2, 4\}\)</span>，全部在 <span class="arithmatex">\(D\)</span> 中！扣除后剩余 <span class="arithmatex">\(D = \{1, 2, 3, 5, 5\}\)</span>，已放点为 <span class="arithmatex">\(\{0, 3, 6, 8, 10\}\)</span>（<code>left = 3, right = 3</code>）。</li>
+</ul>
+</li>
+<li><strong>第 4 层（<span class="arithmatex">\(\max(D) = 5\)</span>，候选 <span class="arithmatex">\(x_3 = 5\)</span>）</strong>：
+     到 <span class="arithmatex">\(\{0, 3, 6, 8, 10\}\)</span> 的距离为 <span class="arithmatex">\(\{5, 2, 1, 3, 5\}\)</span>，恰好将剩余的 <span class="arithmatex">\(D\)</span> 完全清空（<code>Is_Empty(D) == true</code>）！</li>
+<li><strong>最终重建结果</strong>：<strong><code>X = (0, 3, 5, 6, 8, 10)</code></strong>（注：其左右镜像翻转 <code>(0, 2, 4, 5, 7, 10)</code> 具有完全相同的距离集 <span class="arithmatex">\(D\)</span>）。</li>
+</ol>
+<h3 id="33">3.3 算法代码实现、复杂度分析与多项式生成函数视角<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* X[1]...X[left-1] 和 X[right+1]...X[N] 已经确定；D 为剩余距离多重集 */</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">Reconstruct</span><span class="p">(</span><span class="n">DistType</span><span class="w"> </span><span class="n">X</span><span class="p">[],</span><span class="w"> </span><span class="n">DistSet</span><span class="w"> </span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Is_Empty</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="cm">/* solved! */</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">DistType</span><span class="w"> </span><span class="n">D_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find_Max</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="cm">/* Option 1: 尝试放在右侧空位 X[right] = D_max */</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="cm">/* Check 检查对所有已确定的 X[i]，|D_max - X[i]| 在 D 中是否有足够份数 (pruning) */</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">OK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Check</span><span class="p">(</span><span class="n">D_max</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* add X[right] and update D */</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="n">X</span><span class="p">[</span><span class="n">right</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D_max</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span><span class="n">Delete</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">right</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">right</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="n">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Reconstruct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* if does not work, undo! */</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span><span class="n">Insert</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">right</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">right</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* finish checking option 1 */</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* if option 1 does not work, try Option 2: X[left] = X[N] - D_max */</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="n">OK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Check</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D_max</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">            </span><span class="n">X</span><span class="p">[</span><span class="n">left</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D_max</span><span class="p">;</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span><span class="n">Delete</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">left</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">left</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">            </span><span class="n">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Reconstruct</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* undo */</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">       </span><span class="n">Insert</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">left</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="o">|</span><span class="n">X</span><span class="p">[</span><span class="n">left</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">|</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="cm">/* finish checking option 2 */</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* finish checking all the options */</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Found</span><span class="p">;</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>时间复杂度分析（教师版 PPT Slide 7 &amp; 板书 <code>W5</code> Page 6）</strong>：
+- 若用平衡二叉搜索树（如 AVL 树或红黑树）维护距离多重集 <span class="arithmatex">\(D\)</span>（至多含 <span class="arithmatex">\(O(N^2)\)</span> 个元素），则单次 <code>Find_Max</code>、<code>Insert</code>、<code>Delete</code> 耗时均为 <span class="arithmatex">\(O(\log(N^2)) = O(\log N)\)</span>。
+- 每递归一层需检查并增删 <span class="arithmatex">\(O(N)\)</span> 个距离，单节点处理耗时为 <span class="arithmatex">\(O(N \log N)\)</span>。
+- <strong>最坏情况（Worst-case）</strong>：搜索树深度为 <span class="arithmatex">\(N - 2\)</span>，每个节点至多有 <span class="arithmatex">\(2\)</span> 个分支，故至多有 <span class="arithmatex">\(O(2^N)\)</span> 个节点，最坏时间复杂度为 <strong><span class="arithmatex">\(O(2^N N \log N)\)</span></strong>；
+- <strong>平均情况 / 无回溯撤销情况（Average-case）</strong>：在绝大多数随机实例中，错误分支会在 <span class="arithmatex">\(O(1)\)</span> 步内因距离不匹配而立即被 <code>Check</code> 剪枝，几乎不需要回溯撤销，总共只访问 <span class="arithmatex">\(O(N)\)</span> 个节点，此时运行时间仅为 <strong><span class="arithmatex">\(O(N^2 \log N)\)</span></strong>！</p>
+<details>
+<summary>点击展开：老师手写板书补充（ADS26W5 Pages 6–7）——收费公路问题的生成函数与多项式乘法视角</summary>
+<p>在课堂板书中，老师展示了如何用<strong>特征多项式（Generating Function）</strong>将点集之间的加减运算转化为多项式乘法：</p>
+<ol>
+<li><strong>两个集合之和 <span class="arithmatex">\(A + B = \{a + b : a \in A, b \in B\}\)</span> 的快速计算</strong>：
+   设整数集合 <span class="arithmatex">\(A = \{a_1, \dots, a_n\}, \ B = \{b_1, \dots, b_n\}\)</span>，最大值记为 <span class="arithmatex">\(M\)</span>。若直接两两枚举求和需 <span class="arithmatex">\(O(n^2)\)</span> 时间。
+   构造多项式 <span class="arithmatex">\(F_A(x) = \sum_{i=1}^n x^{a_i}\)</span> 与 <span class="arithmatex">\(F_B(x) = \sum_{j=1}^n x^{b_j}\)</span>。将两多项式相乘：
+   $$
+   F_A(x) \cdot F_B(x) = \left(\sum_{i=1}^n x^{a_i}\right)\left(\sum_{j=1}^n x^{b_j}\right) = \sum_{i, j} x^{a_i + b_j}
+   $$
+   乘积多项式中 <span class="arithmatex">\(x^k\)</span> 项的系数，恰好就是 <span class="arithmatex">\(a_i + b_j = k\)</span> 出现的重数！利用第七章的快速傅里叶变换（FFT），可在 <span class="arithmatex">\(O(M \log M)\)</span> 时间内算出该多项式乘积。</li>
+<li><strong>收费公路重建的多项式方程</strong>：
+   对于点集 <span class="arithmatex">\(A = \{a_1, a_2, \dots, a_n\}\)</span>，考察差集 <span class="arithmatex">\(A - A = \{a_i - a_j : a_i, a_j \in A\}\)</span>。它由三部分组成：<span class="arithmatex">\(n\)</span> 个自身相减的 <span class="arithmatex">\(0\)</span>、正距离多重集 <span class="arithmatex">\(D(A)\)</span> 以及负距离多重集 <span class="arithmatex">\(-D(A)\)</span>。
+   因此，定义洛朗多项式 <span class="arithmatex">\(F_A(x) = \sum_{i=1}^n x^{a_i}\)</span>、<span class="arithmatex">\(F_A(x^{-1}) = \sum_{j=1}^n x^{-a_j}\)</span> 以及距离多项式 <span class="arithmatex">\(F_D(x) = \sum_{d \in D} x^d\)</span>，则恒有代数恒等式：
+   $$
+   F_A(x) \cdot F_A(x^{-1}) = n + F_D(x) + F_D(x^{-1})
+   $$
+   收费公路重建问题在代数上等价于：已知右侧的多项式 <span class="arithmatex">\(n + F_D(x) + F_D(x^{-1})\)</span>，对其做因式分解求回多项式 <span class="arithmatex">\(F_A(x)\)</span>（已知存在 <span class="arithmatex">\(\text{poly}(n, M)\)</span> 的伪多项式时间算法，但该问题是否存在关于 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(\log M\)</span> 的强多项式时间算法至今仍是著名开放问题）。</li>
+</ol>
+</details>
+<hr />
+<h2 id="4-alphatext-beta-games-and-alphatext-beta-pruning">4 博弈树、极小化极大策略与 <span class="arithmatex">\(\alpha\text{-}\beta\)</span> 剪枝 (Games and <span class="arithmatex">\(\alpha\text{-}\beta\)</span> Pruning)<a class="headerlink" href="#4-alphatext-beta-games-and-alphatext-beta-pruning" title="Permanent link">&para;</a></h2>
+<h3 id="41-tic-tac-toe-minimax">4.1 井字棋 (Tic-tac-toe)、估值函数与 Minimax 策略<a class="headerlink" href="#41-tic-tac-toe-minimax" title="Permanent link">&para;</a></h3>
+<p>在以井字棋（Tic-tac-toe，在 <span class="arithmatex">\(3 \times 3\)</span> 棋盘上双方轮流画 <span class="arithmatex">\(\text{X}\)</span> 和 <span class="arithmatex">\(\text{O}\)</span>，先在行、列或对角线连成三子者获胜）为代表的双人完全信息确定性零和博弈（Zero-sum game）中：
+- 井字棋共有 <span class="arithmatex">\(3^9 = 19,683\)</span> 种盘面布局（每个格子可为 <span class="arithmatex">\(\text{X}\)</span>、<span class="arithmatex">\(\text{O}\)</span> 或空），共有 <span class="arithmatex">\(9! = 362,880\)</span> 种不同的落子对局序列。
+- 对于国际象棋或围棋等复杂博弈，完整博弈树过于庞大，无法搜索至终局，必须限制搜索深度并引入<strong>启发式估值函数</strong>（Evaluation Function）<span class="arithmatex">\(f(P)\)</span> 来量化盘面 <span class="arithmatex">\(P\)</span> 的优劣（Goodness）。</p>
+<p><strong>1. 井字棋的估值函数设计（PPT Slide 14）</strong></p>
+<p>定义盘面 <span class="arithmatex">\(P\)</span> 的估值函数 <span class="arithmatex">\(f(P)\)</span> 为：</p>
+<div class="arithmatex">\[
+f(P) = W_{\text{Computer}} - W_{\text{Human}}
+\]</div>
+<p>其中 <span class="arithmatex">\(W\)</span> 表示在当前盘面 <span class="arithmatex">\(P\)</span> 下，该方<strong>尚未被对手棋子堵死的潜在获胜连线（行、列、对角线，全盘共 <span class="arithmatex">\(8\)</span> 条）的数量</strong>。
+- <strong>计算实例</strong>：设 <span class="arithmatex">\(3 \times 3\)</span> 棋盘上，Computer（执 <span class="arithmatex">\(\text{O}\)</span>）下在正中心 <span class="arithmatex">\((2,2)\)</span>，Human（执 <span class="arithmatex">\(\text{X}\)</span>）下在第一行正中 <span class="arithmatex">\((1,2)\)</span>：
+  - Computer 的潜在获胜线：第一行和中间列因已有对手的 <span class="arithmatex">\(\text{X}\)</span> 而被堵死（损失 <span class="arithmatex">\(2\)</span> 条），其余 <span class="arithmatex">\(8 - 2 = 6\)</span> 条线仍可获胜，故 <span class="arithmatex">\(W_{\text{Computer}} = 6\)</span>；
+  - Human 的潜在获胜线：正中心被 Computer 的 <span class="arithmatex">\(\text{O}\)</span> 占据，穿过正中心的中间行、中间列及两条对角线共 <span class="arithmatex">\(4\)</span> 条线均被堵死，仅剩外围 <span class="arithmatex">\(8 - 4 = 4\)</span> 条线，故 <span class="arithmatex">\(W_{\text{Human}} = 4\)</span>；
+  - 当前盘面估值为 <span class="arithmatex">\(f(P) = 6 - 4 = 2 &gt; 0\)</span>（Computer 占优）。</p>
+<p><strong>2. 极小化极大策略（Minimax Strategy，PPT Slides 14–15）</strong></p>
+<p>在零和博弈中，两方的目标完全相反：
+- <strong>MAX 节点（轮到 Computer 落子）</strong>：Computer 总是选择能使盘面估值 <span class="arithmatex">\(f(P)\)</span> <strong>最大化（Maximize）</strong>的子节点；
+- <strong>MIN 节点（轮到 Human 落子）</strong>：理性对手 Human 总是选择能使 Computer 的盘面估值 <span class="arithmatex">\(f(P)\)</span> <strong>最小化（Minimize）</strong>的子节点。</p>
+<p>因此，在博弈树上执行后序 DFS 遍历：叶节点直接计算 <span class="arithmatex">\(f(P)\)</span>，内部 MIN 节点取所有孩子估值的 <span class="arithmatex">\(\min\)</span>，内部 MAX 节点取所有孩子估值的 <span class="arithmatex">\(\max\)</span>，逐层向上回传。</p>
+<h3 id="42-alphatext-beta-alphatext-beta-pruning">4.2 <span class="arithmatex">\(\alpha\text{-}\beta\)</span> 剪枝 (<span class="arithmatex">\(\alpha\text{-}\beta\)</span> Pruning)<a class="headerlink" href="#42-alphatext-beta-alphatext-beta-pruning" title="Permanent link">&para;</a></h3>
+<p>在按深度优先（从左到右）遍历博弈树计算 Minimax 值的过程中，许多分支无需完全展开即可断定其绝不可能影响根节点的最终决策，这种利用已算出的上下界提前截断无效分支的技术称为 <strong><span class="arithmatex">\(\alpha\text{-}\beta\)</span> 剪枝</strong>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">剪枝类型</th>
+<th style="text-align: left;">发生的节点位置</th>
+<th style="text-align: left;">剪枝触发条件与逻辑推导（对照 PPT Slides 16–17）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(\alpha\)</span> 剪枝</strong><br>（<span class="arithmatex">\(\alpha\)</span> pruning）</td>
+<td style="text-align: left;">发生在 <strong>MIN 节点</strong>处<br>（其父/祖先 <strong>MAX 节点</strong>已拥有保底值 <span class="arithmatex">\(\alpha\)</span>）</td>
+<td style="text-align: left;">设父节点为 MAX，其左子树已算出值 <span class="arithmatex">\(\alpha = 44\)</span>（故父节点最终值<strong>至少 <span class="arithmatex">\(\ge 44\)</span></strong>）。<br>现搜索右孩子（<strong>MIN 节点</strong>）：当算出该 MIN 节点的第一个孩子值为 <span class="arithmatex">\(40\)</span> 时，由于 MIN 节点取最小值，<strong>该 MIN 节点的最终值必定 <span class="arithmatex">\(\le 40\)</span></strong>！<br>既然 <span class="arithmatex">\(40 &lt; 44\)</span>，父节点 MAX 绝不会选择这个 <span class="arithmatex">\(\le 40\)</span> 的右孩子，因此<strong>该 MIN 节点剩余的所有未访问孩子（黑球分支）可被立即剪除</strong>！</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><span class="arithmatex">\(\beta\)</span> 剪枝</strong><br>（<span class="arithmatex">\(\beta\)</span> pruning）</td>
+<td style="text-align: left;">发生在 <strong>MAX 节点</strong>处<br>（其父/祖先 <strong>MIN 节点</strong>已拥有上界值 <span class="arithmatex">\(\beta\)</span>）</td>
+<td style="text-align: left;">设父节点为 MIN，其左子树已算出值 <span class="arithmatex">\(\beta = 44\)</span>（故父节点最终值<strong>至多 <span class="arithmatex">\(\le 44\)</span></strong>）。<br>现搜索右孩子（<strong>MAX 节点</strong>）：当算出该 MAX 节点的第一个孩子值为 <span class="arithmatex">\(68\)</span> 时，由于 MAX 节点取最大值，<strong>该 MAX 节点的最终值必定 <span class="arithmatex">\(\ge 68\)</span></strong>！<br>既然 <span class="arithmatex">\(68 &gt; 44\)</span>，父节点 MIN 绝不会选择这个 <span class="arithmatex">\(\ge 68\)</span> 的右孩子，因此<strong>该 MAX 节点剩余的所有未访问孩子（黑球分支）可被立即剪除</strong>！</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>通用维护法则</strong>：在 DFS 向下传递时，维护两个界 <span class="arithmatex">\([\alpha, \beta]\)</span>：</li>
+<li><strong><span class="arithmatex">\(\alpha\)</span></strong>：当前路径上所有祖先 <strong>MAX 节点</strong>目前已知的最大保底值（MAX 的下界，初始为 <span class="arithmatex">\(-\infty\)</span>）；</li>
+<li><strong><span class="arithmatex">\(\beta\)</span></strong>：当前路径上所有祖先 <strong>MIN 节点</strong>目前已知的最小上界值（MIN 的上界，初始为 <span class="arithmatex">\(+\infty\)</span>）；</li>
+<li><strong>一旦在任意节点处出现 <span class="arithmatex">\(\alpha \ge \beta\)</span></strong>（即当前节点的取值区间彻底跌破了祖先的容忍窗口），立即停止遍历该节点的剩余孩子并回溯剪枝！</li>
+<li><strong><span class="arithmatex">\(\alpha\text{-}\beta\)</span> 剪枝的惊人效率（PPT Slide 17 核心结论）</strong>：
+  当同时结合 <span class="arithmatex">\(\alpha\)</span> 剪枝与 <span class="arithmatex">\(\beta\)</span> 剪枝时，在实践（及理想启发式着法排序）中，它能将需要搜索的节点总数从完整博弈树的 <span class="arithmatex">\(N\)</span> 个节点缩减至仅需搜索 <strong><span class="arithmatex">\(O(\sqrt{N})\)</span> 个节点</strong>！这意味着在相同的算力时间内，搜索引擎向后看（Look-ahead）的博弈树深度可以直接<strong>翻倍</strong>！</li>
+</ul>
+<hr />
+<h2 id="5-chapter-6-selected-exercises">5 Chapter 6 核心习题精解 (Selected Exercises)<a class="headerlink" href="#5-chapter-6-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 6.1, 6.2 &amp; 6.3: 5-Queens Corners, Closed Knight's Tour &amp; Turnpike Uniqueness（五皇后角点、闭合马巡游奇偶证明与收费公路唯一性）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.1</strong>: 在五皇后（<span class="arithmatex">\(5 \times 5\)</span> 棋盘）的所有合法摆法中，至少有一个皇后位于棋盘角点（Corner）的摆法共有几种？
+- <strong>Ex 6.2</strong>: 在 <span class="arithmatex">\(B \times B\)</span> 的国际象棋棋盘上，马从 <span class="arithmatex">\((R, C)\)</span> 可跳到 <span class="arithmatex">\((R', C')\)</span> 当且仅当 <span class="arithmatex">\((|R - R'|, |C - C'|) \in \{(2, 1), (1, 2)\}\)</span>。一次“闭合马巡游（Closed Knight's Tour）”要求马恰好访问每个方格一次，并在最后一步跳回起点。请问：① 为什么当 <span class="arithmatex">\(B\)</span> 为奇数时不存在闭合马巡游？② 用回溯法寻找闭合马巡游时，除了检查方格是否已访问过，还可以用哪些必要条件进行剪枝？
+- <strong>Ex 6.3</strong>: 考虑距离多重集 <span class="arithmatex">\(D = \{1, 2, 2, 3, 3, 4, 5, 6, 6, 8\}\)</span>，固定最左点为 <span class="arithmatex">\(0\)</span>，能否找到包含点 <span class="arithmatex">\(3\)</span> 的解？能否找到包含点 <span class="arithmatex">\(5\)</span> 的解？据此说明：固定左端点为 <span class="arithmatex">\(0\)</span> 后，收费公路问题的解是否一定唯一？另外，如果搜索过程中从未因后续失败而撤销已放好的点，使用 AVL 树保存距离时，为什么可以在 <span class="arithmatex">\(O(n^2\log n)\)</span> 时间内完成重建？</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 五皇后问题含角点皇后的合法解计数（Exercise 6.1）</strong>：
+先固定左上角 <span class="arithmatex">\((1, 1)\)</span> 放有一个皇后（即 <span class="arithmatex">\(x_1 = 1\)</span>）：
+- 第二行可尝试 <span class="arithmatex">\(x_2 = 3\)</span> 或 <span class="arithmatex">\(x_2 = 4\)</span>：
+  - 当 <span class="arithmatex">\(x_2 = 3\)</span> 时，后续唯一合法填充为 <span class="arithmatex">\(x_3 = 5, \ x_4 = 2, \ x_5 = 4\)</span>，得到解 <code>(1, 3, 5, 2, 4)</code>；
+  - 当 <span class="arithmatex">\(x_2 = 4\)</span> 时，后续唯一合法填充为 <span class="arithmatex">\(x_3 = 2, \ x_4 = 5, \ x_5 = 3\)</span>，得到解 <code>(1, 4, 2, 5, 3)</code>。
+注意到这两个解中，其他四个皇后均不在另外三个角点 <span class="arithmatex">\((1, 5), (5, 1), (5, 5)\)</span> 上（因为 <span class="arithmatex">\((1,1)\)</span> 已经控制了第一行、第一列和主对角线上的 <span class="arithmatex">\((5,5)\)</span>，且第五行皇后分别在第 <span class="arithmatex">\(4\)</span> 和第 <span class="arithmatex">\(3\)</span> 列，故一个合法解至多只能占用 1 个角点，四个角点的解集两两互不相交！）。
+将棋盘分别顺时针旋转 <span class="arithmatex">\(90^\circ, 180^\circ, 270^\circ\)</span>，每个角点各对应 <span class="arithmatex">\(2\)</span> 个解，故总共有 <span class="arithmatex">\(4 \times 2 = \mathbf{8}\)</span> 种摆法。（注：五皇后共有 10 种解，另外 2 种是不占任何角点的 <code>(2, 4, 1, 3, 5)</code> 和 <code>(4, 2, 5, 3, 1)</code>）。</p>
+<hr />
+<p><strong>2. 闭合马巡游的黑白染色奇偶性证明与图论剪枝（Exercise 6.2）</strong>：</p>
+<ul>
+<li><strong>① 为什么奇数边长 <span class="arithmatex">\(B\)</span> 不存在闭合马巡游？</strong>
+  将棋盘按行列坐标之和 <span class="arithmatex">\(R + C\)</span> 的奇偶性染成黑白相间的两色（同国际象棋棋盘）。
+  马每走一步“日”字，其中一个坐标改变 <span class="arithmatex">\(\pm 1\)</span>，另一个坐标改变 <span class="arithmatex">\(\pm 2\)</span>，因此坐标之和 <span class="arithmatex">\(R + C\)</span> 改变了 <span class="arithmatex">\(\pm 1\)</span> 或 <span class="arithmatex">\(\pm 3\)</span>（均为奇数），这意味着<strong>马每跳一步，所在方格的颜色必定发生黑白翻转</strong>！
+  若存在一条经过全部 <span class="arithmatex">\(B^2\)</span> 个方格各一次并回到起点的闭合环路（哈密顿环），则环路必然严格按“黑 <span class="arithmatex">\(\to\)</span> 白 <span class="arithmatex">\(\to\)</span> 黑 <span class="arithmatex">\(\to\)</span> 白 <span class="arithmatex">\(\dots\)</span>”交替行进，这要求路径包含的黑格总数与白格总数必须相等，从而总步数 <span class="arithmatex">\(B^2\)</span> 必须是偶数！然而当 <span class="arithmatex">\(B\)</span> 为奇数时，<span class="arithmatex">\(B^2\)</span> 是奇数（黑格与白格数量相差 <span class="arithmatex">\(1\)</span>，如 <span class="arithmatex">\(5 \times 5\)</span> 棋盘有 <span class="arithmatex">\(13\)</span> 黑 <span class="arithmatex">\(12\)</span> 白），绝无可能在黑白交替访问全部格子后回到同色起点。</li>
+<li><strong>② 回溯剪枝条件设计</strong>：
+  将棋盘建模为无向图 <span class="arithmatex">\(G = (V, E)\)</span>：</li>
+<li><strong>连通性剪枝</strong>：若剩余未访问的方格集合加上起点后构成的导出子图不连通（产生孤立连通分量），则立即剪枝；</li>
+<li><strong>度数剪枝（一度/零度死胡同判据）</strong>：在搜索中途，若存在某个尚未访问的非起点方格，其在剩余未访问图中关联的可用邻接跳点少于 <span class="arithmatex">\(2\)</span> 个（度数为 <span class="arithmatex">\(0\)</span> 则无法进入；度数为 <span class="arithmatex">\(1\)</span> 且不是立刻跳入它，则未来一旦跳入它就再也无法跳出），则立即剪枝（启发式搜索顺序：优先跳向剩余可用出度最少的方格，即 Warnsdorf 规则，符合“Smaller <span class="arithmatex">\(S_i\)</span> first”原则）。</li>
+</ul>
+<hr />
+<p><strong>3. 收费公路重建的非唯一性与无回溯复杂度证明（Exercise 6.3）</strong>：</p>
+<ul>
+<li><strong>求解与非唯一性说明</strong>：
+  由 <span class="arithmatex">\(|D| = 10 = \frac{5 \times 4}{2}\)</span> 知共有 <span class="arithmatex">\(n = 5\)</span> 个点，且两端点为 <span class="arithmatex">\(x_1 = 0, \ x_5 = 8\)</span>。
+  执行回溯算法可得包含点 <span class="arithmatex">\(3\)</span> 的合法解为 <strong><span class="arithmatex">\(X_1 = \{0, 2, 3, 6, 8\}\)</span></strong>。
+  将点集 <span class="arithmatex">\(X_1\)</span> 关于中心点 <span class="arithmatex">\(4\)</span> 作左右镜像翻转（即将每个坐标 <span class="arithmatex">\(x_i\)</span> 映射为 <span class="arithmatex">\(8 - x_i\)</span>），得到新点集 <strong><span class="arithmatex">\(X_2 = \{0, 2, 5, 6, 8\}\)</span></strong>（其中包含了点 <span class="arithmatex">\(5\)</span>）！由于镜像反射是保距变换，<span class="arithmatex">\(X_1\)</span> 与 <span class="arithmatex">\(X_2\)</span> 产生的点对距离多重集 <span class="arithmatex">\(D\)</span> 完全一致。这说明：<strong>即使固定最左端点为 <span class="arithmatex">\(0\)</span>，收费公路重建问题的解在镜像翻转意义下也不唯一</strong>。</li>
+<li><strong>无回溯撤销时的 <span class="arithmatex">\(O(n^2\log n)\)</span> 复杂度推导</strong>：
+  若搜索过程中从未发生回溯撤销，则从第 <span class="arithmatex">\(1\)</span> 步到第 <span class="arithmatex">\(n-2\)</span> 步，每一层最多只调用 <span class="arithmatex">\(2\)</span> 次 <code>Check</code> 和 <span class="arithmatex">\(1\)</span> 次 <code>Delete</code>。在已经放好 <span class="arithmatex">\(k\)</span> 个点时，单次 <code>Check</code> 或 <code>Delete</code> 只需对这 <span class="arithmatex">\(k\)</span> 个已放点执行 <span class="arithmatex">\(O(k)\)</span> 次 AVL 树查找或删除操作。
+  将 <span class="arithmatex">\(k = 2, 3, \dots, n-1\)</span> 各层的 AVL 树操作次数累加：
+  $$
+  \text{Total AVL operations} = \sum_{k=2}^{n-1} O(k) = O(n^2)
+  $$
+  由于 AVL 树中含有至多 <span class="arithmatex">\(\binom{n}{2} = O(n^2)\)</span> 个距离，每次 AVL 树操作耗时 <span class="arithmatex">\(O(\log(n^2)) = O(\log n)\)</span>，故总时间复杂度为 <span class="arithmatex">\(O(n^2 \log n)\)</span>。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 6.4 &amp; 6.5: Alpha-Beta Pruning Bounds &amp; Zermelo's Theorem Proof（博弈树剪枝阈值计算与策梅洛定理证明）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 6.4</strong>: 对讲义图 6.9 中的两棵四层二叉树（均按从左到右顺序搜索，第 4 层为叶子，左子树四个叶子依次为 <code>65, 68</code> 和 <code>86, 38</code>；右子树左分支的两个叶子为 <code>70, b</code> [上图] 或 <code>58, b</code> [下图]，右分支内部节点为尚未访问的 <span class="arithmatex">\(d\)</span>）：
+  - <strong>上图层次</strong>（自顶向下依次为：<code>MIN -&gt; MAX -&gt; MIN -&gt; 叶子</code>，右子树前两个叶子为 <code>70, b</code>）；
+  - <strong>下图层次</strong>（自顶向下依次为：<code>MAX -&gt; MIN -&gt; MAX -&gt; 叶子</code>，右子树前两个叶子为 <code>58, b</code>）。
+  分别求使以节点 <span class="arithmatex">\(d\)</span> 为根的整棵子树被剪去的实数 <span class="arithmatex">\(b\)</span> 的取值范围。
+- <strong>Ex 6.5 (策梅洛定理 Zermelo's Theorem)</strong>: 证明在井字棋（及任何博弈树有限、完全信息、结果为胜/负/平局的确定性双人零和博弈）中，以下三种情况必有且仅有一种成立：(1) 先手玩家有必胜策略；(2) 后手玩家有必胜策略；(3) 双方各自都有保证至少平局（不输）的策略。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 博弈树 <span class="arithmatex">\(\alpha\text{-}\beta\)</span> 剪枝阈值范围计算（Exercise 6.4，期末必考计算题型）</strong>：</p>
+<ul>
+<li><strong>上图分析（层序：第 1 层根 <code>MIN</code> <span class="arithmatex">\(\to\)</span> 第 2 层 <code>MAX</code> <span class="arithmatex">\(\to\)</span> 第 3 层 <code>MIN</code> <span class="arithmatex">\(\to\)</span> 第 4 层叶子）</strong>：</li>
+<li><strong>先算左子树的值</strong>：<ul>
+<li>第 3 层左一 <code>MIN</code> 节点：<span class="arithmatex">\(\min(65, 68) = 65\)</span>；</li>
+<li>第 3 层左二 <code>MIN</code> 节点：<span class="arithmatex">\(\min(86, 38) = 38\)</span>；</li>
+<li>第 2 层左 <code>MAX</code> 节点：<span class="arithmatex">\(\max(65, 38) = \mathbf{65}\)</span>。</li>
+<li>由此，第 1 层根节点（<code>MIN</code>）获得了上界 <strong><span class="arithmatex">\(\beta = 65\)</span></strong>（根最终值 <span class="arithmatex">\(\le 65\)</span>）。</li>
+</ul>
+</li>
+<li><strong>再看右子树何时剪掉 <span class="arithmatex">\(d\)</span></strong>：<ul>
+<li>右子树根是第 2 层右 <strong><code>MAX</code> 节点</strong>，其左孩子是第 3 层 <code>MIN</code> 节点（叶子为 <span class="arithmatex">\(70\)</span> 和 <span class="arithmatex">\(b\)</span>），故该第 3 层 <code>MIN</code> 节点算出的值为 <span class="arithmatex">\(v = \min(70, b)\)</span>。</li>
+<li>第 2 层右 <code>MAX</code> 节点拿到了第一个孩子的值 <span class="arithmatex">\(v = \min(70, b)\)</span>，故该 <code>MAX</code> 节点的最终值必 <span class="arithmatex">\(\ge \min(70, b)\)</span>。</li>
+<li>要在访问其右孩子 <span class="arithmatex">\(d\)</span> 之前触发 <strong><span class="arithmatex">\(\beta\)</span> 剪枝</strong>，只需该下界已经大于等于根 <code>MIN</code> 节点的上界 <span class="arithmatex">\(\beta = 65\)</span>：
+   $$
+   \min(70, b) \ge 65 \quad (\text{因 } 70 \ge 65 \text{ 已成立}) \implies \mathbf{b \ge 65}
+   $$</li>
+</ul>
+</li>
+<li><strong>下图分析（层序：第 1 层根 <code>MAX</code> <span class="arithmatex">\(\to\)</span> 第 2 层 <code>MIN</code> <span class="arithmatex">\(\to\)</span> 第 3 层 <code>MAX</code> <span class="arithmatex">\(\to\)</span> 第 4 层叶子）</strong>：</li>
+<li><strong>先算左子树的值</strong>：<ul>
+<li>第 3 层左一 <code>MAX</code> 节点：<span class="arithmatex">\(\max(65, 68) = 68\)</span>；</li>
+<li>第 3 层左二 <code>MAX</code> 节点：<span class="arithmatex">\(\max(86, 38) = 86\)</span>；</li>
+<li>第 2 层左 <code>MIN</code> 节点：<span class="arithmatex">\(\min(68, 86) = \mathbf{68}\)</span>。</li>
+<li>由此，第 1 层根节点（<code>MAX</code>）获得了保底值 <strong><span class="arithmatex">\(\alpha = 68\)</span></strong>（根最终值 <span class="arithmatex">\(\ge 68\)</span>）。</li>
+</ul>
+</li>
+<li><strong>再看右子树何时剪掉 <span class="arithmatex">\(d\)</span></strong>：<ul>
+<li>右子树根是第 2 层右 <strong><code>MIN</code> 节点</strong>，其左孩子是第 3 层 <code>MAX</code> 节点（叶子为 <span class="arithmatex">\(58\)</span> 和 <span class="arithmatex">\(b\)</span>），故该第 3 层 <code>MAX</code> 节点算出的值为 <span class="arithmatex">\(v = \max(58, b)\)</span>。</li>
+<li>第 2 层右 <code>MIN</code> 节点拿到了第一个孩子的值 <span class="arithmatex">\(v = \max(58, b)\)</span>，故该 <code>MIN</code> 节点的最终值必 <span class="arithmatex">\(\le \max(58, b)\)</span>。</li>
+<li>要在访问其右孩子 <span class="arithmatex">\(d\)</span> 之前触发 <strong><span class="arithmatex">\(\alpha\)</span> 剪枝</strong>，只需该上界已经小于等于根 <code>MAX</code> 节点的下界 <span class="arithmatex">\(\alpha = 68\)</span>：
+   $$
+   \max(58, b) \le 68 \quad (\text{因 } 58 \le 68 \text{ 已成立}) \implies \mathbf{b \le 68}
+   $$</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong>2. 策梅洛定理（Zermelo's Theorem）的 Minimax 归纳证明（Exercise 6.5）</strong>：
+将先手（MAX 玩家）获胜、平局、后手（MIN 玩家）获胜的终局叶节点效用分别赋值为 <span class="arithmatex">\(+1, \ 0, \ -1\)</span>。由于博弈树有限，可自底向上对每个节点计算出唯一的确定性 Minimax 值 <span class="arithmatex">\(V(\text{node}) \in \{+1, 0, -1\}\)</span>。考察初始空棋盘根节点的值 <span class="arithmatex">\(V(\text{root})\)</span>：</p>
+<ol>
+<li><strong>若 <span class="arithmatex">\(V(\text{root}) = +1\)</span>（先手必胜）</strong>：
+   在任何轮到先手的 MAX 节点（值为 <span class="arithmatex">\(+1\)</span>），其孩子中至少有一个值为 <span class="arithmatex">\(+1\)</span>，先手只需选择进入该孩子；在任何轮到后手的 MIN 节点（值为 <span class="arithmatex">\(+1\)</span>），由于最小值都是 <span class="arithmatex">\(+1\)</span>，说明其<strong>所有孩子的值全为 <span class="arithmatex">\(+1\)</span></strong>，后手无论怎么走都只能进入值为 <span class="arithmatex">\(+1\)</span> 的子节点。如此走到终局叶子，值必为 <span class="arithmatex">\(+1\)</span>，即先手有必胜策略。</li>
+<li><strong>若 <span class="arithmatex">\(V(\text{root}) = -1\)</span>（后手必胜）</strong>：
+   完全对称地，后手在 MIN 节点总能选择值为 <span class="arithmatex">\(-1\)</span> 的孩子，而先手在值为 <span class="arithmatex">\(-1\)</span> 的 MAX 节点下所有孩子均为 <span class="arithmatex">\(-1\)</span>，最终必到达 <span class="arithmatex">\(-1\)</span> 的叶子，即后手有必胜策略。</li>
+<li><strong>若 <span class="arithmatex">\(V(\text{root}) = 0\)</span>（双方均有保平局不输策略）</strong>：
+   先手在 MAX 节点总是选择值 <span class="arithmatex">\(\ge 0\)</span> 的孩子，可保证终局值 <span class="arithmatex">\(\ge 0\)</span>（绝不会输）；同时后手在 MIN 节点总是选择值 <span class="arithmatex">\(\le 0\)</span> 的孩子，可保证终局值 <span class="arithmatex">\(\le 0\)</span>（也绝不会输）。双方均采取该策略时必以 <span class="arithmatex">\(0\)</span>（平局）告终。
+由于根节点的 Minimax 值只能唯一地取 <span class="arithmatex">\(+1, -1, 0\)</span> 之一（且一方必胜与另一方保不输显然互斥），故三种情况必居其一且互斥，证毕。</li>
+</ol>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
