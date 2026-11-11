@@ -665,22 +665,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-leftist-heaps" class="md-nav__link">
+  <a href="#1-introduction-and-leftist-heaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 左式堆 / 左偏堆 (Leftist Heaps)
+        1 可合并堆的引入与左偏堆定义 (Introduction and Leftist Heaps)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 左式堆 / 左偏堆 (Leftist Heaps)">
+    <nav class="md-nav" aria-label="1 可合并堆的引入与左偏堆定义 (Introduction and Leftist Heaps)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1 可合并堆的引入与二叉堆的局限
+        1.1 二叉堆回顾与合并操作的瓶颈
       
     </span>
   </a>
@@ -688,10 +688,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-null-path-length-npl" class="md-nav__link">
+  <a href="#12-npl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2 零路径长 (Null Path Length, NPL) 与左式堆定义
+        1.2 零路径长 (Npl) 与左偏堆的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 右路径长度定理与对数上界证明
       
     </span>
   </a>
@@ -700,6 +711,106 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-operations-on-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 左偏堆的核心操作与实现 (Operations on Leftist Heaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 左偏堆的核心操作与实现 (Operations on Leftist Heaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-merge-recursive-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 节点声明与递归合并算法 (Merge - Recursive Version)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-merge-iterative-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 迭代合并算法 (Merge - Iterative Version) 与图解追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-delete-decreasekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 任意给定节点的删除 (Delete) 与降键 (DecreaseKey)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 斜堆 (Skew Heaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 斜堆 (Skew Heaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 斜堆的设计思想与合并规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-t_textamortized-olog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 斜堆的摊还分析 (\(T_{\text{amortized}} = O(\log N)\) 严格证明)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-4-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 4 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1752,22 +1863,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-leftist-heaps" class="md-nav__link">
+  <a href="#1-introduction-and-leftist-heaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1 左式堆 / 左偏堆 (Leftist Heaps)
+        1 可合并堆的引入与左偏堆定义 (Introduction and Leftist Heaps)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1 左式堆 / 左偏堆 (Leftist Heaps)">
+    <nav class="md-nav" aria-label="1 可合并堆的引入与左偏堆定义 (Introduction and Leftist Heaps)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1 可合并堆的引入与二叉堆的局限
+        1.1 二叉堆回顾与合并操作的瓶颈
       
     </span>
   </a>
@@ -1775,10 +1886,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-null-path-length-npl" class="md-nav__link">
+  <a href="#12-npl" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2 零路径长 (Null Path Length, NPL) 与左式堆定义
+        1.2 零路径长 (Npl) 与左偏堆的性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 右路径长度定理与对数上界证明
       
     </span>
   </a>
@@ -1787,6 +1909,106 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-operations-on-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 左偏堆的核心操作与实现 (Operations on Leftist Heaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 左偏堆的核心操作与实现 (Operations on Leftist Heaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-merge-recursive-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 节点声明与递归合并算法 (Merge - Recursive Version)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-merge-iterative-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 迭代合并算法 (Merge - Iterative Version) 与图解追踪
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-delete-decreasekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 任意给定节点的删除 (Delete) 与降键 (DecreaseKey)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 斜堆 (Skew Heaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 斜堆 (Skew Heaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 斜堆的设计思想与合并规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-t_textamortized-olog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 斜堆的摊还分析 (\(T_{\text{amortized}} = O(\log N)\) 严格证明)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-4-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 4 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1873,53 +2095,295 @@
 
 
 
-<h1 id="chapter-4-leftist-heaps-and-skew-heaps">Chapter 4: Leftist Heaps and Skew Heaps（左式堆与斜堆）<a class="headerlink" href="#chapter-4-leftist-heaps-and-skew-heaps" title="Permanent link">&para;</a></h1>
+<h1 id="chapter-4-leftist-heaps-and-skew-heaps">Chapter 4: Leftist Heaps and Skew Heaps（左偏堆与斜堆）<a class="headerlink" href="#chapter-4-leftist-heaps-and-skew-heaps" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <p>Advanced Data Structures and Algorithm Analysis (ADS) | 第四章课堂、板书与讲义笔记</p>
 <p>参考：</p>
 <ul>
 <li>Course Slides Lecture 4: <em>Leftist Heaps and Skew Heaps</em></li>
-<li>课堂手写板书 (<code>ADS26W4.pdf</code>, Pages 1–6) &amp; 课程讲义 Lecture 4:《左式堆与斜堆》</li>
-<li>M. A. Weiss, <em>Data Structures and Algorithm Analysis in C</em> (2nd Ed.), Ch. 6.6–6.7 &amp; Ch. 11.3</li>
+<li>课堂手写板书 (<code>ADS26W4.pdf</code>) &amp; 课程讲义 Lecture 4:《左式堆与斜堆》</li>
+<li>M. A. Weiss, <em>Data Structures and Algorithm Analysis in C</em> (2nd Ed.), Ch. 6 &amp; Ch. 11</li>
 </ul>
 </div>
-<h2 id="1-leftist-heaps">1 左式堆 / 左偏堆 (Leftist Heaps)<a class="headerlink" href="#1-leftist-heaps" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1 可合并堆的引入与二叉堆的局限<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
-<p>在基础数据结构中，标准的<strong>二叉堆</strong>（Binary Heap，以下默认讨论<strong>最小堆 Min-Heap</strong>）由两条性质唯一规定：</p>
+<h2 id="1-introduction-and-leftist-heaps">1 可合并堆的引入与左偏堆定义 (Introduction and Leftist Heaps)<a class="headerlink" href="#1-introduction-and-leftist-heaps" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 二叉堆回顾与合并操作的瓶颈<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>在基础数据结构课程中，我们学习了基于数组实现的<strong>二叉堆</strong>（Binary Heap，一种优先队列 Priority Queue）。任何堆结构都由两条核心性质界定：<strong>结构性质</strong>（Structure Property）与<strong>序性质</strong>（Order Property）。对于经典二叉最小堆（Min-Heap，本章无特殊说明均默认最小堆）：</p>
 <ol>
-<li><strong>结构性质（Structure Property）</strong>：是一棵<strong>完全二叉树</strong>（Complete binary tree），树高严格满足 <span class="arithmatex">\(h = \lfloor\log_2 N\rfloor = O(\log N)\)</span>，且可直接用紧凑的一维数组实现（无需显式存储左右孩子指针）；</li>
-<li><strong>堆序性质（Order Property）</strong>：任意节点的键值大于等于其父节点的键值（<span class="arithmatex">\(\forall v \neq \text{root}, \ \text{key}(v) \ge \text{key}(\text{parent}(v))\)</span>），因此全局最小元恒位于根节点。</li>
+<li><strong>结构性质</strong>：是一棵<strong>完全二叉树</strong>（Complete binary tree），因此树高严格满足 <span class="arithmatex">\(h = \lfloor\log_2 N\rfloor = O(\log N)\)</span>，且可直接紧凑存储在数组中（无需左右孩子指针）。</li>
+<li><strong>序性质</strong>：任意节点的键值大于等于其父节点的键值（<code>u-&gt;key &gt;= u-&gt;parent-&gt;key</code>），故根节点始终存放全局最小元素。</li>
 </ol>
-<p>虽然二叉堆能以 <span class="arithmatex">\(O(1)\)</span> 时间完成 <code>FindMin</code>、以 <span class="arithmatex">\(O(\log N)\)</span> 时间完成 <code>Insert</code>（尾插 + 上滤 Percolate up）、<code>DeleteMin</code>（尾元替根 + 下滤 Percolate down）、<code>DecreaseKey</code> 和 <code>Delete</code>，并以 <span class="arithmatex">\(O(N)\)</span> 时间完成线性建堆 <code>BuildHeap</code>，但它在处理<strong>两个堆的合并（<code>Merge</code>）</strong>时效率极低：</p>
-<div class="admonition question">
-<p class="admonition-title">Discussion 5: 如果直接使用标准二叉堆结构，合并两个堆最快需要多少时间？</p>
-<p>由于数组实现的完全二叉树要求所有元素在内存中连续紧凑排列，合并两个规模分别为 <span class="arithmatex">\(n_1\)</span> 和 <span class="arithmatex">\(n_2\)</span>（记 <span class="arithmatex">\(N = n_1 + n_2\)</span>）的二叉堆时：</p>
+<p>二叉堆各基本操作的时间复杂度回顾如下：</p>
 <ul>
-<li><strong>方法 1</strong>：将较小堆的元素逐个 <code>Insert</code> 到较大堆中，耗时 <span class="arithmatex">\(O(\min(n_1, n_2)\log N)\)</span>（当 <span class="arithmatex">\(n_1 \approx n_2 \approx N/2\)</span> 时退化为 <span class="arithmatex">\(O(N\log N)\)</span>）；</li>
-<li><strong>方法 2</strong>：直接将两个数组拼接在一起，然后调用自底向上的线性建堆算法 <code>BuildHeap</code>，最坏与平均时间复杂度均为 <strong><span class="arithmatex">\(\Theta(n_1 + n_2) = \Theta(N)\)</span></strong>。</li>
+<li><code>FindMin</code>：直接返回数组首元素，<span class="arithmatex">\(O(1)\)</span>；</li>
+<li><code>Insert</code> / <code>DeleteMin</code>：在末尾插入后上滤（Percolate up），或用末尾元素覆盖根后下滤（Percolate down），均为 <span class="arithmatex">\(O(\log N)\)</span>；</li>
+<li><code>DecreaseKey</code> / <code>Delete</code>（<strong>前提：已知目标元素在堆中的位置指针或通过 <code>pos[]</code> 映射数组定位</strong>）：修改键值后上滤或下滤，均为 <span class="arithmatex">\(O(\log N)\)</span>；</li>
+<li><code>BuildHeap</code>（线性建堆）：将 <span class="arithmatex">\(N\)</span> 个元素任意放入数组，从倒数第二层最后一个内部节点开始逆序逐个执行 <code>PercolateDown</code>。由于高度至少为 <span class="arithmatex">\(j\)</span> 的节点至多有 <span class="arithmatex">\(\lceil N / 2^{j+1} \rceil\)</span> 个，总下滤步数为 <span class="arithmatex">\(O\left(N \sum_{j=1}^{\log N} j \cdot 2^{-j}\right) = O(N)\)</span>。</li>
 </ul>
-<p><strong>设计目标（Target）</strong>：为了在支持高效合并的场景中将 <code>Merge</code> 从 <span class="arithmatex">\(O(N)\)</span> 加速至 <strong><span class="arithmatex">\(O(\log N)\)</span></strong>，我们必须放弃数组与完全二叉树的结构限制，改用<strong>基于指针的二叉树（Pointer-based binary tree）</strong>，这就是<strong>左式堆（Leftist Heap）</strong>与<strong>斜堆（Skew Heap）</strong>的由来。</p>
-</div>
-<p><strong>核心直觉辨析：为什么搜索树要求越平衡越好，而左式堆却故意设计成极度不平衡（向左倾斜）？</strong>
-因为堆<strong>不需要支持任意键值的查找 <code>Find(x)</code></strong>！左式堆的核心思想是：<strong>将左子树做得非常深、把绝大多数节点都堆积在左侧（Biased to get deep toward the left），从而保证右侧路径（Right path）极其短（<span class="arithmatex">\(O(\log N)\)</span>）</strong>。在执行 <code>Merge</code>、<code>Insert</code> 和 <code>DeleteMin</code> 时，左边庞大的子树完全不需要被访问，所有实质性工作全部集中在短短的<strong>右路径</strong>上完成！</p>
-<h3 id="12-null-path-length-npl">1.2 零路径长 (Null Path Length, NPL) 与左式堆定义<a class="headerlink" href="#12-null-path-length-npl" title="Permanent link">&para;</a></h3>
-<p>为了严格量化“二叉树向左倾斜”的程度，引入<strong>零路径长</strong>（Null Path Length, 简记为 <code>Npl</code>）的概念：</p>
-<p><strong>定义 1.1（零路径长 Null Path Length, <code>Npl(X)</code>）</strong>：
-任意节点 <span class="arithmatex">\(X\)</span> 的零路径长 <span class="arithmatex">\(\text{Npl}(X)\)</span> 定义为从 <span class="arithmatex">\(X\)</span> 出发到达一个<strong>不满节点（即没有两个孩子的节点：度为 <span class="arithmatex">\(0\)</span> 的叶节点或度为 <span class="arithmatex">\(1\)</span> 的单孩子节点）</strong>的最短路径长度（按边数计）。特别规定空节点的零路径长为：</p>
+<p><strong>问题与挑战（Discussion 5）：如果使用原始的数组二叉堆，合并（Merge）两个堆最快需要多少时间？</strong>
+由于两个完全二叉树合并后仍需保持完全二叉树形态并维护紧凑数组，我们只能将两个数组拼接后重新调用 <code>BuildHeap</code>（耗时 <span class="arithmatex">\(\Theta(N_1 + N_2) = \Theta(N)\)</span>），或者将较小堆的元素逐一插入较大堆（耗时 <span class="arithmatex">\(O(\min(N_1, N_2)\log(N_1 + N_2))\)</span>）。为了将 <strong><code>Merge</code> 操作加速到 <span class="arithmatex">\(O(\log N)\)</span></strong>，我们必须放弃“完全二叉树”与数组存储，转而设计基于指针的树形<strong>可合并堆</strong>（Mergeable Heaps）。</p>
+<h3 id="12-npl">1.2 零路径长 (<code>Npl</code>) 与左偏堆的性质<a class="headerlink" href="#12-npl" title="Permanent link">&para;</a></h3>
+<p><strong>左偏堆</strong>（Leftist Heap，又称<strong>左式堆</strong>或<strong>左偏树</strong> Leftist Tree）保持了与普通二叉堆完全相同的<strong>堆序性质</strong>（Order Property），但在<strong>结构性质</strong>上做出了激进的改变：它是一棵<strong>高度不平衡（Unbalanced）的二叉树</strong>，故意让树向左侧深度倾斜，从而使右侧路径变得极短！</p>
+<p><strong>定义 1.1（零路径长 Null Path Length, <code>Npl</code>）</strong>：
+任意节点 <span class="arithmatex">\(X\)</span> 的<strong>零路径长</strong> <code>Npl(X)</code> 定义为从 <span class="arithmatex">\(X\)</span> 出发到达一个<strong>不满节点（即没有两个孩子的节点，度数为 0 或 1）</strong>的最短路径长度（按边数计）。规定空节点的零路径长为：</p>
 <div class="arithmatex">\[\text{Npl}(\text{NULL}) = -1\]</div>
-<p>由此可得 <code>Npl(X)</code> 的局部递推计算公式（从叶节点向上递推）：</p>
-<div class="arithmatex">\[\text{Npl}(X) = \min\big\{\text{Npl}(X.\text{left}), \ \text{Npl}(X.\text{right})\big\} + 1\]</div>
-<ul>
-<li>具有 <span class="arithmatex">\(0\)</span> 个或 <span class="arithmatex">\(1\)</span> 个孩子的节点（至少有一个 <code>NULL</code> 孩子），其 <span class="arithmatex">\(\text{Npl} = \min\{\dots, -1\} + 1 = 0\)</span>。</li>
-</ul>
+<p>由此可知，任何具有 0 个或 1 个孩子的节点（包括所有叶节点）其 <span class="arithmatex">\(\text{Npl} = 0\)</span>；对于任意节点 <span class="arithmatex">\(X\)</span>，其零路径长满足自底向上的递推关系：</p>
+<div class="arithmatex">\[\text{Npl}(X) = \min\big\{\text{Npl}(X.\text{Left}), \ \text{Npl}(X.\text{Right})\big\} + 1\]</div>
 <div class="admonition warning">
-<p class="admonition-title">符号约定对比：课程组 PPT / 教材约定 vs. 老师手写板书约定</p>
+<p class="admonition-title">符号约定辨析：课程组 PPT 约定 vs. 老师手写板书约定</p>
 <ul>
-<li><strong>课程组 PPT 与 Weiss 教材标准约定（考试做题默认采用）</strong>：定义 <span class="arithmatex">\(\text{Npl}(\text{NULL}) = -1\)</span>，因此叶节点与单孩子节点的 <span class="arithmatex">\(\text{Npl} = 0\)</span>（代表从 <span class="arithmatex">\(X\)</span> 到不满节点的<strong>边数</strong>）。</li>
-<li>**</li>
+<li><strong>课程组 PPT 与 Weiss 教材约定（考试做题默认标准）</strong>：定义 <span class="arithmatex">\(\text{Npl}(\text{NULL}) = -1\)</span>，因此叶节点及单孩子节点的 <span class="arithmatex">\(\text{Npl} = 0\)</span>。此時 <span class="arithmatex">\(\text{Npl}(X)\)</span> 代表从 <span class="arithmatex">\(X\)</span> 到最近不满节点的<strong>边数</strong>。</li>
+<li><strong>老师手写板书（<code>ADS26W4.pdf</code>）约定</strong>：板书中将空节点定义为 <span class="arithmatex">\(\text{npl}(\text{null}) = 0\)</span>，因此叶节点的 <span class="arithmatex">\(\text{npl} = 1\)</span>。此时板书上的 <span class="arithmatex">\(\text{npl}(X) = \text{Npl}_{\text{PPT}}(X) + 1\)</span>，恰好等于从 <span class="arithmatex">\(X\)</span> 沿右路径走到 <code>null</code> 所经过的<strong>非空节点个数</strong>！两套定义在逻辑和代码判断 <code>npl(Left) &lt; npl(Right)</code> 上完全等价，做卷面填空题时请认准 PPT 标准（<span class="arithmatex">\(\text{Npl}(\text{NULL}) = -1\)</span>）。</li>
 </ul>
 </div>
+<p><strong>定义 1.2（左偏堆性质 Leftist Heap Property）</strong>：
+在左偏堆中，对于堆中的<strong>每一个节点 <span class="arithmatex">\(X\)</span></strong>，其左孩子的零路径长都至少与右孩子的零路径长一样大：</p>
+<div class="arithmatex">\[\text{Npl}(X.\text{Left}) \ge \text{Npl}(X.\text{Right}), \qquad \forall X\]</div>
+<ul>
+<li><strong>判别陷阱</strong>：判断一棵二叉树是否满足左偏性质时，不仅要看整棵树的根，必须检查<strong>每一个内部节点</strong>是否都满足左孩子 <span class="arithmatex">\(\text{Npl} \ge\)</span> 右孩子 <span class="arithmatex">\(\text{Npl}\)</span>！</li>
+<li><strong>直接推论</strong>：在满足左偏性质的树中，由于 <span class="arithmatex">\(\min\{\text{Npl}(X.\text{Left}), \text{Npl}(X.\text{Right})\} = \text{Npl}(X.\text{Right})\)</span>，任意节点 <span class="arithmatex">\(X\)</span> 的零路径长直接由其<strong>右孩子</strong>决定：
+  $<span class="arithmatex">\(\text{Npl}(X) = \text{Npl}(X.\text{Right}) + 1\)</span>$
+  设从节点 <span class="arithmatex">\(X\)</span> 出发一路沿着右孩子指针走到 <code>NULL</code> 的路径为 <span class="arithmatex">\(X\)</span> 的<strong>右路径</strong>（Right path）。若右路径上共有 <span class="arithmatex">\(r\)</span> 个非空节点，则根节点 <span class="arithmatex">\(X\)</span> 的零路径长恰为 <span class="arithmatex">\(\text{Npl}(X) = r - 1\)</span>（即右路径的边数）。</li>
+</ul>
+<h3 id="13">1.3 右路径长度定理与对数上界证明<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>为什么要把树设计成向左侧倾斜？下面的核心定理揭示了左偏性质的威力：</p>
+<p><strong>定理 1.1（左偏树节点数下界定理）</strong>：若一棵左偏树的<strong>右路径（Right path）上有 <span class="arithmatex">\(r\)</span> 个节点</strong>，则这棵左偏树<strong>至少包含 <span class="arithmatex">\(2^r - 1\)</span> 个节点</strong>。</p>
+<details>
+<summary>点击展开：定理 1.1 的数学归纳法严格证明（板书与讲义双视角）</summary>
+<p><strong>证明（对右路径上的节点个数 <span class="arithmatex">\(r\)</span> 进行数学归纳）</strong>：</p>
+<ol>
+<li><strong>归纳基（Base Case）</strong>：
+   当 <span class="arithmatex">\(r = 0\)</span>（空树）时，节点数为 <span class="arithmatex">\(0 = 2^0 - 1\)</span>；当 <span class="arithmatex">\(r = 1\)</span> 时，树至少包含根节点自身，节点数 <span class="arithmatex">\(\ge 1 = 2^1 - 1\)</span>，结论显然成立。</li>
+<li><strong>归纳假设（Inductive Hypothesis）</strong>：
+   假设对于所有右路径节点数不超过 <span class="arithmatex">\(k \ (k \ge 1)\)</span> 的左偏树，其总节点数均至少为 <span class="arithmatex">\(2^k - 1\)</span>。</li>
+<li><strong>归纳步（Inductive Step）</strong>：
+   考察一棵右路径上有 <span class="arithmatex">\(r = k + 1\)</span> 个节点的左偏树 <span class="arithmatex">\(T\)</span>（根节点为 <span class="arithmatex">\(u\)</span>，左子树为 <span class="arithmatex">\(A\)</span>，右子树为 <span class="arithmatex">\(B\)</span>）：</li>
+<li>由于整棵树 <span class="arithmatex">\(T\)</span> 的右路径上有 <span class="arithmatex">\(k + 1\)</span> 个节点，去掉根节点 <span class="arithmatex">\(u\)</span> 后，其<strong>右子树 <span class="arithmatex">\(B\)</span> 的右路径上恰好有 <span class="arithmatex">\(k\)</span> 个节点</strong>（即 <span class="arithmatex">\(\text{Npl}(B) = k - 1\)</span>）；</li>
+<li>根据左偏堆性质 <span class="arithmatex">\(\text{Npl}(A) \ge \text{Npl}(B) = k - 1\)</span>，可知<strong>左子树 <span class="arithmatex">\(A\)</span> 的右路径上至少也有 <span class="arithmatex">\(k\)</span> 个节点</strong>！</li>
+<li>对左子树 <span class="arithmatex">\(A\)</span>（右路径 <span class="arithmatex">\(\ge k\)</span> 个节点）和右子树 <span class="arithmatex">\(B\)</span>（右路径 <span class="arithmatex">\(= k\)</span> 个节点）分别应用归纳假设，可知 <span class="arithmatex">\(\vert{}A\vert{} \ge 2^k - 1\)</span> 且 <span class="arithmatex">\(\vert{}B\vert{} \ge 2^k - 1\)</span>。</li>
+<li>因此，整棵树 <span class="arithmatex">\(T\)</span> 的总节点数满足：
+     $<span class="arithmatex">\(\vert{}T\vert{} = 1 + \vert{}A\vert{} + \vert{}B\vert{} \ge 1 + (2^k - 1) + (2^k - 1) = 2^{k+1} - 1 = 2^r - 1\)</span>$
+   由数学归纳法，定理对任意整数 <span class="arithmatex">\(r \ge 0\)</span> 均成立。（注：等号仅当该左偏树是一棵高度为 <span class="arithmatex">\(r - 1\)</span> 的完美满二叉树时取到）。</li>
+</ol>
+</details>
+<p><strong>重要推论（Discussion 6：右路径长度的对数上界）</strong>：
+对于一棵含有 <span class="arithmatex">\(N\)</span> 个节点的左偏树，设其右路径上有 <span class="arithmatex">\(r\)</span> 个节点。由定理 1.1 知：</p>
+<div class="arithmatex">\[N \ge 2^r - 1 \implies 2^r \le N + 1 \implies r \le \lfloor\log_2(N + 1)\rfloor = O(\log N)\]</div>
+<p><strong>这对我们意味着什么？</strong>
+因为二叉堆不支持查找任意元素（无需访问左子树深处的节点），而左偏树的<strong>右路径长度永远不超过 <span class="arithmatex">\(\lfloor\log_2(N+1)\rfloor\)</span></strong>，所以我们只需<strong>将所有核心操作（<code>Merge</code>、<code>Insert</code>、<code>DeleteMin</code>）的全部工作都限制在极短的右路径上进行</strong>，即可轻松实现 <span class="arithmatex">\(O(\log N)\)</span> 的最坏时间复杂度！</p>
+<hr />
+<h2 id="2-operations-on-leftist-heaps">2 左偏堆的核心操作与实现 (Operations on Leftist Heaps)<a class="headerlink" href="#2-operations-on-leftist-heaps" title="Permanent link">&para;</a></h2>
+<p>在左偏堆中，<strong>合并（<code>Merge</code>）是最核心的基石操作</strong>：
+- <strong>插入（<code>Insert</code>）</strong>：仅是合并操作的特例——将待插入元素视为一个单节点左偏堆，与原堆执行 <code>Merge</code>；
+- <strong>删除最小值（<code>DeleteMin</code>）</strong>：直接删去根节点（最小元），然后将根节点的左子树和右子树执行 <code>Merge</code>。</p>
+<h3 id="21-merge-recursive-version">2.1 节点声明与递归合并算法 (<code>Merge</code> - Recursive Version)<a class="headerlink" href="#21-merge-recursive-version" title="Permanent link">&para;</a></h3>
+<p>左偏堆的节点结构体声明如下（相比普通二叉树，仅多了一个 <code>int Npl</code> 字段）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">ElementType</span><span class="w">   </span><span class="n">Element</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">Left</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w">           </span><span class="n">Npl</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">};</span>
+</code></pre></div>
+<p><strong>递归合并两个左偏堆 <span class="arithmatex">\(H_1\)</span> 和 <span class="arithmatex">\(H_2\)</span> 的三步逻辑</strong>（假设均非空，且已比较根节点使得 <span class="arithmatex">\(H_1\text{-&gt;Element} \le H_2\text{-&gt;Element}\)</span>）：</p>
+<ol>
+<li><strong>Step 1（递归合并右子树）</strong>：保持 <span class="arithmatex">\(H_1\)</span> 的左子树丝毫不动，递归调用 <code>Merge(H1-&gt;Right, H2)</code>，将 <span class="arithmatex">\(H_1\)</span> 的右子树与 <span class="arithmatex">\(H_2\)</span> 合并；</li>
+<li><strong>Step 2（挂接新右子树）</strong>：将合并返回的新堆挂接为 <span class="arithmatex">\(H_1\)</span> 的右孩子（<code>H1-&gt;Right = Merge(H1-&gt;Right, H2)</code>）；</li>
+<li><strong>Step 3（维护左偏性质与更新 <code>Npl</code>）</strong>：若此时 <span class="arithmatex">\(H_1\)</span> 违反了左偏性质（即 <code>H1-&gt;Left-&gt;Npl &lt; H1-&gt;Right-&gt;Npl</code>，或 <code>H1-&gt;Left == NULL</code>），则交换 <span class="arithmatex">\(H_1\)</span> 的左、右孩子（<code>SwapChildren(H1)</code>），最后更新 <span class="arithmatex">\(H_1\)</span> 的零路径长 <code>H1-&gt;Npl = H1-&gt;Right-&gt;Npl + 1</code>。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H2</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Merge1</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Merge1</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span><span class="w"> </span><span class="n">H1</span><span class="p">);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">static</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">Merge1</span><span class="p">(</span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w">     </span><span class="cm">/* single node: H1 没有左孩子，由左偏性质知必无右孩子 */</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H2</span><span class="p">;</span><span class="w">        </span><span class="cm">/* 直接将 H2 挂在左边；H1-&gt;Right 仍为 NULL，H1-&gt;Npl 仍为 0 */</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Merge</span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="p">);</span><span class="w">           </span><span class="cm">/* Step 1 &amp; 2: 递归合并右子树 */</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="n">SwapChildren</span><span class="p">(</span><span class="n">H1</span><span class="p">);</span><span class="w">                       </span><span class="cm">/* Step 3: 违反左偏性质则交换左右孩子 */</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 更新当前根的 Npl */</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>时间复杂度分析</strong>：每次递归调用都会沿着 <span class="arithmatex">\(H_1\)</span> 或 <span class="arithmatex">\(H_2\)</span> 的右路径向下推进一步，而每层回溯只做常数次指针交换与加法。因此递归总层数至多为两堆右路径长度之和 <span class="arithmatex">\(\le \lfloor\log_2(N_1+1)\rfloor + \lfloor\log_2(N_2+1)\rfloor\)</span>，<strong>最坏时间复杂度严格为 <span class="arithmatex">\(T_p = O(\log N)\)</span></strong>。</li>
+<li><strong>课堂思考（Slide 6）：如果漏写了 <code>H1-&gt;Npl = H1-&gt;Right-&gt;Npl + 1</code>（不更新 <code>Npl</code>）会发生什么？</strong>
+  如果不再更新 <code>Npl</code>，所有节点的 <code>Npl</code> 将永远停留在初始单节点时的 <span class="arithmatex">\(0\)</span>，导致条件 <code>H1-&gt;Left-&gt;Npl &lt; H1-&gt;Right-&gt;Npl</code> 永远为假（除了左孩子为空时），算法将不再交换左右孩子，左偏堆彻底退化为普通偏斜二叉搜索/堆结构，右路径长度失控至 <span class="arithmatex">\(O(N)\)</span>，合并时间退化为 <span class="arithmatex">\(O(N)\)</span>！</li>
+</ul>
+<h3 id="22-merge-iterative-version">2.2 迭代合并算法 (<code>Merge</code> - Iterative Version) 与图解追踪<a class="headerlink" href="#22-merge-iterative-version" title="Permanent link">&para;</a></h3>
+<p>将上述递归过程展开，即可得到直观的<strong>两步迭代合并法</strong>（手工画图做题最推荐的方法）：</p>
+<ol>
+<li><strong>Step 1（右路径归并排序）</strong>：将 <span class="arithmatex">\(H_1\)</span> 和 <span class="arithmatex">\(H_2\)</span> 的两条<strong>右路径</strong>（Right paths）抽出来，在不改变各节点原有左子树的前提下，按节点键值从小到大归并连接成一条新的右路径；</li>
+<li><strong>Step 2（自底向上回溯交换与更新 <code>Npl</code>）</strong>：从新右路径的最底端节点开始，沿着右路径向上逐个检查：若某节点的左孩子 <code>Npl</code> 小于右孩子 <code>Npl</code>，则交换其左、右孩子，并更新该节点的 <code>Npl</code> 为新右孩子的 <code>Npl + 1</code>。</li>
+</ol>
+<p><strong>经典实例追踪（PPT Slides 5 &amp; 7：合并 <span class="arithmatex">\(H_1\)</span> 与 <span class="arithmatex">\(H_2\)</span>）</strong>：
+- <strong>输入堆 <span class="arithmatex">\(H_1\)</span></strong>：右路径为 <code>3 -&gt; 8 -&gt; 17 -&gt; 26</code>（其中 <code>3</code> 的左子树根为 <code>10</code>，<code>8</code> 的左孩子为 <code>17</code> 但 <code>8</code> 无右孩子，严格来说 <code>3</code> 的右路径是 <code>3 -&gt; 8</code>：<code>3</code> 的左孩子 <code>10</code> [<span class="arithmatex">\(\text{Npl}=1\)</span>]，右孩子 <code>8</code> [<span class="arithmatex">\(\text{Npl}=0\)</span>，仅有左孩子 <code>17</code> 挂左孩子 <code>26</code>]）；
+- <strong>输入堆 <span class="arithmatex">\(H_2\)</span></strong>：右路径为 <code>6 -&gt; 7 -&gt; 18</code>（其中 <code>6</code> 的左孩子为 <code>12</code> [<span class="arithmatex">\(\text{Npl}=1\)</span>]，<code>7</code> 的左孩子为 <code>37</code> [<span class="arithmatex">\(\text{Npl}=0\)</span>]，右孩子为 <code>18</code> [<span class="arithmatex">\(\text{Npl}=0\)</span>]）。
+- <strong>合并过程</strong>：
+  1. <strong>归并两条右路径</strong>（<code>3 -&gt; 8</code> 与 <code>6 -&gt; 7 -&gt; 18</code>）：按大小排序拼成新右路径 <code>3 -&gt; 6 -&gt; 7 -&gt; 8 -&gt; 18</code>（最后一个节点 <code>18</code> 成为 <code>8</code> 的右孩子，而 <code>8</code> 原有的左孩子 <code>17 -&gt; 26</code> 保持在 <code>8</code> 的左侧不变）；
+  2. <strong>自底向上检查并更新 <code>Npl</code></strong>：
+     - 节点 <code>8</code>：左孩子 <code>17</code>（<span class="arithmatex">\(\text{Npl}=0\)</span>），右孩子 <code>18</code>（<span class="arithmatex">\(\text{Npl}=0\)</span>），左 <span class="arithmatex">\(\ge\)</span> 右无需交换，<span class="arithmatex">\(\text{Npl}(8)\)</span> 更新为 <span class="arithmatex">\(0 + 1 = 1\)</span>；
+     - 节点 <code>7</code>：左孩子 <code>37</code>（<span class="arithmatex">\(\text{Npl}=0\)</span>）<span class="arithmatex">\(&lt;\)</span> 新右孩子 <code>8</code>（<span class="arithmatex">\(\text{Npl}=1\)</span>），<strong>违反左偏性质，在节点 <code>7</code> 处交换左右孩子</strong>（<code>8</code> 变左孩子，<code>37</code> 变右孩子），<span class="arithmatex">\(\text{Npl}(7)\)</span> 更新为 <span class="arithmatex">\(\text{Npl}(37) + 1 = 1\)</span>；
+     - 节点 <code>6</code>：左孩子 <code>12</code>（<span class="arithmatex">\(\text{Npl}=1\)</span>）<span class="arithmatex">\(\ge\)</span> 右孩子 <code>7</code>（<span class="arithmatex">\(\text{Npl}=1\)</span>），无需交换，<span class="arithmatex">\(\text{Npl}(6)\)</span> 更新为 <span class="arithmatex">\(1 + 1 = 2\)</span>；
+     - 根节点 <code>3</code>：左孩子 <code>10</code>（<span class="arithmatex">\(\text{Npl}=1\)</span>）<span class="arithmatex">\(&lt;\)</span> 新右孩子 <code>6</code>（<span class="arithmatex">\(\text{Npl}=2\)</span>），<strong>违反左偏性质，在根节点 <code>3</code> 处交换左右孩子</strong>（<code>6</code> 变左孩子，<code>10</code> 变右孩子），<span class="arithmatex">\(\text{Npl}(3)\)</span> 更新为 <span class="arithmatex">\(\text{Npl}(10) + 1 = 2\)</span>。合并完成！</p>
+<h3 id="23-delete-decreasekey">2.3 任意给定节点的删除 (<code>Delete</code>) 与降键 (<code>DecreaseKey</code>)<a class="headerlink" href="#23-delete-decreasekey" title="Permanent link">&para;</a></h3>
+<p>在老师的手写板书（<code>ADS26W4.pdf</code> Pages 4–5）与讲义（§4.1.4）中，特别补充了左偏堆<strong>删除任意给定位置节点 <span class="arithmatex">\(u\)</span></strong>（以及降低节点 <span class="arithmatex">\(u\)</span> 的键值 <code>DecreaseKey</code>）的算法：</p>
+<ol>
+<li><strong>拆分与合并框架</strong>：
+   设要删除堆 <span class="arithmatex">\(H\)</span> 中的内部节点 <span class="arithmatex">\(u\)</span>（其左、右子树分别为 <span class="arithmatex">\(A, B\)</span>）。我们先将整棵以 <span class="arithmatex">\(u\)</span> 为根的子树从其父节点 <span class="arithmatex">\(u_1\)</span> 处摘下（位置替换为 <code>NULL</code>），对剩余的堆 <span class="arithmatex">\(H'\)</span> 向上修复左偏性质与 <code>Npl</code>；然后删去节点 <span class="arithmatex">\(u\)</span>，最后执行两次 <code>Merge</code>：将 <span class="arithmatex">\(A\)</span>、<span class="arithmatex">\(B\)</span> 与修复后的 <span class="arithmatex">\(H'\)</span> 合并（<code>H = Merge(H', Merge(A, B))</code>）。</li>
+<li><strong>从父节点 <span class="arithmatex">\(u_1\)</span> 向上回溯修复 <span class="arithmatex">\(H'\)</span> 的两类情况（板书推导）</strong>：
+   设从 <span class="arithmatex">\(u\)</span> 的祖先链 <span class="arithmatex">\(u_1, u_2, \dots\)</span> 依次向上检查。在当前祖先 <span class="arithmatex">\(u_i\)</span> 处，记刚被修改（<code>Npl</code> 减小）的那棵子树为 <span class="arithmatex">\(u_{i-1}\)</span>，另一侧未变的兄弟子树为 <span class="arithmatex">\(v\)</span>：</li>
+<li><strong>Case 1（<span class="arithmatex">\(u_{i-1}\)</span> 是 <span class="arithmatex">\(u_i\)</span> 的右孩子）</strong>：由于原本就有 <span class="arithmatex">\(\text{Npl}(v) \ge \text{Npl}_{\text{old}}(u_{i-1})\)</span>，现在右孩子 <span class="arithmatex">\(u_{i-1}\)</span> 的 <code>Npl</code> 减小了，左孩子 <span class="arithmatex">\(v\)</span> 的 <code>Npl</code> 依然严格大于右孩子 <span class="arithmatex">\(u_{i-1}\)</span>，<strong>无需交换左右孩子</strong>，直接将 <span class="arithmatex">\(\text{Npl}(u_i)\)</span> 更新为 <span class="arithmatex">\(\text{Npl}(u_{i-1}) + 1\)</span> 并继续向上检查 <span class="arithmatex">\(u_{i+1}\)</span>；</li>
+<li><strong>Case 2（<span class="arithmatex">\(u_{i-1}\)</span> 是 <span class="arithmatex">\(u_i\)</span> 的左孩子）</strong>：左孩子 <span class="arithmatex">\(u_{i-1}\)</span> 的 <code>Npl</code> 减小后，比较 <span class="arithmatex">\(\text{Npl}(u_{i-1})\)</span> 与右孩子 <span class="arithmatex">\(\text{Npl}(v)\)</span>：<ul>
+<li>若 <span class="arithmatex">\(\text{Npl}(u_{i-1}) &lt; \text{Npl}(v)\)</span>：<strong>交换 <span class="arithmatex">\(u_{i-1}\)</span> 与 <span class="arithmatex">\(v\)</span></strong>（使 <span class="arithmatex">\(u_{i-1}\)</span> 换到右侧），并将 <span class="arithmatex">\(\text{Npl}(u_i)\)</span> 更新为 <span class="arithmatex">\(\text{Npl}(u_{i-1}) + 1\)</span>，继续向上检查 <span class="arithmatex">\(u_{i+1}\)</span>；</li>
+<li>若 <span class="arithmatex">\(\text{Npl}(u_{i-1}) \ge \text{Npl}(v)\)</span>：此时左偏性质未破坏，且右孩子 <span class="arithmatex">\(v\)</span> 的 <code>Npl</code> 没变，故 <strong><span class="arithmatex">\(\text{Npl}(u_i) = \text{Npl}(v) + 1\)</span> 与修改前完全相同！直接 <code>break</code> 终止向上回溯</strong>（更高层祖先的 <code>Npl</code> 均不会改变）！</li>
+</ul>
+</li>
+<li><strong>为什么向上修复至多访问 <span class="arithmatex">\(O(\log N)\)</span> 个祖先？</strong>
+   观察上述 Case 1 和 Case 2 的继续向上分支：只要修复没有在 <span class="arithmatex">\(u_i\)</span> 处 <code>break</code> 停止，而是继续向上传递到了父节点 <span class="arithmatex">\(u_{i+1}\)</span>，那么在 <span class="arithmatex">\(u_i\)</span> 处理完毕后，<strong>来自下层的子树 <span class="arithmatex">\(u_{i-1}\)</span> 必然处于 <span class="arithmatex">\(u_i\)</span> 的右孩子位置</strong>（Case 1 本来就在右边；Case 2 只有交换到右边后才会继续向上）！因此，整条向上回溯的路径在修复完成后完全变成了某棵左偏树的<strong>一条右路径</strong>，根据定理 1.1，其长度绝不超过 <span class="arithmatex">\(\lfloor\log_2(N+1)\rfloor = O(\log N)\)</span>！</li>
+</ol>
+<hr />
+<h2 id="3-skew-heaps">3 斜堆 (Skew Heaps)<a class="headerlink" href="#3-skew-heaps" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 斜堆的设计思想与合并规则<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><strong>斜堆</strong>（Skew Heap，又称自调节堆 Self-adjusting heap）是左偏堆的极简版本，它与左偏堆的关系正如 <strong>Splay 树与 AVL 树的关系</strong>：</p>
+<ul>
+<li><strong>两大优势（Slide 10 Note）</strong>：</li>
+<li><strong>无需额外空间（No extra space）</strong>：节点结构体中彻底去掉了 <code>int Npl</code> 字段，节省内存；</li>
+<li><strong>无需条件判断（No tests）</strong>：在合并过程中，不再测试左右孩子的零路径长大小，而是采用<strong>无条件交换</strong>策略。</li>
+<li><strong>目标复杂度</strong>：斜堆不保证单次操作最坏 <span class="arithmatex">\(O(\log N)\)</span>（单次最坏可能为 <span class="arithmatex">\(\Theta(N)\)</span>），但保证<strong>任意连续 <span class="arithmatex">\(M\)</span> 次操作的总耗时至多为 <span class="arithmatex">\(O(M \log N)\)</span></strong>（即单次操作的摊还时间为 <span class="arithmatex">\(T_{\text{amortized}} = O(\log N)\)</span>）。</li>
+</ul>
+<p><strong>斜堆的合并规则（Skew Heap <code>Merge</code> Rule）</strong>：
+斜堆的合并流程与左偏堆完全相同，唯一的区别在于：<strong>在沿着归并后的右路径处理时，无条件交换路径上每一个节点的左、右孩子，唯一的例外是右路径上键值最大的那个末端节点不交换其左右孩子</strong>（<em>"Always swap the left and right children except that the largest of all the nodes on the right paths does not have its children swapped"</em>）。</p>
+<ul>
+<li><strong>为什么末端最大节点不交换孩子？（Slide 8 气泡说明）</strong>：
+  这并不是一个需要专门写 <code>if</code> 特殊处理的规则，而是<strong>递归算法到达基准情形（Base case）时的自然停止（Natural stop in the recursions）</strong>！当其中一个堆为空（<code>H2 == NULL</code>）时，递归直接 <code>return H1</code>，此时处于右路径最末端的那个节点（及其原有的左孩子）作为整体直接返回，自然没有进入交换步骤。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* 斜堆的递归合并实现（对比左偏堆：无 Npl，无 if 判断，每次必交换） */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">SkewMerge</span><span class="p">(</span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H2</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">Swap</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 确保 H1 的根键值较小 */</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="cm">/* 若 H1 右孩子为空（即 H1 已是右路径末端且 H2 全大于它），但注意标准递归写法： */</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 无条件将原左孩子换到右边 */</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SkewMerge</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="p">);</span><span class="w">     </span><span class="cm">/* 递归合并原右子树与 H2，并直接挂到左边！ */</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</code></pre></div>
+<p><em>(注：在课堂 PPT 的约定中，若到达右路径最后一个节点时另一侧已为空，该末端节点自身不执行交换；在迭代版中，只需将两条右路径排序归并后，对除最后一个节点外的所有右路径节点逐个交换左右孩子即可，最终整条归并路径会变成新堆的左路径)。</em></p>
+<div class="admonition note">
+<p class="admonition-title">开放问题（Open Problem, Slide 10）</p>
+<p>精确确定左偏堆与斜堆在随机插入/删除操作序列下的<strong>期望右路径长度（Expected right path length）</strong>，在理论计算机科学中至今仍是一个尚未完全解决的开放问题（Open problem）。</p>
+</div>
+<h3 id="32-t_textamortized-olog-n">3.2 斜堆的摊还分析 (<span class="arithmatex">\(T_{\text{amortized}} = O(\log N)\)</span> 严格证明)<a class="headerlink" href="#32-t_textamortized-olog-n" title="Permanent link">&para;</a></h3>
+<p>由于斜堆不维护 <code>Npl</code>，树形在最坏情况下可能退化为右斜链，我们需要使用第一章的<strong>势能法（Potential Method）</strong>证明其 <code>Merge</code> 操作（进而 <code>Insert</code> 和 <code>DeleteMin</code>）的摊还时间复杂度为 <span class="arithmatex">\(O(\log N)\)</span>。</p>
+<p><strong>1. 重节点（Heavy Node）与轻节点（Light Node）的定义</strong></p>
+<p>记 <span class="arithmatex">\(\text{size}(p)\)</span> 为以节点 <span class="arithmatex">\(p\)</span> 为根的子树所包含的节点总数（<strong>包含 <span class="arithmatex">\(p\)</span> 自身</strong>）。</p>
+<p><strong>定义 3.1（重节点与轻节点）</strong>：
+称节点 <span class="arithmatex">\(p\)</span> 是<strong>重的（Heavy node）</strong>，如果 <span class="arithmatex">\(p\)</span> 的<strong>右子树</strong>节点个数至少占 <span class="arithmatex">\(p\)</span> 的所有后代节点总数的一半：</p>
+<div class="arithmatex">\[
+p \text{ is heavy} \iff \text{size}(p.\text{right}) \ge \frac{1}{2}\text{size}(p)
+\]</div>
+<p>否则（即 <span class="arithmatex">\(\text{size}(p.\text{right}) &lt; \frac{1}{2}\text{size}(p)\)</span>），称节点 <span class="arithmatex">\(p\)</span> 是<strong>轻的（Light node）</strong>。</p>
+<p><strong>引理 3.1（右路径轻节点个数的对数上界）</strong>：
+在任意一棵含有 <span class="arithmatex">\(N\)</span> 个节点的斜堆中，其<strong>右路径（Right path）上的轻节点个数 <span class="arithmatex">\(l\)</span> 至多为 <span class="arithmatex">\(\lfloor\log_2(N + 1)\rfloor = O(\log N)\)</span></strong>（等价表述：右路径上有 <span class="arithmatex">\(l\)</span> 个轻节点的斜堆至少有 <span class="arithmatex">\(2^l - 1\)</span> 个节点）。</p>
+<p><em>证明</em>：每当沿着右路径经过一个<strong>轻节点</strong> <span class="arithmatex">\(p\)</span> 进入其右孩子时，根据轻节点的定义，右子树的节点数严格小于 <span class="arithmatex">\(p\)</span> 的子树节点数的一半（<span class="arithmatex">\(\text{size}(p.\text{right}) \le \frac{1}{2}(\text{size}(p) - 1)\)</span>）。由于整棵树总共只有 <span class="arithmatex">\(N\)</span> 个节点，节点数最多只能减半 <span class="arithmatex">\(\lfloor\log_2(N + 1)\rfloor\)</span> 次，故右路径上的轻节点个数必满足 <span class="arithmatex">\(l \le \lfloor\log_2(N + 1)\rfloor = O(\log N)\)</span>。</p>
+<p><strong>2. 势能函数构造与 <code>Merge</code> 摊还代价推导（PPT Slides 11–12 &amp; 板书 <code>W4</code> Pages 5–6）</strong></p>
+<p>定义斜堆 <span class="arithmatex">\(D_i\)</span> 的<strong>势能函数</strong> <span class="arithmatex">\(\Phi(D_i)\)</span> 为<strong>堆中所有重节点（Heavy nodes）的总个数</strong>：</p>
+<div class="arithmatex">\[
+\Phi(D_i) = \text{number of heavy nodes in } D_i
+\]</div>
+<p>显然，空堆的势能为 <span class="arithmatex">\(\Phi_0 = 0\)</span>，且任意时刻 <span class="arithmatex">\(\Phi(D_i) \ge 0\)</span>。现在考察合并两个斜堆 <span class="arithmatex">\(H_1\)</span>（含 <span class="arithmatex">\(N_1\)</span> 个节点）和 <span class="arithmatex">\(H_2\)</span>（含 <span class="arithmatex">\(N_2\)</span> 个节点，记 <span class="arithmatex">\(N = N_1 + N_2\)</span>）得到新堆 <span class="arithmatex">\(H_3\)</span> 的过程：</p>
+<ol>
+<li><strong>合并前的状态与最坏实际代价 <span class="arithmatex">\(T_{\text{worst}}\)</span></strong>：
+   设合并前 <span class="arithmatex">\(H_i \ (i = 1, 2)\)</span> 的右路径上有 <span class="arithmatex">\(l_i\)</span> 个轻节点和 <span class="arithmatex">\(h_i\)</span> 个重节点，且不在两条右路径上的其余所有重节点总数为 <span class="arithmatex">\(h\)</span>。</li>
+<li>合并前的初始总势能为：
+     $$
+     \Phi_0 = h_1 + h_2 + h
+     $$</li>
+<li>合并操作只需遍历两条右路径上的所有节点，故最坏实际耗时为：
+     $$
+     T_{\text{worst}} = l_1 + h_1 + l_2 + h_2
+     $$</li>
+<li><strong>合并后的状态变化（两条核心性质）</strong>：</li>
+<li><strong>性质 A（非右路径节点状态不变）</strong>：只有在初始右路径上的节点，其子树节点总数和左右孩子位置才会在合并中发生改变；不在初始右路径上的任何节点，其左右子树在合并前后原封不动，因此那 <span class="arithmatex">\(h\)</span> 个非右路径重节点在合并后依然是重节点！</li>
+<li><strong>性质 B（右路径上的重节点必定全部变轻！）</strong>：对于初始右路径上的每一个<strong>重节点</strong> <span class="arithmatex">\(p\)</span>（原本右子树 <span class="arithmatex">\(\ge \frac{1}{2}\text{size}_{\text{old}}(p)\)</span>，从而左子树 <span class="arithmatex">\(&lt; \frac{1}{2}\text{size}_{\text{old}}(p)\)</span>），在合并时：
+     ① 它的左、右孩子被交换（原本较小的左子树换到了右边，成为新右子树）；
+     ② 新合并进来的其他节点又被挂接到了它的新左子树上（使 <span class="arithmatex">\(\text{size}_{\text{new}}(p) \ge \text{size}_{\text{old}}(p)\)</span> 进一步变大）。
+     因此，交换后它的新右子树大小满足 <span class="arithmatex">\(\text{size}_{\text{new}}(p.\text{right}) = \text{size}_{\text{old}}(p.\text{left}) &lt; \frac{1}{2}\text{size}_{\text{old}}(p) \le \frac{1}{2}\text{size}_{\text{new}}(p)\)</span>，即<strong>右路径上的全部 <span class="arithmatex">\(h_1 + h_2\)</span> 个重节点在合并后百分之百变成了轻节点</strong>！（注：右路径最末端的那个不交换节点原本就没有右孩子，本来就是轻节点，绝不可能是重节点）。</li>
+<li>同时，原本右路径上的 <span class="arithmatex">\(l_1 + l_2\)</span> 个轻节点在交换孩子后，至多全部变成重节点。</li>
+<li><strong>计算合并后的势能 <span class="arithmatex">\(\Phi_N\)</span> 与摊还代价 <span class="arithmatex">\(T_{\text{amortized}}\)</span></strong>：
+   由上述两条性质，合并后新堆中的重节点总数至多为：
+   $$
+   \Phi_N \le l_1 + l_2 + h
+   $$
+   因此势能变化量为 <span class="arithmatex">\(\Delta\Phi = \Phi_N - \Phi_0 \le (l_1 + l_2 + h) - (h_1 + h_2 + h) = l_1 + l_2 - h_1 - h_2\)</span>。代入摊还代价公式，<strong>昂贵的重节点项 <span class="arithmatex">\(h_1 + h_2\)</span> 被完美抵消</strong>：
+   $$
+   \begin{aligned}
+   T_{\text{amortized}} &amp;= T_{\text{worst}} + \Phi_N - \Phi_0 \
+   &amp;\le (l_1 + h_1 + l_2 + h_2) + (l_1 + l_2 - h_1 - h_2) \
+   &amp;= 2(l_1 + l_2)
+   \end{aligned}
+   $$
+   由引理 3.1 知 <span class="arithmatex">\(l_1 \le \log_2(N_1 + 1)\)</span> 且 <span class="arithmatex">\(l_2 \le \log_2(N_2 + 1)\)</span>，故 <span class="arithmatex">\(2(l_1 + l_2) = O(\log N)\)</span>，证毕！</li>
+</ol>
+<hr />
+<h2 id="4-chapter-4-selected-exercises">4 Chapter 4 核心习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-4-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 4.1 &amp; 4.2: Root NPL Properties &amp; Maximum Root NPL Increase After Merge（根 NPL 性质与合并后根 NPL 增幅反例）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 4.1</strong>: 非空左偏堆根节点的 <span class="arithmatex">\(\text{Npl}\)</span> 是否恒等于其右路径的长度（长度按边数计算）？
+- <strong>Ex 4.2</strong>: 两棵左偏堆的根 <span class="arithmatex">\(\text{Npl}\)</span> 不相同，合并后的新根 <span class="arithmatex">\(\text{Npl}\)</span> 是否一定不超过两者的较大值？是否一定不超过两者的较小值加一？请用同一个反例回答。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 根节点的 <span class="arithmatex">\(\text{Npl}\)</span> 与右路径边数关系（Exercise 4.1）</strong>：
+<strong>恒相等</strong>。因为根据左偏性质，对任意节点 <span class="arithmatex">\(x\)</span> 恒有 <span class="arithmatex">\(\text{Npl}(x.\text{left}) \ge \text{Npl}(x.\text{right})\)</span>，故递推式简化为 <span class="arithmatex">\(\text{Npl}(x) = \text{Npl}(x.\text{right}) + 1\)</span>。设非空左偏堆的右路径共有 <span class="arithmatex">\(k\)</span> 条边（即 <span class="arithmatex">\(k+1\)</span> 个节点，末端第 <span class="arithmatex">\(k+1\)</span> 个节点的右孩子为 <code>NULL</code>），则末端节点的 <span class="arithmatex">\(\text{Npl} = \text{Npl}(\text{NULL}) + 1 = 0\)</span>，沿着右路径向上累加 <span class="arithmatex">\(k\)</span> 条边，根节点的 <span class="arithmatex">\(\text{Npl}\)</span> 恰好等于 <span class="arithmatex">\(k\)</span>。</p>
+<hr />
+<p><strong>2. 合并后根 <span class="arithmatex">\(\text{Npl}\)</span> 增长幅度的经典反例（Exercise 4.2，高频判断题陷阱）</strong>：
+两个说法<strong>均错误</strong>！（即合并后的根 <span class="arithmatex">\(\text{Npl}\)</span> 既可能超过原两堆根 <span class="arithmatex">\(\text{Npl}\)</span> 的较大值，也可能超过较小值加一）。
+<strong>统一反例构造</strong>：
+- <strong>左偏堆 <span class="arithmatex">\(A\)</span>（单节点堆）</strong>：仅含根节点 <code>1</code>，其 <span class="arithmatex">\(\text{Npl}(A) = 0\)</span>；
+- <strong>左偏堆 <span class="arithmatex">\(B\)</span>（含 6 个节点）</strong>：根为 <code>2</code>，左子树为满二叉树 <code>3(4, 5)</code>（<span class="arithmatex">\(\text{Npl}(3) = 1\)</span>），右子树为链 <code>6(7, _)</code>（即 <code>6</code> 的左孩子为 <code>7</code>、右孩子为空，故 <span class="arithmatex">\(\text{Npl}(6) = 0\)</span>）。此时根 <code>2</code> 的左孩子 <span class="arithmatex">\(\text{Npl}=1 \ge\)</span> 右孩子 <span class="arithmatex">\(\text{Npl}=0\)</span>，合法且 <strong><span class="arithmatex">\(\text{Npl}(B) = 0 + 1 = 1\)</span></strong>。
+- <strong>执行 <code>Merge(A, B)</code></strong>：
+  由于 <span class="arithmatex">\(A\)</span> 是单节点 <code>1</code> 且键值最小，原堆 <span class="arithmatex">\(B\)</span> 直接挂接在 <code>1</code> 的右侧（随后交换到左侧）；或者反过来，若令堆 <span class="arithmatex">\(A\)</span> 为单节点 <strong><code>7</code></strong>（<span class="arithmatex">\(\text{Npl}(A) = 0\)</span>），堆 <span class="arithmatex">\(B\)</span> 为含 6 个节点的左偏堆：根为 <code>1</code>，左子树为满二叉树 <code>2(4, 5)</code>（<span class="arithmatex">\(\text{Npl}(2) = 1\)</span>），右子树为 <code>3(6, _)</code>（<code>3</code> 只有左孩子 <code>6</code>，<span class="arithmatex">\(\text{Npl}(3) = 0\)</span>），故 <strong><span class="arithmatex">\(\text{Npl}(B) = 1\)</span></strong>。
+  现将 <span class="arithmatex">\(A\)</span>（单节点 <code>7</code>）与 <span class="arithmatex">\(B\)</span> 合并：
+  <code>7</code> 沿着 <span class="arithmatex">\(B\)</span> 的右路径 <code>1 -&gt; 3</code> 向下合并，成为 <code>3</code> 的右孩子！此时节点 <code>3</code> 同时拥有了左孩子 <code>6</code> 和右孩子 <code>7</code>，变成了满二叉树（<span class="arithmatex">\(\text{Npl}(3)\)</span> 从 <span class="arithmatex">\(0\)</span> 跃升为 <span class="arithmatex">\(1\)</span>），进而整棵合并后的树变成了一棵包含 <span class="arithmatex">\(7\)</span> 个节点的 3 层完美满二叉树，<strong>合并后新根 <code>1</code> 的 <span class="arithmatex">\(\text{Npl}\)</span> 变成了 <span class="arithmatex">\(2\)</span></strong>！
+  对比合并前的 <span class="arithmatex">\(\text{Npl}(A) = 0\)</span> 与 <span class="arithmatex">\(\text{Npl}(B) = 1\)</span>：合并后的 <span class="arithmatex">\(\text{Npl} = 2\)</span>，既大于较大值 <span class="arithmatex">\(\max(0, 1) = 1\)</span>，也大于较小值加一 <span class="arithmatex">\(\min(0, 1) + 1 = 1\)</span>！</p>
+</details>
+<details>
+<summary>Exercise 4.3 &amp; 4.4: Skew Heap Bad Potential Counterexample &amp; Sequential Insertion（斜堆错误势函数反例与顺序插入完美二叉树性质）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 4.3</strong>: 构造由两棵非空斜堆组成的输入，使一次合并需要线性时间 <span class="arithmatex">\(\Theta(n)\)</span>，并且“右孩子总数”这一候选势能函数在合并过程中完全不下降（从而证明不能用“右孩子总数”作为斜堆的势函数）。
+- <strong>Ex 4.4</strong>: 设 <span class="arithmatex">\(k \ge 1\)</span>，从空堆开始按键值从小到大依次插入 <span class="arithmatex">\(1, 2, \dots, 2^k - 1\)</span>。判断：① 对左偏堆执行上述操作，结果是否是一棵有 <span class="arithmatex">\(k\)</span> 层的完美满二叉树？② 对斜堆执行上述操作，结果是否也是一棵有 <span class="arithmatex">\(k\)</span> 层的完美满二叉树？</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 为什么“右孩子总数”不能作为斜堆的势能函数？（Exercise 4.3）</strong>：
+如果将势能定义为“是其父节点的右孩子的节点总数”，我们可以构造如下包含 <span class="arithmatex">\(n = 4q - 2\)</span> 个节点的两棵斜堆 <span class="arithmatex">\(H_1, H_2\)</span>（每棵各含 <span class="arithmatex">\(2q - 1\)</span> 个节点）：
+- <strong>斜堆 <span class="arithmatex">\(H_1\)</span></strong>：右路径上有 <span class="arithmatex">\(q\)</span> 个节点，键值依次为 <span class="arithmatex">\(1, 5, 9, \dots, 4q - 3\)</span>；给前 <span class="arithmatex">\(q - 1\)</span> 个右路径节点（<span class="arithmatex">\(4i + 1\)</span>）各自挂一个<strong>左叶子</strong> <span class="arithmatex">\(4i + 2\)</span>。此时 <span class="arithmatex">\(H_1\)</span> 共有 <span class="arithmatex">\(q - 1\)</span> 个右孩子；
+- <strong>斜堆 <span class="arithmatex">\(H_2\)</span></strong>：右路径上有 <span class="arithmatex">\(q\)</span> 个节点，键值依次为 <span class="arithmatex">\(3, 7, 11, \dots, 4q - 1\)</span>；给前 <span class="arithmatex">\(q - 1\)</span> 个右路径节点（<span class="arithmatex">\(4i + 3\)</span>）各自挂一个<strong>左叶子</strong> <span class="arithmatex">\(4i + 4\)</span>。此时 <span class="arithmatex">\(H_2\)</span> 也有 <span class="arithmatex">\(q - 1\)</span> 个右孩子。
+- <strong>合并分析</strong>：
+  1. <strong>实际成本为 <span class="arithmatex">\(\Theta(n)\)</span></strong>：两条右路径交错归并为长度为 <span class="arithmatex">\(2q\)</span> 的路径 <span class="arithmatex">\(1 \to 3 \to 5 \to 7 \to \dots \to 4q - 1\)</span>，遍历整条路径耗时 <span class="arithmatex">\(2q = \frac{n + 2}{2} = \Theta(n)\)</span>；
+  2. <strong>“右孩子总数”势能变化 <span class="arithmatex">\(\Delta\Phi = 0\)</span></strong>：合并前两堆共有 <span class="arithmatex">\((q - 1) + (q - 1) = 2q - 2\)</span> 个右孩子。合并后，归并路径上的 <span class="arithmatex">\(2q - 1\)</span> 个右孩子边全部被翻转到左侧成为了<strong>左孩子</strong>；<strong>但是</strong>，原本挂在前 <span class="arithmatex">\(2q - 2\)</span> 个右路径节点左侧的那 <span class="arithmatex">\(2q - 2\)</span> 个左叶子，在交换左右孩子后<strong>全部被翻转到了右侧，变成了新的右孩子</strong>！
+  因此，合并后全堆依然有 <span class="arithmatex">\(2q - 2\)</span> 个右孩子（<span class="arithmatex">\(\Delta\Phi = 0\)</span>），无法抵消 <span class="arithmatex">\(\Theta(n)\)</span> 的实际合并成本！而如果使用正确的<strong>重节点势能函数</strong>，合并前两条右路径上几乎全是重节点，合并后它们全部变成轻节点，势能大幅下降 <span class="arithmatex">\(\Theta(n)\)</span>，完美抵消实际耗时。</p>
+<hr />
+<p><strong>2. 从小到大依次插入 <span class="arithmatex">\(1, 2, \dots, 2^k - 1\)</span> 的树形结构（Exercise 4.4）</strong>：
+<strong>两个说法均正确</strong>（无论左偏堆还是斜堆，最终都会生成一棵有 <span class="arithmatex">\(k\)</span> 层的完美满二叉树 Perfect binary tree）！</p>
+<ul>
+<li><strong>对左偏堆的归纳证明</strong>：
+  当按递增顺序插入新最大键值时，新元素总是沿着当前堆的<strong>最右侧路径</strong>一直走到末端插入。对于完美满二叉树，每个节点的左右子树同构且 <span class="arithmatex">\(\text{Npl}\)</span> 相等，插入在最右端后会导致沿途祖先的右孩子 <span class="arithmatex">\(\text{Npl}\)</span> 比左孩子大 <span class="arithmatex">\(1\)</span>，从而触发交换将填满的分支换到左侧，归纳可知每当节点数达到 <span class="arithmatex">\(2^k - 1\)</span> 时恰好填满 <span class="arithmatex">\(k\)</span> 层完美二叉树。</li>
+<li><strong>对斜堆的归纳证明</strong>：
+  斜堆每次插入最大键值时，沿着右路径一直走到末端挂接，并在回溯时将沿途所有祖先的左右子树交替翻转（左变右、右变左）。这相当于在一棵满二叉树下按二进制位反转顺序（Bit-reversal permutation）轮流向左右子树均匀分配新节点：每插入 <span class="arithmatex">\(2^{k-1}\)</span> 个新节点，恰好将第 <span class="arithmatex">\(k\)</span> 层的 <span class="arithmatex">\(2^{k-1}\)</span> 个叶子位置全部填满，故插入 <span class="arithmatex">\(2^k - 1\)</span> 个元素后必然形成一棵 <span class="arithmatex">\(k\)</span> 层完美满二叉树。</li>
+</ul>
+</details>
 
 
 
