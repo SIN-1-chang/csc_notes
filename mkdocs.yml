@@ -50,6 +50,7 @@ nav:
           - computer_science/advanced_data_structures/index.md
           - 01 AVL树和Splay树,摊还分析: computer_science/advanced_data_structures/01_avl_splay_trees.md
           - 03 倒排索引: computer_science/advanced_data_structures/03_inverted_file_index.md
+          - 04 左势堆与斜堆: computer_science/advanced_data_structures/04_leftist_skew_heaps.md
   - 数理基础:
       - 概览: mathematical_sciences/index.md
       - 普通物理:
