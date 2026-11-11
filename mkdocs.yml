@@ -52,6 +52,7 @@ nav:
           - 03 倒排索引: computer_science/advanced_data_structures/03_inverted_file_index.md
           - 04 左势堆与斜堆: computer_science/advanced_data_structures/04_leftist_skew_heaps.md
           - 05 二项队列: computer_science/advanced_data_structures/05_binomial_queue.md
+          - 06 回溯法: computer_science/advanced_data_structures/06_backtracking.md
   - 数理基础:
       - 概览: mathematical_sciences/index.md
       - 普通物理:
