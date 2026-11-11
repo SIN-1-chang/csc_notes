@@ -1,0 +1,2677 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/03_inverted_file_index/">
+      
+      
+        <link rel="prev" href="../01_avl_splay_trees/">
+      
+      
+        <link rel="next" href="../../../mathematical_sciences/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>03 倒排索引 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-3-inverted-file-index" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 倒排索引
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../mathematical_sciences/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_avl_splay_trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 AVL树和Splay树,摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 倒排索引
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 倒排索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-and-basic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 倒排索引的引入与基本结构 (Introduction and Basic Structure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 倒排索引的引入与基本结构 (Introduction and Basic Structure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从顺序扫描、关联矩阵到倒排索引
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-vs-positional-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 文档级倒排索引 vs. 位置倒排索引 (Positional Index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-intersection-and-union-of-posting-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 有序倒排表的布尔查询算法 (Intersection and Union of Posting Lists)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-index-construction-text-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 索引构建流水线与文本预处理 (Index Construction &amp; Text Preprocessing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 索引构建流水线与文本预处理 (Index Construction &amp; Text Preprocessing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-index-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 索引生成器 (Index Generator) 基本框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 文本预处理：分词、词干提取与停用词过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 词典的数据结构选型：搜索树 vs. 哈希表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-large-scale-indexing-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 大规模索引工程优化 (Large-Scale Indexing Optimizations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 大规模索引工程优化 (Large-Scale Indexing Optimizations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-out-of-core-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 内存受限下的外存分块归并构建 (Out-of-Core Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-distributed-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 分布式索引架构 (Distributed Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-dynamic-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 动态索引 (Dynamic Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-index-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 索引压缩技术 (Index Compression)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-thresholding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 阈值截断优化 (Thresholding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-search-engine-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 搜索引擎性能评测与相关性指标 (Search Engine Evaluation Metrics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 搜索引擎性能评测与相关性指标 (Search Engine Evaluation Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 数据检索 vs. 信息检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/general_physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-and-basic-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 倒排索引的引入与基本结构 (Introduction and Basic Structure)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 倒排索引的引入与基本结构 (Introduction and Basic Structure)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从顺序扫描、关联矩阵到倒排索引
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-vs-positional-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 文档级倒排索引 vs. 位置倒排索引 (Positional Index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-intersection-and-union-of-posting-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 有序倒排表的布尔查询算法 (Intersection and Union of Posting Lists)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-index-construction-text-preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 索引构建流水线与文本预处理 (Index Construction &amp; Text Preprocessing)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 索引构建流水线与文本预处理 (Index Construction &amp; Text Preprocessing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-index-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 索引生成器 (Index Generator) 基本框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 文本预处理：分词、词干提取与停用词过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 词典的数据结构选型：搜索树 vs. 哈希表
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-large-scale-indexing-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 大规模索引工程优化 (Large-Scale Indexing Optimizations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 大规模索引工程优化 (Large-Scale Indexing Optimizations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-out-of-core-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 内存受限下的外存分块归并构建 (Out-of-Core Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-distributed-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 分布式索引架构 (Distributed Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-dynamic-indexing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 动态索引 (Dynamic Indexing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-index-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 索引压缩技术 (Index Compression)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-thresholding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 阈值截断优化 (Thresholding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-search-engine-evaluation-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 搜索引擎性能评测与相关性指标 (Search Engine Evaluation Metrics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 搜索引擎性能评测与相关性指标 (Search Engine Evaluation Metrics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 数据检索 vs. 信息检索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机科学
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    高级数据结构
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-3-inverted-file-index">Chapter 3: Inverted File Index（倒排文件索引）<a class="headerlink" href="#chapter-3-inverted-file-index" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Advanced Data Structures and Algorithm Analysis (ADS) | 第三章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Course Slides Lecture 3: <em>Inverted File Index</em> (Student &amp; Teacher Versions)</li>
+<li>课程讲义 Lecture 3:《倒排索引》</li>
+<li>C. D. Manning, P. Raghavan, H. Schütze, <em>Introduction to Information Retrieval</em></li>
+</ul>
+</div>
+<h2 id="1-introduction-and-basic-structure">1 倒排索引的引入与基本结构 (Introduction and Basic Structure)<a class="headerlink" href="#1-introduction-and-basic-structure" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 从顺序扫描、关联矩阵到倒排索引<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>在现代信息检索系统（如 Google 等Web搜索引擎）中，核心任务是从海量已抓取的网页或文档集合中，快速找出包含特定查询词（如 <code>"Computer Science"</code> 或 <code>"silver" AND "truck"</code>）的所有文档。我们对比三种演进方案：</p>
+<p><strong>1. 方案一：逐篇顺序扫描（Naive String Scanning / <code>grep</code>）</strong>
+每次收到查询时，直接从头到尾扫描每一篇文档中的文本字符串。当文档规模达到十亿（Billion）乃至千亿级网页时，在线扫描的响应时间完全不可接受（<em>"Wait till your next life!"</em>）。</p>
+<p><strong>2. 方案二：词项-文档关联矩阵（Term-Document Incidence Matrix）</strong>
+预先建立一个二元 0-1 矩阵，行代表全部互异词项（Terms，设共有 <span class="arithmatex">\(V\)</span> 个），列代表全部文档（Documents，设共有 <span class="arithmatex">\(N\)</span> 篇）。若词项 <span class="arithmatex">\(t\)</span> 出现在文档 <span class="arithmatex">\(d\)</span> 中，则矩阵元 <span class="arithmatex">\((t, d) = 1\)</span>，否则为 <span class="arithmatex">\(0\)</span>。</p>
+<p>例如，给定以下 4 篇短文档集合：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Doc ID</th>
+<th style="text-align: left;">Document Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Doc 1</strong></td>
+<td style="text-align: left;"><code>Gold silver truck</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Doc 2</strong></td>
+<td style="text-align: left;"><code>Shipment of gold damaged in a fire</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Doc 3</strong></td>
+<td style="text-align: left;"><code>Delivery of silver arrived in a silver truck</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Doc 4</strong></td>
+<td style="text-align: left;"><code>Shipment of gold arrived in a truck</code></td>
+</tr>
+</tbody>
+</table>
+<p>其对应的<strong>词项-文档关联矩阵</strong>为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Term \ Doc</th>
+<th style="text-align: center;">Doc 1</th>
+<th style="text-align: center;">Doc 2</th>
+<th style="text-align: center;">Doc 3</th>
+<th style="text-align: center;">Doc 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>a</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>arrived</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>damaged</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>delivery</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>fire</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>gold</code></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>in</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>of</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>shipment</code></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>silver</code></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>truck</code></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>布尔查询处理</strong>：若查询 <code>silver &amp; truck</code>，只需直接取出 <code>silver</code> 的行向量 <code>1010</code> 与 <code>truck</code> 的行向量 <code>1011</code> 进行按位逻辑与（Bitwise <code>AND</code>），得到 <code>1010</code>，立即得知匹配文档为 <strong>Doc 1</strong> 和 <strong>Doc 3</strong>。</li>
+<li><strong>致命缺陷（空间爆炸）</strong>：在真实搜索引擎中，若词表规模 <span class="arithmatex">\(V \approx 10^6\)</span>、文档数 <span class="arithmatex">\(N \approx 10^9\)</span>，则完整矩阵包含 <span class="arithmatex">\(V \times N = 10^{15}\)</span> 个比特，但<strong>绝大多数位置全为 <span class="arithmatex">\(0\)</span>（极度稀疏 Sparse）</strong>，造成灾难性的空间浪费。</li>
+</ul>
+<p><strong>3. 方案三：紧凑表示——倒排文件索引（Inverted File Index）</strong></p>
+<p>既然关联矩阵极度稀疏，我们只需记录矩阵中取值为 <code>1</code> 的位置！</p>
+<ul>
+<li><strong>定义 3.1（索引 Index 与倒排文件 Inverted File）</strong>：</li>
+<li><strong>索引（Index）</strong>：用于在文本中定位给定词项（Term）的一种机制。</li>
+<li><strong>倒排文件 / 倒排索引（Inverted File / Inverted Index）</strong>：之所以称为“倒排（Inverted）”，是因为它将正向的“文档 <span class="arithmatex">\(\to\)</span> 包含的单词列表”反转过来，变成以<strong>词项（Term）</strong>为主键，列出所有包含该词项的文档指针列表。</li>
+<li>倒排索引由两部分组成：<strong>词典（Term Dictionary）</strong> + <strong>倒排表 / 倒排记录表（Posting Lists）</strong>。</li>
+</ul>
+<h3 id="12-vs-positional-index">1.2 文档级倒排索引 vs. 位置倒排索引 (Positional Index)<a class="headerlink" href="#12-vs-positional-index" title="Permanent link">&para;</a></h3>
+<p>根据倒排表（Posting List）中记录粒度的不同，倒排索引分为基础文档级倒排索引与带词位置的位置倒排索引：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">No.</th>
+<th style="text-align: left;">Term（词典词项）</th>
+<th style="text-align: left;">版本 A：基础倒排表 <code>&lt;Times; Documents&gt;</code></th>
+<th style="text-align: left;">版本 B：位置倒排表 <code>&lt;Times; (Doc; Words...)&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><code>a</code></td>
+<td style="text-align: left;"><code>&lt;3; 2, 3, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;3; (2; 6), (3; 6), (4; 6)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><code>arrived</code></td>
+<td style="text-align: left;"><code>&lt;2; 3, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;2; (3; 4), (4; 4)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><code>damaged</code></td>
+<td style="text-align: left;"><code>&lt;1; 2&gt;</code></td>
+<td style="text-align: left;"><code>&lt;1; (2; 4)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><code>delivery</code></td>
+<td style="text-align: left;"><code>&lt;1; 3&gt;</code></td>
+<td style="text-align: left;"><code>&lt;1; (3; 1)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><code>fire</code></td>
+<td style="text-align: left;"><code>&lt;1; 2&gt;</code></td>
+<td style="text-align: left;"><code>&lt;1; (2; 7)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><code>gold</code></td>
+<td style="text-align: left;"><code>&lt;3; 1, 2, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;3; (1; 1), (2; 3), (4; 3)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><code>of</code></td>
+<td style="text-align: left;"><code>&lt;3; 2, 3, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;3; (2; 2), (3; 2), (4; 2)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><code>in</code></td>
+<td style="text-align: left;"><code>&lt;3; 2, 3, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;3; (2; 5), (3; 5), (4; 5)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><code>shipment</code></td>
+<td style="text-align: left;"><code>&lt;2; 2, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;2; (2; 1), (4; 1)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><code>silver</code></td>
+<td style="text-align: left;"><code>&lt;2; 1, 3&gt;</code></td>
+<td style="text-align: left;"><code>&lt;2; (1; 2), (3; 3, 7)&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><code>truck</code></td>
+<td style="text-align: left;"><code>&lt;3; 1, 3, 4&gt;</code></td>
+<td style="text-align: left;"><code>&lt;3; (1; 3), (3; 8), (4; 7)&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>文档频率（Document Frequency, <span class="arithmatex">\(df(t)\)</span> / <code>Times</code>）</strong>：分号前的第一个数字，表示包含词项 <span class="arithmatex">\(t\)</span> 的不同文档总数（例如 <code>silver</code> 出现在 Doc 1 和 Doc 3 共 2 篇文档中，故 <span class="arithmatex">\(df(\text{silver}) = 2\)</span>）。</li>
+<li><strong>词频（Term Frequency, <span class="arithmatex">\(tf(t, d)\)</span>）</strong>：词项 <span class="arithmatex">\(t\)</span> 在单篇文档 <span class="arithmatex">\(d\)</span> 内部出现的次数（例如在 Doc 3 中，<code>silver</code> 出现在第 3 和第 7 个单词位置，故 <span class="arithmatex">\(tf(\text{silver}, D_3) = 2\)</span>）。</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">课堂核心思考题（Slide 6 Q&amp;A）：为什么要保存位置信息与 <code>Times</code>（文档频率 <span class="arithmatex">\(df\)</span>）？</p>
+<ol>
+<li><strong>Q1: 如何利用位置倒排表快速支持短语查询、打印包含检索词的句子并高亮（Highlight）关键词？</strong></li>
+<li><strong>短语与邻近查询（Phrase &amp; Proximity Queries）</strong>：若用户查询精确短语 <code>"silver truck"</code>，仅靠文档级倒排表只能知道 Doc 1 和 Doc 3 同时含有这两个词，但无法判断它们是否紧挨着且顺序正确。有了位置列表后，在 Doc 1 中 <code>silver</code> 位于位置 <code>2</code>、<code>truck</code> 位于位置 <code>3</code>（<span class="arithmatex">\(3 - 2 = 1\)</span>）；在 Doc 3 中 <code>silver</code> 位于 <code>3, 7</code>、<code>truck</code> 位于 <code>8</code>（<span class="arithmatex">\(8 - 7 = 1\)</span>），立即判定两篇文档均包含连续短语 <code>"silver truck"</code>！</li>
+<li><strong>上下文摘要提取与高亮（Snippet Extraction &amp; Highlighting）</strong>：返回搜索结果时，无需重新全文匹配，直接根据 <code>(DocID; WordPos)</code> 定位到原文档对应偏移量处，截取前后相邻单词生成摘要片段，并将对应位置直接高亮显示。</li>
+<li><strong>Q2: 为什么要在倒排表头部专门维护 <code>Times</code>（即文档频率 <span class="arithmatex">\(df(t)\)</span>）？</strong></li>
+<li><strong>优化多词布尔 <code>AND</code> 查询的求交顺序（核心考点）</strong>：当执行多词交集查询 <span class="arithmatex">\(t_1 \text{ AND } t_2 \text{ AND } \dots \text{ AND } t_k\)</span> 时，<strong>应当先将所有查询词按 <code>Times</code>（<span class="arithmatex">\(df\)</span>）从小到大升序排列，优先合并最短的倒排表</strong>！因为交集结果的长度绝不会超过参与求交的最短列表长度，先对最稀有的词求交能以最小代价迅速将中间候选集缩小，大幅减少后续长列表的比较次数。</li>
+<li><strong>用于查询截断（Query Thresholding）与相关性权重计算（如 TF-IDF）</strong>：在查询词截断时丢弃高频低区分度词，或在计算逆文档频率 <span class="arithmatex">\(\text{IDF}(t) = \log(N / df(t))\)</span> 时直接使用。</li>
+</ol>
+</div>
+<h3 id="13-intersection-and-union-of-posting-lists">1.3 有序倒排表的布尔查询算法 (Intersection and Union of Posting Lists)<a class="headerlink" href="#13-intersection-and-union-of-posting-lists" title="Permanent link">&para;</a></h3>
+<p>由于每个词项的倒排表中文档编号（DocID）严格递增排列，求两个倒排表 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的交集（<code>AND</code>）或并集（<code>OR</code>）可采用经典的<strong>双指针同步线性扫描算法</strong>，时间复杂度仅为 <span class="arithmatex">\(O(\vert{}A\vert{} + \vert{}B\vert{})\)</span>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cm">/* 输入：按 DocID 严格递增的单链表 A, B；mode 为 AND (交集) 或 OR (并集) */</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">PostingList</span><span class="w"> </span><span class="nf">BooleanQuery</span><span class="p">(</span><span class="n">PostingList</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">PostingList</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">QueryMode</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">PostingList</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateEmptyList</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="n">Append</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">OR</span><span class="p">)</span><span class="w"> </span><span class="n">Append</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">OR</span><span class="p">)</span><span class="w"> </span><span class="n">Append</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">OR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Append</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Append</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">id</span><span class="p">);</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="2-index-construction-text-preprocessing">2 索引构建流水线与文本预处理 (Index Construction &amp; Text Preprocessing)<a class="headerlink" href="#2-index-construction-text-preprocessing" title="Permanent link">&para;</a></h2>
+<h3 id="21-index-generator">2.1 索引生成器 (Index Generator) 基本框架<a class="headerlink" href="#21-index-generator" title="Permanent link">&para;</a></h3>
+<p>构建倒排索引的基础流程是逐篇读取文档 <span class="arithmatex">\(D\)</span>、逐个切分出词项 <span class="arithmatex">\(T\)</span>，并在词典中查找和更新对应的倒排表：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="cm">/* 模块 1: Token Analyzer &amp; Stop Filter */</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="cm">/* 模块 2: Vocabulary Scanner */</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">            </span><span class="n">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span><span class="w">            </span><span class="cm">/* 模块 3: Vocabulary Insertor */</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">Get</span><span class="w"> </span><span class="n">T</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">Insert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">T</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span><span class="w">      </span><span class="cm">/* 将当前文档号及位置追加到链表尾部 */</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">Write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">inverted</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 模块 4: Memory Management */</span>
+</code></pre></div>
+<h3 id="22">2.2 文本预处理：分词、词干提取与停用词过滤<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>在 <code>read a term T in D</code> 阶段（Token Analyzer &amp; Stop Filter），原始文本需要经过以下标准化处理（注意：<strong>查询时必须对用户输入的查询词执行完全相同的预处理规则</strong>）：</p>
+<ol>
+<li><strong>分词与归一化（Tokenization &amp; Normalization）</strong>：
+   识别标点、连字符与空格边界，将英文文本切分为独立单词并统一转换为小写（Case-folding，如 <code>Truck</code> <span class="arithmatex">\(\to\)</span> <code>truck</code>）；对于中文等无空格分隔的语言，则需借助词典（如最大匹配法）或统计语言模型进行中文分词（Word Segmentation）。</li>
+<li><strong>词干提取（Word Stemming）与词形还原（Lemmatization）</strong>：
+   剥离单词的词缀或曲折变化，只保留词根（Stem / Root form），使同一语义的不同语法形式归并到同一个词项下：</li>
+<li><span class="arithmatex">\(\text{Process, processing, processes, processed} \implies \text{\textbf{process}}\)</span></li>
+<li><span class="arithmatex">\(\text{says, said, saying} \implies \text{\textbf{say}}\)</span></li>
+<li><strong>优缺点权衡</strong>：能够显著缩减词典规模并提高召回率（Recall）；但基于简单规则的词干提取可能把本义不同的词错误归并（Over-stemming），降低查准率（Precision）。</li>
+<li><strong>停用词消除（Stop Words Removal）</strong>：
+   像 <code>"a"</code>, <code>"the"</code>, <code>"it"</code>, <code>"of"</code>, <code>"in"</code> 这类词在几乎所有文档中都高频出现，其倒排表极长但对区分文档主题毫无帮助。这类词称为<strong>停用词</strong>（Stop words），通常在建索引前直接从原文档流中滤除。</li>
+<li><em>位置索引中的细节</em>：即使滤除了停用词，<strong>其余正常词项仍应保留其在原文中的真实位置编号</strong>（例如 <code>"silver a truck"</code> 中 <code>silver</code> 在 1、<code>truck</code> 在 3，不能重编号为 1 和 2，否则会被误判为连续短语 <code>"silver truck"</code>）；若系统需支持 <code>"to be or not to be"</code> 等完全由停用词构成的短语查询，则不能简单丢弃停用词。</li>
+</ol>
+<h3 id="23-vs">2.3 词典的数据结构选型：搜索树 vs. 哈希表<a class="headerlink" href="#23-vs" title="Permanent link">&para;</a></h3>
+<p>在访问词典（Vocabulary Scanner &amp; Insertor：执行 <code>Find(Dictionary, T)</code> 与 <code>Insert(Dictionary, T)</code>）时，主要有两类数据结构可选：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">对比维度</th>
+<th style="text-align: left;">方案 1：搜索树（Search Trees: B-树、B+ 树、Trie 字典树）</th>
+<th style="text-align: left;">方案 2：哈希表（Hashing / Hash Table）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>单词精确查找速度</strong></td>
+<td style="text-align: left;">较快：平衡树为 <span class="arithmatex">\(O(\log V)\)</span>，Trie 树为 <span class="arithmatex">\(O(\vert{}T\vert{})\)</span></td>
+<td style="text-align: left;"><strong>极快（优势）</strong>：期望时间 <span class="arithmatex">\(O(1)\)</span>（Faster for one word）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>有序性与范围查询</strong></td>
+<td style="text-align: left;"><strong>支持（核心优势）</strong>：词项按字典序排列，天然支持按序遍历、<strong>范围查询（Range searches）</strong>及<strong>前缀通配符查询</strong>（如 <code>comp*</code>）</td>
+<td style="text-align: left;"><strong>不支持（致命缺陷）</strong>：无法按字典序扫描，范围查询与前缀匹配代价极高（Sequential scanning / range searches are expensive）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>动态扩容开销</strong></td>
+<td style="text-align: left;">节点分裂局部完成，无全局停顿</td>
+<td style="text-align: left;">负载因子过高时需触发全表 Rehash，且存在哈希冲突开销</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-large-scale-indexing-optimizations">3 大规模索引工程优化 (Large-Scale Indexing Optimizations)<a class="headerlink" href="#3-large-scale-indexing-optimizations" title="Permanent link">&para;</a></h2>
+<h3 id="31-out-of-core-indexing">3.1 内存受限下的外存分块归并构建 (Out-of-Core Indexing)<a class="headerlink" href="#31-out-of-core-indexing" title="Permanent link">&para;</a></h3>
+<p>当文档集合极其庞大时，内存无法装下完整的倒排索引。此时需引入<strong>基于分块的外部归并索引构建策略</strong>（Memory Management，如 BSBI / SPIMI 算法）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">BlockCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 内存空间耗尽时触发落盘 */</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="n">Write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="p">(</span><span class="n">sorted</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">term</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">Block</span><span class="p">[</span><span class="n">BlockCnt</span><span class="o">++</span><span class="p">];</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="n">Clear</span><span class="w"> </span><span class="n">in</span><span class="o">-</span><span class="n">memory</span><span class="w"> </span><span class="n">dictionary</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">lists</span><span class="w"> </span><span class="p">(</span><span class="n">free</span><span class="w"> </span><span class="n">memory</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="n">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">Get</span><span class="w"> </span><span class="n">T</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="n">Insert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">T</span><span class="err">'</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">Write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">Merge</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">sorted</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="n">indices</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">disk</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">inverted</span><span class="w"> </span><span class="n">index</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 多路外部归并 */</span>
+</code></pre></div>
+<p>由于每个内存块在写入磁盘前已按词项字典序排好序，且块内每个倒排表都是按文档号递增生成的，最后的合并阶段只需对磁盘上的各个块执行一次线性顺序扫描的<strong>多路归并（Multi-way Merge）</strong>即可生成全局倒排索引。</p>
+<h3 id="32-distributed-indexing">3.2 分布式索引架构 (Distributed Indexing)<a class="headerlink" href="#32-distributed-indexing" title="Permanent link">&para;</a></h3>
+<p>在 Web 级搜索引擎中，单台服务器无法存储或响应全局索引，必须将索引切分到多台机器组成的集群上。共有两种划分架构：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特性维度</th>
+<th style="text-align: left;">方案 1：按词项划分（Term-Partitioned Index）</th>
+<th style="text-align: left;">方案 2：按文档划分（Document-Partitioned Index）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>切分方式</strong></td>
+<td style="text-align: left;">按词项字母范围（如 Node 1 存 <code>A~C</code>，Node 2 存 <code>D~F</code>，…，Node <span class="arithmatex">\(K\)</span> 存 <code>X~Z</code>）划分，每台机器存所辖词项的<strong>全局完整倒排表</strong></td>
+<td style="text-align: left;">按文档 ID 范围（如 Node 1 存 <code>1~10000</code>，Node 2 存 <code>10001~20000</code>…）划分，每台机器只存<strong>本地文档子集的独立倒排索引</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>单词查询处理</strong></td>
+<td style="text-align: left;">只需将请求路由给负责该词项的 <strong>1 台机器</strong></td>
+<td style="text-align: left;">必须将查询广播给<strong>所有机器</strong>，再汇总结果</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>多词 <code>AND</code> 查询</strong></td>
+<td style="text-align: left;">需从多台机器拉取长倒排表在节点间传输求交，<strong>网络通信开销极大</strong></td>
+<td style="text-align: left;">每台机器在<strong>本地独立完成多词求交</strong>，只将极少量的最终匹配文档 ID 发回主节点合并，网络通信极小</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>负载均衡与容错</strong></td>
+<td style="text-align: left;"><strong>差</strong>：高频热门词所在节点会成为性能瓶颈（Hotspot）；单节点宕机导致整批词项彻底无法检索</td>
+<td style="text-align: left;"><strong>极佳（主流搜索引擎实际采用方案）</strong>：查询负载均匀分布在所有节点上；单机故障仅损失少量文档，不影响系统可用性</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-dynamic-indexing">3.3 动态索引 (Dynamic Indexing)<a class="headerlink" href="#33-dynamic-indexing" title="Permanent link">&para;</a></h3>
+<p>真实世界中的网页不断新增、修改和删除。若每次文档更新都原地重构巨大的主索引（Main Index），I/O 代价过高。工程上采用<strong>主索引 + 辅助索引 + 删除位图</strong>的准实时架构：</p>
+<ol>
+<li><strong>新增文档（New Docs）</strong>：先在内存中维护一个较小的<strong>辅助索引</strong>（Auxiliary index），新文档直接写入辅助索引；</li>
+<li><strong>检索查询（Search）</strong>：每次查询<strong>同时检索磁盘上的主索引和内存中的辅助索引</strong>，将两者的结果集归并；</li>
+<li><strong>删除与修改文档（Deletions &amp; Updates）</strong>：设置一个专门的<strong>删除位向量 / 删除集合</strong>（Invalidation bit-vector）。当某篇文档被删除时，仅在删除位图中将其 DocID 标记为已删除，在返回检索结果的最后一步过滤掉带有删除标记的文档；修改文档则直接视为“旧文档标记删除 + 新版本作为新文档插入辅助索引”；</li>
+<li><strong>重索引（When to re-index）</strong>：当内存中的辅助索引体积增长到超过设定阈值（或空闲时段）时，将辅助索引与磁盘主索引执行一次批量归并，并顺带物理清除所有已标记删除的倒排记录。</li>
+</ol>
+<h3 id="34-index-compression">3.4 索引压缩技术 (Index Compression)<a class="headerlink" href="#34-index-compression" title="Permanent link">&para;</a></h3>
+<p>压缩索引不仅能节省磁盘空间，还能让更多索引常驻内存并加快磁盘向内存的 I/O 传输速度：</p>
+<ol>
+<li><strong>词典压缩（单一长字符串表示 Dictionary-as-a-String）</strong>：
+   如果用定长字符数组存储每个词项（如每项分配 20 字节），短词会浪费大量空间，而超长词又装不下。改进方案是：先剔除停用词，再<strong>将词典中的所有词项首尾相连拼接成一个无分隔符的连续长字符串</strong>：
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>arrivedamagedeliverfiregoldshipmentsilvertruck...
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>^     ^     ^      ^   ^   ^       ^     ^
+</code></pre></div>
+   词典表项中只需用定长整数指针指向每个词在该长字符串中的起始偏移位置（下一个词的起点即为当前词的终点）。</li>
+<li><strong>倒排表压缩：差值编码 / 间距编码（Gap Encoding）</strong>：
+   倒排表中的文档编号是严格递增的正整数序列（如高频词 <code>computer</code> 的文档号序列可能跨度很大）。我们不直接存储原始的绝对文档号（如每个 ID 占 20 bits 或 32 bits），而是存储<strong>相邻两个文档号之间的差值（Gaps）</strong>：</li>
+<li><strong>原始文档 ID 序列</strong>：<code>2, 15, 47, ..., 58879, 58890, ...</code></li>
+<li><strong>差值（Gap）序列</strong>：<code>2, 13, 32, ..., 11, ...</code>（其中 <span class="arithmatex">\(13 = 15 - 2, \ 32 = 47 - 15, \ 11 = 58890 - 58879\)</span>）
+   对于高频词，绝大多数相邻文档号的间距（Gap）都是极小的整数，配合<strong>变长字节编码</strong>（Variable-Byte encoding）或 <span class="arithmatex">\(\gamma\)</span> 编码，可以用远少于 20 bits 的位数表示每个间距；解码时只需从头累加差值即可还原全部文档 ID（为支持快速跳跃，可将倒排表分块并在块头记录绝对起始 ID）。</li>
+</ol>
+<h3 id="35-thresholding">3.5 阈值截断优化 (Thresholding)<a class="headerlink" href="#35-thresholding" title="Permanent link">&para;</a></h3>
+<p>为了在海量候选集中进一步提升响应速度并控制返回规模，在文档端和查询端均可设置阈值（Thresholding）：</p>
+<ol>
+<li><strong>文档端截断（Document Thresholding）</strong>：
+   根据相关性权重（Weight）对文档排序，<strong>仅检索并返回得分最高的前 <span class="arithmatex">\(x\)</span> 篇文档（Top-<span class="arithmatex">\(x\)</span> retrieval）</strong>。</li>
+<li><em>局限性</em>：① <strong>不适用于布尔查询</strong>（Not feasible for Boolean queries，因为布尔查询只有满足与不满足，无权重等级之分）；② 由于提前截断（Truncation），可能会漏掉排在 <span class="arithmatex">\(x\)</span> 名之后的部分相关文档。</li>
+<li><strong>查询词端截断（Query Thresholding）</strong>：
+   当用户输入的查询包含较多词项（如长句查询 <span class="arithmatex">\(T_1, T_2, \dots, T_{10}\)</span>）时，先将所有查询词按其<strong>文档频率 <span class="arithmatex">\(df\)</span> 从小到大升序排列</strong>（越靠前的词越稀有、信息量越大）。然后根据性能需求，<strong>仅截取前 <span class="arithmatex">\(p\%\)</span>（如前 <span class="arithmatex">\(20\%, 40\%, 80\%\)</span>）最稀有的查询词进行检索</strong>，忽略后面高频低区分度的词项。</li>
+</ol>
+<hr />
+<h2 id="4-search-engine-evaluation-metrics">4 搜索引擎性能评测与相关性指标 (Search Engine Evaluation Metrics)<a class="headerlink" href="#4-search-engine-evaluation-metrics" title="Permanent link">&para;</a></h2>
+<h3 id="41-vs">4.1 数据检索 vs. 信息检索<a class="headerlink" href="#41-vs" title="Permanent link">&para;</a></h3>
+<p>评价一个搜索引擎的表现，除了考察底层的工程指标——<strong>建索引速度</strong>（Number of documents/hour）、<strong>检索延迟</strong>（Search latency as a function of index size）以及<strong>查询语言的表达能力</strong>（Expressiveness of query language）外，最核心的问题是：<strong>如何衡量“用户满意度（User Happiness）”？</strong></p>
+<p>这里必须严格区分两个概念：</p>
+<ul>
+<li><strong>数据检索（Data Retrieval）</strong>：给定明确无误的布尔或正则条件，要求找出所有精确匹配的记录。在确保结果正确性的前提下，其性能完全由<strong>响应时间（Response time）</strong>和<strong>索引空间开销（Index space）</strong>决定。</li>
+<li><strong>信息检索（Information Retrieval, IR）</strong>：用户通过自然语言查询寻求解决某个信息需求。因此除了时间与空间外，最核心的评价标准是：<strong>返回的结果集与用户需求的“相关性（Relevance）”有多高？</strong></li>
+</ul>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
