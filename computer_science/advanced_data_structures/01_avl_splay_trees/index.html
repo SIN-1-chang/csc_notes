@@ -1,0 +1,2816 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/01_avl_splay_trees/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../mathematical_sciences/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>01 AVL树和Splay树,摊还分析 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-avl-trees-splay-trees-and-amortized-analysisavl" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 AVL树和Splay树,摊还分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../mathematical_sciences/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 AVL树和Splay树,摊还分析
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 AVL树和Splay树,摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-avl-balanced-bst-and-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 平衡二叉搜索树与 AVL 树 (Balanced BST and AVL Trees)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 平衡二叉搜索树与 AVL 树 (Balanced BST and AVL Trees)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 搜索树回顾与平衡化动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-avl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 AVL 树的定义与高度上界证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-avl-rotations-and-insertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 基本旋转与 AVL 树的插入操作 (Rotations and Insertion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-avl-deletion-in-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 AVL 树的删除操作 (Deletion in AVL Trees)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 摊还分析 (Amortized Analysis)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 摊还分析 (Amortized Analysis)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 摊还时间复杂度的定义与三大界对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三大摊还分析方法详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 三大摊还分析方法详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法一：聚合分析 (Aggregate Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法二：核算法 / 记账法 (Accounting Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法三：势能法 (Potential Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-splay-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 伸展树 (Splay Trees)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 伸展树 (Splay Trees)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-move-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 设计思想与朴素单旋（Move-to-Root）的失败反例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-splay-zig-zig-zag-zig-zig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Splay 树的展开旋转策略：Zig, Zig-Zag 与 Zig-Zig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-splay-find-insert-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Splay 树的三大基本操作 (Find, Insert, Delete)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-splay-olog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Splay 树摊还复杂度 \(O(\log N)\) 的严格势能法证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-1-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 1 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/general_physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-avl-balanced-bst-and-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 平衡二叉搜索树与 AVL 树 (Balanced BST and AVL Trees)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 平衡二叉搜索树与 AVL 树 (Balanced BST and AVL Trees)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 搜索树回顾与平衡化动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-avl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 AVL 树的定义与高度上界证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-avl-rotations-and-insertion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 基本旋转与 AVL 树的插入操作 (Rotations and Insertion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-avl-deletion-in-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 AVL 树的删除操作 (Deletion in AVL Trees)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 摊还分析 (Amortized Analysis)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 摊还分析 (Amortized Analysis)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 摊还时间复杂度的定义与三大界对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 三大摊还分析方法详解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 三大摊还分析方法详解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法一：聚合分析 (Aggregate Analysis)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法二：核算法 / 记账法 (Accounting Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法三：势能法 (Potential Method)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-splay-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 伸展树 (Splay Trees)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 伸展树 (Splay Trees)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-move-to-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 设计思想与朴素单旋（Move-to-Root）的失败反例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-splay-zig-zig-zag-zig-zig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Splay 树的展开旋转策略：Zig, Zig-Zag 与 Zig-Zig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-splay-find-insert-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Splay 树的三大基本操作 (Find, Insert, Delete)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-splay-olog-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Splay 树摊还复杂度 \(O(\log N)\) 的严格势能法证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-chapter-1-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Chapter 1 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机科学
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    高级数据结构
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-1-avl-trees-splay-trees-and-amortized-analysisavl">Chapter 1: AVL Trees, Splay Trees, and Amortized Analysis（AVL 树、伸展树与摊还分析）<a class="headerlink" href="#chapter-1-avl-trees-splay-trees-and-amortized-analysisavl" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Advanced Data Structures and Algorithm Analysis (ADS) | 第一章课堂、板书与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Course Slides Lecture 1: <em>AVL Trees, Splay Trees, and Amortized Analysis</em></li>
+<li>课堂手写板书 (<code>ADS26W1C.pdf</code>, <code>ADS26W2-3C.pdf</code>) &amp; 课程讲义 Lecture 1</li>
+<li>M. A. Weiss, <em>Data Structures and Algorithm Analysis in C</em> (2nd Ed.), Ch. 4 &amp; Ch. 11; <em>CLRS</em> (3rd Ed.), Ch. 17</li>
+</ul>
+</div>
+<h2 id="1-avl-balanced-bst-and-avl-trees">1 平衡二叉搜索树与 AVL 树 (Balanced BST and AVL Trees)<a class="headerlink" href="#1-avl-balanced-bst-and-avl-trees" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 搜索树回顾与平衡化动机<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>在普通<strong>二叉搜索树</strong>（Binary Search Tree, BST）中，任意节点 <span class="arithmatex">\(u\)</span> 满足左小右大的序性质（左子树所有键值 <span class="arithmatex">\(&lt; u.\text{key} &lt;\)</span> 右子树所有键值）。其查找（<code>Find</code>）、前驱/后继（<code>Pred</code>/<code>Succ</code>）、插入（<code>Insert</code>）和删除（<code>Delete</code>）的时间复杂度均为 <span class="arithmatex">\(O(h)\)</span>，其中 <span class="arithmatex">\(h\)</span> 为树的高度。</p>
+<ul>
+<li><strong>高度约定</strong>：本课程统一将<strong>树高 <span class="arithmatex">\(h\)</span></strong> 定义为从根到最深叶节点的<strong>边数</strong>（Number of edges），<strong>空树（Empty tree / <code>NULL</code>）的高度定义为 <span class="arithmatex">\(-1\)</span></strong>，单节点树的高度为 <span class="arithmatex">\(0\)</span>；节点的深度（Depth）定义为从根到该节点的边数。</li>
+<li><strong>退化问题</strong>：当输入序列有序或接近有序时（如依次插入 <span class="arithmatex">\(1, 2, \dots, N\)</span>），普通 BST 会退化为单侧链状的斜树（Skewed tree），树高恶化至 <span class="arithmatex">\(h = O(N)\)</span>，平均查找时间也随之退化为 <span class="arithmatex">\(O(N)\)</span>。</li>
+<li><strong>平衡二叉搜索树（BBST）的设计目标</strong>：在保持 BST 左小右大序性质的基础上，施加额外的<strong>结构平衡约束</strong>，强制保证树高始终满足 <span class="arithmatex">\(h = O(\log N)\)</span>，并在每次插入和删除后通过局部<strong>旋转</strong>（Rotations）在 <span class="arithmatex">\(O(\log N)\)</span> 时间内恢复平衡。</li>
+</ul>
+<h3 id="12-avl">1.2 AVL 树的定义与高度上界证明<a class="headerlink" href="#12-avl" title="Permanent link">&para;</a></h3>
+<p>1962 年，Adelson-Velskii 与 Landis 提出了历史上第一种平衡二叉搜索树——<strong>AVL 树</strong>。其核心思想是强制要求每个节点的左右子树高度差绝对值不超过 <span class="arithmatex">\(1\)</span>。</p>
+<p><strong>定义 1.1（高度平衡与平衡因子 Balance Factor）</strong>：
+空二叉树是高度平衡的。若非空二叉树 <span class="arithmatex">\(T\)</span> 的左、右子树分别为 <span class="arithmatex">\(T_L\)</span> 和 <span class="arithmatex">\(T_R\)</span>，则 <span class="arithmatex">\(T\)</span> 是高度平衡的（即为 <strong>AVL 树</strong>）当且仅当：</p>
+<ol>
+<li><span class="arithmatex">\(T_L\)</span> 和 <span class="arithmatex">\(T_R\)</span> 自身均是高度平衡的；</li>
+<li><span class="arithmatex">\(\vert{}h_L - h_R\vert{} \le 1\)</span>，其中 <span class="arithmatex">\(h_L, h_R\)</span> 分别为 <span class="arithmatex">\(T_L, T_R\)</span> 的高度。</li>
+</ol>
+<p>定义任意节点 <span class="arithmatex">\(v\)</span> 的<strong>平衡因子</strong>（Balance Factor）为左子树高度减去右子树高度：</p>
+<div class="arithmatex">\[\text{BF}(v) = h(v.\text{left}) - h(v.\text{right}) = h_L - h_R\]</div>
+<p>在合法的 AVL 树中，每个节点的平衡因子只能取三个值：<span class="arithmatex">\(\text{BF}(v) \in \{-1, 0, +1\}\)</span>。一旦某节点的 <span class="arithmatex">\(\vert{}\text{BF}(v)\vert{} \ge 2\)</span>，则该节点发生失衡，需要调整。</p>
+<p><strong>定理 1.1（AVL 树的高度上界）</strong>：含有 <span class="arithmatex">\(n \ge 1\)</span> 个节点的 AVL 树，其高度满足 <span class="arithmatex">\(h = O(\log n)\)</span>（精确上界约为 <span class="arithmatex">\(h \le 1.44\log_2(n+2) - 1.328\)</span>，或放缩上界 <span class="arithmatex">\(h \le 2\log_2(n+1) - 1\)</span>）。</p>
+<details>
+<summary>点击展开：AVL 树高度上界的严格证明（最小节点数递推与斐波那契数列法）</summary>
+<p><strong>证明思路（逆向极值法）</strong>：直接讨论固定节点数 <span class="arithmatex">\(n\)</span> 下的最大高度较为困难，我们反过来考虑：<strong>给定高度为 <span class="arithmatex">\(h\)</span> 的 AVL 树，最少需要多少个节点？</strong> 记这一最小节点数为 <span class="arithmatex">\(n_h\)</span>（板书记为 <span class="arithmatex">\(\vert{}T_h\vert{}\)</span>，讲义记为 <span class="arithmatex">\(N(h)\)</span>）。</p>
+<ol>
+<li><strong>建立递推关系</strong>：
+   要使高度为 <span class="arithmatex">\(h\)</span> 的 AVL 树节点数最少，其根节点的左、右子树中必须有一棵高度为 <span class="arithmatex">\(h - 1\)</span>，而另一棵为了满足平衡条件 <span class="arithmatex">\(\vert{}h_L - h_R\vert{} \le 1\)</span> 且节点数尽可能少，高度必须取 <span class="arithmatex">\(h - 2\)</span>。同时这两棵子树也应当是各自高度下节点数最少的 AVL 树。因此得递推方程：
+   $<span class="arithmatex">\(n_{-1} = 0, \qquad n_0 = 1, \qquad n_1 = 2, \qquad n_h = n_{h-1} + n_{h-2} + 1 \quad (h \ge 1)\)</span>$</li>
+<li><strong>方法一：利用斐波那契数列（Fibonacci Numbers，课程组 PPT 与板书证法）</strong>：
+   回顾斐波那契数列定义：<span class="arithmatex">\(F_0 = 0, \ F_1 = 1, \ F_2 = 1, \ F_3 = 2, \ F_i = F_{i-1} + F_{i-2} \ (i &gt; 1)\)</span>。
+   对比递推式可知，令 <span class="arithmatex">\(M(h) = n_h + 1\)</span>，则 <span class="arithmatex">\(M(h) = M(h-1) + M(h-2)\)</span>，且 <span class="arithmatex">\(M(-1) = 1 = F_1, \ M(0) = 2 = F_2\)</span>。由归纳法立得：
+   $<span class="arithmatex">\(n_h = F_{h+2} - 1 \qquad (h \ge 0)\)</span>$
+   由斐波那契数列通项公式 <span class="arithmatex">\(F_i \approx \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^i = \frac{\varphi^i}{\sqrt{5}}\)</span>（其中黄金分割率 <span class="arithmatex">\(\varphi = \frac{1+\sqrt{5}}{2} \approx 1.618\)</span>），对于含 <span class="arithmatex">\(n\)</span> 个节点、高度为 <span class="arithmatex">\(h\)</span> 的 AVL 树，必有：
+   $<span class="arithmatex">\(n \ge n_h \approx \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^{h+2} - 1 \implies h \le \log_{\varphi}\big(\sqrt{5}(n + 1)\big) - 2 \approx 1.44\log_2(n + 1) = O(\log n)\)</span>$</li>
+<li><strong>方法二：初等奇偶步放缩法（讲义证法，无需斐波那契通项）</strong>：
+   对 <span class="arithmatex">\(M(h) = n_h + 1\)</span>，利用 <span class="arithmatex">\(M(h-1) &gt; M(h-2)\)</span> 可得每降两阶至少减半：
+   $<span class="arithmatex">\(M(h) = M(h-1) + M(h-2) \ge 2M(h-2)\)</span>$
+   結合初值 <span class="arithmatex">\(M(-1) = 1 = 2^0, \ M(0) = 2 = 2^{1/2}\cdot\sqrt{2} \ge 2^{1/2}\)</span> 归纳可得 <span class="arithmatex">\(M(h) \ge 2^{(h+1)/2}\)</span>。因此：
+   $<span class="arithmatex">\(n + 1 \ge n_h + 1 = M(h) \ge 2^{(h+1)/2} \implies \frac{h + 1}{2} \le \log_2(n + 1) \implies h \le 2\log_2(n + 1) - 1 = O(\log n)\)</span>$</li>
+</ol>
+</details>
+<h3 id="13-avl-rotations-and-insertion">1.3 基本旋转与 AVL 树的插入操作 (Rotations and Insertion)<a class="headerlink" href="#13-avl-rotations-and-insertion" title="Permanent link">&para;</a></h3>
+<p>当向 AVL 树中按普通 BST 规则插入一个新节点后，只有<strong>从新插入节点到根节点的路径上的祖先节点</strong>的子树高度可能增加 <span class="arithmatex">\(1\)</span>，因此失衡节点只可能出现在这条路径上。</p>
+<ul>
+<li><strong>Trouble Maker（肇事节点）</strong>：新插入的那个叶节点。</li>
+<li><strong>Trouble Finder（发现失衡节点）</strong>：从新插入节点向上回溯时，遇到的<strong>第一个（最深的一个）</strong>平衡因子绝对值变为 <span class="arithmatex">\(2\)</span>（<span class="arithmatex">\(\vert{}\text{BF}(z)\vert{} = 2\)</span>）的祖先节点 <span class="arithmatex">\(z\)</span>（PPT 中记为 <span class="arithmatex">\(A\)</span>）。</li>
+</ul>
+<p>设最深失衡节点为 <span class="arithmatex">\(z\)</span>，从 <span class="arithmatex">\(z\)</span> 沿着通往新插入节点的路径往下走两步，共有 <strong>LL、RR、LR、RL</strong> 四种位置关系，分别通过<strong>单旋转</strong>（Single Rotation，1 次基本旋转）或<strong>双旋转</strong>（Double Rotation，2 次基本旋转）在 <span class="arithmatex">\(O(1)\)</span> 时间内完成局部重构：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">失衡类型</th>
+<th style="text-align: left;">几何特征（Trouble Maker 位置）</th>
+<th style="text-align: left;">失衡节点与孩子状态</th>
+<th style="text-align: left;">恢复平衡的旋转策略</th>
+<th style="text-align: center;">旋转次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>LL 型</strong></td>
+<td style="text-align: left;">位于 <span class="arithmatex">\(z\)</span> 的<strong>左</strong>孩子的<strong>左</strong>子树中</td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = +2, \ \text{BF}(z.\text{left}) = +1\)</span></td>
+<td style="text-align: left;">对 <span class="arithmatex">\(z\)</span> 执行一次<strong>右单旋</strong>（Right Rotation）</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RR 型</strong></td>
+<td style="text-align: left;">位于 <span class="arithmatex">\(z\)</span> 的<strong>右</strong>孩子的<strong>右</strong>子树中</td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = -2, \ \text{BF}(z.\text{right}) = -1\)</span></td>
+<td style="text-align: left;">对 <span class="arithmatex">\(z\)</span> 执行一次<strong>左单旋</strong>（Left Rotation）</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LR 型</strong></td>
+<td style="text-align: left;">位于 <span class="arithmatex">\(z\)</span> 的<strong>左</strong>孩子的<strong>右</strong>子树中</td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = +2, \ \text{BF}(z.\text{left}) = -1\)</span></td>
+<td style="text-align: left;"><strong>LR 双旋</strong>：先对左孩子 <span class="arithmatex">\(y\)</span> <strong>左旋</strong>（化为 LL），再对 <span class="arithmatex">\(z\)</span> <strong>右旋</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RL 型</strong></td>
+<td style="text-align: left;">位于 <span class="arithmatex">\(z\)</span> 的<strong>右</strong>孩子的<strong>左</strong>子树中</td>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = -2, \ \text{BF}(z.\text{right}) = +1\)</span></td>
+<td style="text-align: left;"><strong>RL 双旋</strong>：先对右孩子 <span class="arithmatex">\(y\)</span> <strong>右旋</strong>（化为 RR），再对 <span class="arithmatex">\(z\)</span> <strong>左旋</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>1. 单旋转（Single Rotation：LL 右旋与 RR 左旋）</strong></p>
+<p>以 LL 型失衡为例：设失衡节点为 <span class="arithmatex">\(z\)</span>（左孩子为 <span class="arithmatex">\(y\)</span>，右子树为 <span class="arithmatex">\(C\)</span>，高度 <span class="arithmatex">\(h-1\)</span>），新节点插入在 <span class="arithmatex">\(y\)</span> 的左子树 <span class="arithmatex">\(A\)</span> 中（使 <span class="arithmatex">\(A\)</span> 的高度变为 <span class="arithmatex">\(h\)</span>，而 <span class="arithmatex">\(y\)</span> 的右子树 <span class="arithmatex">\(B\)</span> 高度为 <span class="arithmatex">\(h-1\)</span>）。
+执行<strong>右旋（Right Rotate <span class="arithmatex">\(z\)</span>）</strong>：将 <span class="arithmatex">\(y\)</span> 提升为新的子树根，令 <span class="arithmatex">\(z\)</span> 成为 <span class="arithmatex">\(y\)</span> 的右孩子，并将 <span class="arithmatex">\(y\)</span> 原来的右子树 <span class="arithmatex">\(B\)</span> 过继给 <span class="arithmatex">\(z\)</span> 作为左孩子：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        z (BF=+2)                     y (BF=0)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       / \                           / \
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      y   C (h-1)   --RightRotate-&gt; A   z (BF=0)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>     / \               (LL Case)   (h) / \
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>(h) A   B (h-1)                       B   C
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                    (h-1)(h-1)
+</code></pre></div>
+<ul>
+<li><strong>BST 序性质保持</strong>：旋转前后中序遍历序列恒为 <span class="arithmatex">\(A &lt; y &lt; B &lt; z &lt; C\)</span>；</li>
+<li><strong>高度恢复</strong>：旋转前（未插入前）以 <span class="arithmatex">\(z\)</span> 为根的子树高度为 <span class="arithmatex">\(h + 1\)</span>；插入后瞬间变为 <span class="arithmatex">\(h + 2\)</span>（导致失衡）；<strong>右旋完成后，以新根 <span class="arithmatex">\(y\)</span> 为根的子树高度重新降回 <span class="arithmatex">\(h + 1\)</span></strong>！RR 型左旋（Left Rotate）与之完全镜像对称。</li>
+</ul>
+<p><strong>2. 双旋转（Double Rotation：LR 旋转与 RL 旋转）</strong></p>
+<p>以 LR 型失衡为例：新节点插入在 <span class="arithmatex">\(z\)</span>（PPT 记为 <span class="arithmatex">\(A\)</span>）的左孩子 <span class="arithmatex">\(y\)</span>（PPT 记为 <span class="arithmatex">\(B\)</span>）的右子树中。若直接对 <span class="arithmatex">\(z\)</span> 右旋，过高的内部子树会从 <span class="arithmatex">\(y\)</span> 的右侧转移到 <span class="arithmatex">\(z\)</span> 的左侧，旋转后树高依然为 <span class="arithmatex">\(h+2\)</span> 且根的平衡因子变为 <span class="arithmatex">\(-2\)</span>，无法消除失衡！
+因此必须将 <span class="arithmatex">\(y\)</span> 的右孩子 <span class="arithmatex">\(x\)</span>（PPT 记为 <span class="arithmatex">\(C\)</span>，其左右子树为 <span class="arithmatex">\(B, C\)</span>）展开，分两步把处于中间键值的孙节点 <span class="arithmatex">\(x\)</span> 提升到局部子树的根：</p>
+<ol>
+<li><strong>第一步</strong>：对左孩子 <span class="arithmatex">\(y\)</span> 执行一次<strong>左旋</strong>（Left Rotate <span class="arithmatex">\(y\)</span>），使 <span class="arithmatex">\(x\)</span> 接替 <span class="arithmatex">\(y\)</span> 成为 <span class="arithmatex">\(z\)</span> 的左孩子，将问题转化为标准的 LL 型；</li>
+<li><strong>第二步</strong>：对失衡根 <span class="arithmatex">\(z\)</span> 执行一次<strong>右旋</strong>（Right Rotate <span class="arithmatex">\(z\)</span>），使 <span class="arithmatex">\(x\)</span> 成为整个局部子树的新根，<span class="arithmatex">\(y\)</span> 和 <span class="arithmatex">\(z\)</span> 分别成为 <span class="arithmatex">\(x\)</span> 的左、右孩子，四棵外围子树 <span class="arithmatex">\(A, B, C, D\)</span> 按中序顺序自然挂载在 <span class="arithmatex">\(y\)</span> 和 <span class="arithmatex">\(z\)</span> 下方：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>         z (+2)                  z (+2)                    x (0)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        / \                     / \                      /   \
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>       y   D    --LeftRotate-&gt; x   D    --RightRotate-&gt; y     z
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      / \          (on y)     / \          (on z)      / \   / \
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>     A   x                   y   C                    A   B C   D
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        / \                 / \
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>       B   C               A   B
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">核心考点：为什么 AVL 树插入最多只需修复最低失衡节点（<span class="arithmatex">\(\le 2\)</span> 次旋转）？</p>
+<p>在插入操作中，虽然新节点的插入可能同时导致祖先链上多个节点的 <span class="arithmatex">\(\vert{}\text{BF}\vert{}\)</span> 变为 <span class="arithmatex">\(2\)</span>，但一旦我们在<strong>最深（最靠近新节点）的失衡节点 <span class="arithmatex">\(z\)</span></strong> 处执行了一次单旋（LL/RR）或双旋（LR/RL），<strong>以新根为根的局部子树高度恰好恢复到了本次插入之前的原始高度</strong>！
+因此，<span class="arithmatex">\(z\)</span> 之上的所有更高层祖先节点所看到的子树高度没有任何变化，它们的平衡因子也自动恢复到了插入前的合法状态，无需继续向上旋转！故<strong>单次 AVL 插入最多只需 1 次局部调整（至多 2 次基本旋转）</strong>。（但注意：即使某次插入不需要任何旋转，从插入点到第一个 <span class="arithmatex">\(\text{BF}\)</span> 变为 <span class="arithmatex">\(0\)</span> 的祖先之间的若干个节点的 <span class="arithmatex">\(\text{BF}\)</span> 值仍可能发生改变）。</p>
+</div>
+<details>
+<summary>点击展开：AVL 树旋转与插入的标准伪代码实现（维护 Height 字段）</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* 节点包含 key, left, right, height; 约定空节点 NULL 的高度 h(NULL) = -1 */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UpdateHeight</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="n">v</span><span class="o">-&gt;</span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Max</span><span class="p">(</span><span class="n">Height</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">),</span><span class="w"> </span><span class="n">Height</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">));</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">GetBF</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">Height</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Height</span><span class="p">(</span><span class="n">v</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">));</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="cm">/* LL 型修复：对失衡节点 z 执行右单旋，返回新根 y */</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">AvlTree</span><span class="w"> </span><span class="nf">RightRotate</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">AvlTree</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="n">y</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="n">UpdateHeight</span><span class="p">(</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 必须先更新降到下层的 z，再更新新根 y */</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="n">UpdateHeight</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="cm">/* RR 型修复：对失衡节点 z 执行左单旋，返回新根 y */</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="n">AvlTree</span><span class="w"> </span><span class="nf">LeftRotate</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="n">AvlTree</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">;</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="n">y</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="n">UpdateHeight</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="n">UpdateHeight</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="cm">/* 恢复节点 z 处的局部平衡 */</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="n">AvlTree</span><span class="w"> </span><span class="nf">Balance</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="n">UpdateHeight</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetBF</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">              </span><span class="cm">/* 左子树过高 (LL 或 LR) */</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetBF</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">       </span><span class="cm">/* LR 型：先对左孩子左旋 */</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">            </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LeftRotate</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">RightRotate</span><span class="p">(</span><span class="n">z</span><span class="p">);</span><span class="w">        </span><span class="cm">/* 再对 z 右旋 */</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetBF</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="cm">/* 右子树过高 (RR 或 RL) */</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetBF</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">      </span><span class="cm">/* RL 型：先对右孩子右旋 */</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">            </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RightRotate</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">LeftRotate</span><span class="p">(</span><span class="n">z</span><span class="p">);</span><span class="w">         </span><span class="cm">/* 再对 z 左旋 */</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="p">}</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="cm">/* AVL 树递归插入 */</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="n">AvlTree</span><span class="w"> </span><span class="nf">AvlInsert</span><span class="p">(</span><span class="n">AvlTree</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">z</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">NewNode</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">        </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AvlInsert</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">        </span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AvlInsert</span><span class="p">(</span><span class="n">z</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 键值已存在，不重复插入 */</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Balance</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<h3 id="14-avl-deletion-in-avl-trees">1.4 AVL 树的删除操作 (Deletion in AVL Trees)<a class="headerlink" href="#14-avl-deletion-in-avl-trees" title="Permanent link">&para;</a></h3>
+<p>AVL 树的删除（老师板书 <code>W1C</code> 重点讲解内容）分为两步：</p>
+<ol>
+<li><strong>按普通 BST 规则执行删除</strong>：</li>
+<li><strong>Case 1（叶节点）</strong>：直接删除；</li>
+<li><strong>Case 2（仅有一个孩子）</strong>：用唯一孩子替代被删节点；</li>
+<li><strong>Case 3（有两个孩子）</strong>：找到其左子树的最大节点（前驱）或右子树的最小节点（后继），用其键值替换被删节点的键值，转化为删除那个最多只有一个孩子的替换节点。</li>
+<li><strong>自底向上回溯恢复平衡（最多 <span class="arithmatex">\(O(\log n)\)</span> 次旋转）</strong>：
+   从实际被移除节点的父节点开始，沿着到根的路径向上逐层更新高度并检查平衡因子。若某祖先节点 <span class="arithmatex">\(z\)</span> 发生失衡（<span class="arithmatex">\(\vert{}\text{BF}(z)\vert{} = 2\)</span>，是因为较矮一侧的子树因删除而高度减 <span class="arithmatex">\(1\)</span>），记 <span class="arithmatex">\(z\)</span> <strong>较高一侧的孩子为 <span class="arithmatex">\(p\)</span></strong>，根据 <span class="arithmatex">\(\text{BF}(z)\)</span> 与 <span class="arithmatex">\(\text{BF}(p)\)</span> 的符号执行旋转：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">失衡节点 <span class="arithmatex">\(z\)</span> 的状态</th>
+<th style="text-align: left;">较高孩子 <span class="arithmatex">\(p\)</span> 的位置与平衡因子</th>
+<th style="text-align: left;">旋转修复方式</th>
+<th style="text-align: left;">修复后局部子树高度是否可能减 <span class="arithmatex">\(1\)</span>？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = +2\)</span>（左高右低）</td>
+<td style="text-align: left;"><span class="arithmatex">\(p = z.\text{left}\)</span>，且 <span class="arithmatex">\(\text{BF}(p) \ge 0\)</span>（含 <span class="arithmatex">\(\text{BF}(p) = 0\)</span>！）</td>
+<td style="text-align: left;">对 <span class="arithmatex">\(z\)</span> <strong>右单旋</strong>（LL 型）</td>
+<td style="text-align: left;">当 <span class="arithmatex">\(\text{BF}(p) = 0\)</span> 时高度不变（终止传播）；<br>当 <span class="arithmatex">\(\text{BF}(p) = +1\)</span> 时高度<strong>减 <span class="arithmatex">\(1\)</span></strong>（继续向上检查）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = +2\)</span>（左高右低）</td>
+<td style="text-align: left;"><span class="arithmatex">\(p = z.\text{left}\)</span>，且 <span class="arithmatex">\(\text{BF}(p) = -1\)</span></td>
+<td style="text-align: left;">先对 <span class="arithmatex">\(p\)</span> <strong>左旋</strong>，再对 <span class="arithmatex">\(z\)</span> <strong>右旋</strong>（LR 双旋）</td>
+<td style="text-align: left;">高度<strong>必定减 <span class="arithmatex">\(1\)</span></strong>（需继续向上检查父节点）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = -2\)</span>（右高左低）</td>
+<td style="text-align: left;"><span class="arithmatex">\(p = z.\text{right}\)</span>，且 <span class="arithmatex">\(\text{BF}(p) \le 0\)</span>（含 <span class="arithmatex">\(\text{BF}(p) = 0\)</span>！）</td>
+<td style="text-align: left;">对 <span class="arithmatex">\(z\)</span> <strong>左单旋</strong>（RR 型）</td>
+<td style="text-align: left;">当 <span class="arithmatex">\(\text{BF}(p) = 0\)</span> 时高度不变；<br>当 <span class="arithmatex">\(\text{BF}(p) = -1\)</span> 时高度<strong>减 <span class="arithmatex">\(1\)</span></strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\text{BF}(z) = -2\)</span>（右高左低）</td>
+<td style="text-align: left;"><span class="arithmatex">\(p = z.\text{right}\)</span>，且 <span class="arithmatex">\(\text{BF}(p) = +1\)</span></td>
+<td style="text-align: left;">先对 <span class="arithmatex">\(p\)</span> <strong>右旋</strong>，再对 <span class="arithmatex">\(z\)</span> <strong>左旋</strong>（RL 双旋）</td>
+<td style="text-align: left;">高度<strong>必定减 <span class="arithmatex">\(1\)</span></strong>（需继续向上检查父节点）</td>
+</tr>
+</tbody>
+</table>
+<p><em>注：与插入不同，删除引发的旋转可能会使当前修复子树的高度比删除前<strong>减小 <span class="arithmatex">\(1\)</span></strong>，从而导致更高层的祖先节点接连失衡（见习题 1.3），因此<strong>单次 AVL 删除在最坏情况下可能需要沿着到根的路径执行 <span class="arithmatex">\(O(\log n)\)</span> 次旋转</strong>！</em></p>
+<hr />
+<h2 id="2-amortized-analysis">2 摊还分析 (Amortized Analysis)<a class="headerlink" href="#2-amortized-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 摊还时间复杂度的定义与三大界对比<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>在许多数据结构（如伸展树 Splay Tree、斜堆 Skew Heap、动态数组等）中，单次操作在极端最坏情况下可能耗时较长（如 <span class="arithmatex">\(O(N)\)</span>），但这种昂贵操作在执行的同时会改善数据结构内部的状态（使树变得更平衡或完成扩容），从而使后续一系列操作变得非常廉价。</p>
+<p><strong>定义 2.1（摊还时间复杂度 Amortized Time Complexity）</strong>：
+设数据结构从初始状态 <span class="arithmatex">\(D_0\)</span>（通常约定为空结构）出发，连续执行任意合法的 <span class="arithmatex">\(M \ge 1\)</span> 次操作，第 <span class="arithmatex">\(i\)</span> 次操作的实际耗时（Actual cost）为 <span class="arithmatex">\(c_i\)</span>，且全过程中结构规模不超过 <span class="arithmatex">\(N\)</span>。若存在常数 <span class="arithmatex">\(C &gt; 0\)</span>，使得对任意操作序列均有：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^M c_i \le C \cdot M \cdot f(N) \iff \frac{1}{M}\sum_{i=1}^M c_i \le C \cdot f(N)
+\]</div>
+<p>则称单次操作的<strong>摊还时间复杂度</strong>（Amortized time cost）为 <span class="arithmatex">\(T_{\text{amortized}} = O(f(N))\)</span>。</p>
+<p>三种复杂度分析范式的严格大小关系与本质区别如下：</p>
+<div class="arithmatex">\[
+\text{Worst-case bound（最坏情况界）} \ge \text{Amortized bound（摊还界）} \ge \text{Average-case bound（平均情况界）}
+\]</div>
+<ul>
+<li><strong>与平均情况分析（Average-case analysis）的区别</strong>：平均情况分析依赖于对输入或操作分布的<strong>概率假设</strong>（Probability is involved），可能存在某条恶意的连续操作序列使每次操作都很慢；而<strong>摊还分析完全不涉及任何概率假设（Probability is NOT involved）</strong>，它给出的是<strong>最坏情况下的任意连续 <span class="arithmatex">\(M\)</span> 次操作序列</strong>的平均每次操作确定性上界！</li>
+<li><strong>非空初态 <span class="arithmatex">\(D_0\)</span> 的影响</strong>：若初始状态 <span class="arithmatex">\(D_0\)</span> 非空（含 <span class="arithmatex">\(n_0\)</span> 个元素），总时间上界通常具有形式 <span class="arithmatex">\(\sum_{i=1}^M c_i \le C M f(N) + \Phi(D_0)\)</span>，只有当操作次数 <span class="arithmatex">\(M\)</span> 足够大时，初态项 <span class="arithmatex">\(\Phi(D_0)/M\)</span> 才被分摊忽略。</li>
+</ul>
+<h3 id="22">2.2 三大摊还分析方法详解<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h4 id="aggregate-analysis">方法一：聚合分析 (Aggregate Analysis)<a class="headerlink" href="#aggregate-analysis" title="Permanent link">&para;</a></h4>
+<p>直接对任意长度为 <span class="arithmatex">\(n\)</span>（或 <span class="arithmatex">\(m\)</span>）的操作序列，从全局不变量出发估算<strong>整个序列的总最坏实际时间 <span class="arithmatex">\(T(n)\)</span></strong>，然后将总时间除以操作次数得到每种操作统一的摊还代价：</p>
+<div class="arithmatex">\[
+T_{\text{amortized}} = \frac{T(n)}{n}
+\]</div>
+<p><strong>经典案例 1：包含 <code>MultiPop</code> 的栈（Stack with MultiPop）</strong>
+栈 <span class="arithmatex">\(S\)</span> 支持三种操作：<code>Push(S, x)</code>（实际代价 <span class="arithmatex">\(1\)</span>）、<code>Pop(S)</code>（实际代价 <span class="arithmatex">\(1\)</span>）以及批量弹出栈顶至多 <span class="arithmatex">\(k\)</span> 个元素的 <code>MultiPop(k, S)</code>（实际代价为 <span class="arithmatex">\(\min(\text{sizeof}(S), k)\)</span>）。</p>
+<ul>
+<li><strong>粗略最坏界</strong>：单次 <code>MultiPop</code> 最坏耗时 <span class="arithmatex">\(O(n)\)</span>，故 <span class="arithmatex">\(n\)</span> 次操作的最坏界看似为 <span class="arithmatex">\(O(n^2)\)</span>。</li>
+<li><strong>聚合分析</strong>：从空栈出发的 <span class="arithmatex">\(n\)</span> 次操作中，设共有 <span class="arithmatex">\(p \le n\)</span> 次 <code>Push</code>。由于<strong>每个元素只有先入栈才能被出栈，且至多被弹出一次</strong>，所有 <code>Pop</code> 和 <code>MultiPop</code> 弹出的元素总数不可能超过总入栈次数 <span class="arithmatex">\(p\)</span>！因此总实际代价满足：
+  $$
+  T(n) = \sum_{i=1}^n c_i \le p + p \le 2n = O(n) \implies T_{\text{amortized}} = \frac{O(n)}{n} = O(1)
+  $$</li>
+</ul>
+<h4 id="accounting-method">方法二：核算法 / 记账法 (Accounting Method)<a class="headerlink" href="#accounting-method" title="Permanent link">&para;</a></h4>
+<p>为每种不同操作人为设定一个<strong>摊还代价</strong>（Amortized cost / 收费标准）<span class="arithmatex">\(\hat{c}_i\)</span>：</p>
+<ul>
+<li>当某次廉价操作的 <span class="arithmatex">\(\hat{c}_i &gt; c_i\)</span> 时，我们将多收的差额 <span class="arithmatex">\(\hat{c}_i - c_i &gt; 0\)</span> 作为<strong>信用存款</strong>（Credit / Savings）绑定存储在数据结构的特定元素上；</li>
+<li>当后续遇到昂贵操作（<span class="arithmatex">\(\hat{c}_i &lt; c_i\)</span>）时，直接动用之前积攒在相关元素上的信用存款来支付差额 <span class="arithmatex">\(c_i - \hat{c}_i\)</span>。</li>
+<li><strong>合法性铁律</strong>：银行账户余额绝不能透支为负！即对于任意长度 <span class="arithmatex">\(n\)</span> 的操作序列，<strong>总摊还收费必须始终大于等于总实际开销</strong>：
+  $$
+  \sum_{i=1}^n \hat{c}<em i="1">i \ge \sum</em>_i - c_i) \ge 0 \quad (\forall n)
+  $$}^n c_i \iff \text{Total Credit} = \sum_{i=1}^n (\hat{c</li>
+</ul>
+<p><strong>经典案例 2：用核算法分析 <code>MultiPop</code> 栈与支持缩容的动态数组（老师板书 <code>W2-3C</code> 重点）</strong></p>
+<ol>
+<li><strong><code>MultiPop</code> 栈的账本设计</strong>：</li>
+<li><code>Push</code>：实际代价 <span class="arithmatex">\(c_i = 1\)</span>，规定收费 <strong><span class="arithmatex">\(\hat{c}_i = 2\)</span></strong>（其中 <span class="arithmatex">\(1\)</span> 单位支付本次入栈，剩下 <span class="arithmatex">\(+1\)</span> 单位作为 Credit 存在该入栈元素上）；</li>
+<li><code>Pop</code> 与 <code>MultiPop</code>：实际代价分别为 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(k' = \min(|S|, k)\)</span>，规定收费均为 <strong><span class="arithmatex">\(\hat{c}_i = 0\)</span></strong>（弹出任何元素时，直接消耗该元素入栈时自带的 <span class="arithmatex">\(1\)</span> 单位 Credit）。由于栈中每个在册元素都带有 <span class="arithmatex">\(1\)</span> 单位存款，总存款恒等于 <span class="arithmatex">\(|S| \ge 0\)</span>，永不透支，故 <span class="arithmatex">\(T_{\text{amortized}} = O(1)\)</span>。</li>
+<li><strong>动态数组的扩容与缩容（Dynamic Array with Insertion &amp; Deletion，老师板书精讲）</strong>：
+   设每次写入或搬移一个元素的成本为 <span class="arithmatex">\(c\)</span>（设初始容量为 <span class="arithmatex">\(1\)</span>）：</li>
+<li><strong>仅支持插入（满时倍增扩容 <span class="arithmatex">\(n \to 2n\)</span>）</strong>：每次插入除支付自身写入成本 <span class="arithmatex">\(c\)</span> 外，额外预存 <strong><span class="arithmatex">\(2c\)</span></strong> 的信用（故摊还代价为 <span class="arithmatex">\(3c = O(1)\)</span>）。为什么存 <span class="arithmatex">\(2c\)</span> 够用？因为从上一次刚扩容完（容量为 <span class="arithmatex">\(n\)</span>，已有 <span class="arithmatex">\(n/2\)</span> 个旧元素）到下一次满容触发扩容（达到 <span class="arithmatex">\(n\)</span> 个元素），中间恰好新插入了 <span class="arithmatex">\(n/2\)</span> 个元素；每个新元素存下 <span class="arithmatex">\(2c\)</span>（<span class="arithmatex">\(1c\)</span> 给自己，另外 <span class="arithmatex">\(1c\)</span> 帮扶一个旧元素），合计攒下 <span class="arithmatex">\(\frac{n}{2} \times 2c = nc\)</span> 的信用，恰好够支付把全部 <span class="arithmatex">\(n\)</span> 个元素搬移到 <span class="arithmatex">\(2n\)</span> 新数组所需的 <span class="arithmatex">\(nc\)</span> 成本！</li>
+<li><strong>同时支持插入与删除（满时倍增 <span class="arithmatex">\(n \to 2n\)</span>，何时缩容？）</strong>：
+     如果一旦元素个数降到半满（<span class="arithmatex">\(n/2\)</span>）就立刻减半缩容，那么在半满边界处交替执行 <code>ins, del, ins, del...</code> 会导致每次操作都触发全表搬移，单次摊还代价退化为 <span class="arithmatex">\(\Theta(n)\)</span>！
+     <strong>正确策略（板书 <code>W2-3C</code> Page 11）</strong>：<strong>满时（<span class="arithmatex">\(n\)</span>）扩为 <span class="arithmatex">\(2n\)</span>；仅当元素个数降至容量的 <span class="arithmatex">\(\dfrac{1}{4}\)</span>（即 <span class="arithmatex">\(n/4\)</span>）时，才将容量减半缩容为 <span class="arithmatex">\(n/2\)</span></strong>！
+     这样无论是刚扩容完还是刚缩容完，数组都恰好处于<strong>半满（<span class="arithmatex">\(1/2\)</span> 满）</strong>状态。为 <code>ins</code> 设定摊还代价 <span class="arithmatex">\(3c\)</span>（多存 <span class="arithmatex">\(2c\)</span>），为 <code>del</code> 设定摊还代价 <span class="arithmatex">\(2c\)</span>（多存 <span class="arithmatex">\(1c\)</span>）：从半满状态（<span class="arithmatex">\(n/2\)</span> 个元素）至少需要再删除 <span class="arithmatex">\(n/4\)</span> 个元素才会降到 <span class="arithmatex">\(n/4\)</span> 触发缩容，这 <span class="arithmatex">\(n/4\)</span> 次删除每次存下 <span class="arithmatex">\(1c\)</span>，恰好攒够 <span class="arithmatex">\(\frac{n}{4}c\)</span> 来支付将剩余 <span class="arithmatex">\(n/4\)</span> 个元素搬移到新数组的全部开销！</li>
+</ol>
+<h4 id="potential-method">方法三：势能法 (Potential Method)<a class="headerlink" href="#potential-method" title="Permanent link">&para;</a></h4>
+<p>不将信用零散地绑定在具体元素上，而是将整个数据结构的宏观状态 <span class="arithmatex">\(D_i\)</span> 映射为一个实数——<strong>势能函数</strong>（Potential Function）<span class="arithmatex">\(\Phi(D_i)\)</span>（物理类比：把信用总额看作整个系统的重力势能）。定义第 <span class="arithmatex">\(i\)</span> 步操作的<strong>摊还代价</strong> <span class="arithmatex">\(\hat{c}_i\)</span> 为实际代价加上势能的变化量：</p>
+<div class="arithmatex">\[
+\hat{c}_i = c_i + \Delta\Phi_i = c_i + \Phi(D_i) - \Phi(D_{i-1})
+\]</div>
+<p>对连续 <span class="arithmatex">\(n\)</span> 次操作求和，中间势能项首尾相接（望远镜求和 Telescoping sum）全部抵消：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^n \hat{c}_i = \sum_{i=1}^n \big(c_i + \Phi(D_i) - \Phi(D_{i-1})\big) = \left(\sum_{i=1}^n c_i\right) + \Phi(D_n) - \Phi(D_0)
+\]</div>
+<p>只要所设计的势能函数满足 <strong><span class="arithmatex">\(\Phi(D_n) \ge \Phi(D_0)\)</span></strong> 对所有可能的状态 <span class="arithmatex">\(D_n\)</span> 恒成立（最通用的做法是令初始空状态 <span class="arithmatex">\(\Phi(D_0) = 0\)</span>，且对任意状态 <span class="arithmatex">\(\Phi(D_i) \ge 0\)</span>，即势能函数在序列起点处取得全局最小值），就恒有 <span class="arithmatex">\(\sum_{i=1}^n c_i \le \sum_{i=1}^n \hat{c}_i\)</span>！</p>
+<div class="admonition tip">
+<p class="admonition-title">势能函数 <span class="arithmatex">\(\Phi(D)\)</span> 的构造秘诀与四大经典模型对比</p>
+<p><strong>构造原则</strong>：找出哪种操作的实际成本 <span class="arithmatex">\(c_i\)</span> 极高（Trouble-maker），观察该操作使数据结构的哪个统计量发生了大幅减少，就将该统计量（配以适当的倍数系数）定义为势能函数 <span class="arithmatex">\(\Phi(D)\)</span>，从而使昂贵操作发生时 <span class="arithmatex">\(\Delta\Phi = \Phi(D_i) - \Phi(D_{i-1}) \ll 0\)</span>，精确抵消 <span class="arithmatex">\(c_i\)</span> 中的非常数项！</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">经典问题模型</th>
+<th style="text-align: left;">昂贵操作与实际代价 <span class="arithmatex">\(c_i\)</span></th>
+<th style="text-align: left;">势能函数 <span class="arithmatex">\(\Phi(D_i)\)</span> 构造</th>
+<th style="text-align: left;">各操作的势能变化 <span class="arithmatex">\(\Delta\Phi\)</span> 与摊还代价 <span class="arithmatex">\(\hat{c}_i = c_i + \Delta\Phi\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. <code>MultiPop</code> 栈</strong></td>
+<td style="text-align: left;"><code>MultiPop</code> 弹出 <span class="arithmatex">\(k'\)</span> 个元素：<span class="arithmatex">\(c_i = k'\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Phi(S) = \vert{}S\vert{}\)</span>（栈中元素个数）</td>
+<td style="text-align: left;">• <code>Push</code>：<span class="arithmatex">\(c_i=1, \ \Delta\Phi=+1 \implies \hat{c}_i = 2\)</span><br>• <code>Pop</code>：<span class="arithmatex">\(c_i=1, \ \Delta\Phi=-1 \implies \hat{c}_i = 0\)</span><br>• <code>MultiPop</code>：<span class="arithmatex">\(c_i=k', \ \Delta\Phi=-k' \implies \hat{c}_i = 0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 二进制计数器加一</strong><br>（对应第 5 章二项堆插入）</td>
+<td style="text-align: left;">末尾有 <span class="arithmatex">\(t\)</span> 个连续的 <span class="arithmatex">\(1\)</span> 翻转为 <span class="arithmatex">\(0\)</span>，再将前一位 <span class="arithmatex">\(0\)</span> 翻为 <span class="arithmatex">\(1\)</span>：<span class="arithmatex">\(c_i = t + 1\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Phi(D) = b\)</span>（计数器中位值为 <span class="arithmatex">\(1\)</span> 的个数）</td>
+<td style="text-align: left;">每次 <span class="arithmatex">\(+1\)</span> 将末尾 <span class="arithmatex">\(t\)</span> 个 <span class="arithmatex">\(1\)</span> 清零（<span class="arithmatex">\(-t\)</span>）并置一个 <span class="arithmatex">\(1\)</span>（<span class="arithmatex">\(+1\)</span>），故 <span class="arithmatex">\(\Delta\Phi = 1 - t\)</span>：<br>$<span class="arithmatex">\(\hat{c}_i = (t + 1) + (1 - t) = 2 = O(1)\)</span>$</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 双栈实现队列</strong><br>（<code>IN</code> 栈 <span class="arithmatex">\(S_A\)</span> 与 <code>OUT</code> 栈 <span class="arithmatex">\(S_B\)</span>）</td>
+<td style="text-align: left;">当 <span class="arithmatex">\(S_B\)</span> 空时 <code>Dequeue</code> 需将 <span class="arithmatex">\(S_A\)</span> 的 <span class="arithmatex">\(k\)</span> 个元素逐一 <code>Pop</code> 并 <code>Push</code> 入 <span class="arithmatex">\(S_B\)</span>，再 <code>Pop</code> 栈顶：<span class="arithmatex">\(c_i = 2k + 1\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Phi = 2\vert{}S_A\vert{}\)</span>（若将一次从 <code>IN</code> 到 <code>OUT</code> 的搬移整体计为成本 <span class="arithmatex">\(c\)</span>，则板书取 <span class="arithmatex">\(\Phi = c\vert{}S_{\text{IN}}\vert{}\)</span>）</td>
+<td style="text-align: left;">• <code>Enqueue</code>（压入 <span class="arithmatex">\(S_A\)</span>）：<span class="arithmatex">\(c_i=1, \ \Delta\Phi=+2 \implies \hat{c}_i = 3\)</span><br>• <code>Dequeue</code>（<span class="arithmatex">\(S_B\)</span> 非空）：<span class="arithmatex">\(c_i=1, \ \Delta\Phi=0 \implies \hat{c}_i = 1\)</span><br>• <code>Dequeue</code>（<span class="arithmatex">\(S_B\)</span> 空，搬移 <span class="arithmatex">\(k=\vert{}S_A\vert{}\)</span> 个）：<span class="arithmatex">\(c_i=2k+1, \ \Delta\Phi=-2k \implies \hat{c}_i = 1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. 动态数组倍增扩容</strong><br>（元素数 <span class="arithmatex">\(n\)</span>，容量 <span class="arithmatex">\(C\)</span>）</td>
+<td style="text-align: left;">当 <span class="arithmatex">\(n = C\)</span> 用满时追加元素，需复制 <span class="arithmatex">\(C\)</span> 个旧元素并写入新元素：<span class="arithmatex">\(c_i = C + 1\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Phi = 2n - C\)</span>（初始 <span class="arithmatex">\(n=0, C=0 \implies \Phi_0=0\)</span>；扩容后恒有 <span class="arithmatex">\(n \ge C/2 \implies \Phi \ge 0\)</span>）</td>
+<td style="text-align: left;">• <strong>不扩容插入</strong>（<span class="arithmatex">\(C\)</span> 不变，<span class="arithmatex">\(n \to n+1\)</span>）：<span class="arithmatex">\(c_i=1, \ \Delta\Phi=2 \implies \hat{c}_i = 3\)</span><br>• <strong>满容倍增插入</strong>（<span class="arithmatex">\(n=C \to C+1\)</span>，容量 <span class="arithmatex">\(C \to 2C\)</span>）：初势能 <span class="arithmatex">\(2C-C=C\)</span>，末势能 <span class="arithmatex">\(2(C+1)-2C=2\)</span>，<span class="arithmatex">\(\Delta\Phi = 2 - C \implies \hat{c}_i = (C+1) + (2-C) = 3\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-splay-trees">3 伸展树 (Splay Trees)<a class="headerlink" href="#3-splay-trees" title="Permanent link">&para;</a></h2>
+<h3 id="31-move-to-root">3.1 设计思想与朴素单旋（Move-to-Root）的失败反例<a class="headerlink" href="#31-move-to-root" title="Permanent link">&para;</a></h3>
+<p>AVL 树虽然保证了严格的最坏 <span class="arithmatex">\(O(\log N)\)</span> 时间，但每个节点必须额外维护高度或平衡因子字段，且实现复杂。<strong>伸展树（Splay Tree，由 Sleator 和 Tarjan 于 1985 年提出）</strong>放弃了严格的局部平衡约束，也无需在节点中存储任何高度或平衡因子信息，其核心目标是：<strong>保证从空树开始的任意连续 <span class="arithmatex">\(M\)</span> 次操作的总耗时不超过 <span class="arithmatex">\(O(M \log N)\)</span>（即单次操作摊还时间为 <span class="arithmatex">\(O(\log N)\)</span>）</strong>。</p>
+<p>基于程序访问的局部性原理（Locality：刚被访问过的节点极可能在近期再次被访问），Splay 树的基本思路是：<strong>每当一个节点 <span class="arithmatex">\(X\)</span> 被访问（查找、插入或删除）后，立即通过一系列旋转将 <span class="arithmatex">\(X\)</span> 推送到整棵树的根节点位置</strong>。</p>
+<p><strong>为什么不能直接用普通单旋把 <span class="arithmatex">\(X\)</span> 一路旋到根（Naive Move-to-Root）？</strong>
+如果每次只是单纯将目标节点 <span class="arithmatex">\(X\)</span> 与其父节点做单旋直至到达树根：</p>
+<ol>
+<li>从空树开始依次插入 <span class="arithmatex">\(1, 2, \dots, N\)</span>，每次插入后单旋到根，得到以 <span class="arithmatex">\(N\)</span> 为根、沿左孩子一路挂接到 <span class="arithmatex">\(1\)</span> 的退化左斜链；</li>
+<li>随后依次执行 <span class="arithmatex">\(N\)</span> 次查找：<code>Find(1), Find(2), ..., Find(N)</code>。
+   当执行 <code>Find(1)</code> 时，节点 <span class="arithmatex">\(1\)</span> 与父节点 <span class="arithmatex">\(2, 3, \dots, N\)</span> 依次发生 <span class="arithmatex">\(N-1\)</span> 次右单旋到达根，<strong>但旋转完成后，节点 <span class="arithmatex">\(N, N-1, \dots, 2\)</span> 在 <span class="arithmatex">\(1\)</span> 的右下方重新恢复成了一条深度为 <span class="arithmatex">\(N-1\)</span> 的退化链</strong>！接下来 <code>Find(2)</code> 又要旋转 <span class="arithmatex">\(N-1\)</span> 次，<code>Find(j)</code> 要旋转 <span class="arithmatex">\(N-j+1\)</span> 次，仅这 <span class="arithmatex">\(N\)</span> 次查找的总旋转次数就高达：
+   $$
+   (N - 1) + \sum_{j=2}^N (N - j + 1) = \frac{(N - 1)(N + 2)}{2} = \Theta(N^2)
+   $$
+   平均每次操作耗时 <span class="arithmatex">\(\Theta(N)\)</span>，彻底失败！</li>
+</ol>
+<h3 id="32-splay-zig-zig-zag-zig-zig">3.2 Splay 树的展开旋转策略：Zig, Zig-Zag 与 Zig-Zig<a class="headerlink" href="#32-splay-zig-zig-zag-zig-zig" title="Permanent link">&para;</a></h3>
+<p>为了解决单旋无法改善整条访问路径深度的问题，Splay 树在将非根节点 <span class="arithmatex">\(X\)</span>（记其父节点为 <span class="arithmatex">\(P\)</span>，祖父节点为 <span class="arithmatex">\(G\)</span>，板书中分别记为 <span class="arithmatex">\(u, v, w\)</span>）向上旋转推向树根（这一过程称为 <strong>Splaying / 展开</strong>）时，每次考察两层关系，分三种情况处理：</p>
+<p><strong>1. Case 1: Zig（单步旋转，当父节点 <span class="arithmatex">\(P\)</span> 已经是整棵树的根时）</strong>
+此时 <span class="arithmatex">\(X\)</span> 没有祖父节点，直接对 <span class="arithmatex">\(X\)</span> 和根 <span class="arithmatex">\(P\)</span> 执行一次标准单旋（左旋或右旋），使 <span class="arithmatex">\(X\)</span> 成为全树的新根，展开结束（<strong>注：一次完整的 Splay 过程中，Zig 最多只会执行 1 次，且必定发生在最后一步</strong>）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>          P (root)                     X (root)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>         / \       --Single Rotate--&gt; / \
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        X   C          (Zig Step)    A   P
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       / \                              / \
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      A   B                            B   C
+</code></pre></div>
+<p><strong>2. Case 2.1: Zig-Zag（“之”字形双旋，<span class="arithmatex">\(P\)</span> 不是根，且 <span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(P\)</span> 方向相反：LR 或 RL）</strong>
+即 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的左孩子而 <span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(P\)</span> 的右孩子（或镜像对称）。此时执行与 <strong>AVL 树完全相同的双旋转（Double Rotation）</strong>：先对 <span class="arithmatex">\(P\)</span> 左旋，再对 <span class="arithmatex">\(G\)</span> 右旋，使 <span class="arithmatex">\(X\)</span> 提升两层成为局部子树的新根，<span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(G\)</span> 分列为 <span class="arithmatex">\(X\)</span> 的左、右孩子：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>            G                                X
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>           / \                              / \
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>          P   D    --Double Rotation--&gt;    P   G
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>         / \         (Zig-Zag Step)       / \ / \
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        A   X                            A  B C  D
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>           / \
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>          B   C
+</code></pre></div>
+<p><strong>3. Case 2.2: Zig-Zig（“一”字形跷跷板双旋，<span class="arithmatex">\(P\)</span> 不是根，且 <span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(P\)</span> 方向相同：LL 或 RR）</strong>
+即 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(G\)</span> 的左孩子且 <span class="arithmatex">\(X\)</span> 也是 <span class="arithmatex">\(P\)</span> 的左孩子（或同为右孩子）。<strong>这是 Splay 树与朴素 Move-to-Root 最核心的区别</strong>：
+Move-to-Root 会先转 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(P\)</span>、再转 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(G\)</span>；而 <strong>Zig-Zig 必须先对祖父 <span class="arithmatex">\(G\)</span> 和父节点 <span class="arithmatex">\(P\)</span> 做单旋（把 <span class="arithmatex">\(P\)</span> 提上来），然后再对 <span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(X\)</span> 做单旋（把 <span class="arithmatex">\(X\)</span> 提上来）</strong>！</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>            G                             P                           X
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>           / \                           / \                         / \
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>          P   D   --Rotate G &amp; P first-&gt; X   G   --Rotate P &amp; X--&gt;  A   P
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>         / \        (NOT X &amp; P first!)  / \ / \    (Zig-Zig Step)      / \
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        X   C                          A  B C  D                      B   G
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>       / \                                                               / \
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>      A   B                                                             C   D
+</code></pre></div>
+<ul>
+<li><strong>Zig-Zig 的神奇折叠效果</strong>：通过先旋转祖父 <span class="arithmatex">\(G\)</span> 和父节点 <span class="arithmatex">\(P\)</span>，不仅把被访问节点 <span class="arithmatex">\(X\)</span> 推向了树根，而且<strong>使访问路径上几乎所有节点的深度都大约减半（Roughly halves the depth of most nodes on the path）</strong>！例如对长度为 <span class="arithmatex">\(7\)</span> 的退化链 <span class="arithmatex">\(7\text{-}6\text{-}\cdots\text{-}1\)</span> 执行一次 <code>Find(1)</code>（连续三次 Zig-Zig：处理 <span class="arithmatex">\((1,2,3)\)</span>、<span class="arithmatex">\((1,4,5)\)</span>、<span class="arithmatex">\((1,6,7)\)</span>），整条链瞬间被折叠成高度仅为 <span class="arithmatex">\(4\)</span> 的平衡形态。</li>
+</ul>
+<h3 id="33-splay-find-insert-delete">3.3 Splay 树的三大基本操作 (<code>Find</code>, <code>Insert</code>, <code>Delete</code>)<a class="headerlink" href="#33-splay-find-insert-delete" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>查找 <code>Find(X)</code></strong>：
+   按普通 BST 从根向下搜索键值 <span class="arithmatex">\(X\)</span>。若找到节点 <span class="arithmatex">\(u\)</span>，则调用 <code>Splay(u)</code> 将其旋转至根；<strong>若查找失败（遇到 <code>NULL</code>），必须将搜索路径上访问的最后一个非空节点伸展到根</strong>！（如果不伸展失败路径的末端节点，连续查找不存在的键就会退化为单次 <span class="arithmatex">\(\Theta(N)\)</span>，见习题 1.6）。</li>
+<li><strong>插入 <code>Insert(X)</code></strong>：
+   先按普通 BST 规则将新节点 <span class="arithmatex">\(u\)</span> 作为叶节点插入，随后立即调用 <code>Splay(u)</code> 将新节点伸展成为树根（若遇到重复键，则直接伸展已存在的那个节点）。</li>
+<li><strong>删除 <code>Delete(X)</code>（四步拼接法，板书与 PPT 核心流程）</strong>：</li>
+<li><strong>Step 1</strong>：执行 <code>Find(X)</code>。这一步会将目标节点 <span class="arithmatex">\(X\)</span> 伸展到整棵树的<strong>根节点</strong>位置；</li>
+<li><strong>Step 2</strong>：直接删除根节点 <span class="arithmatex">\(X\)</span>，此时整棵树分裂为左子树 <span class="arithmatex">\(T_L\)</span>（所有键值 <span class="arithmatex">\(&lt; X\)</span>）和右子树 <span class="arithmatex">\(T_R\)</span>（所有键值 <span class="arithmatex">\(&gt; X\)</span>）；</li>
+<li><strong>Step 3</strong>：若 <span class="arithmatex">\(T_L\)</span> 为空，直接返回 <span class="arithmatex">\(T_R\)</span> 作为新树；若 <span class="arithmatex">\(T_L\)</span> 非空，在左子树中执行 <strong><code>FindMax(T_L)</code></strong>——这会将 <span class="arithmatex">\(T_L\)</span> 中键值最大的节点 <span class="arithmatex">\(v\)</span> 伸展到 <span class="arithmatex">\(T_L\)</span> 的根，且由于 <span class="arithmatex">\(v\)</span> 是 <span class="arithmatex">\(T_L\)</span> 的最大值，<strong>此时新根 <span class="arithmatex">\(v\)</span> 必然没有右孩子</strong>（<span class="arithmatex">\(v.\text{right} = \text{NULL}\)</span>）！</li>
+<li><strong>Step 4</strong>：直接将右子树 <span class="arithmatex">\(T_R\)</span> 挂接为 <span class="arithmatex">\(T_L\)</span> 新根 <span class="arithmatex">\(v\)</span> 的右孩子（<code>v-&gt;right = T_R</code>），合并完成。</li>
+</ol>
+<h3 id="34-splay-olog-n">3.4 Splay 树摊还复杂度 <span class="arithmatex">\(O(\log N)\)</span> 的严格势能法证明<a class="headerlink" href="#34-splay-olog-n" title="Permanent link">&para;</a></h3>
+<p>为什么不用维护平衡因子，仅靠 Zig、Zig-Zag 和 Zig-Zig 就能保证 <span class="arithmatex">\(O(\log N)\)</span> 的摊还性能？我们用<strong>势能法</strong>给出严格证明。</p>
+<p><strong>1. 势能函数 <span class="arithmatex">\(\Phi(T)\)</span> 的定义（基于子树规模的对数秩 Rank）</strong></p>
+<p>对于树 <span class="arithmatex">\(T\)</span> 中的任意节点 <span class="arithmatex">\(i\)</span>，记 <span class="arithmatex">\(S(i)\)</span>（板书记为 <span class="arithmatex">\(|T_i|\)</span>，讲义记为 <span class="arithmatex">\(s(i)\)</span>）为以 <span class="arithmatex">\(i\)</span> 为根的子树所包含的节点总数（包含节点 <span class="arithmatex">\(i\)</span> 自身）。定义节点 <span class="arithmatex">\(i\)</span> 的<strong>秩</strong>（Rank）与整棵树 <span class="arithmatex">\(T\)</span> 的<strong>势能函数</strong> <span class="arithmatex">\(\Phi(T)\)</span> 分别为：</p>
+<div class="arithmatex">\[
+R(i) = \log_2 S(i), \qquad \Phi(T) = \sum_{i \in T} R(i) = \sum_{i \in T} \log_2 S(i)
+\]</div>
+<p>（注：为什么不用子树高度而用 <span class="arithmatex">\(\log_2 S(i)\)</span>？因为一次旋转只改变参与旋转的 2 到 3 个节点的子树节点数 <span class="arithmatex">\(S(i)\)</span>，其余所有节点的 <span class="arithmatex">\(S(i)\)</span> 均保持不变，便于局部消项；且利用下述均值不等式可在 Zig-Zig 和 Zig-Zag 中严格消去旋转常数 <span class="arithmatex">\(2\)</span>！）。</p>
+<p><strong>引理 3.1（对数凸性不等式 / 板书核心不等式）</strong>：设实数 <span class="arithmatex">\(a, b &gt; 0\)</span> 且满足 <span class="arithmatex">\(a + b \le c\)</span>，则恒有：</p>
+<div class="arithmatex">\[
+\log_2 a + \log_2 b \le 2\log_2 c - 2 \iff 2\log_2 c - \log_2 a - \log_2 b \ge 2
+\]</div>
+<p><em>证明</em>：由均值不等式 <span class="arithmatex">\((a + b)^2 \ge 4ab \implies ab \le \left(\frac{a + b}{2}\right)^2 \le \left(\frac{c}{2}\right)^2 = \frac{c^2}{4}\)</span>。两边取以 <span class="arithmatex">\(2\)</span> 为底的对数即得 <span class="arithmatex">\(\log_2 a + \log_2 b \le 2\log_2 c - 2\)</span>。</p>
+<p><strong>2. 单步展开（Zig, Zig-Zag, Zig-Zig）的摊还代价推导</strong></p>
+<p>记单步旋转操作前各节点的秩为 <span class="arithmatex">\(R_1(\cdot)\)</span>（或 <span class="arithmatex">\(r(\cdot)\)</span>），旋转操作后各节点的秩为 <span class="arithmatex">\(R_2(\cdot)\)</span>（或 <span class="arithmatex">\(r'(\cdot)\)</span>），目标伸展节点为 <span class="arithmatex">\(X\)</span>，父节点为 <span class="arithmatex">\(P\)</span>，祖父节点为 <span class="arithmatex">\(G\)</span>。以基本旋转次数作为单步的实际成本 <span class="arithmatex">\(c_i\)</span>（Zig 为 <span class="arithmatex">\(1\)</span>，Zig-Zag 和 Zig-Zig 均为 <span class="arithmatex">\(2\)</span>）：</p>
+<ul>
+<li><strong>情形 1：Zig（单旋，只有 <span class="arithmatex">\(X\)</span> 和 <span class="arithmatex">\(P\)</span> 的子树大小改变）</strong>：
+  注意到旋转后 <span class="arithmatex">\(X\)</span> 接替了原来 <span class="arithmatex">\(P\)</span> 的根位置，故 <span class="arithmatex">\(R_2(X) = R_1(P)\)</span>；同时 <span class="arithmatex">\(P\)</span> 降为 <span class="arithmatex">\(X\)</span> 的孩子，子树变小，故 <span class="arithmatex">\(R_2(P) - R_1(P) \le 0\)</span>，且 <span class="arithmatex">\(R_2(X) \ge R_1(X)\)</span>：
+  $$
+  \begin{aligned}
+  \hat{c}_i &amp;= 1 + \big[R_2(X) - R_1(X)\big] + \big[R_2(P) - R_1(P)\big] \
+  &amp;\le 1 + R_2(X) - R_1(X) \le 1 + 3\big(R_2(X) - R_1(X)\big)
+  \end{aligned}
+  $$</li>
+<li><strong>情形 2：Zig-Zag（双旋，只有 <span class="arithmatex">\(X, P, G\)</span> 三个节点的子树大小改变）</strong>：
+  注意到旋转后 <span class="arithmatex">\(X\)</span> 接替了原来祖父 <span class="arithmatex">\(G\)</span> 的位置，故 <strong><span class="arithmatex">\(R_2(X) = R_1(G)\)</span></strong>；同时旋转前 <span class="arithmatex">\(X\)</span> 是 <span class="arithmatex">\(P\)</span> 的孩子，故 <span class="arithmatex">\(R_1(P) \ge R_1(X) \implies -R_1(P) \le -R_1(X)\)</span>。代入摊还代价：
+  $$
+  \begin{aligned}
+  \hat{c}_i &amp;= 2 + \big[R_2(X) - R_1(X)\big] + \big[R_2(P) - R_1(P)\big] + \big[R_2(G) - R_1(G)\big] \
+  &amp;= 2 + R_2(P) + R_2(G) - R_1(X) - R_1(P) \le 2 + R_2(P) + R_2(G) - 2R_1(X)
+  \end{aligned}
+  $$
+  观察 Zig-Zag 旋转后的树形（<span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(G\)</span> 分别是新根 <span class="arithmatex">\(X\)</span> 的左、右孩子）：<strong>旋转后以 <span class="arithmatex">\(P\)</span> 为根的子树与以 <span class="arithmatex">\(G\)</span> 为根的子树互不相交</strong>，且两者之和等于 <span class="arithmatex">\(S_2(X) - 1 &lt; S_2(X)\)</span>！
+  应用引理 3.1（取 <span class="arithmatex">\(a = S_2(P), \ b = S_2(G), \ c = S_2(X)\)</span>），有 <span class="arithmatex">\(R_2(P) + R_2(G) \le 2R_2(X) - 2\)</span>。代回上式，<strong>常数 <span class="arithmatex">\(+2\)</span> 与 <span class="arithmatex">\(-2\)</span> 完美抵消</strong>：
+  $$
+  \hat{c}_i \le 2 + \big(2R_2(X) - 2\big) - 2R_1(X) = 2\big(R_2(X) - R_1(X)\big) \le 3\big(R_2(X) - R_1(X)\big)
+  $$</li>
+<li><strong>情形 3：Zig-Zig（跷跷板双旋，只有 <span class="arithmatex">\(X, P, G\)</span> 三个节点的子树大小改变）</strong>：
+  同样有 <span class="arithmatex">\(R_2(X) = R_1(G)\)</span>，旋转前 <span class="arithmatex">\(R_1(X) \le R_1(P)\)</span>，且旋转后 <span class="arithmatex">\(P\)</span> 是新根 <span class="arithmatex">\(X\)</span> 的孩子故 <span class="arithmatex">\(R_2(P) \le R_2(X)\)</span>。因此：
+  $$
+  \begin{aligned}
+  \hat{c}_i &amp;= 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G) \
+  &amp;= 2 + R_2(P) + R_2(G) - R_1(X) - R_1(P) \le 2 + R_2(X) + R_2(G) - 2R_1(X)
+  \end{aligned}
+  $$
+  这里旋转后的 <span class="arithmatex">\(P\)</span> 包含 <span class="arithmatex">\(G\)</span>，不能对 <span class="arithmatex">\(R_2(P) + R_2(G)\)</span> 用引理。但观察 Zig-Zig 旋转前后的四棵外围子树 <span class="arithmatex">\(A, B, C, D\)</span>：<strong>旋转前以 <span class="arithmatex">\(X\)</span> 为根的子树（含 <span class="arithmatex">\(\{X, A, B\}\)</span>）与旋转后以 <span class="arithmatex">\(G\)</span> 为根的子树（含 <span class="arithmatex">\(\{G, C, D\}\)</span>）完全互不相交</strong>，且它们都包含在旋转后以 <span class="arithmatex">\(X\)</span> 为根的整棵子树（含 <span class="arithmatex">\(\{X, P, G, A, B, C, D\}\)</span>）之中！
+  因此必有 <span class="arithmatex">\(S_1(X) + S_2(G) &lt; S_2(X)\)</span>。应用引理 3.1（取 <span class="arithmatex">\(a = S_1(X), \ b = S_2(G), \ c = S_2(X)\)</span>），得：
+  $$
+  R<strong>(X) + R_2(G) \le 2R_2(X) - 2 \iff R_2(G) </strong>e 2R_2(X) - R_1(X) - 2
+  $$
+  将其代回 <span class="arithmatex">\(\hat{c}_i\)</span>，<strong>常数 <span class="arithmatex">\(+2\)</span> 与 <span class="arithmatex">\(-2\)</span> 再次完美抵消</strong>（这也正是为什么系数必须取 <span class="arithmatex">\(3\)</span> 的原因）：
+  $$
+  \hat{c}_i \le 2 + R_2(X) + \big(2R_2(X) - R_1(X) - 2\big) - 2R_1(X) = 3\big(R_2(X) - R_1(X)\big)
+  $$</li>
+</ul>
+<p><strong>3. 访问引理（Access Lemma）与全套操作复杂度汇总</strong></p>
+<p><strong>定理 3.2（Splay 树访问引理）</strong>：将一棵以 <span class="arithmatex">\(T\)</span> 为根（含 <span class="arithmatex">\(N\)</span> 个节点）的 Splay 树在目标节点 <span class="arithmatex">\(X\)</span> 处展开到根，其总摊还时间为：</p>
+<div class="arithmatex">\[
+T_{\text{amortized}} \le 3\big(R(T) - R(X)\big) + 1 \le 3\log_2 N + 1 = O(\log N)
+\]</div>
+<p><em>证明</em>：将整个展开过程中的 <span class="arithmatex">\(q\)</span> 步旋转（前 <span class="arithmatex">\(q-1\)</span> 步为 Zig-Zig 或 Zig-Zag，最后一步至多有 1 次 Zig）的摊还代价累加，中间状态的秩 <span class="arithmatex">\(R_j(X)\)</span> 望远镜相消，仅剩终态秩 <span class="arithmatex">\(R_q(X) = R(T) = \log_2 N\)</span> 与初态秩 <span class="arithmatex">\(R_0(X) = R(X) \ge 0\)</span>：</p>
+<div class="arithmatex">\[
+\sum_{j=1}^q \hat{c}_j \le \sum_{j=1}^{q-1} 3\big(R_j(X) - R_{j-1}(X)\big) + 3\big(R_q(X) - R_{q-1}(X)\big) + 1 = 3\big(R(T) - R(X)\big) + 1 \le 3\log_2 N + 1
+\]</div>
+<details>
+<summary>点击展开：老师手写板书（ADS26W2-3C Pages 12–18）中的等价记号与 Insert / Delete 分步势能推导</summary>
+<p>在老师的手写板书中，为了显式保留单次旋转的时间常数 <span class="arithmatex">\(c\)</span> 并单独写出纯势能差 <span class="arithmatex">\(\Delta\Phi = \Phi(T') - \Phi(T)\)</span>，将势能定义为 <span class="arithmatex">\(\Phi(T) = c\sum_{u \in T} r(u)\)</span>。
+由于每次 Zig-Zag 或 Zig-Zig 包含 <span class="arithmatex">\(2\)</span> 次基本旋转，上面推导中的“<span class="arithmatex">\(-2\)</span>”被改写为“<span class="arithmatex">\(-2(\#\text{rotations})\)</span>”，只有最后一次单旋 Zig 少减了一个 <span class="arithmatex">\(2\)</span>（即 <span class="arithmatex">\(+2c\)</span>），从而得到板书上的核心公式（Claim）：</p>
+<div class="arithmatex">\[
+\Delta\Phi = \Phi(T') - \Phi(T) \le 3c\big(r'(u) - r(u)\big) - 2c(\#\text{rotations} - 1)
+\]</div>
+<p>由此可以直接写出板书上三大操作的摊还代价上界：</p>
+<ol>
+<li><strong><code>find(u)</code></strong>：
+   查找与旋转的实际成本为 <span class="arithmatex">\(c \cdot (\#\text{rotations})\)</span>，加上 <span class="arithmatex">\(\Delta\Phi \le 3c\log n - 2c(\#\text{rotations}) + 2c\)</span>，旋转项相消后得：
+   $$
+   \text{Amortized Cost} \le 3c\log n + 2c = O(\log n)
+   $$</li>
+<li><strong><code>ins(u)</code></strong>：</li>
+<li>第一步（作为叶子插入 BST，记新节点深度为 <span class="arithmatex">\(d = \#\text{rotations}\)</span>）：新叶子的祖先子树规模依次从 <span class="arithmatex">\(s_j\)</span> 变为 <span class="arithmatex">\(s_j + 1\)</span>。如讲义 §1.4.3 证明，由于 <span class="arithmatex">\(1 \le s_1 &lt; s_2 &lt; \dots &lt; s_d \le n\)</span>，接入叶子引起的势能增加至多为：
+     $$
+     \Delta_{\text{leaf}}\Phi = c\sum_{j=1}^d \log_2\left(\frac{s_j + 1}{s_j}\right) \le c\sum_{s=1}^n \log_2\left(\frac{s + 1}{s}\right) = c\log_2(n + 1)
+     $$
+     （板书中也可直接粗略放缩为 <span class="arithmatex">\(\Delta_1 \le c \cdot \text{depth}(u) = c \cdot (\#\text{rotations})\)</span>，随后被 Splay 过程中的 <span class="arithmatex">\(-2c(\#\text{rotations})\)</span> 抵消！）；</li>
+<li>第二步（执行 <code>splay(u)</code>）：叠加 <span class="arithmatex">\(\Delta_{\text{splay}}\Phi\)</span> 后，总摊还代价仍为 <span class="arithmatex">\(O(\log n)\)</span>。</li>
+<li><strong><code>del(u)</code></strong>：
+   分解为四个阶段的势能变化之和 <span class="arithmatex">\(\Delta_1 + \Delta_2 + \Delta_3 + \Delta_4\)</span>：</li>
+<li><span class="arithmatex">\(\Delta_1\)</span>（<code>splay(u)</code> 到根）：<span class="arithmatex">\(\Delta_1 \le 3c\log n - 2c(\#\text{rot}_1 - 1)\)</span>；</li>
+<li><span class="arithmatex">\(\Delta_2\)</span>（删去根 <span class="arithmatex">\(u\)</span>，分为左子树 <span class="arithmatex">\(A\)</span> 和右子树 <span class="arithmatex">\(B\)</span>）：去掉了根的秩，势能<strong>减少</strong> <span class="arithmatex">\(\Delta_2 = -c\log_2(|A| + |B| + 1) &lt; 0\)</span>；</li>
+<li><span class="arithmatex">\(\Delta_3\)</span>（在左子树 <span class="arithmatex">\(A\)</span> 中把最大元 <span class="arithmatex">\(v\)</span> 伸展到根 <code>splay(v)</code>）：<span class="arithmatex">\(\Delta_3 \le 3c\log n - 2c(\#\text{rot}_2 - 1)\)</span>；</li>
+<li><span class="arithmatex">\(\Delta_4\)</span>（把右子树 <span class="arithmatex">\(B\)</span> 挂接到 <span class="arithmatex">\(v\)</span> 右侧）：只有新根 <span class="arithmatex">\(v\)</span> 的子树规模从 <span class="arithmatex">\(|A|\)</span> 变为 <span class="arithmatex">\(|A| + |B|\)</span>，势能增加 <span class="arithmatex">\(\Delta_4 = c\log_2(|A| + |B|) - c\log_2|A|\)</span>。
+   注意到 <strong><span class="arithmatex">\(\Delta_2 + \Delta_4 = -c\log_2(|A|+|B|+1) + c\log_2(|A|+|B|) - c\log_2|A| &lt; 0\)</span></strong>（两项合并恒为负！），因此总势能变化 <span class="arithmatex">\(\sum_{k=1}^4 \Delta_k \le \Delta_1 + \Delta_3 \le 6c\log n - 2c(\#\text{total rotations}) + 4c\)</span>，加上实际旋转成本后得删除的摊还代价 <span class="arithmatex">\(\le 6c\log n + 4c = O(\log n)\)</span>！</li>
+</ol>
+</details>
+<hr />
+<h2 id="4-chapter-1-selected-exercises">4 Chapter 1 核心习题精解 (Selected Exercises)<a class="headerlink" href="#4-chapter-1-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 1.1, 1.2 &amp; 1.3: AVL Tree Height Bound, Insertion Trace &amp; Deletion Propagation（AVL 高度判别、插入旋转追踪与删除连续旋转）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 1.1</strong>: 一棵 AVL 树有 <span class="arithmatex">\(12\)</span> 个节点，它的高度是否可能超过 <span class="arithmatex">\(4\)</span>？（按边数定义高度）。如果只要求根节点的左右子树高度差不超过 <span class="arithmatex">\(1\)</span>，而不对其他节点作要求，是否仍能保证全树高度为对数级别？
+- <strong>Ex 1.2</strong>: 从空树开始依次插入 <code>88, 70, 61, 96, 120, 90, 65</code>。说明每次旋转的类型与最终树结构，并判断：① <span class="arithmatex">\(88\)</span> 是否为根；② <span class="arithmatex">\(70\)</span> 是否为 <span class="arithmatex">\(65\)</span> 的父节点；③ <span class="arithmatex">\(65\)</span> 是否为 <span class="arithmatex">\(88\)</span> 的左孩子；④ <span class="arithmatex">\(96\)</span> 与 <span class="arithmatex">\(70\)</span> 是否为兄弟；⑤ <span class="arithmatex">\(61\)</span> 是否为 <span class="arithmatex">\(70\)</span> 的父节点。
+- <strong>Ex 1.3</strong>: 对给定 AVL 树（根为 <code>12</code>，左子树根 <code>5</code> 含左支 <code>2(1, 3(_, 4))</code> 与右支 <code>8(6(_, 7), 10(9, 11))</code>；右子树根 <code>14</code> 含左支 <code>13</code> 与右支 <code>16(15, _)</code>）依次删除 <code>12</code> 和 <code>1</code>，写出两次删除并恢复平衡的过程。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 12 节点 AVL 树的最大高度与全局平衡约束的必要性（Exercise 1.1）</strong>：</p>
+<ul>
+<li><strong>第一问（不可能超过 4）</strong>：
+  由高度为 <span class="arithmatex">\(h\)</span> 的 AVL 树最少节点数递推式 <span class="arithmatex">\(N(-1)=0, \ N(0)=1, \ N(h) = 1 + N(h-1) + N(h-2)\)</span> 依次计算：
+  $$
+  N(0) = 1, \quad N(1) = 2, \quad N(2) = 4, \quad N(3) = 7, \quad N(4) = 12, \quad N(5) = 20
+  $$
+  可以看到，构造高度为 <span class="arithmatex">\(4\)</span> 的 AVL 树最少需要 <span class="arithmatex">\(12\)</span> 个节点，而构造高度为 <span class="arithmatex">\(5\)</span> 的 AVL 树至少需要 <span class="arithmatex">\(20\)</span> 个节点！因此含 <span class="arithmatex">\(12\)</span> 个节点的 AVL 树最大可能高度恰为 <span class="arithmatex">\(4\)</span>，绝不可能超过 <span class="arithmatex">\(4\)</span>。</li>
+<li><strong>第二问（仅约束根节点无法保证对数高度）</strong>：
+  若只要求根的 <span class="arithmatex">\(|\text{BF}(\text{root})| \le 1\)</span>，可令根的左、右子树各自是一条长度为 <span class="arithmatex">\(h-1\)</span>（含 <span class="arithmatex">\(h\)</span> 个节点）的退化单链。此时左、右子树高度均为 <span class="arithmatex">\(h-1\)</span>，根的平衡因子为 <span class="arithmatex">\(0\)</span>，但整棵树仅有 <span class="arithmatex">\(n = 2h + 1\)</span> 个节点，树高却达到了 <span class="arithmatex">\(h = \frac{n-1}{2} = \Theta(n)\)</span>（线性高度）。</li>
+</ul>
+<hr />
+<p><strong>2. AVL 树连续插入与旋转过程追踪（Exercise 1.2）</strong>：</p>
+<ol>
+<li>插入 <code>88, 70, 61</code>：插入 <code>61</code> 后，根 <code>88</code> 发生 <strong>LL 型失衡</strong>（路径 <code>88 -&gt; 70 -&gt; 61</code>），对 <code>88</code> 右旋，<strong><code>70</code> 成为新根</strong>（左孩子 <code>61</code>，右孩子 <code>88</code>）；</li>
+<li>插入 <code>96, 120</code>：插入 <code>120</code> 后，节点 <code>88</code> 发生 <strong>RR 型失衡</strong>（路径 <code>88 -&gt; 96 -&gt; 120</code>），对 <code>88</code> 左旋，<code>96</code> 成为 <code>70</code> 的右孩子（<code>96</code> 的左右孩子为 <code>88, 120</code>）；</li>
+<li>插入 <code>90</code>：<code>90</code> 插在 <code>88</code> 的右侧，此时根 <code>70</code> 发生 <strong>RL 型失衡</strong>（路径 <code>70 -&gt; 96 -&gt; 88 -&gt; 90</code>）。执行 RL 双旋（先对 <code>96</code> 右旋，再对 <code>70</code> 左旋），<strong><code>88</code> 成为整棵树的新根</strong>，其左孩子为 <code>70</code>（左挂 <code>61</code>），右孩子为 <code>96</code>（左右挂 <code>90, 120</code>）；</li>
+<li>插入 <code>65</code>：<code>65</code> 插在 <code>61</code> 的右侧，导致节点 <code>70</code> 发生 <strong>LR 型失衡</strong>（路径 <code>70 -&gt; 61 -&gt; 65</code>）。执行 LR 双旋（先对 <code>61</code> 左旋，再对 <code>70</code> 右旋），<code>65</code> 接替成为 <code>88</code> 的左孩子（<code>65</code> 的左右孩子为 <code>61, 70</code>）。</li>
+</ol>
+<p>最终完全平衡的满二叉树结构为：根 <code>88</code>，第二层为 <code>65</code> 和 <code>96</code>，第三层为 <code>61, 70</code> 和 <code>90, 120</code>。
+五个判断的答案依次为：<strong>① 是、② 否（65 是 70 的父节点）、③ 是、④ 否（96 与 65 是兄弟）、⑤ 否</strong>。</p>
+<hr />
+<p><strong>3. AVL 树删除触发的连续多级旋转（Exercise 1.3）</strong>：</p>
+<ul>
+<li><strong>第一次删除（删除根 <code>12</code>）</strong>：
+  用右子树最小键 <code>13</code> 替换根的键值，然后删去原来 <code>14</code> 左下方的叶子 <code>13</code>。</li>
+<li>此时节点 <code>14</code> 首先失衡（<span class="arithmatex">\(\text{BF}(14) = -2\)</span>），其较高右孩子 <code>16</code> 的 <span class="arithmatex">\(\text{BF}(16) = +1\)</span>（左偏 <code>15</code>），属于 <strong>RL 型失衡</strong>。先对 <code>16</code> 右旋、再对 <code>14</code> 左旋，使 <code>15</code>（带左右孩子 <code>14, 16</code>）成为右子树新根；</li>
+<li>这次旋转使整棵右子树的高度从 <span class="arithmatex">\(2\)</span> 降为了 <span class="arithmatex">\(1\)</span>！向上回溯到整棵树的根 <code>13</code> 时，<code>13</code> 也发生失衡（左子树 <code>5</code> 高为 <span class="arithmatex">\(3\)</span>，右子树 <code>15</code> 高为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(\text{BF}(13) = +2\)</span>）。由于较高左孩子 <code>5</code> 的左右子树（<code>2</code> 和 <code>8</code>）高度均为 <span class="arithmatex">\(2\)</span>（即 <span class="arithmatex">\(\text{BF}(5) = 0\)</span>），只需对根 <code>13</code> 执行一次<strong>右单旋</strong>，使 <code>5</code> 成为全树新根，<code>13</code> 降为其右孩子（<code>13</code> 的左孩子接管原 <code>5</code> 的右子树 <code>8</code>，右孩子为 <code>15(14, 16)</code>）。</li>
+<li><strong>第二次删除（继续删除叶子 <code>1</code>）</strong>：
+  删去最左下角的叶子 <code>1</code> 后：</li>
+<li>父节点 <code>2</code> 首先失衡（<span class="arithmatex">\(\text{BF}(2) = -2\)</span>，右孩子 <code>3</code> 的 <span class="arithmatex">\(\text{BF}(3) = -1\)</span>），对 <code>2</code> 执行一次<strong>左单旋</strong>，使 <code>3(2, 4)</code> 成为局部新根，该子树高度从 <span class="arithmatex">\(2\)</span> 降为 <span class="arithmatex">\(1\)</span>；</li>
+<li>高度下降导致全树根 <code>5</code> 再次失衡（左子树 <code>3</code> 高 <span class="arithmatex">\(1\)</span>，右子树 <code>13</code> 高 <span class="arithmatex">\(3\)</span>，<span class="arithmatex">\(\text{BF}(5) = -2\)</span>）。考察较高右孩子 <code>13</code>：其左子树 <code>8</code> 高 <span class="arithmatex">\(2\)</span>、右子树 <code>15</code> 高 <span class="arithmatex">\(1\)</span>（<span class="arithmatex">\(\text{BF}(13) = +1 &gt; 0\)</span>），属于 <strong>RL 型失衡</strong>！先对 <code>13</code> 右旋、再对 <code>5</code> 左旋，使 <code>8</code> 最终成为全树的新根（左孩子为 <code>5(3(2,4), 6(_,7))</code>，右孩子为 <code>13(10(9,11), 15(14,16))</code>）。</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 1.4, 1.5 &amp; 1.6: Arbitrary Counter Init, Dynamic Array Proof &amp; Splay Unsuccessful Search（非零初态计数器、动态数组双证法与 Splay 失败查找）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 1.4</strong>: 对一个 <span class="arithmatex">\(k \ge 1\)</span> 位的二进制计数器按模 <span class="arithmatex">\(2^k\)</span> 执行加一操作，以翻转位数作为实际成本。证明：从任意初始值开始，连续 <span class="arithmatex">\(m\)</span> 次加一的总成本不超过 <span class="arithmatex">\(2m + k\)</span>。为什么对任意的 <span class="arithmatex">\(m\)</span> 不能直接省去上界中的 <span class="arithmatex">\(k\)</span>？
+- <strong>Ex 1.5</strong>: 动态数组初始为空（容量 <span class="arithmatex">\(C=0\)</span>），满时扩容为 <span class="arithmatex">\(2C\)</span>（首次分配 <span class="arithmatex">\(1\)</span>）。每次写入或复制一个元素的成本为 <span class="arithmatex">\(1\)</span>。请分别用聚合分析与势能法证明从空数组开始追加 <span class="arithmatex">\(m\)</span> 个元素的总成本为 <span class="arithmatex">\(O(m)\)</span>。
+- <strong>Ex 1.6</strong>: 在 Splay 树上如果每次失败查找（Unsuccessful search）后都不做伸展，是否仍能保证任意操作序列的对数摊还时间？请给出证明或反例。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 任意初态下的 <span class="arithmatex">\(k\)</span> 位二进制计数器势能分析（Exercise 1.4）</strong>：
+仍定义势能函数 <span class="arithmatex">\(\Phi(D_i)\)</span> 为计数器中值为 <span class="arithmatex">\(1\)</span> 的位的个数。在第 <span class="arithmatex">\(i\)</span> 次加一操作中，无论是否发生最高位模 <span class="arithmatex">\(2^k\)</span> 溢出，若末尾有 <span class="arithmatex">\(t_i \ (0 \le t_i \le k)\)</span> 个连续的 <span class="arithmatex">\(1\)</span> 被清零，则至多有 <span class="arithmatex">\(1\)</span> 个 <span class="arithmatex">\(0\)</span> 被置为 <span class="arithmatex">\(1\)</span>（当 <span class="arithmatex">\(t_i = k\)</span> 全 <span class="arithmatex">\(1\)</span> 溢出归零时，没有 <span class="arithmatex">\(0\)</span> 被置为 <span class="arithmatex">\(1\)</span>），故实际翻转位数 <span class="arithmatex">\(c_i \le t_i + 1\)</span>，势能变化 <span class="arithmatex">\(\Delta\Phi_i \le 1 - t_i\)</span>，单步摊还成本恒满足 <span class="arithmatex">\(\hat{c}_i = c_i + \Delta\Phi_i \le 2\)</span>。
+由势能法总公式，注意到任意初态最多含有 <span class="arithmatex">\(k\)</span> 个 <span class="arithmatex">\(1\)</span>（即 <span class="arithmatex">\(\Phi(D_0) \le k\)</span>），且终态势能 <span class="arithmatex">\(\Phi(D_m) \ge 0\)</span>：</p>
+<div class="arithmatex">\[
+\sum_{i=1}^m c_i = \sum_{i=1}^m \hat{c}_i + \Phi(D_0) - \Phi(D_m) \le 2m + k - 0 = 2m + k
+\]</div>
+<p><strong>为什么不能省去 <span class="arithmatex">\(k\)</span>？</strong> 因为若初始状态恰好为全 <span class="arithmatex">\(1\)</span>（<span class="arithmatex">\(11\dots 1_2\)</span>，即 <span class="arithmatex">\(\Phi(D_0) = k\)</span>），且只执行 <span class="arithmatex">\(m = 1\)</span> 次加一操作，则仅仅这一次操作就需要把全部 <span class="arithmatex">\(k\)</span> 位都翻转一遍，实际成本就是 <span class="arithmatex">\(c_1 = k\)</span>（当 <span class="arithmatex">\(k \gg 1\)</span> 时远大于 <span class="arithmatex">\(2m = 2\)</span>），因此初态项 <span class="arithmatex">\(+k\)</span> 是紧的，不能省去。</p>
+<hr />
+<p><strong>2. 动态数组追加 <span class="arithmatex">\(m\)</span> 个元素的聚合分析与势能法证明（Exercise 1.5）</strong>：</p>
+<ul>
+<li><strong>聚合分析（Aggregate Analysis）</strong>：
+  <span class="arithmatex">\(m\)</span> 次追加操作中，首先每次写入新元素本身各耗时 <span class="arithmatex">\(1\)</span>，合计 <span class="arithmatex">\(m\)</span>。
+  此外，仅当元素个数越过 <span class="arithmatex">\(1, 2, 4, 8, \dots, 2^{t}\)</span> 时触发扩容复制，各次扩容复制的旧元素个数依次为 <span class="arithmatex">\(1, 2, 4, \dots, 2^{\lceil\log_2 m\rceil - 1}\)</span>。由等比数列求和，所有复制成本之和严格小于 <span class="arithmatex">\(2m\)</span>：
+  $$
+  \sum_{i=1}^m c_i = m + \sum_{j=0}^{\lceil\log_2 m\rceil - 1} 2^j &lt; m + 2m = 3m = O(m)
+  $$</li>
+<li><strong>势能法（Potential Method）</strong>：
+  定义势能函数为 <span class="arithmatex">\(\Phi(n, C) = 2n - C\)</span>，其中 <span class="arithmatex">\(n\)</span> 为当前元素个数，<span class="arithmatex">\(C\)</span> 为当前数组容量。
+  初始空数组 <span class="arithmatex">\(n=0, C=0 \implies \Phi_0 = 0\)</span>；每次扩容后至少处于半满状态（<span class="arithmatex">\(n \ge C/2\)</span>），故任意时刻恒有 <span class="arithmatex">\(\Phi = 2n - C \ge 0\)</span>。</li>
+<li>第 1 次追加（<span class="arithmatex">\(n: 0\to 1, \ C: 0\to 1\)</span>）：<span class="arithmatex">\(c_1 = 1, \ \Delta\Phi = (2\times 1 - 1) - 0 = 1 \implies \hat{c}_1 = 2\)</span>；</li>
+<li>未满不扩容追加（<span class="arithmatex">\(n \to n+1, \ C\)</span> 不变）：<span class="arithmatex">\(c_i = 1, \ \Delta\Phi = 2(n+1)-C - (2n-C) = 2 \implies \hat{c}_i = 1 + 2 = 3\)</span>；</li>
+<li>满容倍增追加（操作前 <span class="arithmatex">\(n = C\)</span>，<span class="arithmatex">\(\Phi_{i-1} = 2C - C = C\)</span>；操作后容量变为 <span class="arithmatex">\(2C\)</span>，元素数变为 <span class="arithmatex">\(n' = C + 1\)</span>，末势能 <span class="arithmatex">\(\Phi_i = 2(C+1) - 2C = 2\)</span>）：实际成本为复制 <span class="arithmatex">\(C\)</span> 个旧元素加写入 <span class="arithmatex">\(1\)</span> 个新元素 <span class="arithmatex">\(c_i = C + 1\)</span>，势能变化 <span class="arithmatex">\(\Delta\Phi = 2 - C\)</span>，故摊还成本为：
+    $$
+    \hat{c}_i = c_i + \Delta\Phi = (C + 1) + (2 - C) = 3 = O(1)
+    $$
+  所有情况的单步摊还成本均不超过 <span class="arithmatex">\(3\)</span>，故 <span class="arithmatex">\(m\)</span> 次追加总成本 <span class="arithmatex">\(\le 3m = O(m)\)</span>。</li>
+</ul>
+<hr />
+<p><strong>3. 为什么 Splay 树在失败查找后也必须执行伸展？（Exercise 1.6）</strong>：
+如果失败查找（Unsuccessful search）后不把最后访问的非空节点伸展到根，则<strong>无法保证对数摊还时间</strong>！
+<strong>反例构造</strong>：
+1. 先从空树开始依次插入 <span class="arithmatex">\(1, 2, \dots, N\)</span>，每次插入后正常伸展到根，耗时 <span class="arithmatex">\(O(N)\)</span>，此时得到以 <span class="arithmatex">\(N\)</span> 为根、沿左孩子一路挂接到 <span class="arithmatex">\(1\)</span> 的退化左斜树（高度为 <span class="arithmatex">\(N-1\)</span>，节点 <span class="arithmatex">\(1\)</span> 在最底层）；
+2. 接着连续执行 <span class="arithmatex">\(N\)</span> 次针对不存在的键 <span class="arithmatex">\(0\)</span> 的查找：<code>Find(0), Find(0), ..., Find(0)</code>。
+   每次查找 <span class="arithmatex">\(0\)</span> 都必须从根 <span class="arithmatex">\(N\)</span> 沿着左链走到底层的节点 <span class="arithmatex">\(1\)</span> 左下方才会遇到空指针失败，单次查找耗时 <span class="arithmatex">\(\Theta(N)\)</span>；由于失败查找后不做伸展，<strong>树形结构丝毫没有改变（始终保持为退化链）</strong>！因此这 <span class="arithmatex">\(N\)</span> 次失败查找的总耗时高达 <span class="arithmatex">\(N \times \Theta(N) = \Theta(N^2)\)</span>，连同前面的 <span class="arithmatex">\(N\)</span> 次插入，总共 <span class="arithmatex">\(2N\)</span> 次操作却耗费了 <span class="arithmatex">\(\Theta(N^2)\)</span> 时间，单次摊还时间退化为 <span class="arithmatex">\(\Theta(N)\)</span>。</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
