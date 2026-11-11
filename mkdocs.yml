@@ -45,7 +45,10 @@ extra_css:
 nav:
   - 首页: index.md
   - 计算机科学:
-      - computer_science/index.md
+      - 概览: computer_science/index.md
+      - 高级数据结构:
+          - computer_science/advanced_data_structures/index.md
+          - 01 AVL树和Splay树,摊还分析: computer_science/advanced_data_structures/01_avl_splay_trees.md
   - 数理基础:
       - 概览: mathematical_sciences/index.md
       - 普通物理:
