@@ -1,0 +1,2987 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/08_dynamic_programing/">
+      
+      
+        <link rel="prev" href="../07_divide_and_conquer/">
+      
+      
+        <link rel="next" href="../09_greedy_algorithms/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>08 动态规划 - csc_notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-dynamic-programming" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="csc_notes" class="md-header__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            csc_notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              08 动态规划
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到科幻深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到科幻深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到清新浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到清新浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机科学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../mathematical_sciences/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数理基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../artificial_intelligence/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  其他与杂项
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="csc_notes" class="md-nav__button md-logo" aria-label="csc_notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 11a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M4.22 4.22C5.65 2.79 8.75 3.43 12 5.56c3.25-2.13 6.35-2.77 7.78-1.34s.79 4.53-1.34 7.78c2.13 3.25 2.77 6.35 1.34 7.78s-4.53.79-7.78-1.34c-3.25 2.13-6.35 2.77-7.78 1.34S3.43 15.25 5.56 12C3.43 8.75 2.79 5.65 4.22 4.22m11.32 4.24c.61.62 1.17 1.25 1.69 1.88 1.38-2.13 1.88-3.96 1.13-4.7-.74-.75-2.57-.25-4.7 1.13.63.52 1.26 1.08 1.88 1.69m-7.08 7.08c-.61-.62-1.17-1.25-1.69-1.88-1.38 2.13-1.88 3.96-1.13 4.7.74.75 2.57.25 4.7-1.13-.63-.52-1.26-1.08-1.88-1.69m-2.82-9.9c-.75.74-.25 2.57 1.13 4.7.52-.63 1.08-1.26 1.69-1.88.62-.61 1.25-1.17 1.88-1.69-2.13-1.38-3.96-1.88-4.7-1.13m4.24 8.48c.7.7 1.42 1.34 2.12 1.91.7-.57 1.42-1.21 2.12-1.91s1.34-1.42 1.91-2.12c-.57-.7-1.21-1.42-1.91-2.12S12.7 8.54 12 7.97c-.7.57-1.42 1.21-2.12 1.91S8.54 11.3 7.97 12c.57.7 1.21 1.42 1.91 2.12m8.48 4.24c.75-.74.25-2.57-1.13-4.7-.52.63-1.08 1.26-1.69 1.88-.62.61-1.25 1.17-1.88 1.69 2.13 1.38 3.96 1.88 4.7 1.13"/></svg>
+
+    </a>
+    csc_notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机科学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机科学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高级数据结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高级数据结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_avl_splay_trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 AVL树和Splay树,摊还分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_inverted_file_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 倒排索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_leftist_skew_heaps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 左势堆与斜堆
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_binomial_queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 二项队列
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_backtracking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 回溯法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_divide_and_conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 分治算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 动态规划
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 动态规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-philosophy-and-design-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 动态规划的核心思想与设计范式 (Core Philosophy and Design Paradigm)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 动态规划的核心思想与设计范式 (Core Philosophy and Design Paradigm)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从递归冗余爆炸到填表法：以斐波那契数列为例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 动态规划的四步设计范式与装配线调度问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-elements-limitations-of-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 动态规划的适用条件与失效边界 (Elements &amp; Limitations of DP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-interval-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 经典区间动态规划：矩阵链乘法与最优二叉搜索树 (Interval DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 经典区间动态规划：矩阵链乘法与最优二叉搜索树 (Interval DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ordering-matrix-multiplications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 矩阵链乘法的最佳加括号顺序 (Ordering Matrix Multiplications)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-optimal-binary-search-tree-obst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 最优二叉搜索树 (Optimal Binary Search Tree, OBST)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-graph-counting-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 图论与计数动态规划：全源最短路与红黑树计数 (Graph &amp; Counting DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 图论与计数动态规划：全源最短路与红黑树计数 (Graph &amp; Counting DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-floyd-warshall-all-pairs-shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 全源最短路径：Floyd-Warshall 算法 (All-Pairs Shortest Path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-bellman-ford-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 讲义补充：Bellman-Ford 算法与红黑树计数 DP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-knapsack-sequence-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 线性、背包与序列动态规划专题 (Knapsack &amp; Sequence DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 线性、背包与序列动态规划专题 (Knapsack &amp; Sequence DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-0-1-unbounded-and-bounded-knapsack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 三类背包问题 (0-1, Unbounded, and Bounded Knapsack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dp-hirschberg-lcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 序列 DP 与 Hirschberg 线性空间 LCS 重构算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-8-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 8 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_greedy_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 贪心算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数理基础
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数理基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/general_physics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    普通物理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    普通物理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 库仑定律与电场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 连续电荷与高斯定理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/03_electric_potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 电势
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/04_electrostatics_triangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 静电学三角关系
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/05_electrical_properties_of_conductors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 导体的电学性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/06_resistance_and_capacitance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 电阻与电容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/07_DC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 直流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/08_magnetic_field/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/09_magnetic_field_of_current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 电流的磁场
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/10_magnetism_of_materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 物质的磁性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/11_faraday_law_of_induction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 法拉第电磁感应定律
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/12_inductors_and_inductance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 电感器与电感
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/13_AC_circuits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 交流电路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 麦克斯韦方程组与电磁波
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/probability_theory_and_statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概率论与数理统计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    概率论与数理统计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/1_basic_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 基本概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 多维随机变量及其分布
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../mathematical_sciences/numerical_analysis/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值分析
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数值分析
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mathematical_sciences/numerical_analysis/numerical_errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数值误差
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../artificial_intelligence/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    人工智能
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    人工智能
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    其他与杂项
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    其他与杂项
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-core-philosophy-and-design-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 动态规划的核心思想与设计范式 (Core Philosophy and Design Paradigm)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 动态规划的核心思想与设计范式 (Core Philosophy and Design Paradigm)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从递归冗余爆炸到填表法：以斐波那契数列为例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 动态规划的四步设计范式与装配线调度问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-elements-limitations-of-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 动态规划的适用条件与失效边界 (Elements &amp; Limitations of DP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-interval-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 经典区间动态规划：矩阵链乘法与最优二叉搜索树 (Interval DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 经典区间动态规划：矩阵链乘法与最优二叉搜索树 (Interval DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ordering-matrix-multiplications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 矩阵链乘法的最佳加括号顺序 (Ordering Matrix Multiplications)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-optimal-binary-search-tree-obst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 最优二叉搜索树 (Optimal Binary Search Tree, OBST)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-graph-counting-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 图论与计数动态规划：全源最短路与红黑树计数 (Graph &amp; Counting DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 图论与计数动态规划：全源最短路与红黑树计数 (Graph &amp; Counting DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-floyd-warshall-all-pairs-shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 全源最短路径：Floyd-Warshall 算法 (All-Pairs Shortest Path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-bellman-ford-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 讲义补充：Bellman-Ford 算法与红黑树计数 DP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-knapsack-sequence-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 线性、背包与序列动态规划专题 (Knapsack &amp; Sequence DP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 线性、背包与序列动态规划专题 (Knapsack &amp; Sequence DP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-0-1-unbounded-and-bounded-knapsack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 三类背包问题 (0-1, Unbounded, and Bounded Knapsack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dp-hirschberg-lcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 序列 DP 与 Hirschberg 线性空间 LCS 重构算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-chapter-8-selected-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Chapter 8 核心习题精解 (Selected Exercises)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    首页
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    计算机科学
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    高级数据结构
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-8-dynamic-programming">Chapter 8: Dynamic Programming（动态规划）<a class="headerlink" href="#chapter-8-dynamic-programming" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Advanced Data Structures and Algorithm Analysis (ADS) | 第八章课堂与讲义笔记</p>
+<p>参考：</p>
+<ul>
+<li>Course Slides Lecture 8: <em>Dynamic Programming</em></li>
+<li>课程讲义 Lecture 8:《动态规划》</li>
+<li><em>CLRS</em> (3rd Ed.), Ch. 15; M. A. Weiss, <em>Data Structures and Algorithm Analysis in C</em> (2nd Ed.), Ch. 10.3; J. Kleinberg &amp; É. Tardos, <em>Algorithm Design</em>, Ch. 6</li>
+</ul>
+</div>
+<h2 id="1-core-philosophy-and-design-paradigm">1 动态规划的核心思想与设计范式 (Core Philosophy and Design Paradigm)<a class="headerlink" href="#1-core-philosophy-and-design-paradigm" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 从递归冗余爆炸到填表法：以斐波那契数列为例<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p><strong>动态规划（Dynamic Programming, DP，由 Richard Bellman 于 1950 年代在兰德公司提出）</strong>的核心格言是：</p>
+<blockquote>
+<p><strong>Solve sub-problems just once and save answers in a table — Use a table instead of recursion!</strong>
+（每个子问题只求解一次并将答案保存在表中——用查表/迭代填表代替朴素递归！）</p>
+</blockquote>
+<p>考察最基础的<strong>斐波那契数列</strong>（或每次可跨 <span class="arithmatex">\(1\)</span> 阶或 <span class="arithmatex">\(2\)</span> 阶的<strong>爬楼梯计数问题</strong>）：<span class="arithmatex">\(F(0) = F(1) = 1, \ F(N) = F(N - 1) + F(N - 2) \ (N \ge 2)\)</span>。</p>
+<ul>
+<li><strong>朴素递归的灾难（Trouble-maker: Explosive redundant calculations）</strong>：
+  若直接将递推式写为递归函数 <code>return Fib(N - 1) + Fib(N - 2);</code>，在计算 <code>Fib(N - 1)</code> 的过程中已经完整算出了 <code>Fib(N - 2)</code>，但返回后又会为右侧分支重新递归计算一遍 <code>Fib(N - 2)</code>（例如算 <span class="arithmatex">\(F_6\)</span> 时，<span class="arithmatex">\(F_2\)</span> 被重复计算了 <span class="arithmatex">\(5\)</span> 次）。
+  设调用次数为 <span class="arithmatex">\(T(N)\)</span>，则 <span class="arithmatex">\(T(N) \ge T(N - 1) + T(N - 2) \implies T(N) \ge F(N) \approx \frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^N\)</span>，时间复杂度呈<strong>指数级爆炸</strong>！</li>
+<li><strong>动态规划解法（自底向上迭代填表与滚动变量优化）</strong>：
+  从小到大依次计算 <span class="arithmatex">\(F(2), F(3), \dots, F(N)\)</span>，由于每次计算只需用到最近算出的前两项 <code>Last</code>（<span class="arithmatex">\(F(i-1)\)</span>）和 <code>NextToLast</code>（<span class="arithmatex">\(F(i-2)\)</span>），只需维护两个变量即可在 <strong><span class="arithmatex">\(T(N) = O(N)\)</span> 时间、<span class="arithmatex">\(O(1)\)</span> 空间</strong>内完成计算：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">Fibonacci</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Last</span><span class="p">,</span><span class="w"> </span><span class="n">NextToLast</span><span class="p">,</span><span class="w"> </span><span class="n">Answer</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NextToLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">                  </span><span class="cm">/* F(0) = F(1) = 1 */</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">Answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Last</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NextToLast</span><span class="p">;</span><span class="w">         </span><span class="cm">/* F(i) = F(i-1) + F(i-2) */</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">NextToLast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Last</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="n">Last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Answer</span><span class="p">;</span><span class="w">                      </span><span class="cm">/* 滚动更新 F(i-1) 与 F(i-2) */</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Answer</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="12">1.2 动态规划的四步设计范式与装配线调度问题<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>设计一个动态规划算法通常遵循以下<strong>标准四步法（4-Step Design Paradigm，PPT Slide 12）</strong>：</p>
+<ol>
+<li><strong>Characterize an optimal solution（刻画最优解的结构特征）</strong>：分析最优解由哪些选择和哪些子问题构成；</li>
+<li><strong>Recursively define the optimal values（递归定义最优值）</strong>：写出原问题最优值与子问题最优值之间的状态转移方程（Bellman 方程）及边界初值；</li>
+<li><strong>Compute the values in some order（按某种自底向上的拓扑顺序计算最优值）</strong>：确保计算某个状态时，其依赖的所有更小子问题状态均已算出并保存在表中；</li>
+<li><strong>Reconstruct the solving strategy（重构最优解方案）</strong>：利用填表过程中记录的决策信息（或逆向回溯状态表），还原出达到最优值的具体决策序列（若只需最优数值，可省略第 4 步）。</li>
+</ol>
+<p><strong>课堂经典实例：双装配线产品调度问题（Product Assembly，PPT Slides 13–16 &amp; 习题 8.5）</strong></p>
+<ul>
+<li><strong>问题描述</strong>：同一辆汽车可以在两条平行的装配线（Line <code>0</code> 和 Line <code>1</code>）上生产，每条装配线各有 <span class="arithmatex">\(n\)</span> 个加工阶段（Stage <span class="arithmatex">\(1 \dots n\)</span>）。不同装配线在每个阶段采用的工艺耗时不同（第 <code>line</code> 号线在第 <code>stage</code> 阶段的加工耗时为 <code>t_process[line][stage-1]</code>）；在相邻两个阶段之间，产品既可以留在原装配线继续加工（无转移耗时），也可以花费转移时间 <code>t_transit[1-line][stage-1]</code> 切换到另一条装配线。求完成全部 <span class="arithmatex">\(n\)</span> 个阶段的最少总时间及具体的装配线选择方案。</li>
+<li><strong>暴力搜索代价</strong>：每个阶段都有 2 种选择，共有 <span class="arithmatex">\(2^n\)</span> 条可能路径，穷举搜索需 <span class="arithmatex">\(O(2^n)\)</span> 时间。</li>
+<li><strong>四步法设计 DP（<span class="arithmatex">\(O(n)\)</span> 时间 + <span class="arithmatex">\(O(n)\)</span> 空间）</strong>：</li>
+<li><strong>刻画最优子结构</strong>：若到达第 <code>stage</code> 阶段（位于装配线 <code>line</code>）的路径是最快的，那么它前半段到达第 <code>stage - 1</code> 阶段（位于 <code>line</code> 或 <code>1 - line</code>）的子路径也必定是到达该前置状态的最快路径！（<em>An optimal solution contains an optimal solution of a sub-problem</em>，可通过剪切-粘贴 Cut-and-paste 反证法证明：若前置子路径不是最快，替换为更快的前置子路径会使全路径更快，矛盾）。</li>
+<li><strong>定义状态与递推方程</strong>：设 <code>f[line][stage]</code> 表示完成第 <code>stage</code> 阶段且当前位于第 <code>line</code>（<span class="arithmatex">\(\in \{0, 1\}\)</span>）条装配线时的最少总耗时；用 <code>L[line][stage]</code> 记录该状态的前一步来自哪条装配线：
+     $<span class="arithmatex">\(f[\text{line}][\text{stage}] = \min\begin{cases} f[\text{line}][\text{stage}-1] + t_{\text{process}}[\text{line}][\text{stage}-1] &amp; (\text{留在原线 }\text{stay}) \\ f[1-\text{line}][\text{stage}-1] + t_{\text{transit}}[1-\text{line}][\text{stage}-1] &amp; (\text{从另一线转来 }\text{move}) \end{cases}\)</span>$</li>
+<li><strong>按 <code>stage = 1 .. n</code> 顺序填表并重构最优路径（Slide 16 完整代码）</strong>：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* Step 3: 自底向上按 stage 递增顺序填表，同时在 L[][] 中记录决策前驱 */</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">stage</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">line</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">f_stay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">t_process</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="n">f_move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t_transit</span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f_stay</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">f_move</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_stay</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">L</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">;</span><span class="w">      </span><span class="cm">/* 记录前一步留在同一条线 */</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f_move</span><span class="p">;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="n">L</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">line</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 记录前一步从另一条线切换过来 */</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">Solution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">],</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">]);</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="cm">/* Step 4: 从最后一个阶段逆向回溯重构最优装配路线 plan[1..n] */</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="p">])</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">stage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">stage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">stage</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">plan</span><span class="p">[</span><span class="n">stage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">[</span><span class="n">line</span><span class="p">][</span><span class="n">stage</span><span class="p">];</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="13-elements-limitations-of-dp">1.3 动态规划的适用条件与失效边界 (Elements &amp; Limitations of DP)<a class="headerlink" href="#13-elements-limitations-of-dp" title="Permanent link">&para;</a></h3>
+<p>一个问题能够有效应用动态规划，必须同时具备以下<strong>两个核心要素（Elements of DP，PPT Slide 17）</strong>：</p>
+<ol>
+<li><strong>最优子结构（Optimal Substructure）</strong>：一个问题的全局最优解包含其子问题的最优解。</li>
+<li><strong>重叠子问题（Overlapping Sub-problems）</strong>：递归求解过程中，相同的子问题被反复多次用到（<em>If sub-problems do not overlap, DP becomes sort of pointless</em>——如果子问题完全不重叠，如归并排序每次切分出的左右区间互不相交，则直接用普通<strong>分治法 Divide and Conquer</strong> 即可，无需建表记忆化）。</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">思考题（Discussion 11）：什么时候不能直接应用动态规划（When CAN'T we apply DP）？</p>
+<p><strong>当子问题之间存在“历史依赖性（History-dependency）”从而破坏无后效性/最优子结构时！</strong>
+- <strong>典型反例 1（带历史路径约束的装配线，Slide 17 &amp; 习题 8.5(2)）</strong>：如果在装配线问题中增加一条全局历史规则：“凡是在第 1 阶段走了 <code>0</code> 号线的产品，由于某种物理损耗，在最后一个阶段享有特权（或被禁止从 <code>0</code> 号线换到 <code>1</code> 号线）”。此时，子问题不仅取决于当前到达了哪个节点 <code>(line, stage)</code>，还依赖于<strong>过去是如何走到这里的（历史轨迹）</strong>！单纯的状态 <code>f[line][stage]</code> 不再满足最优子结构（消除较浅层的历史依赖需要将历史信息扩充进状态维度，如改为三维状态 <code>f[line][stage][first_line]</code>）。
+- <strong>典型反例 2（图中的无权最长简单路径问题 Longest Simple Path）</strong>：虽然“最短路径”满足最优子结构，但“<strong>最长简单路径</strong>（要求不能重复经过顶点）”完全不满足最优子结构！因为两段局部最长简单路径拼在一起极大可能会共享内部顶点从而形成环（违背“简单路径”约束），子问题之间高度历史耦合（实际上最长简单路径是 <strong>NP-Complete</strong> 问题）。</p>
+</div>
+<hr />
+<h2 id="2-interval-dp">2 经典区间动态规划：矩阵链乘法与最优二叉搜索树 (Interval DP)<a class="headerlink" href="#2-interval-dp" title="Permanent link">&para;</a></h2>
+<p>当问题涉及一个线性序列，且每次决策是将序列在某处切分开（或选定一个根将序列分为左右两段）时，子问题自然由序列的<strong>左右端点区间 <span class="arithmatex">\([i, j]\)</span></strong> 界定，这类 DP 统称为<strong>区间动态规划</strong>（特征：<strong>必须按区间长度 <span class="arithmatex">\(k = j - i\)</span> 从小到大递增的顺序填表</strong>）。</p>
+<h3 id="21-ordering-matrix-multiplications">2.1 矩阵链乘法的最佳加括号顺序 (Ordering Matrix Multiplications)<a class="headerlink" href="#21-ordering-matrix-multiplications" title="Permanent link">&para;</a></h3>
+<p><strong>1. 问题背景与卡特兰数（Catalan Number）枚举爆炸（PPT Slides 4–5）</strong></p>
+<p>矩阵乘法满足结合律，但不同的加括号计算顺序会导致标量乘法次数相差悬殊（设矩阵 <span class="arithmatex">\(P_{p \times q}\)</span> 与 <span class="arithmatex">\(Q_{q \times r}\)</span> 相乘需执行 <span class="arithmatex">\(p \cdot q \cdot r\)</span> 次标量乘法）。
+- <strong>课堂算例</strong>：给定四个矩阵：<span class="arithmatex">\(M_{1\,[10\times 20]}, \ M_{2\,[20\times 50]}, \ M_{3\,[50\times 1]}, \ M_{4\,[1\times 100]}\)</span>：
+  - 若按 <span class="arithmatex">\(M_1 * (M_2 * (M_3 * M_4))\)</span> 顺序计算：总乘法次数为 <span class="arithmatex">\(50\times 1\times 100 + 20\times 50\times 100 + 10\times 20\times 100 = \mathbf{125,000}\)</span> 次；
+  - 若按 <span class="arithmatex">\((M_1 * (M_2 * M_3)) * M_4\)</span> 顺序计算：总乘法次数仅为 <span class="arithmatex">\(20\times 50\times 1 + 10\times 20\times 1 + 10\times 1\times 100 = \mathbf{2,200}\)</span> 次！（相差超過 <span class="arithmatex">\(56\)</span> 倍）。
+- <strong>为什么不能暴力枚举所有加括号方式？</strong>
+  设对 <span class="arithmatex">\(n\)</span> 个矩阵的乘积 <span class="arithmatex">\(M_1 \cdot M_2 \cdots M_n\)</span> 共有 <span class="arithmatex">\(b_n\)</span> 种不同的完全加括号方式（其中 <span class="arithmatex">\(b_1 = 1, \ b_2 = 1, \ b_3 = 2, \ b_4 = 5\)</span>）。若最后一次乘法发生在第 <span class="arithmatex">\(i\)</span> 个矩阵之后（即 <span class="arithmatex">\((M_1\cdots M_i) \cdot (M_{i+1}\cdots M_n)\)</span>），则左半部分有 <span class="arithmatex">\(b_i\)</span> 种加括号法，右半部分有 <span class="arithmatex">\(b_{n-i}\)</span> 种加括号法。因此 <span class="arithmatex">\(b_n\)</span> 满足<strong>卡特兰数（Catalan Number）递推关系</strong>：
+  $<span class="arithmatex">\(b_n = \sum_{i=1}^{n-1} b_i b_{n-i} = \frac{1}{n}\binom{2n-2}{n-1} = O\left(\frac{4^n}{n\sqrt{n}}\right)\)</span>$
+  方案数随 <span class="arithmatex">\(n\)</span> 呈指数级增长，暴力穷举完全不可行。</p>
+<p><strong>2. 状态转移方程与 <span class="arithmatex">\(O(N^3)\)</span> 填表算法（PPT Slides 5–6）</strong></p>
+<p>设要计算 <span class="arithmatex">\(n\)</span> 个矩阵的乘积 <span class="arithmatex">\(M_1 * M_2 * \dots * M_n\)</span>，其中矩阵 <span class="arithmatex">\(M_i\)</span> 的维度为 <strong><span class="arithmatex">\(r_{i-1} \times r_i\)</span></strong>（故子链乘积矩阵 <span class="arithmatex">\(M_{ij} = M_i \cdots M_j\)</span> 的维度为 <span class="arithmatex">\(r_{i-1} \times r_j\)</span>）。
+定义状态 <strong><span class="arithmatex">\(m_{ij}\)</span></strong> 为计算子链 <span class="arithmatex">\(M_i * \dots * M_j \ (1 \le i \le j \le n)\)</span> 所需的<strong>最少标量乘法次数</strong>。枚举这步区间最后一次乘法发生的位置 <span class="arithmatex">\(l \ (i \le l &lt; j)\)</span>，将子链切分为 <span class="arithmatex">\(M_{i\dots l}\)</span> 和 <span class="arithmatex">\(M_{l+1\dots j}\)</span> 两部分：</p>
+<div class="arithmatex">\[m_{ij} = \begin{cases} 0, &amp; \text{if } i = j, \\ \displaystyle\min_{i \le l &lt; j} \big\{ m_{il} + m_{l+1, j} + r_{i-1} r_l r_j \big\}, &amp; \text{if } j &gt; i. \end{cases}\]</div>
+<p><strong>关键填表顺序</strong>：由于计算 <span class="arithmatex">\(m_{ij}\)</span>（区间差 <span class="arithmatex">\(j - i = k\)</span>）时，所依赖的 <span class="arithmatex">\(m_{il}\)</span> 和 <span class="arithmatex">\(m_{l+1, j}\)</span> 的区间差 <span class="arithmatex">\(y - x &lt; k\)</span> 均严格小于 <span class="arithmatex">\(k\)</span>，因此<strong>最外层循环必须按区间跨度 <code>k = j - i</code> 从 <code>1</code> 到 <code>N - 1</code> 递增（即沿着矩阵主对角线向右上角逐条斜对角线推进）</strong>！</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* r[0..N] 存放矩阵维度：矩阵 i 的维度为 r[i-1] x r[i] */</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cm">/* 最少乘法次数最终保存在 M[1][N] 中；时间复杂度 T(N) = O(N^3)，空间 O(N^2) */</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">OptMatrix</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">r</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">TwoDimArray</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">TwoDimArray</span><span class="w"> </span><span class="n">LastChange</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">ThisM</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                        </span><span class="cm">/* 长度为 1 的单矩阵无需乘法 */</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w">                 </span><span class="cm">/* k = j - i 为区间跨度，从 1 递增到 N-1 */</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="cm">/* i 为区间左端点 */</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w">                      </span><span class="cm">/* j 为区间右端点 */</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">            </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Infinity</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">L</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="cm">/* 枚举最后一次乘法的分裂点 L */</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">                </span><span class="n">ThisM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">L</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">L</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ThisM</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w">      </span><span class="cm">/* 更新最小值并记录最优分裂点 L */</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">                    </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThisM</span><span class="p">;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">                    </span><span class="n">LastChange</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="22-optimal-binary-search-tree-obst">2.2 最优二叉搜索树 (Optimal Binary Search Tree, OBST)<a class="headerlink" href="#22-optimal-binary-search-tree-obst" title="Permanent link">&para;</a></h3>
+<p><strong>1. 问题描述与期望访问代价公式（PPT Slides 7–8）</strong></p>
+<p>在静态查找场景（词典一旦建好后不再频繁插入或删除，如编译器保留字表）中，给定 <span class="arithmatex">\(N\)</span> 个已按字典序排好序的单词 <span class="arithmatex">\(w_1 &lt; w_2 &lt; \dots &lt; w_N\)</span>，且已知每个单词 <span class="arithmatex">\(w_i\)</span> 被查找的概率为 <span class="arithmatex">\(p_i\)</span>。
+如果将这 <span class="arithmatex">\(N\)</span> 个单词组织成一棵二叉搜索树 <span class="arithmatex">\(T\)</span>，其中单词 <span class="arithmatex">\(w_i\)</span> 在树中的深度为 <span class="arithmatex">\(d_i\)</span>（约定根节点深度 <span class="arithmatex">\(d_{\text{root}} = 0\)</span>，故查找到 <span class="arithmatex">\(w_i\)</span> 需要进行 <span class="arithmatex">\(1 + d_i\)</span> 次比较），则整棵树的<strong>期望总访问时间（Expected total access cost）</strong>为：</p>
+<div class="arithmatex">\[T(N) = \sum_{i=1}^N p_i \cdot (1 + d_i)\]</div>
+<p>我们的目标是构造一棵<strong>最优二叉搜索树（OBST）</strong>，使期望总比较次数最小。</p>
+<p><strong>2. 最优子结构与状态转移方程推导</strong></p>
+<p>考察由连续单词子集 <span class="arithmatex">\(w_i, \dots, w_j \ (i \le j)\)</span> 构成的局部最优二叉搜索树 <span class="arithmatex">\(T_{ij}\)</span>，定义三个核心量（约定当 <span class="arithmatex">\(j &lt; i\)</span> 空树时，<span class="arithmatex">\(c_{ij} = 0\)</span>）：
+- <span class="arithmatex">\(w_{ij} = \sum_{k=i}^j p_k\)</span>：子区间 <span class="arithmatex">\([i, j]\)</span> 内所有单词的概率权重之和（Weight of <span class="arithmatex">\(T_{ij}\)</span>）；
+- <span class="arithmatex">\(r_{ij}\)</span>：最优子树 <span class="arithmatex">\(T_{ij}\)</span> 选定的根节点下标（Root of <span class="arithmatex">\(T_{ij}\)</span>）；
+- <span class="arithmatex">\(c_{ij}\)</span>：最优子树 <span class="arithmatex">\(T_{ij}\)</span> 的最小期望代价（Cost of <span class="arithmatex">\(T_{ij}\)</span>）。</p>
+<p>若选定单词 <span class="arithmatex">\(w_k \ (i \le k \le j)\)</span> 作为 <span class="arithmatex">\(T_{ij}\)</span> 的根，则其左子树 <span class="arithmatex">\(L\)</span> 包含 <span class="arithmatex">\(w_i \dots w_{k-1}\)</span>，右子树 <span class="arithmatex">\(R\)</span> 包含 <span class="arithmatex">\(w_{k+1} \dots w_j\)</span>。由于左、右子树挂在根 <span class="arithmatex">\(w_k\)</span> 下方后，<strong>左、右子树中每一个节点的深度都比在原独立子树中增加了 <span class="arithmatex">\(1\)</span></strong>，因此左、右子树中所有节点各自多贡献了一次比较（合计多出 <span class="arithmatex">\(\text{weight}(L) + \text{weight}(R) = w_{i, k-1} + w_{k+1, j}\)</span>），再加上根节点 <span class="arithmatex">\(w_k\)</span> 自身的概率 <span class="arithmatex">\(p_k\)</span>：</p>
+<div class="arithmatex">\[\begin{aligned} c_{ij} &amp;= p_k + \text{cost}(L) + \text{cost}(R) + \text{weight}(L) + \text{weight}(R) \\ &amp;= \underbrace{\big(p_k + w_{i, k-1} + w_{k+1, j}\big)}_{=\,w_{ij}} + c_{i, k-1} + c_{k+1, j} = w_{ij} + c_{i, k-1} + c_{k+1, j} \end{aligned}\]</div>
+<p>枚举所有可能的根 <span class="arithmatex">\(l \in [i, j]\)</span> 取最小值，即得 <strong>OBST 的核心状态转移方程</strong>：</p>
+<div class="arithmatex">\[c_{ij} = \min_{i \le l \le j} \big\{ w_{ij} + c_{i, l-1} + c_{l+1, j} \big\} = w_{ij} + \min_{i \le l \le j} \big\{ c_{i, l-1} + c_{l+1, j} \big\} \qquad (i \le j)\]</div>
+<p><strong>3. 课堂 7 保留字实例对比与完整 DP 表（PPT Slides 7 &amp; 9）</strong></p>
+<p>给定 C 语言 7 个保留字及其查找概率：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">下标 <span class="arithmatex">\(i\)</span></th>
+<th style="text-align: center;">1: <code>break</code></th>
+<th style="text-align: center;">2: <code>case</code></th>
+<th style="text-align: center;">3: <code>char</code></th>
+<th style="text-align: center;">4: <code>do</code></th>
+<th style="text-align: center;">5: <code>return</code></th>
+<th style="text-align: center;">6: <code>switch</code></th>
+<th style="text-align: center;">7: <code>void</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>概率 <span class="arithmatex">\(p_i\)</span></strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.22\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.18\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.20\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.05\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.25\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.02\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.08\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>三种建树策略对比（Discussion 10）</strong>：</li>
+<li><strong>贪心法（Greedy Method，每次选当前区间概率最大者为根）</strong>：根选 <code>return (0.25)</code>，左子树根选 <code>break (0.22)</code>，右子树根选 <code>void (0.08)</code>……最终期望代价为 <strong><span class="arithmatex">\(2.43\)</span></strong>；</li>
+<li><strong>AVL 平衡树法（每次选正中间下标的词为根）</strong>：根选 <code>do</code>，左根 <code>case</code>，右根 <code>switch</code>……高度最矮，但把概率极小的 <code>do (0.05)</code> 和 <code>switch (0.02)</code> 放在了高层，最终期望代价高达 <strong><span class="arithmatex">\(2.70\)</span></strong>；</li>
+<li><strong>动态规划 OBST 法</strong>：按区间长度从 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(7\)</span> 自底向上填表（见下表），最终在 <code>break..void</code> 格得出最小期望代价为 <strong><span class="arithmatex">\(2.15\)</span></strong>（最优根为 <code>char</code>，左孩子 <code>break</code> 右挂 <code>case</code>，右孩子 <code>return</code> 左挂 <code>do</code>、右挂 <code>void</code> 左挂 <code>switch</code>）：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">区间长度</th>
+<th style="text-align: center;"><code>break..</code> (<span class="arithmatex">\(i=1\)</span>)</th>
+<th style="text-align: center;"><code>case..</code> (<span class="arithmatex">\(i=2\)</span>)</th>
+<th style="text-align: center;"><code>char..</code> (<span class="arithmatex">\(i=3\)</span>)</th>
+<th style="text-align: center;"><code>do..</code> (<span class="arithmatex">\(i=4\)</span>)</th>
+<th style="text-align: center;"><code>return..</code> (<span class="arithmatex">\(i=5\)</span>)</th>
+<th style="text-align: center;"><code>switch..</code> (<span class="arithmatex">\(i=6\)</span>)</th>
+<th style="text-align: center;"><code>void..</code> (<span class="arithmatex">\(i=7\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Len = 1</strong></td>
+<td style="text-align: center;"><code>..break</code><br><span class="arithmatex">\(0.22\)</span> (<code>break</code>)</td>
+<td style="text-align: center;"><code>..case</code><br><span class="arithmatex">\(0.18\)</span> (<code>case</code>)</td>
+<td style="text-align: center;"><code>..char</code><br><span class="arithmatex">\(0.20\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..do</code><br><span class="arithmatex">\(0.05\)</span> (<code>do</code>)</td>
+<td style="text-align: center;"><code>..return</code><br><span class="arithmatex">\(0.25\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(0.02\)</span> (<code>switch</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(0.08\)</span> (<code>void</code>)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 2</strong></td>
+<td style="text-align: center;"><code>..case</code><br><span class="arithmatex">\(0.58\)</span> (<code>break</code>)</td>
+<td style="text-align: center;"><code>..char</code><br><span class="arithmatex">\(0.56\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..do</code><br><span class="arithmatex">\(0.30\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..return</code><br><span class="arithmatex">\(0.35\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(0.29\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(0.12\)</span> (<code>void</code>)</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 3</strong></td>
+<td style="text-align: center;"><code>..char</code><br><span class="arithmatex">\(1.02\)</span> (<code>case</code>)</td>
+<td style="text-align: center;"><code>..do</code><br><span class="arithmatex">\(0.66\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..return</code><br><span class="arithmatex">\(0.80\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(0.39\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(0.47\)</span> (<code>return</code>)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 4</strong></td>
+<td style="text-align: center;"><code>..do</code><br><span class="arithmatex">\(1.17\)</span> (<code>case</code>)</td>
+<td style="text-align: center;"><code>..return</code><br><span class="arithmatex">\(1.21\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(0.84\)</span> (<code>return</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(0.57\)</span> (<code>return</code>)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 5</strong></td>
+<td style="text-align: center;"><code>..return</code><br><span class="arithmatex">\(1.83\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(1.27\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(1.02\)</span> (<code>return</code>)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 6</strong></td>
+<td style="text-align: center;"><code>..switch</code><br><span class="arithmatex">\(1.89\)</span> (<code>char</code>)</td>
+<td style="text-align: center;"><code>..void</code><br><span class="arithmatex">\(1.53\)</span> (<code>char</code>)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Len = 7</strong></td>
+<td style="text-align: center;"><code>..void</code><br><strong><span class="arithmatex">\(2.15\)</span> (<code>char</code>)</strong></td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>点击展开：Knuth 的 O(N²) 最优二叉搜索树加速算法（四边形不等式与最优根单调性，讲义 §8.5.3）</summary>
+<p>标准 OBST 填表与矩阵链乘法一样包含三层循环，时间复杂度为 <span class="arithmatex">\(O(N^3)\)</span>。但 PPT Slide 9 特别指出：存在一个 <strong><span class="arithmatex">\(O(N^2)\)</span> 的改进算法（Knuth, 1971）</strong>！</p>
+<ol>
+<li><strong>四边形不等式与最优根单调性定理（Monotonicity of Optimal Roots）</strong>：
+   由于区间权重和 <span class="arithmatex">\(w_{ij} = \sum_{t=i}^j p_t\)</span> 满足<strong>区间包含单调性</strong>（当 <span class="arithmatex">\([b, c] \subseteq [a, d]\)</span> 时 <span class="arithmatex">\(w_{bc} \le w_{ad}\)</span>）和<strong>四边形不等式</strong>（Quadrangle Inequality：对 <span class="arithmatex">\(a \le b \le c \le d\)</span>，有 <span class="arithmatex">\(w_{ac} + w_{bd} \le w_{ad} + w_{bc}\)</span>，此处实际上取等号），可以归纳证明最优代价表 <span class="arithmatex">\(c_{ij}\)</span> 也满足四边形不等式，进而推出子区间的最优根下标 <span class="arithmatex">\(r_{ij}\)</span> 具有<strong>决策单调性</strong>：
+   <strong>当区间向右扩展一个单词（<span class="arithmatex">\(j \to j+1\)</span>）或从左端删去一个单词（<span class="arithmatex">\(i \to i+1\)</span>）时，最优根的位置绝不会向左倒退</strong>！即恒有：
+   $<span class="arithmatex">\(r_{i, j-1} \le r_{i, j} \le r_{i+1, j}\)</span>$</li>
+<li><strong>收缩枚举范围实现 <span class="arithmatex">\(O(N^2)\)</span> 复杂度</strong>：
+   在计算区间 <span class="arithmatex">\([i, j]\)</span>（设长度 <span class="arithmatex">\(j - i = k\)</span>）的最优根时，我们不再需要盲目枚举 <span class="arithmatex">\(l \in [i, j]\)</span> 的全部 <span class="arithmatex">\(k+1\)</span> 个位置，而是<strong>只需在上一层已算出的两个子区间最优根之间枚举：令 <span class="arithmatex">\(l\)</span> 从 <span class="arithmatex">\(r_{i, j-1}\)</span> 遍历到 <span class="arithmatex">\(r_{i+1, j}\)</span> 即可</strong>！
+   对同一长度 <span class="arithmatex">\(k\)</span> 的所有区间求和，内层循环的枚举次数构成<strong>望远镜相消和（Telescoping sum）</strong>：
+   $<span class="arithmatex">\(\sum_{i=1}^{N-k} \big(r_{i+1, i+k} - r_{i, i+k-1} + 1\big) = r_{N-k+1, N} - r_{1, k} + (N - k) \le 2N = O(N)\)</span>$
+   每条对角线所有格子的内层循环加起来总共才执行 <span class="arithmatex">\(O(N)\)</span> 次，共有 <span class="arithmatex">\(N\)</span> 条对角线，因此总时间复杂度从 <span class="arithmatex">\(O(N^3)\)</span> 直接降至 <strong><span class="arithmatex">\(O(N^2)\)</span></strong>！</li>
+</ol>
+</details>
+<hr />
+<h2 id="3-graph-counting-dp">3 图论与计数动态规划：全源最短路与红黑树计数 (Graph &amp; Counting DP)<a class="headerlink" href="#3-graph-counting-dp" title="Permanent link">&para;</a></h2>
+<h3 id="31-floyd-warshall-all-pairs-shortest-path">3.1 全源最短路径：Floyd-Warshall 算法 (All-Pairs Shortest Path)<a class="headerlink" href="#31-floyd-warshall-all-pairs-shortest-path" title="Permanent link">&para;</a></h3>
+<p><strong>问题描述（PPT Slides 10–11 &amp; 讲义 §8.6.2）</strong>：
+给定含 <span class="arithmatex">\(N = |V|\)</span> 个顶点的有向带权图 <span class="arithmatex">\(G = (V, E)\)</span>（顶点编号为 <span class="arithmatex">\(0, 1, \dots, N-1\)</span>），求出<strong>任意一对顶点 <span class="arithmatex">\(v_i\)</span> 与 <span class="arithmatex">\(v_j \ (i \neq j)\)</span> 之间的最短路径长度</strong>。</p>
+<ul>
+<li><strong>Method 1（对每个顶点运行一次单源最短路算法）</strong>：
+  若边权非负，运行 <span class="arithmatex">\(|V|\)</span> 次线性扫描版 Dijkstra 耗时 <span class="arithmatex">\(O(|V|^3)\)</span>（用二叉堆优化为 <span class="arithmatex">\(O(|V||E|\log|V|)\)</span>，用斐波那契堆为 <span class="arithmatex">\(O(|V|^2\log|V| + |V||E|)\)</span>，在<strong>稀疏图 Sparse graph</strong> 上很快）；若有负权边，运行 <span class="arithmatex">\(|V|\)</span> 次 Bellman-Ford 耗时 <span class="arithmatex">\(O(|V|^2|E|)\)</span>，在稠密图上高达 <span class="arithmatex">\(O(|V|^4)\)</span>。</li>
+<li><strong>Method 2：Floyd-Warshall 动态规划算法（在稠密图 Dense graph 上极快，且支持负权边）</strong>：
+  <strong>核心状态定义</strong>：定义 <strong><span class="arithmatex">\(D^k[i][j]\)</span></strong> 为从顶点 <span class="arithmatex">\(i\)</span> 到顶点 <span class="arithmatex">\(j\)</span>、且<strong>路径上所有中间内部顶点（Intermediate vertices，不含起点 <span class="arithmatex">\(i\)</span> 和终点 <span class="arithmatex">\(j\)</span>）的编号均不超过 <span class="arithmatex">\(k\)</span>（即内部顶点 <span class="arithmatex">\(\in \{0, 1, \dots, k\}\)</span>）</strong>的所有路径中的最短长度。</li>
+<li><strong>初值（<span class="arithmatex">\(k = -1\)</span>）</strong>：不允许经过任何中间顶点，<span class="arithmatex">\(D^{-1}[i][j] = \text{Cost}[i][j]\)</span>（即邻接矩阵 <span class="arithmatex">\(A[i][j]\)</span>：有直接边则为边权，<span class="arithmatex">\(i=j\)</span> 时为 <span class="arithmatex">\(0\)</span>，无边则为 <span class="arithmatex">\(+\infty\)</span>）；</li>
+<li><strong>状态转移（从 <span class="arithmatex">\(D^{k-1}\)</span> 递推 <span class="arithmatex">\(D^k\)</span>，<span class="arithmatex">\(k = 0, 1, \dots, N-1\)</span>）</strong>：
+    当新允许使用编号为 <span class="arithmatex">\(k\)</span> 的顶点作为中转点时，从 <span class="arithmatex">\(i\)</span> 到 <span class="arithmatex">\(j\)</span>（中间顶点 <span class="arithmatex">\(\le k\)</span>）的最短路径只有两种可能：
+    ① <strong>不经过顶点 <span class="arithmatex">\(k\)</span></strong>：最短长度仍为 <span class="arithmatex">\(D^{k-1}[i][j]\)</span>；
+    ② <strong>经过顶点 <span class="arithmatex">\(k\)</span></strong>（在无负环图中简单路径至多经过 <span class="arithmatex">\(k\)</span> 一次）：路径在 <span class="arithmatex">\(k\)</span> 处拆分为 <span class="arithmatex">\(i \to k\)</span> 和 <span class="arithmatex">\(k \to j\)</span> 两段，每段内部顶点均 <span class="arithmatex">\(\le k-1\)</span>，长度为 <span class="arithmatex">\(D^{k-1}[i][k] + D^{k-1}[k][j]\)</span>。
+    因此递推方程为：
+    $$
+    D^k[i][j] = \min\Big{ D^{k-1}[i][j], \ \ D^{k-1}[i][k] + D^{k-1}[k][j] \Big}, \qquad k = 0, 1, \dots, N-1
+    $$
+    最终 <span class="arithmatex">\(D^{N-1}[i][j]\)</span> 即为允许经过任意顶点的全局最短路径长度！</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* A[][] 为邻接矩阵 (A[i][i] = 0); D[][] 保存最终全源最短路径长度; Path[][] 记录中转点用于重构路径 */</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm">/* 时间复杂度 T(N) = O(N^3)，空间复杂度 O(N^2) */</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AllPairs</span><span class="p">(</span><span class="n">TwoDimArray</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">TwoDimArray</span><span class="w"> </span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">TwoDimArray</span><span class="w"> </span><span class="n">Path</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">                 </span><span class="cm">/* Step 1: Initialize D and Path */</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">            </span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="n">Path</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NotAVertex</span><span class="p">;</span><span class="w">        </span><span class="cm">/* -1 */</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="cm">/* Step 2: 动态规划三层循环 —— 注意最外层循环变量必须是中转点 k ！ */</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w">                 </span><span class="cm">/* 依次解锁中间顶点 k = 0 .. N-1 */</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* Update shortest path */</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">                    </span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">                    </span><span class="n">Path</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Floyd-Warshall 算法的三大核心考点（Slide 11 &amp; 习题 8.13）</p>
+<ol>
+<li><strong>负权边与负权环（Negative-cost cycles）检测</strong>：
+   Floyd-Warshall 算法在图中存在<strong>负权边（Negative edge costs）但不存在负权环</strong>时完全正确。如果图中存在负权环，如何检测？只需在算法运行中或结束后检查主对角线元素：<strong>图中存在负权环当且仅当存在某个顶点 <span class="arithmatex">\(i\)</span> 使得 <code>D[i][i] &lt; 0</code></strong>（从 <span class="arithmatex">\(i\)</span> 出发绕一圈回到 <span class="arithmatex">\(i\)</span> 总代价为负）！</li>
+<li><strong>为什么可以直接用单个二维数组 <code>D[i][j]</code> 原地覆盖更新（省去上标 <span class="arithmatex">\(k\)</span>）？</strong>
+   因为在计算第 <span class="arithmatex">\(k\)</span> 轮时，<code>D[i][k]</code> 和 <code>D[k][j]</code> 在第 <span class="arithmatex">\(k\)</span> 轮中自身不会被修改（因为 <span class="arithmatex">\(D[i][k] = \min(D[i][k], D[i][k] + D[k][k])\)</span>，只要无负环即 <span class="arithmatex">\(D[k][k] \ge 0\)</span>，它就不会变），所以原地覆盖绝不会污染本轮所需的旧值。</li>
+<li><strong>三层循环的顺序 <code>k -&gt; i -&gt; j</code> 能否交换为 <code>i -&gt; j -&gt; k</code>？</strong>
+   <strong>绝对不能</strong>！<span class="arithmatex">\(k\)</span> 是动态规划的“阶段（Stage）”变量，必须放在最外层。若把 <span class="arithmatex">\(k\)</span> 放在最内层，在计算 <code>D[i][j]</code> 时所依赖的 <code>D[i][k]</code> 和 <code>D[k][j]</code> 尚未解锁更高编号的中转点（见习题 8.13 反例）。</li>
+</ol>
+</div>
+<h3 id="32-bellman-ford-dp">3.2 讲义补充：Bellman-Ford 算法与红黑树计数 DP<a class="headerlink" href="#32-bellman-ford-dp" title="Permanent link">&para;</a></h3>
+<details>
+<summary>点击展开：Bellman-Ford 单源最短路算法与给定键值红黑树计数 DP（讲义 §8.6.1 &amp; §8.7）</summary>
+<p><strong>1. Bellman-Ford 单源含负权边最短路算法（讲义 §8.6.1）</strong></p>
+<p>给定有向图 <span class="arithmatex">\(G = (V, E)\)</span>（<span class="arithmatex">\(n = |V|, \ m = |E|\)</span>）与源点 <span class="arithmatex">\(s\)</span>：
+- <strong>状态定义</strong>：设 <span class="arithmatex">\(D_k[v]\)</span> 为从源点 <span class="arithmatex">\(s\)</span> 出发、<strong>至多经过 <span class="arithmatex">\(k\)</span> 条边</strong>到达顶点 <span class="arithmatex">\(v\)</span> 的最短路径长度（初值 <span class="arithmatex">\(D_0[s] = 0\)</span>，其余 <span class="arithmatex">\(D_0[v] = +\infty\)</span>）。
+- <strong>状态转移</strong>：
+  $$
+  D_k[v] = \min\left{ D_{k-1}[v], \ \ \min_{(u, v) \in E}\big{ D_{k-1}[u] + w(u, v) \big} \right}, \qquad k = 1, 2, \dots, n
+  $$
+- <strong>负环判定定理</strong>：若图中不含从 <span class="arithmatex">\(s\)</span> 可达的负环，则任意最短简单路径至多包含 <span class="arithmatex">\(n - 1\)</span> 条边，故算到 <span class="arithmatex">\(D_{n-1}\)</span> 即已收敛。<strong>图中不存在从 <span class="arithmatex">\(s\)</span> 可达的负环，当且仅当第 <span class="arithmatex">\(n\)</span> 轮没有任何距离被更新（即对所有 <span class="arithmatex">\(v \in V\)</span> 均有 <span class="arithmatex">\(D_n[v] = D_{n-1}[v]\)</span>）</strong>！时间复杂度为 <span class="arithmatex">\(O(nm)\)</span>。</p>
+<hr />
+<p><strong>2. 给定 <span class="arithmatex">\(N\)</span> 个互异键值的合法红黑树计数（Counting Red-Black Trees，讲义 §8.7，经典树形计数 DP）</strong></p>
+<p><strong>问题</strong>：给定 <span class="arithmatex">\(N\)</span> 个互异键值（中序遍历唯一确定，故只需枚举树形与染色），一共能构造出多少棵合法的红黑树？
+<strong>状态设计</strong>：为了在拼接左右子树时验证红黑树的性质 4（红节点无红孩子）和性质 5（各路径黑节点数相同），子问题的状态必须同时记录三个维度：
+- <span class="arithmatex">\(n\)</span>：子树的内部节点总数（<span class="arithmatex">\(0 \le n \le N\)</span>）；
+- <span class="arithmatex">\(h\)</span>：从子树根到 <code>NIL</code> 路径上的<strong>黑色内部节点个数</strong>（含子树根自身，不含 <code>NIL</code>；由红黑树高度引理知 <span class="arithmatex">\(h \le H = \lfloor\log_2(N+1)\rfloor\)</span>）；
+- 根的颜色：用 <strong><span class="arithmatex">\(B[n, h]\)</span></strong> 表示根为<strong>黑色</strong>的合法子树方案数，用 <strong><span class="arithmatex">\(R[n, h]\)</span></strong> 表示根为<strong>红色</strong>的合法子树方案数。</p>
+<p><strong>初值与状态转移方程</strong>：
+空树（<span class="arithmatex">\(n=0\)</span>）对应单个黑色 <code>NIL</code>，含 <span class="arithmatex">\(0\)</span> 个黑色内部节点，故初值为 <span class="arithmatex">\(B[0, 0] = 1\)</span>，其余 <span class="arithmatex">\(B[0, h] = R[0, h] = 0\)</span>。
+对于 <span class="arithmatex">\(n \ge 1\)</span>，根节点占去 <span class="arithmatex">\(1\)</span> 个节点，枚举左子树分配 <span class="arithmatex">\(a \ (0 \le a \le n-1)\)</span> 个节点，则右子树分配 <span class="arithmatex">\(b = n - 1 - a\)</span> 个节点：
+1. <strong>若当前根染黑色（计算 <span class="arithmatex">\(B[n, h]\)</span>）</strong>：根自身贡献了 <span class="arithmatex">\(1\)</span> 个黑节点，故左、右子树内部需各有 <span class="arithmatex">\(h - 1\)</span> 个黑节点，且<strong>左右子树的根既可以是黑色也可以是红色</strong>，由乘法原理：
+   $$
+   B[n, h] = \sum_{a=0}^{n-1} \big(B[a, h-1] + R[a, h-1]\big)\big(B[n-1-a, h-1] + R[n-1-a, h-1]\big)
+   $$
+2. <strong>若当前根染红色（计算 <span class="arithmatex">\(R[n, h]\)</span>）</strong>：根不贡献黑节点，且由性质 4 知<strong>左右子树的根必须都是黑色</strong>，各含 <span class="arithmatex">\(h\)</span> 个黑节点：
+   $$
+   R[n, h] = \sum_{a=0}^{n-1} B[a, h] \cdot B[n-1-a, h]
+   $$</p>
+<p>整棵红黑树要求根必须为黑色，故最终答案为 <span class="arithmatex">\(\sum_{h=0}^{\lfloor\log_2(N+1)\rfloor} B[N, h]\)</span>。共有 <span class="arithmatex">\(O(N\log N)\)</span> 个状态，每个状态枚举 <span class="arithmatex">\(N\)</span> 个分点，总时间复杂度为 <strong><span class="arithmatex">\(O(N^2 \log N)\)</span></strong>。</p>
+</details>
+<hr />
+<h2 id="4-knapsack-sequence-dp">4 线性、背包与序列动态规划专题 (Knapsack &amp; Sequence DP)<a class="headerlink" href="#4-knapsack-sequence-dp" title="Permanent link">&para;</a></h2>
+<p>讲义（§8.2, §8.3, §8.9）系统梳理了算法竞赛与考试中最常考的几类经典 DP 模型，核心递推式与空间优化对比汇总如下：</p>
+<h3 id="41-0-1-unbounded-and-bounded-knapsack">4.1 三类背包问题 (0-1, Unbounded, and Bounded Knapsack)<a class="headerlink" href="#41-0-1-unbounded-and-bounded-knapsack" title="Permanent link">&para;</a></h3>
+<p>设背包总容量为正整数 <span class="arithmatex">\(C\)</span>，共有 <span class="arithmatex">\(n\)</span> 种物品，第 <span class="arithmatex">\(i\)</span> 种物品的重量为 <span class="arithmatex">\(s_i\)</span>、价值为 <span class="arithmatex">\(v_i\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">背包类型</th>
+<th style="text-align: left;">物品数量限制</th>
+<th style="text-align: left;">二维状态转移方程（<span class="arithmatex">\(V[i, c]\)</span>）</th>
+<th style="text-align: left;">一维空间优化 <span class="arithmatex">\(A[0..C]\)</span> 的内层循环方向与复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. 0-1 背包</strong><br>（0-1 Knapsack）</td>
+<td style="text-align: left;">每件物品至多选 <strong><span class="arithmatex">\(1\)</span> 次</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(V[i, c] = \max\big\{V[i-1, c], \ V[i-1, c - s_i] + v_i\big\}\)</span></td>
+<td style="text-align: left;"><strong>逆序循环 <code>for c = C downto s_i</code></strong><br>（防止 <span class="arithmatex">\(A[c-s_i]\)</span> 在本轮被提前覆盖而重复选入同一物品）<br>时间 <span class="arithmatex">\(O(nC)\)</span>（<strong>伪多项式时间</strong>），空间 <span class="arithmatex">\(O(C)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. 完全背包</strong><br>（Unbounded）</td>
+<td style="text-align: left;">每种物品可选<strong>无限次</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(U[i, c] = \max\big\{U[i-1, c], \ U[i, c - s_i] + v_i\big\}\)</span></td>
+<td style="text-align: left;"><strong>正序循环 <code>for c = s_i to C</code></strong><br>（恰需利用本轮已更新的 <span class="arithmatex">\(U[i, c-s_i]\)</span> 实现继续选同种物品）<br>时间 <span class="arithmatex">\(O(nC)\)</span>，空间 <span class="arithmatex">\(O(C)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. 有界/多重背包</strong><br>（Bounded）</td>
+<td style="text-align: left;">第 <span class="arithmatex">\(i\)</span> 种物品至多选 <strong><span class="arithmatex">\(b_i\)</span> 次</strong></td>
+<td style="text-align: left;">朴素枚举件数 <span class="arithmatex">\(k \in [0, \min(b_i, \lfloor c/s_i \rfloor)]\)</span>：<br><span class="arithmatex">\(O\left(C \sum_{i=1}^n b_i\right)\)</span></td>
+<td style="text-align: left;"><strong>二进制分组拆分法（Binary Grouping）</strong>：<br>将 <span class="arithmatex">\(b_i\)</span> 件拆分为系数 <span class="arithmatex">\(1, 2, 4, \dots, 2^{t-1}, r\)</span>（其中 <span class="arithmatex">\(r = b_i - (2^t - 1)\)</span>）共 <span class="arithmatex">\(\lfloor\log_2 b_i\rfloor + 1\)</span> 组新 0-1 物品，转化为 0-1 背包，时间降为 <strong><span class="arithmatex">\(O\left(C \sum_{i=1}^n \log b_i\right)\)</span></strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">重要理论概念：为什么 0-1 背包的 <span class="arithmatex">\(O(nC)\)</span> 是伪多项式时间（Pseudo-polynomial Time）？</p>
+<p>在计算复杂性理论中，衡量算法是否属于多项式时间，其基准是<strong>输入编码的比特长度（Input size in bits）</strong>，而非输入数值本身的大小！
+整数容量 <span class="arithmatex">\(C\)</span> 在输入中只需用 <span class="arithmatex">\(k = \lfloor\log_2 C\rfloor + 1\)</span> 个二进制比特表示，而 <span class="arithmatex">\(O(nC) = O(n \cdot 2^k)\)</span> 关于输入比特数 <span class="arithmatex">\(k\)</span> 实际上是<strong>指数级增长</strong>的，因此称为<strong>伪多项式时间算法</strong>（0-1 背包问题是 NP-Hard 问题）。</p>
+</div>
+<h3 id="42-dp-hirschberg-lcs">4.2 序列 DP 与 Hirschberg 线性空间 LCS 重构算法<a class="headerlink" href="#42-dp-hirschberg-lcs" title="Permanent link">&para;</a></h3>
+<p><strong>1. 路径图最大加权独立集（House Robber）、最大子序列和、LCS 与序列对齐</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">经典问题</th>
+<th style="text-align: left;">状态定义</th>
+<th style="text-align: left;">状态转移方程与时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>路径图最大加权独立集</strong><br>（相邻顶点不能同时选）</td>
+<td style="text-align: left;"><span class="arithmatex">\(W[i]\)</span>：前 <span class="arithmatex">\(i\)</span> 个顶点的最大独立集权和</td>
+<td style="text-align: left;"><span class="arithmatex">\(W[i] = \max\big\{W[i-1], \ W[i-2] + w_i\big\} \quad (W[0]=0, W[1]=w_1)\)</span><br>时间 <span class="arithmatex">\(O(n)\)</span>，空间 <span class="arithmatex">\(O(n)\)</span>（只求值可降为 <span class="arithmatex">\(O(1)\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最大连续子序列和</strong><br>（Kadane 算法）</td>
+<td style="text-align: left;"><span class="arithmatex">\(E[i]\)</span>：<strong>以 <span class="arithmatex">\(a_i\)</span> 结尾</strong>的最大非空连续子序列和</td>
+<td style="text-align: left;"><span class="arithmatex">\(E[i] = \max\big\{a_i, \ E[i-1] + a_i\big\}, \quad \text{Ans} = \max_{1\le i\le n} E[i]\)</span><br>时间 <span class="arithmatex">\(O(n)\)</span>，空间 <span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最长公共子序列（LCS）</strong><br>（子序列不要求连续）</td>
+<td style="text-align: left;"><span class="arithmatex">\(L[i, j]\)</span>：<span class="arithmatex">\(X[1..i]\)</span> 与 <span class="arithmatex">\(Y[1..j]\)</span> 的 LCS 长度</td>
+<td style="text-align: left;"><span class="arithmatex">\(L[i, j] = \begin{cases} L[i-1, j-1] + 1, &amp; x_i = y_j \\ \max\{L[i-1, j], L[i, j-1]\}, &amp; x_i \neq y_j \end{cases}\)</span><br>时间 <span class="arithmatex">\(O(mn)\)</span>，标准重构空间 <span class="arithmatex">\(O(mn)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>序列对齐 / 编辑距离</strong><br>（空位罚分 <span class="arithmatex">\(g\)</span>，错配 <span class="arithmatex">\(\alpha(x_i, y_j)\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(P[i, j]\)</span>：<span class="arithmatex">\(X[1..i]\)</span> 与 <span class="arithmatex">\(Y[1..j]\)</span> 的最小对齐总代价</td>
+<td style="text-align: left;"><span class="arithmatex">\(P[i, j] = \min\begin{cases} P[i-1, j-1] + \alpha(x_i, y_j) \\ P[i-1, j] + g, \ \ P[i, j-1] + g \end{cases}\)</span><br>初值 <span class="arithmatex">\(P[i, 0] = ig, \ P[0, j] = jg\)</span>；时间 <span class="arithmatex">\(O(mn)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Hirschberg 算法：在 <span class="arithmatex">\(O(mn)\)</span> 时间、<span class="arithmatex">\(O(m + n)\)</span> 线性空间内重构完整 LCS（讲义 §8.9）</strong></p>
+<p>在 LCS 问题中，如果只求长度，只需保留两行滚动数组，空间为 <span class="arithmatex">\(O(\min(m, n))\)</span>；但如果还要重构输出具体的 LCS 字符串，由于两行滚动数组丢掉了历史行，无法回溯路径。
+1975 年，Daniel Hirschberg 提出了将<strong>动态规划滚动数组与分治法完美结合</strong>的算法，仅用 <strong><span class="arithmatex">\(O(m + n)\)</span> 线性空间</strong>即可恢复完整 LCS（且时间仍保持为 <span class="arithmatex">\(O(mn)\)</span>）：</p>
+<ol>
+<li><strong>取半切分 <span class="arithmatex">\(X\)</span></strong>：令 <span class="arithmatex">\(r = \lfloor m / 2 \rfloor\)</span>，将字符串 <span class="arithmatex">\(X\)</span> 对半切分为前半段 <span class="arithmatex">\(X[1..r]\)</span> 和后半段 <span class="arithmatex">\(X[r+1..m]\)</span>。</li>
+<li><strong>正反两次滚动数组 DP 寻找最佳切分点 <span class="arithmatex">\(j^*\)</span></strong>：</li>
+<li>用两行滚动数组正向计算 <span class="arithmatex">\(X[1..r]\)</span> 与 <span class="arithmatex">\(Y[1..n]\)</span> 的最后一行 LCS 长度，记为 <span class="arithmatex">\(L[j] = \text{LCSLen}(X[1..r], Y[1..j]) \ (0 \le j \le n)\)</span>；</li>
+<li>将后半段 <span class="arithmatex">\(X[r+1..m]\)</span> 与 <span class="arithmatex">\(Y[1..n]\)</span> 反转（Reverse），用两行滚动数组反向计算 <span class="arithmatex">\(X[r+1..m]\)</span> 与后缀 <span class="arithmatex">\(Y[j+1..n]\)</span> 的 LCS 长度，记为 <span class="arithmatex">\(R[j] = \text{LCSLen}(X[r+1..m], Y[j+1..n])\)</span>；</li>
+<li>遍历 <span class="arithmatex">\(j \in [0, n]\)</span>，找到使前后两段 LCS 长度之和最大的分界点 <span class="arithmatex">\(j^*\)</span>：
+     $$
+     j^* = \arg\max_{0 \le j \le n} \big{ L[j] + R[j] \big}
+     $$
+     这表明全局最优 LCS 必然在 <span class="arithmatex">\((r, j^*)\)</span> 处穿过中线！</li>
+<li><strong>分治递归求解</strong>：释放临时数组 <span class="arithmatex">\(L, R\)</span>，分别递归调用 <code>Hirschberg(X[1..r], Y[1..j*])</code> 和 <code>Hirschberg(X[r+1..m], Y[j*+1..n])</code>（当子串行数 <span class="arithmatex">\(m = 1\)</span> 时直接扫描匹配输出）。</li>
+<li><strong>为什么时间复杂度依然是 <span class="arithmatex">\(O(mn)\)</span> 而没有多乘 <span class="arithmatex">\(\log m\)</span>？</strong></li>
+<li>第 <span class="arithmatex">\(0\)</span> 层（根）扫描网格面积为 <span class="arithmatex">\(m \times n\)</span>；</li>
+<li>第 <span class="arithmatex">\(1\)</span> 层两个子问题的网格面积分别为 <span class="arithmatex">\(\frac{m}{2} \times j^*\)</span> 和 <span class="arithmatex">\(\frac{m}{2} \times (n - j^*)\)</span>，<strong>面积之和恒等于 <span class="arithmatex">\(\frac{m}{2}(j^* + n - j^*) = \frac{1}{2}mn\)</span></strong>！</li>
+<li>每向下一层，总计算面积严格减半！由等比级数求和：
+     $$
+     T(m, n) = O\left(mn + \frac{1}{2}mn + \frac{1}{4}mn + \cdots\right) = O(2mn) = O(mn)
+     $$
+   空间复杂度仅为两行滚动数组 <span class="arithmatex">\(O(n)\)</span> 加上递归栈深度 <span class="arithmatex">\(O(\log m)\)</span> 及输入输出 <span class="arithmatex">\(O(m+n)\)</span>，总空间严格为 <strong><span class="arithmatex">\(O(m + n)\)</span></strong>！</li>
+</ol>
+<hr />
+<h2 id="5-chapter-8-selected-exercises">5 Chapter 8 核心习题精解 (Selected Exercises)<a class="headerlink" href="#5-chapter-8-selected-exercises" title="Permanent link">&para;</a></h2>
+<details>
+<summary>Exercise 8.1, 8.2, 8.3 &amp; 8.4: Tree Independent Set, Coin Change, Decode Ways &amp; Max Product（树的最大权独立集、零钱兑换、数字串解码与最大乘积子数组）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 8.1</strong>: 对任意无向图 <span class="arithmatex">\(G = (V, E)\)</span> 及顶点 <span class="arithmatex">\(v \in V\)</span>（权 <span class="arithmatex">\(w_v \ge 0\)</span>），令 <span class="arithmatex">\(H = G - v\)</span>，且 <span class="arithmatex">\(K = G - N[v]\)</span>（删去 <span class="arithmatex">\(v\)</span> 及其所有邻点）。递推式 <span class="arithmatex">\(W_G = \max\{W_H, W_K + w_v\}\)</span> 是否对任意图都正确？为什么它能对<strong>树（Tree）</strong>产生 <span class="arithmatex">\(O(n)\)</span> 时间的 DP 算法，却不能对一般图产生线性时间算法？
+- <strong>Ex 8.2 (Coin Change)</strong>: 给定正整数硬币面额数组 <code>coins[1..q]</code>（每种无限枚）和目标金额 <code>A</code>，求凑出金额 <code>A</code> 所需的最少硬币枚数。
+- <strong>Ex 8.3 (Decode Ways)</strong>: 字母 <code>A..Z</code> 编码为十进制串 <code>'0'..'25'</code>（两位编码不能有前导零，如 <code>07</code> 只能拆为 <code>0 | 7</code>）。给定长度为 <span class="arithmatex">\(n\)</span> 的数字串，设计 <span class="arithmatex">\(O(n)\)</span> DP 算法计算解码方式总数。
+- <strong>Ex 8.4 (Maximum Subsequence Product)</strong>: 给定含正数、负数、<span class="arithmatex">\(0\)</span> 及小数的实数数组 <span class="arithmatex">\(a[1..n]\)</span>，设计 <span class="arithmatex">\(O(n)\)</span> 算法求非空连续子序列的最大乘积。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 一般图与树上的最大加权独立集（Exercise 8.1）</strong>：</p>
+<ul>
+<li><strong>递推式的普适性</strong>：公式 <span class="arithmatex">\(W_G = \max\{W_H, W_K + w_v\}\)</span> <strong>对任意无向图都是完全正确的</strong>（因为最优独立集要么不含 <span class="arithmatex">\(v\)</span> [此时等价于在 <span class="arithmatex">\(G - v\)</span> 中找最大独立集]，要么包含 <span class="arithmatex">\(v\)</span> [此时 <span class="arithmatex">\(v\)</span> 的所有邻点均不能选，等价于在 <span class="arithmatex">\(G - N[v]\)</span> 中找最大独立集再加上 <span class="arithmatex">\(w_v\)</span>]）。</li>
+<li><strong>为什么在一般图上不是线性时间，而在树上是 <span class="arithmatex">\(O(n)\)</span> 时间？</strong>
+  在一般无向图中，反复删去不同顶点及邻域会产生多达 <span class="arithmatex">\(O(2^n)\)</span> 个互不同构的导出子图状态（子问题数量呈指数级爆炸）。
+  而在<strong>树（Tree）</strong>上，固定任意根节点后，删去父节点或子节点只会留下标准的<strong>以各节点 <span class="arithmatex">\(u\)</span> 为根的子树 <span class="arithmatex">\(T_u\)</span></strong>（全树总共只有 <span class="arithmatex">\(n\)</span> 棵子树）！对每个树节点 <span class="arithmatex">\(u\)</span> 仅需维护两个状态：<span class="arithmatex">\(I[u]\)</span>（选 <span class="arithmatex">\(u\)</span> 时子树 <span class="arithmatex">\(T_u\)</span> 的最大独立集权和）与 <span class="arithmatex">\(O[u]\)</span>（不选 <span class="arithmatex">\(u\)</span> 时子树 <span class="arithmatex">\(T_u\)</span> 的最大独立集权和），按后序遍历自底向上递推：
+  $$
+  I[u] = w_u + \sum_{v \in \text{children}(u)} O[v], \qquad O[u] = \sum_{v \in \text{children}(u)} \max\big{I[v], \ O[v]\big}
+  $$
+  每个节点和每条树边仅被访问一次，总时间复杂度严格为 <strong><span class="arithmatex">\(O(n)\)</span></strong>！</li>
+</ul>
+<hr />
+<p><strong>2. 零钱兑换问题（Coin Change，Exercise 8.2）</strong>：
+令 <span class="arithmatex">\(D[x]\)</span> 表示凑出金额 <span class="arithmatex">\(x \ (0 \le x \le A)\)</span> 所需的最少硬币数（初值 <span class="arithmatex">\(D[0] = 0\)</span>，其余初始化为 <span class="arithmatex">\(+\infty\)</span>）。枚举最后一枚硬币的面额 <span class="arithmatex">\(c \in \text{coins}\)</span>：</p>
+<div class="arithmatex">\[
+D[x] = 1 + \min_{c \in \text{coins},\, c \le x} D[x - c], \qquad x = 1, 2, \dots, A
+\]</div>
+<p>时间复杂度为 <span class="arithmatex">\(O(Aq)\)</span>，空间复杂度为 <span class="arithmatex">\(O(A)\)</span>。</p>
+<hr />
+<p><strong>3. 数字串解码方式计数（Decode Ways，Exercise 8.3）</strong>：
+设数字串为 <span class="arithmatex">\(s[1..n]\)</span>，令 <span class="arithmatex">\(D[i]\)</span> 表示前缀 <span class="arithmatex">\(s[1..i]\)</span> 的合法解码方式总数（初值 <span class="arithmatex">\(D[0] = 1, \ D[1] = 1\)</span>）：
+- 最后一个数字 <span class="arithmatex">\(s[i]\)</span> 总是可以单独解码为一个字母（<code>'0'..'9'</code> <span class="arithmatex">\(\to\)</span> <code>A..J</code>），贡献 <span class="arithmatex">\(D[i-1]\)</span> 种方式；
+- 若倒数两个数字构成的十进制两位数满足 <span class="arithmatex">\(s[i-1] \neq \text{'0'}\)</span> 且 <span class="arithmatex">\(10 \le \text{val}(s[i-1..i]) \le 25\)</span>，则最后两位可以合并解码为一个字母（<code>'10'..'25'</code> <span class="arithmatex">\(\to\)</span> <code>K..Z</code>），额外贡献 <span class="arithmatex">\(D[i-2]\)</span> 种方式：
+  $$
+  D[i] = D[i-1] + \mathbb{I}\big(10 \le \text{val}(s[i-1..i]) \le 25\big) \cdot D[i-2]
+  $$
+  时间复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
+<hr />
+<p><strong>4. 最大连续子序列乘积（Maximum Subsequence Product，Exercise 8.4，必考状态设计题）</strong>：
+<strong>为什么不能像最大子序列和那样只记一个最大值 <span class="arithmatex">\(E[i]\)</span>？</strong>
+因为乘法具有<strong>负负得正</strong>的性质！如果当前元素 <span class="arithmatex">\(a_i &lt; 0\)</span> 是负数，它乘以前面一个<strong>最小的负乘积</strong>反而会瞬间变成最大的正乘积！
+因此，对每个位置 <span class="arithmatex">\(i\)</span>，必须<strong>同时维护两个状态</strong>：
+- <span class="arithmatex">\(H[i]\)</span>：以 <span class="arithmatex">\(a_i\)</span> 结尾的连续子序列的<strong>最大乘积</strong>；
+- <span class="arithmatex">\(L[i]\)</span>：以 <span class="arithmatex">\(a_i\)</span> 结尾的连续子序列的<strong>最小乘积</strong>（最负值）。
+初值 <span class="arithmatex">\(H[1] = L[1] = a_1\)</span>。对 <span class="arithmatex">\(i = 2 \dots n\)</span>，状态转移方程为：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+H[i] &amp;= \max\big\{ a_i, \ \ H[i-1] \cdot a_i, \ \ L[i-1] \cdot a_i \big\}, \\
+L[i] &amp;= \min\big\{ a_i, \ \ H[i-1] \cdot a_i, \ \ L[i-1] \cdot a_i \big\},
+\end{aligned}
+\]</div>
+<p>全局最大乘积为 <span class="arithmatex">\(\max_{1 \le i \le n} H[i]\)</span>，时间复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
+</details>
+<details>
+<summary>Exercise 8.5, 8.6, 8.7, 8.8 &amp; 8.9: Assembly History, Bread-Cream Pairing, Palindromes, LIS &amp; Rod Cutting（历史依赖扩维、面包奶油配对、回文分割、LIS 与钢条切割）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 8.5</strong>: 在 §1.2 的双生产线问题中，若增加历史约束：“第一阶段在生产线 <code>0</code> 加工的产品，最后一步（第 <span class="arithmatex">\(n\)</span> 阶段）不能从生产线 <code>0</code> 换到生产线 <code>1</code>”，应如何修改状态设计以在 <span class="arithmatex">\(O(n)\)</span> 时间内求解？
+- <strong>Ex 8.6 (Hand-made Cream)</strong>: 给定 <span class="arithmatex">\(n\)</span> 片面包评分 <span class="arithmatex">\(a[1..n]\)</span> 和 <span class="arithmatex">\(m\)</span> 份奶油评分 <span class="arithmatex">\(b[1..m]\)</span>（评分可正可负）。按原相对顺序挑选相同数量的面包和奶油一一配对，每对得分为 <span class="arithmatex">\(a_i \cdot b_j\)</span>（允许一对都不选得 <span class="arithmatex">\(0\)</span> 分），求最大总得分。
+- <strong>Ex 8.7 (Palindromes)</strong>: 给定长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(s[1..n]\)</span>，设计 <span class="arithmatex">\(O(n^2)\)</span> DP 算法解决：(1) 求最长回文子串；(2) 将整个字符串切割为若干回文子串，求最少切割次数。
+- <strong>Ex 8.8 (Longest Increasing Subsequence, LIS)</strong>: 给定数组 <span class="arithmatex">\(a[1..n]\)</span>，设计 <span class="arithmatex">\(O(n^2)\)</span> DP 算法求最长严格递增子序列的长度并恢复方案。
+- <strong>Ex 8.9 (Rod Cutting)</strong>: 给定长度为 <span class="arithmatex">\(n\)</span> 英寸的钢条和长度 <span class="arithmatex">\(1 \dots n\)</span> 的价格表 <span class="arithmatex">\(p_1, \dots, p_n\)</span>，求使销售总收益最大的切割方案。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 消除历史依赖的维度扩充技巧（Exercise 8.5）</strong>：
+由于第 <span class="arithmatex">\(n\)</span> 步的转移合法性依赖于“第 1 阶段在哪条生产线上”，我们在状态中增加一个二元维度 <span class="arithmatex">\(z \in \{0, 1\}\)</span> 来记住起点！
+定义三维状态 <strong><span class="arithmatex">\(F[l, j, z]\)</span></strong> 表示：<strong>第 1 阶段固定在生产线 <span class="arithmatex">\(z\)</span> 加工</strong>，且完成第 <span class="arithmatex">\(j\)</span> 阶段时位于生产线 <span class="arithmatex">\(l\)</span> 的最少总用时：
+- <strong>初值（<span class="arithmatex">\(j = 1\)</span>）</strong>：对 <span class="arithmatex">\(z \in \{0, 1\}\)</span>，<span class="arithmatex">\(F[z, 1, z] = \min\{a_{z, 1}, b_{1-z, 1}\}\)</span>，<span class="arithmatex">\(F[1-z, 1, z] = +\infty\)</span>；
+- <strong>状态转移（<span class="arithmatex">\(2 \le j \le n\)</span>）</strong>：中间阶段 <span class="arithmatex">\(2 \le j &lt; n\)</span> 照常转移；仅在最后一步 <strong><span class="arithmatex">\(j = n\)</span> 且 <span class="arithmatex">\(z = 0, \ l = 1\)</span></strong> 时，禁止从 <span class="arithmatex">\((0, n-1)\)</span> 转移过来，只允许留在 <span class="arithmatex">\(1\)</span> 号线：<span class="arithmatex">\(F[1, n, 0] = F[1, n-1, 0] + a_{1, n}\)</span>。
+最终全局最优解为 <span class="arithmatex">\(\min_{l, z \in \{0,1\}} F[l, n, z]\)</span>，状态数仅扩大 2 倍，时间复杂度仍为 <strong><span class="arithmatex">\(O(n)\)</span></strong>！</p>
+<hr />
+<p><strong>2. 面包与奶油顺序配对（Hand-made Cream，Exercise 8.6）</strong>：
+类比 LCS：令 <span class="arithmatex">\(F[i, j]\)</span> 表示从前 <span class="arithmatex">\(i\)</span> 片面包和前 <span class="arithmatex">\(j\)</span> 份奶油中按序配对能获得的最大总得分（初值 <span class="arithmatex">\(F[i, 0] = F[0, j] = 0\)</span>）。考察末尾的 <span class="arithmatex">\(a_i\)</span> 与 <span class="arithmatex">\(b_j\)</span>：要么放弃 <span class="arithmatex">\(a_i\)</span>，要么放弃 <span class="arithmatex">\(b_j\)</span>，要么将 <span class="arithmatex">\(a_i\)</span> 与 <span class="arithmatex">\(b_j\)</span> 配成最后一对：</p>
+<div class="arithmatex">\[
+F[i, j] = \max\Big\{ F[i-1, j], \ \ F[i, j-1], \ \ F[i-1, j-1] + a_i \cdot b_j \Big\}
+\]</div>
+<p>时间复杂度为 <span class="arithmatex">\(O(nm)\)</span>。</p>
+<hr />
+<p><strong>3. 最长回文子串与最少回文分割（Exercise 8.7）</strong>：</p>
+<ul>
+<li><strong>(1) 最长回文子串</strong>：
+  定义布尔区间状态 <span class="arithmatex">\(H[i, j]\)</span> 表示子串 <span class="arithmatex">\(s[i..j]\)</span> 是否为回文串。按子串长度 <span class="arithmatex">\(len = j - i + 1\)</span> 从 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n\)</span> 递增填表：
+  $$
+  H[i, j] = \big(s[i] == s[j]\big) \land \big(j - i \le 1 \ \lor \ H[i+1, j-1]\big)
+  $$
+  所有满足 <span class="arithmatex">\(H[i, j] = \text{true}\)</span> 中长度 <span class="arithmatex">\(j - i + 1\)</span> 最大者即为最长回文子串，耗时 <span class="arithmatex">\(O(n^2)\)</span>。</li>
+<li><strong>(2) 最少回文切割次数</strong>：
+  先用 (1) 预处理出全表 <span class="arithmatex">\(H[i, j]\)</span>。再令 <span class="arithmatex">\(F[j]\)</span> 表示前缀 <span class="arithmatex">\(s[1..j]\)</span> 最少能被分成多少段回文子串（初值 <span class="arithmatex">\(F[0] = 0\)</span>，最少切割刀数为 <span class="arithmatex">\(F[n] - 1\)</span>）。枚举最后一段回文子串的起点 <span class="arithmatex">\(i \ (1 \le i \le j)\)</span>：
+  $$
+  F[j] = \min_{1 \le i \le j,\, H[i, j] = \text{true}} \big{ F[i - 1] + 1 \big}
+  $$
+  总时间复杂度为 <span class="arithmatex">\(O(n^2)\)</span>。</li>
+</ul>
+<hr />
+<p><strong>4. 最长严格递增子序列（LIS，Exercise 8.8）与钢条切割（Rod Cutting，Exercise 8.9）</strong>：</p>
+<ul>
+<li><strong>LIS（Exercise 8.8）</strong>：令 <span class="arithmatex">\(E[i]\)</span> 表示<strong>以 <span class="arithmatex">\(a_i\)</span> 结尾</strong>的最长严格递增子序列长度。枚举倒数第二项的位置 <span class="arithmatex">\(j &lt; i\)</span>（需满足 <span class="arithmatex">\(a_j &lt; a_i\)</span>）：
+  $$
+  E[i] = 1 + \max\Big( \big{ E[j] : 1 \le j &lt; i \text{ and } a_j &lt; a_i \big} \cup {0} \Big)
+  $$
+  全局 LIS 长度为 <span class="arithmatex">\(\max_{1 \le i \le n} E[i]\)</span>，同步用 <code>prev[i]</code> 记录取到最大值的 <span class="arithmatex">\(j\)</span> 即可逆向恢复序列，时间 <span class="arithmatex">\(O(n^2)\)</span>。</li>
+<li><strong>钢条切割（Exercise 8.9）</strong>：令 <span class="arithmatex">\(R[j]\)</span> 表示长度为 <span class="arithmatex">\(j\)</span> 的钢条的最大销售收益（<span class="arithmatex">\(R[0] = 0\)</span>）。枚举切下的第一段长度 <span class="arithmatex">\(i \ (1 \le i \le j)\)</span>：
+  $$
+  R[j] = \max_{1 \le i \le j} \big{ p_i + R[j - i] \big} \qquad (\text{时间复杂度 } O(n^2))
+  $$</li>
+</ul>
+</details>
+<details>
+<summary>Exercise 8.10, 8.11, 8.12 &amp; 8.13: Batch Task Scheduling, Perfect Squares, RNA Pairing &amp; Shortest Path Pitfalls（任务分批费用提前计算、完全平方数、RNA二级结构配对与最短路辨析）</summary>
+<p><strong>Problem Statement:</strong>
+- <strong>Ex 8.10 (Manager of Tasks)</strong>: 机器从时刻 <span class="arithmatex">\(0\)</span> 开始按顺序将任务 <span class="arithmatex">\(1 \dots n\)</span> 分成若干连续批次处理。每批启动需耗时 <span class="arithmatex">\(S\)</span>，批内任务执行时间依次为 <span class="arithmatex">\(T_k\)</span>，同批任务在整批全部做完的同一时刻 <span class="arithmatex">\(d\)</span> 才一起算作完成，任务 <span class="arithmatex">\(k\)</span> 的成本为 <span class="arithmatex">\(d \cdot C_k\)</span>。设计 <span class="arithmatex">\(O(n^2)\)</span> DP 算法求最小总成本。
+- <strong>Ex 8.11</strong>: 将正整数 <span class="arithmatex">\(n\)</span> 写成若干个正整数平方之和（如 <span class="arithmatex">\(13 = 4 + 9\)</span> 需 2 项），求最少项数及复杂度。
+- <strong>Ex 8.12 (RNA Secondary Structure Pairing)</strong>: 给定由 <code>A, C, G, U</code> 组成的长度为 <span class="arithmatex">\(n\)</span> 的 RNA 序列 <span class="arithmatex">\(s[1..n]\)</span>。配对规则：① 只允许 <code>A-U</code>、<code>C-G</code> 互补配对，每个位置至多配对一次；② 严禁急转弯：配对的 <span class="arithmatex">\((i, j)\)</span> 必须满足 <strong><span class="arithmatex">\(j - i \ge 5\)</span></strong>；③ 严禁假结（弧线不能交叉）：不能同时选 <span class="arithmatex">\(i &lt; k &lt; j &lt; l\)</span>。设计 DP 算法求最大配对数。
+- <strong>Ex 8.13</strong>: 判断正误并解释：(1) 用一维数组 <code>d[v]</code> 原地实现的 Bellman-Ford 算法，在第 <span class="arithmatex">\(k\)</span> 轮循环结束后恰好得到至多 <span class="arithmatex">\(k\)</span> 条边的最短距离 <span class="arithmatex">\(D_k[v]\)</span>；(2) Floyd-Warshall 算法的三层循环 <code>k, i, j</code> 可以任意交换顺序。</p>
+<hr />
+<p><strong>解答与解析：</strong></p>
+<p><strong>1. 任务分批调度的“费用提前计算 / 后缀成本累加”技巧（Exercise 8.10，经典高阶 DP 题）</strong>：
+如果我们从前往后定义状态，由于当前批次花费的时间 <span class="arithmatex">\(S + \sum_{k=i}^j T_k\)</span> 会把后面所有尚未分批的任务完成时刻整体往后推迟，如果不记录当前累计时刻，就无法算代价。
+<strong>巧妙解法（从后往前定义后缀状态 / 费用提前计算）</strong>：
+定义 <strong><span class="arithmatex">\(F[i]\)</span></strong> 为将后缀任务 <span class="arithmatex">\(i, i+1, \dots, n\)</span> 从时刻 <span class="arithmatex">\(0\)</span> 开始分批处理所能取得的最小总成本（边界 <span class="arithmatex">\(F[n + 1] = 0\)</span>）。
+假设当前第一批包含了任务 <span class="arithmatex">\(i, \dots, j \ (i \le j \le n)\)</span>：
+- 这一批任务本身的耗时为 <span class="arithmatex">\(d = S + \sum_{k=i}^j T_k\)</span>；
+- 这一批任务不仅让本批内的任务 <span class="arithmatex">\(i \dots j\)</span> 在时刻 <span class="arithmatex">\(d\)</span> 完成（产生成本 <span class="arithmatex">\(d \sum_{k=i}^j C_k\)</span>），而且<strong>使后面所有的剩余任务 <span class="arithmatex">\(j+1 \dots n\)</span> 的完成时刻全都统一往后推迟了 <span class="arithmatex">\(d\)</span></strong>（额外增加成本 <span class="arithmatex">\(d \sum_{k=j+1}^n C_k\)</span>）！
+将这两部分合并，当前批次耗时 <span class="arithmatex">\(d\)</span> 对后续所有任务 <span class="arithmatex">\(i \dots n\)</span> 造成的总成本贡献恰好是 <strong><span class="arithmatex">\(d \cdot \sum_{k=i}^n C_k\)</span></strong>！因此状态转移方程为：</p>
+<div class="arithmatex">\[
+F[i] = \min_{i \le j \le n} \left\{ F[j + 1] + \left(S + \sum_{k=i}^j T_k\right) \sum_{k=i}^n C_k \right\}, \qquad i = n, n-1, \dots, 1
+\]</div>
+<p>预处理 <span class="arithmatex">\(T\)</span> 和 <span class="arithmatex">\(C\)</span> 的前缀和后，每次转移 <span class="arithmatex">\(O(1)\)</span>，总时间复杂度为 <strong><span class="arithmatex">\(O(n^2)\)</span></strong>！</p>
+<hr />
+<p><strong>2. 完全平方数最少项数（Exercise 8.11）</strong>：
+视为硬币面额为 <span class="arithmatex">\(1^2, 2^2, \dots, \lfloor\sqrt{n}\rfloor^2\)</span> 的零钱兑换问题：<span class="arithmatex">\(Q[0] = 0\)</span>，对 <span class="arithmatex">\(x = 1 \dots n\)</span> 有：</p>
+<div class="arithmatex">\[
+Q[x] = 1 + \min_{1 \le t \le \lfloor\sqrt{x}\rfloor} Q[x - t^2]
+\]</div>
+<p>每个 <span class="arithmatex">\(x\)</span> 尝试 <span class="arithmatex">\(\lfloor\sqrt{x}\rfloor \le \sqrt{n}\)</span> 种平方数，总时间复杂度为 <strong><span class="arithmatex">\(O(n\sqrt{n})\)</span></strong>。</p>
+<hr />
+<p><strong>3. RNA 二级结构最大不交叉碱基配对（Exercise 8.12，Kleinberg &amp; Tardos 经典区间 DP）</strong>：
+定义区间状态 <strong><span class="arithmatex">\(R[i, j]\)</span></strong> 为子序列 <span class="arithmatex">\(s[i..j]\)</span> 内部能形成的最大合法配对数（当 <span class="arithmatex">\(j - i &lt; 5\)</span> 时 <span class="arithmatex">\(R[i, j] = 0\)</span>）。
+考察区间右端点 <span class="arithmatex">\(j\)</span> 的碱基 <span class="arithmatex">\(s[j]\)</span>：
+1. <strong>若 <span class="arithmatex">\(s[j]\)</span> 不参与任何配对</strong>：最大配对数为 <span class="arithmatex">\(R[i, j - 1]\)</span>；
+2. <strong>若 <span class="arithmatex">\(s[j]\)</span> 与区间内某个位置 <span class="arithmatex">\(k \ (i \le k \le j - 5\)</span>，且 <span class="arithmatex">\(s[k]\)</span> 与 <span class="arithmatex">\(s[j]\)</span> 满足 <code>A-U</code> 或 <code>C-G</code> 互补) 配对</strong>：
+   由于弧线不能交叉，弧线 <span class="arithmatex">\((k, j)\)</span> 将剩余位置严格隔离为<strong>弧线左侧外部 <span class="arithmatex">\([i, k - 1]\)</span></strong> 和<strong>弧线内部 <span class="arithmatex">\([k + 1, j - 1]\)</span></strong> 两个互不干扰的独立子区间！
+   因此状态转移方程为：
+   $$
+   R[i, j] = \max\left{ R[i, j - 1], \ \ \max_{\substack{i \le k \le j - 5 \ s[k]\text{ pairs with }s[j]}} \big{ 1 + R[i, k - 1] + R[k + 1, j - 1] \big} \right}
+   $$
+   按区间长度 <span class="arithmatex">\(len = j - i\)</span> 从 <span class="arithmatex">\(5\)</span> 到 <span class="arithmatex">\(n-1\)</span> 递增填表，共有 <span class="arithmatex">\(O(n^2)\)</span> 个区间，每个区间枚举 <span class="arithmatex">\(O(n)\)</span> 个配对点 <span class="arithmatex">\(k\)</span>，总时间复杂度为 <strong><span class="arithmatex">\(O(n^3)\)</span></strong>。</p>
+<hr />
+<p><strong>4. Bellman-Ford 一维原地数组与 Floyd 循环顺序辨析（Exercise 8.13）</strong>：</p>
+<ul>
+<li><strong>(1) 错误</strong>：在一维数组 <code>d[v]</code> 原地更新的 Bellman-Ford 中，如果在第 <span class="arithmatex">\(1\)</span> 轮按顺序依次扫描边 <span class="arithmatex">\((s, u)\)</span> 和 <span class="arithmatex">\((u, v)\)</span>，那么扫描 <span class="arithmatex">\((s, u)\)</span> 时已经将 <code>d[u]</code> 更新为 <span class="arithmatex">\(w(s, u)\)</span>，紧接着在同一轮扫描 <span class="arithmatex">\((u, v)\)</span> 时就会立刻用刚更新的 <code>d[u]</code> 把 <code>d[v]</code> 更新为 <span class="arithmatex">\(w(s, u) + w(u, v)\)</span>（一条含 2 条边的路径）！因此一维原地实现在第 <span class="arithmatex">\(k\)</span> 轮结束时满足 <span class="arithmatex">\(d[v] \le D_k[v]\)</span>，可能已经提前算出了超过 <span class="arithmatex">\(k\)</span> 条边的更短路径（但这不影响最终收敛性与负环判定的正确性）。</li>
+<li><strong>(2) 错误</strong>：反例：设图含 4 个顶点和三条有向边 <span class="arithmatex">\(1 \to 3 \to 4 \to 2\)</span>（边权均为 <span class="arithmatex">\(1\)</span>）。若将循环顺序改为 <code>for i -&gt; for j -&gt; for k</code>（把 <span class="arithmatex">\(k\)</span> 放在最内层），当外层算到 <code>(i=1, j=2)</code> 时，它枚举 <span class="arithmatex">\(k=3\)</span> 需要用到 <code>D[3][2]</code>，枚举 <span class="arithmatex">\(k=4\)</span> 需要用到 <code>D[1][4]</code>；但此时外层循环才刚走到 <span class="arithmatex">\(i=1, j=2\)</span>，<code>D[1][4]</code>（需等 <span class="arithmatex">\(j=4\)</span> 时才算）和 <code>D[3][2]</code>（需等 <span class="arithmatex">\(i=3\)</span> 时才算）都还是初始的 <span class="arithmatex">\(+\infty\)</span>！导致 <code>D[1][2]</code> 算完后依然是 <span class="arithmatex">\(+\infty\)</span>，且此后再也不会回到 <code>(1, 2)</code>，彻底漏掉了 <span class="arithmatex">\(1 \to 3 \to 4 \to 2\)</span> 这条最短路径！</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.tracking", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

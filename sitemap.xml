@@ -2,138 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/about/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/artificial_intelligence/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/01_avl_splay_trees/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/03_inverted_file_index/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/04_leftist_skew_heaps/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/05_binomial_queue/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/06_backtracking/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/07_divide_and_conquer/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/08_dynamic_programing/</loc>
+         <lastmod>2026-11-12</lastmod>
+    </url>
+    <url>
+         <loc>https://SIN-1-chang.github.io/csc_notes/computer_science/advanced_data_structures/09_greedy_algorithms/</loc>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/01_coulombs_law_and_electric_field/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/02_continuous_charge_and_gauss_law/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/03_electric_potential/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/04_electrostatics_triangle/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/05_electrical_properties_of_conductors/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/06_resistance_and_capacitance/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/07_DC_circuits/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/08_magnetic_field/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/09_magnetic_field_of_current/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/10_magnetism_of_materials/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/11_faraday_law_of_induction/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/12_inductors_and_inductance/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/13_AC_circuits/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/general_physics/14_maxwell_equations_and_EW_waves/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/numerical_analysis/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/numerical_analysis/numerical_errors/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/probability_theory_and_statistics/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/probability_theory_and_statistics/1_basic_concepts/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/probability_theory_and_statistics/2_random_variables_and_distributions/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/mathematical_sciences/probability_theory_and_statistics/3_multivariate_distributions/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
     <url>
          <loc>https://SIN-1-chang.github.io/csc_notes/misc/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-12</lastmod>
     </url>
 </urlset>
