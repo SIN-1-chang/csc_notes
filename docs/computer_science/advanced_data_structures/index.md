@@ -9,3 +9,5 @@
 5. [二项队列](05_binomial_queue.md)
 6. [回溯算法](06_backtracking.md)
 7. [分治算法](07_divide_and_conquer.md)
+8. [动态规划](08_dynamic_programing.md)
+9. [贪心算法](09_greedy_algorithms.md)

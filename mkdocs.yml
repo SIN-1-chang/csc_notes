@@ -54,6 +54,8 @@ nav:
           - 05 二项队列: computer_science/advanced_data_structures/05_binomial_queue.md
           - 06 回溯法: computer_science/advanced_data_structures/06_backtracking.md
           - 07 分治算法: computer_science/advanced_data_structures/07_divide_and_conquer.md
+          - 08 动态规划: computer_science/advanced_data_structures/08_dynamic_programing.md
+          - 09 贪心算法: computer_science/advanced_data_structures/09_greedy_algorithms.md
   - 数理基础:
       - 概览: mathematical_sciences/index.md
       - 普通物理:
